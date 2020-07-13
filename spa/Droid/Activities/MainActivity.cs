@@ -1,0 +1,67 @@
+﻿using Android.App;
+using Android.Content;
+using Android.Content.PM;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
+using Android.Support.V4.App;
+using Android.Support.V4.View;
+using Android.Support.Design.Widget;
+
+namespace spa.Droid
+{
+    [Activity(Label = "@string/app_name", Icon = "@mipmap/icon",
+        LaunchMode = LaunchMode.SingleInstance,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+        ScreenOrientation = ScreenOrientation.Portrait)]
+    public class MainActivity : BaseActivity
+    {
+        protected override int LayoutResource => Resource.Layout.activity_main;
+
+
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+
+
+            Toolbar.MenuItemClick += (sender, e) =>
+            {
+                //var intent = new Intent(this, typeof(AddItemActivity)); ;
+                //StartActivity(intent);
+            };
+
+            SupportActionBar.SetDisplayHomeAsUpEnabled(false);
+            SupportActionBar.SetHomeButtonEnabled(false);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+    }
+
+    class TabsAdapter : FragmentStatePagerAdapter
+    {
+        string[] titles;
+
+        public override int Count => titles.Length;
+
+        public TabsAdapter(Context context, Android.Support.V4.App.FragmentManager fm) : base(fm)
+        {
+            titles = context.Resources.GetTextArray(Resource.Array.sections);
+        }
+
+        public override Java.Lang.ICharSequence GetPageTitleFormatted(int position) =>
+                            new Java.Lang.String(titles[position]);
+
+        public override Android.Support.V4.App.Fragment GetItem(int position)
+        {
+            return null;
+        }
+
+        public override int GetItemPosition(Java.Lang.Object frag) => PositionNone;
+    }
+}

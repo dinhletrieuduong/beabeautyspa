@@ -1,0 +1,19 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "spa", "spa\spa.shproj", "{C7006913-4910-4ED2-AD1F-81AF4C340B4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa.Droid", "Droid\spa.Droid.csproj", "{84D6A8C8-09A9-4090-8CBC-3F8D3CCF5278}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84D6A8C8-09A9-4090-8CBC-3F8D3CCF5278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D6A8C8-09A9-4090-8CBC-3F8D3CCF5278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D6A8C8-09A9-4090-8CBC-3F8D3CCF5278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D6A8C8-09A9-4090-8CBC-3F8D3CCF5278}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

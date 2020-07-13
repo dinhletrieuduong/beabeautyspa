@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{C7006913-4910-4ED2-AD1F-81AF4C340B4B}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>spa</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\CloudDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Base\BasePresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\Base\BaseView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\Command.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\ServiceLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Base\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Login\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Main\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\Setting\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Network\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Helper\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Presenter\" />
+  </ItemGroup>
+</Project>
