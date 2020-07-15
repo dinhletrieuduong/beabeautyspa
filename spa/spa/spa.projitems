@@ -14,22 +14,28 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Item.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\Base\BasePresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\Base\BaseView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\ServiceLocator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\LoginPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\INavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\BasePresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ILoginView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\IActionView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\INavigationView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\IMainView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\ISignUpView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\MainPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\SignUpPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
     <Folder Include="$(MSBuildThisFileDirectory)View\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\Base\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\Login\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\Main\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\Setting\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Network\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Model\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Helper\" />
     <Folder Include="$(MSBuildThisFileDirectory)Presenter\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Contract\" />
   </ItemGroup>
 </Project>

@@ -3,14 +3,19 @@
 using Android.App;
 using Android.OS;
 using Android.Runtime;
+using Android.Content;
 
 using Plugin.CurrentActivity;
+using spa.Droid.Services;
+using spa.Presenter;
+using spa.Services;
 
 namespace spa.Droid
 {
     //You can specify additional application information in this attribute
     [Application]
-    public class MainApplication : Application, Application.IActivityLifecycleCallbacks
+    public class MainApplication : Application
+    , Application.IActivityLifecycleCallbacks
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
         : base(handle, transer)
@@ -20,10 +25,18 @@ namespace spa.Droid
         public override void OnCreate()
         {
             base.OnCreate();
+            Presenter = new LoginPresenter(new NavigationService(this));
             RegisterActivityLifecycleCallbacks(this);
             App.Initialize();
         }
+        public BasePresenter Presenter { get; set; }
 
+        public Activity CurrentActivity { get; set; }
+
+        public static MainApplication GetApplication(Context context)
+        {
+            return (MainApplication)context.ApplicationContext;
+        }
         public override void OnTerminate()
         {
             base.OnTerminate();

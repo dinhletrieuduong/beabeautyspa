@@ -12,7 +12,8 @@ namespace spa.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            var newIntent = new Intent(this, typeof(MainActivity));
+            //var newIntent = new Intent(this, typeof(MainActivity));
+            var newIntent = new Intent(this, typeof(LoginActivity));
             newIntent.AddFlags(ActivityFlags.ClearTop);
             newIntent.AddFlags(ActivityFlags.SingleTop);
 

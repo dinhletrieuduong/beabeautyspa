@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:textStyle="italic"
+        android:textSize="30sp"
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!--<ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/jet_pack" />-->
+
+   
+  <EditText
+    android:inputType="textEmailAddress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/edtEmail"
+    android:hint="@string/hint_EmailAddress" />
+  <EditText
+      android:inputType="textPassword"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/edtPassword"
+      android:hint="@string/hint_Password" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_Login"
+        />
+
+    <TextView
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Do you have not an account! Sign up now?" />
+    <ProgressBar android:id="@+id/circularProgressbar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="250dp" android:layout_height="250dp" android:indeterminate="false" android:max="100" android:progress="50" android:layout_centerInParent="true" android:progressDrawable="@drawable/circlebardesign" android:secondaryProgress="100"
+        android:visibility="invisible"/> 
+</LinearLayout>
