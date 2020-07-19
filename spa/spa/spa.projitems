@@ -27,6 +27,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)View\ISignUpView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\MainPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\SignUpPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\CommonUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\UserDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />

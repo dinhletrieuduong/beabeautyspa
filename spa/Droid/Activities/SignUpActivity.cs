@@ -17,6 +17,7 @@ using spa.Presenter;
 using static Android.Views.View;
 using AlertDialog = Android.App.AlertDialog;
 using Android.Text;
+using System.Text.RegularExpressions;
 
 namespace spa.Droid
 {
