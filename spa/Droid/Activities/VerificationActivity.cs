@@ -43,8 +43,8 @@ namespace spa.Droid
         private void initView()
         {
             backBtn = (ImageView)FindViewById(Resource.Id.backBtn);
-            //resendBtn = (TextView)FindViewById(Resource.Id.resendBtn);
-            //continueBtn = (Button)FindViewById(Resource.Id.continueBtn);
+            resendBtn = (TextView)FindViewById(Resource.Id.resendBtn);
+            continueBtn = (Button)FindViewById(Resource.Id.continueBtn);
         }
 
         public override void OnBackPressed()

@@ -9,7 +9,7 @@
     <string name="Logout">Log out</string>
     <string name="Resend">Resend</string>
     <string name="Continue">Continue</string>
-    <string name="DontHaveAccount">You don't have an account?</string>
+    <string name="DontHaveAccount">You do not have an account?</string>
     <string name="Verification">Verification</string>
     <string name="VerificateError">Oh no! You entered wrong OTP code, please check it again</string>
 

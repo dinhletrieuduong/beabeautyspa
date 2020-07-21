@@ -35,15 +35,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/Verification"
+                android:text="@string/Verification"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
                 android:gravity="center"/>
+            
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/VerificateError"
+                android:text="@string/VerificateError"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/textColor_3"
@@ -104,7 +105,7 @@
                 android:id="@+id/resendBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/Resend"
+                android:text="@string/Resend"
                 android:textSize="18sp"
                 android:textColor="@color/primary"
                 android:gravity="right"/>
@@ -114,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/borderbuttonstyle"
-                tools:text="@string/Continue"
+                android:text="@string/Continue"
                 android:textColor="@color/primaryWhite"/>
         </LinearLayout>
     </LinearLayout>
