@@ -8,7 +8,7 @@ namespace spa.Presenter
     {
 
         private IVerificationView m_view;
-
+        private string otp;
         public VerificationPresenter(INavigationService navigationService) :
             base(navigationService)
         {
@@ -20,19 +20,19 @@ namespace spa.Presenter
             ValidateInput();
         }
 
-        public void UpdateEmail(string email)
+        public void UpdateOTP(string charOtp)
         {
-            //m_email = email;
+            otp += charOtp;
             ValidateInput();
         }
 
-        public void UpdateName(string name)
+        public void UpdateOTP()
         {
-            //m_name = name;
+            //otp.Remove(otp.Length - 1);
+            //otp = otp.Substring(0, otp.Length - 2);
+            otp = otp.Remove(otp.Length - 1);
             ValidateInput();
         }
-
-
         private void ValidateInput()
         {
             m_view.OnInputValidated(HasValidInput());
@@ -40,14 +40,7 @@ namespace spa.Presenter
 
         private bool HasValidInput()
         {
-            // TODO: Perform real validation.
-            //return !string.IsNullOrEmpty(m_email) &&
-            //    !string.IsNullOrEmpty(m_name) &&
-            //    !string.IsNullOrEmpty(m_address) &&
-            //    !string.IsNullOrEmpty(m_password) &&
-            //    !string.IsNullOrEmpty(m_confirmPassword) &&
-            //    m_password == m_confirmPassword;
-            return true;
+            return !string.IsNullOrEmpty(otp);
         }
 
         public void Verification()
@@ -58,9 +51,9 @@ namespace spa.Presenter
             {
                 m_view.OnActionStarted();
 
-                // TODO: Add logic for sign-up.
-                bool verificated = true;
-
+                bool verificated = false;
+                if (otp.Equals("13579"))
+                    verificated = true;
                 m_view.OnActionFinished();
 
                 if (verificated)
@@ -70,7 +63,7 @@ namespace spa.Presenter
                 }
                 else
                 {
-                    m_view.OnVerificationFailed("There was a problem verificate your account, please try again later.");
+                    m_view.OnVerificationFailed("There was a problem verificate your account, please try again later." + otp);
                 }
             }
         }

@@ -186,10 +186,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\CircleBarDesign.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\Logo.png">
       <SubType></SubType>
       <Generator></Generator>

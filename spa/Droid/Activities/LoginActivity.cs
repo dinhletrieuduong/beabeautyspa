@@ -21,12 +21,11 @@ using Xamarin.Auth;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
-using spa.Data;
 using spa.Data.Model;
 
 namespace spa.Droid
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "LoginActivity", WindowSoftInputMode = SoftInput.StateHidden)]
     public class LoginActivity : Activity, ILoginView
     {
         private LoginPresenter presenter;
@@ -35,7 +34,6 @@ namespace spa.Droid
         private Button btnLogin;
         private ImageView btnLoginFB;
         private TextView btnRegister;
-
         private bool dialogVisible, isSigninSocial = false;
 
 
@@ -47,12 +45,9 @@ namespace spa.Droid
 
             initViewAndListener();
 
-
             var app = MainApplication.GetApplication(this);
             initPresenter(app);
-
             app.CurrentActivity = this;
-
         }
 
         private void initViewAndListener()
@@ -78,7 +73,6 @@ namespace spa.Droid
             presenter = (LoginPresenter)app.Presenter;
             presenter.SetView(this);
         }
-
 
         private void LoginFacebook()
         {
@@ -115,7 +109,6 @@ namespace spa.Droid
                 var fbUser = JsonConvert.DeserializeObject<User>(json);
                 //Console.WriteLine(fbUser.ToString());
                 Console.WriteLine(fbUser.email.ToString());
-
             }
         }
 
