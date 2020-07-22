@@ -3,3 +3,5 @@
 /spa/Droid/obj
 .DS_Store
 .vs
+/SpaManager/packages
+/SpaManager/obj
