@@ -38,6 +38,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CheckInputValid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\VerificationPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)View\IVerificationView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\AccountPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\IAccountView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />

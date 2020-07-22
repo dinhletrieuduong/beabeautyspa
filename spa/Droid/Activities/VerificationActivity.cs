@@ -184,7 +184,7 @@ namespace spa.Droid
 
         public void OnInputValidated(bool isValid)
         {
-            continueBtn.Enabled = isValid;
+            //continueBtn.Enabled = isValid;
         }
 
         public void OnVerificationFailed(string errorMessage)
@@ -196,7 +196,13 @@ namespace spa.Droid
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.SetTitle("Error")
                     .SetMessage(errorMessage)
-                    .SetNeutralButton("OK", (s, e) => { dialogVisible = false; })
+                    .SetNeutralButton("OK", (s, e) =>
+                    {
+                        dialogVisible = false;
+                        foreach (EditText editText in editTexts)
+                            editText.Text = "";
+                        editTexts[0].RequestFocus();
+                    })
                     .Show();
 
             }

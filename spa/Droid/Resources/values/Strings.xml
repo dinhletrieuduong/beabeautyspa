@@ -7,7 +7,7 @@
     <string name="signin">Sign In</string>
     <string name="notnow">Not Now</string>
     <string name="Logout">Log out</string>
-    <string name="Resend">Resend</string>
+    <string name="Resend">Resend on 00:00</string>
     <string name="Continue">Continue</string>
     <string name="DontHaveAccount">You do not have an account?</string>
     <string name="Verification">Verification</string>

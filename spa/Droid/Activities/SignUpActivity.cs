@@ -17,22 +17,21 @@ using spa.Presenter;
 using static Android.Views.View;
 using AlertDialog = Android.App.AlertDialog;
 using Android.Text;
-using System.Text.RegularExpressions;
 
 namespace spa.Droid
 {
     [Activity(Label = "SignUpActivity")]
     public class SignUpActivity : Activity, ISignUpView
     {
-        private SignUpPresenter presenter;
-        private EditText edtEmail;
-        private EditText edtName;
-        private EditText edtAddress;
-        private EditText edtPassword;
-        private EditText edtConfirmPassword;
-        private Button btnSignUp;
+        private SignUpPresenter m_presenter;
+        private EditText m_edtEmail;
+        private EditText m_edtName;
+        private EditText m_edtAddress;
+        private EditText m_edtPassword;
+        private EditText m_edtConfirmPassword;
+        private Button m_btnSignUp;
 
-        private bool dialogVisible;
+        private bool m_dialogVisible;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,34 +39,34 @@ namespace spa.Droid
 
             SetContentView(Resource.Layout.activity_signup);
 
-            edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
-            edtEmail.TextChanged += edtEmail_TextChanged;
+            m_edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
+            m_edtEmail.TextChanged += m_edtEmail_TextChanged;
 
-            edtName = FindViewById<EditText>(Resource.Id.edtEmail);
-            edtName.TextChanged += edtName_TextChanged;
+            m_edtName = FindViewById<EditText>(Resource.Id.edtEmail);
+            m_edtName.TextChanged += m_edtName_TextChanged;
 
-            edtAddress = FindViewById<EditText>(Resource.Id.edtEmail);
-            edtAddress.TextChanged += edtAddress_TextChanged;
+            m_edtAddress = FindViewById<EditText>(Resource.Id.edtEmail);
+            m_edtAddress.TextChanged += m_edtAddress_TextChanged;
 
-            edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
-            edtPassword.TextChanged += edtPassword_TextChanged;
+            m_edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
+            m_edtPassword.TextChanged += m_edtPassword_TextChanged;
 
-            edtConfirmPassword = FindViewById<EditText>(Resource.Id.edtConfirmPassword);
-            edtConfirmPassword.TextChanged += edtConfirmPassword_TextChanged;
+            m_edtConfirmPassword = FindViewById<EditText>(Resource.Id.edtConfirmPassword);
+            m_edtConfirmPassword.TextChanged += m_edtConfirmPassword_TextChanged;
 
-            btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
-            btnSignUp.Touch += btnSignUp_Touch;
+            m_btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
+            m_btnSignUp.Touch += m_btnSignUp_Touch;
 
             var app = MainApplication.GetApplication(this);
-            presenter = app.Presenter as SignUpPresenter;
-            presenter.SetView(this);
+            m_presenter = app.Presenter as SignUpPresenter;
+            m_presenter.SetView(this);
 
             app.CurrentActivity = this;
         }
 
         public override void OnBackPressed()
         {
-            presenter.GoToLogin();
+            m_presenter.GoToLogin();
         }
 
         protected override void OnStop()
@@ -100,51 +99,51 @@ namespace spa.Droid
 
         public void OnInputValidated(bool isValid)
         {
-            btnSignUp.Enabled = isValid;
+            m_btnSignUp.Enabled = isValid;
         }
 
         public void OnSignUpFailed(string errorMessage)
         {
-            if (!dialogVisible)
+            if (!m_dialogVisible)
             {
-                dialogVisible = true;
+                m_dialogVisible = true;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.SetTitle("AliveDrive")
                     .SetMessage(errorMessage)
-                    .SetNeutralButton("OK", (s, e) => { dialogVisible = false; })
+                    .SetNeutralButton("OK", (s, e) => { m_dialogVisible = false; })
                     .Show();
             }
         }
 
-        private void edtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
-            presenter.UpdateEmail(e.Text.ToString());
+            m_presenter.UpdateEmail(e.Text.ToString());
         }
 
-        private void edtName_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            presenter.UpdateName(e.Text.ToString());
+            m_presenter.UpdateName(e.Text.ToString());
         }
 
-        private void edtAddress_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtAddress_TextChanged(object sender, TextChangedEventArgs e)
         {
-            presenter.UpdateAddress(e.Text.ToString());
+            m_presenter.UpdateAddress(e.Text.ToString());
         }
 
-        private void edtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            presenter.UpdatePassword(e.Text.ToString());
+            m_presenter.UpdatePassword(e.Text.ToString());
         }
 
-        private void edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            presenter.UpdateConfirmPassword(e.Text.ToString());
+            m_presenter.UpdateConfirmPassword(e.Text.ToString());
         }
 
-        private void btnSignUp_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void m_btnSignUp_Touch(object sender, Android.Views.View.TouchEventArgs e)
         {
-            presenter.SignUp();
+            m_presenter.SignUp();
         }
 
     }

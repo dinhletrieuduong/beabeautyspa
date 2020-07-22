@@ -63,6 +63,7 @@ namespace spa.Presenter
                 }
                 else
                 {
+                    otp = "";
                     m_view.OnVerificationFailed("There was a problem verificate your account, please try again later." + otp);
                 }
             }
