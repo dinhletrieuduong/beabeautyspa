@@ -12,5 +12,5 @@
     <color name="borderColor_2">#ddd</color>
     <color name="borderColor_3">#eee</color>
     <color name="lineColor_1">#cecece</color>
-
+    <color name="buttonColor_1">#EDEDED</color>
 </resources>

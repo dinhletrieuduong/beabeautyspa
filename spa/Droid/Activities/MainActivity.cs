@@ -9,6 +9,7 @@ using Android.Support.V4.View;
 using Android.Support.Design.Widget;
 using spa.Views;
 using spa.Presenter;
+using spa.Droid.Fragments;
 
 namespace spa.Droid
 {
@@ -16,7 +17,7 @@ namespace spa.Droid
     public class MainActivity : Activity, IMainView
     {
         private MainPresenter presenter;
-
+        BottomNavigationView bottomNavigationView;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -28,6 +29,40 @@ namespace spa.Droid
             presenter.SetView(this);
 
             app.CurrentActivity = this;
+
+            bottomNavigationView = (BottomNavigationView)FindViewById(Resource.Id.bottom_navigation);
+            bottomNavigationView.NavigationItemSelected += BottomNavigation_NavigationItemSelected;
+
+            // Load the first fragment on creation
+            LoadFragment(Resource.Id.homeIcon);
+        }
+
+        private void BottomNavigation_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
+        {
+            LoadFragment(e.Item.ItemId);
+        }
+        void LoadFragment(int id)
+        {
+            Android.App.Fragment fragment = null;
+            switch (id)
+            {
+                case Resource.Id.homeIcon:
+                    fragment = HomeFragment.NewInstance("", "");
+                    break;
+                //case Resource.Id.appointmentIcon:
+                //    fragment = Fragment2.NewInstance();
+                //    break;
+                case Resource.Id.accountIcon:
+                    fragment = AccountFragment.NewInstance("", "");
+                    break;
+            }
+
+            if (fragment == null)
+                return;
+
+            FragmentManager.BeginTransaction()
+                .Replace(Resource.Id.frame_container, fragment)
+                .Commit();
         }
 
         public bool IsPerformingAction { get; private set; }

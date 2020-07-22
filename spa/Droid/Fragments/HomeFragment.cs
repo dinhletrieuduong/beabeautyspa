@@ -16,19 +16,30 @@ namespace spa.Droid.Fragments
 {
     public class HomeFragment : Fragment
     {
+        public static HomeFragment NewInstance(String param1, String param2)
+        {
+            HomeFragment fragment = new HomeFragment();
+            Bundle args = new Bundle();
+            //        args.putString(ARG_PARAM1, param1);
+            fragment.Arguments = args;
+            return fragment;
+        }
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
+
         }
 
         public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
 
-            return base.OnCreateView(inflater, container, savedInstanceState);
+            //return base.OnCreateView(inflater, container, savedInstanceState);
+            return view;
         }
     }
 }

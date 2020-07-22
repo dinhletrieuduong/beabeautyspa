@@ -17,7 +17,9 @@
             app:itemTextColor="#fff"
             app:menu="@menu/bottom_nav_bar"
             android:background="@color/primary"
-            android:clipChildren="false"/>
+            android:clipChildren="false"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
     
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>
