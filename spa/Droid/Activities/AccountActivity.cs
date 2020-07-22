@@ -21,7 +21,7 @@ namespace spa.Droid.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.activity_account);
+            //SetContentView(Resource.Layout.activity_account);
 
         }
     }

@@ -20,11 +20,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\BasePresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\ILoginView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\IActionView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\INavigationView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\IMainView.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\ISignUpView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ILoginView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IActionView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\INavigationView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IMainView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ISignUpView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\MainPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\SignUpPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerApi.cs" />
@@ -37,13 +37,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\DataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CheckInputValid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\VerificationPresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\IVerificationView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IVerificationView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\AccountPresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)View\IAccountView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IAccountView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
-    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Network\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Model\" />

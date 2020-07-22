@@ -12,7 +12,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
-using spa.View;
+using spa.Views;
 using spa.Presenter;
 using static Android.Views.View;
 using AlertDialog = Android.App.AlertDialog;

@@ -7,7 +7,7 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.Design.Widget;
-using spa.View;
+using spa.Views;
 using spa.Presenter;
 
 namespace spa.Droid

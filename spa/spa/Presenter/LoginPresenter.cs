@@ -1,6 +1,6 @@
 ﻿using System;
 using spa.Data.Model;
-using spa.View;
+using spa.Views;
 using spa.Services;
 
 namespace spa.Presenter

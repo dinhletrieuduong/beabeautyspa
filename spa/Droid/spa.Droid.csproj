@@ -146,6 +146,10 @@
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Activities\VerificationActivity.cs" />
     <Compile Include="Activities\AccountActivity.cs" />
+    <Compile Include="Fragments\AccountFragment.cs" />
+    <Compile Include="Fragments\HomeFragment.cs" />
+    <Compile Include="Fragments\PromotionFragment.cs" />
+    <Compile Include="Fragments\PreOrderFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -262,7 +266,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_account.xml">
+    <AndroidResource Include="Resources\layout\fragment_account.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -271,6 +275,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_main.axml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_home.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

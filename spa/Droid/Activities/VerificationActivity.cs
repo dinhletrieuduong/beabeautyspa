@@ -10,7 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using spa.View;
+using spa.Views;
 using spa.Presenter;
 using Android.Views.InputMethods;
 using System.Timers;
