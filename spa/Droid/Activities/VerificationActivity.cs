@@ -12,8 +12,8 @@ using Android.Views;
 using Android.Widget;
 using spa.View;
 using spa.Presenter;
-using Android.InputMethodServices;
 using Android.Views.InputMethods;
+using System.Timers;
 
 namespace spa.Droid
 {
@@ -26,8 +26,10 @@ namespace spa.Droid
         private TextView resendBtn, errorTxtView;
         private EditText editText_1, editText_2, editText_3, editText_4, editText_5;
         EditText[] editTexts;
-        private bool dialogVisible, stillBeEmpty;
 
+        private bool dialogVisible;
+        private Timer timer;
+        private int mins, second = 10, miliseconds;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -39,6 +41,12 @@ namespace spa.Droid
             var app = MainApplication.GetApplication(this);
             initPresenter(app);
             app.CurrentActivity = this;
+
+            timer = new Timer();
+            timer.Interval = 1; // 1 milliseconds
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+
         }
 
         private void initPresenter(MainApplication app)
@@ -55,7 +63,9 @@ namespace spa.Droid
             backBtn.Click += delegate { BackBtn_Clicked(); };
 
             resendBtn = (TextView)FindViewById(Resource.Id.resendBtn);
+            resendBtn.Text = second > 9 ? "Resend on 0" + mins + ":" + second : "Resend on 0" + mins + ":0" + second;
             resendBtn.Click += delegate { ResendBtn_Clicked(); };
+            resendBtn.Clickable = false;
 
             continueBtn = (Button)FindViewById(Resource.Id.continueBtn);
             continueBtn.Click += delegate { ContinueBtn_Clicked(); };
@@ -93,6 +103,31 @@ namespace spa.Droid
             foreach (EditText editText in editTexts)
                 presenter.UpdateOTP(editText.Text);
             presenter.Verification();
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            miliseconds++;
+            if (miliseconds >= 1000)
+            {
+                second--;
+                miliseconds = 0;
+            }
+            if (second == 59)
+            {
+                mins++;
+                second = 0;
+            }
+            RunOnUiThread(() =>
+            {
+                resendBtn.Text = second > 9 ? "Resend on 0" + mins + ":" + second : "Resend on 0" + mins + ":0" + second;
+            });
+            if (second == 0)
+            {
+                timer.Stop();
+                timer = null;
+                resendBtn.Clickable = true;
+            }
         }
 
         private void ChangeBackgroundEditText(EditText preEdtTxt, EditText editText, EditText nextEdtTxt, bool isLast)
