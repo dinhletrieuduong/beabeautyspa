@@ -11,13 +11,15 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using spa.Presenter;
+using spa.Views;
 
 namespace spa.Droid.Fragments
 {
-    public class AccountFragment : Fragment
+    public class AccountFragment : Fragment, IAccountView
     {
         private LinearLayout logOutBtn;
-
+        private AccountPresenter presenter;
         public static AccountFragment NewInstance(String param1, String param2)
         {
             AccountFragment fragment = new AccountFragment();
@@ -38,14 +40,42 @@ namespace spa.Droid.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.fragment_account, container, false);
+
             logOutBtn = (LinearLayout)view.FindViewById(Resource.Id.logOutBtn);
             logOutBtn.Click += delegate { LogOut(); };
+
+
+            var app = MainApplication.GetApplication(this.Activity);
+            presenter = app.Presenter as AccountPresenter;
+            presenter.SetView(this);
+            app.CurrentActivity = this.Activity;
+
             return view;
         }
 
         private void LogOut()
         {
+            presenter.LogOut();
+        }
 
+
+        public bool IsPerformingAction { get; private set; }
+
+        public void OnActionStarted()
+        {
+            IsPerformingAction = true;
+        }
+
+        public void OnActionFinished()
+        {
+            IsPerformingAction = false;
+        }
+
+        public bool IsNavigating { get; private set; }
+
+        public void OnNavigationStarted()
+        {
+            IsNavigating = true;
         }
     }
 }

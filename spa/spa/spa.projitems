@@ -40,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\IVerificationView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\AccountPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\IAccountView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Presenter\HomePresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />

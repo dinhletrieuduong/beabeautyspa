@@ -33,7 +33,6 @@ namespace spa.Droid
             bottomNavigationView = (BottomNavigationView)FindViewById(Resource.Id.bottom_navigation);
             bottomNavigationView.NavigationItemSelected += BottomNavigation_NavigationItemSelected;
 
-            // Load the first fragment on creation
             LoadFragment(Resource.Id.homeIcon);
         }
 
@@ -60,9 +59,12 @@ namespace spa.Droid
             if (fragment == null)
                 return;
 
-            FragmentManager.BeginTransaction()
-                .Replace(Resource.Id.frame_container, fragment)
-                .Commit();
+            Android.App.FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            transaction.Replace(Resource.Id.frame_container, fragment);
+            transaction.AddToBackStack(null);
+            transaction.Commit();
+
+            //FragmentManager.BeginTransaction().Replace(Resource.Id.frame_container, fragment).Commit();
         }
 
         public bool IsPerformingAction { get; private set; }

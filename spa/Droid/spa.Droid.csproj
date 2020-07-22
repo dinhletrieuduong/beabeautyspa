@@ -150,6 +150,7 @@
     <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\PromotionFragment.cs" />
     <Compile Include="Fragments\PreOrderFragment.cs" />
+    <Compile Include="Fragments\BaseFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />

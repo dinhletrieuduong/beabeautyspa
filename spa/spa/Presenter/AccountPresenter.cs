@@ -6,6 +6,8 @@ namespace spa.Presenter
 {
     public class AccountPresenter : BasePresenter
     {
+        private IAccountView m_view;
+
         public AccountPresenter(INavigationService navigationService) :
             base(navigationService)
         {
@@ -16,6 +18,13 @@ namespace spa.Presenter
             m_view = view;
         }
 
-        private IAccountView m_view;
+        public void LogOut()
+        {
+            if (!m_view.IsNavigating)
+            {
+                m_view.OnNavigationStarted();
+                NavigationService.PushPresenter(new LoginPresenter(NavigationService));
+            }
+        }
     }
 }
