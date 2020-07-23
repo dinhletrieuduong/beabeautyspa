@@ -1,5 +1,5 @@
 ﻿using System;
-namespace spa.Data.Model
+namespace spa.Data.Model.User
 {
     public class User
     {

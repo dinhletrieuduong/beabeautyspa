@@ -1,4 +1,5 @@
 ﻿using System;
+using spa.Data;
 using spa.Services;
 
 namespace spa.Presenter
@@ -10,6 +11,17 @@ namespace spa.Presenter
             NavigationService = navigationService;
         }
 
+        public BasePresenter(DataManager dataManager)
+        {
+            mDataManager = dataManager;
+        }
+
         protected INavigationService NavigationService;
+        DataManager mDataManager;
+
+        public DataManager getDataManager()
+        {
+            return mDataManager;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace spa.Presenter
 {
     public class LoginPresenter : BasePresenter
     {
-
+        //https://beabeauty.azurewebsites.net/
         private ILoginView m_view;
         private string m_username;
         private string m_password;

@@ -11,11 +11,15 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using spa.Presenter;
+using spa.Views;
 
 namespace spa.Droid.Fragments
 {
-    public class BaseFragment : Fragment
+    public class BaseFragment : Fragment, IActionView
     {
+        private BasePresenter presenter;
+        //protected abstract BasePresenter onCreatePresenter();
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,6 +33,26 @@ namespace spa.Droid.Fragments
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
             return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+
+
+        public bool IsPerformingAction { get; private set; }
+
+        public void OnActionStarted()
+        {
+            IsPerformingAction = true;
+        }
+
+        public void OnActionFinished()
+        {
+            IsPerformingAction = false;
+        }
+
+        public bool IsNavigating { get; private set; }
+
+        public void OnNavigationStarted()
+        {
+            IsNavigating = true;
         }
     }
 }

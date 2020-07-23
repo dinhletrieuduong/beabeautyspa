@@ -11,7 +11,9 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using spa.Droid.Services;
 using spa.Presenter;
+using spa.Services;
 using spa.Views;
 
 namespace spa.Droid.Fragments
@@ -44,14 +46,22 @@ namespace spa.Droid.Fragments
             logOutBtn = (LinearLayout)view.FindViewById(Resource.Id.logOutBtn);
             logOutBtn.Click += delegate { LogOut(); };
 
-
             var app = MainApplication.GetApplication(this.Activity);
-            presenter = app.Presenter as AccountPresenter;
+            presenter = new AccountPresenter(new NavigationService(app));
             presenter.SetView(this);
             app.CurrentActivity = this.Activity;
 
             return view;
         }
+
+        //public override void OnResume()
+        //{
+        //    base.OnResume();
+        //}
+        //public override void OnPause()
+        //{
+        //    base.OnPause();
+        //}
 
         private void LogOut()
         {

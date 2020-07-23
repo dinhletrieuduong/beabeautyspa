@@ -1,5 +1,5 @@
 ﻿using System;
-namespace spa.Data.Network
+namespace spa.Data.Model.User.Service
 {
     public class UserService
     {

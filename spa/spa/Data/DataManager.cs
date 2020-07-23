@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Android.Preferences;
+using spa.Data.Model.User;
+using spa.Data.Model.User.Service;
 
 namespace spa.Data
 {
@@ -7,9 +10,16 @@ namespace spa.Data
     {
         private static DataManager sInstance;
 
-        private DataManager()
+        SharedPrefsHelper mSharedPrefsHelper;
+
+        public DataManager(SharedPrefsHelper sharedPrefsHelper)
         {
+            mSharedPrefsHelper = sharedPrefsHelper;
         }
+
+        public DataManager() { }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public static DataManager getInstance()
         {
             if (sInstance == null)
@@ -18,25 +28,17 @@ namespace spa.Data
             }
             return sInstance;
         }
-        //public Preference GetDefaultPreference()
-        //{
-        //    return PowerPreference.getDefaultFile();
-        //}
 
-        //public Preference getUserPreference() { return PowerPreference.getFileByName("UserPreference"); }
+        public UsersRepository getMovieRepository()
+        {
 
-        //public MoviesRepository getMovieRepository()
-        //{
+            UserApi movieApi = UserService.getInstance().getUserApi();
+            UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
 
-        //    MovieApi movieApi = MovieService.getInstance().getMovieApi();
-        //    MovieRemoteDataSource movieRemote = MovieRemoteDataSource.getInstance(movieApi);
 
-        //    MovieDao movieDao = MovieDatabase.getInstance().movieDao();
-        //    MovieLocalDataSource movieLocal = MovieLocalDataSource.getInstance(movieDao);
+            UsersRepository movieCache = MovieCacheDataSource.getsInstance();
 
-        //    MovieCacheDataSource movieCache = MovieCacheDataSource.getsInstance();
-
-        //    return MoviesRepository.getInstance(movieRemote, movieLocal, movieCache);
-        //}
+            return MoviesRepository.getInstance(movieRemote, movieLocal, movieCache);
+        }
     }
 }

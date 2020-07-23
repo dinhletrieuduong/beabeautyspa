@@ -1,5 +1,5 @@
 ﻿using System;
-namespace spa.Data.Model
+namespace spa.Data.Model.User
 {
     public interface UserDataSource
     {
@@ -11,7 +11,7 @@ namespace spa.Data.Model
             void onError();
         }
 
-        void getMovies(UserDataSource callback);
-        //void saveMovies(List<Movie> movies);
+        void Login(LoadUserCallBack callback);
+        //void Register(List<Movie> movies);
     }
 }

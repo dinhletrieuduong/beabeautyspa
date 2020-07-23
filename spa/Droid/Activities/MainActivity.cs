@@ -78,5 +78,12 @@ namespace spa.Droid
         {
             IsPerformingAction = false;
         }
+
+        //public bool IsNavigating { get; private set; }
+
+        //public void OnNavigationStarted()
+        //{
+        //    IsNavigating = true;
+        //}
     }
 }

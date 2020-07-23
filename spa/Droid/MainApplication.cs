@@ -9,14 +9,22 @@ using Plugin.CurrentActivity;
 using spa.Droid.Services;
 using spa.Presenter;
 using spa.Services;
+using spa.Data;
 
 namespace spa.Droid
 {
     //You can specify additional application information in this attribute
     [Application]
-    public class MainApplication : Application
-    , Application.IActivityLifecycleCallbacks
+    public class MainApplication : Application, Application.IActivityLifecycleCallbacks
     {
+        public BasePresenter Presenter { get; set; }
+
+        public Activity CurrentActivity { get; set; }
+
+        public Fragment CurrentFragment { get; set; }
+
+        DataManager dataManager;
+
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
         : base(handle, transer)
         {
@@ -26,17 +34,25 @@ namespace spa.Droid
         {
             base.OnCreate();
             Presenter = new LoginPresenter(new NavigationService(this));
+
+            //SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());
+            SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(Context);
+            dataManager = new DataManager(sharedPrefsHelper);
+
             RegisterActivityLifecycleCallbacks(this);
             App.Initialize();
         }
-        public BasePresenter Presenter { get; set; }
 
-        public Activity CurrentActivity { get; set; }
+        public DataManager getDataManager()
+        {
+            return dataManager;
+        }
 
         public static MainApplication GetApplication(Context context)
         {
             return (MainApplication)context.ApplicationContext;
         }
+
         public override void OnTerminate()
         {
             base.OnTerminate();

@@ -13,11 +13,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Item.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\Command.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Helper\ServiceLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\LoginPresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\BasePresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ILoginView.cs" />
@@ -29,11 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\SignUpPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CommonUtils.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\UserService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\UserDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CheckInputValid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\VerificationPresenter.cs" />
@@ -41,6 +35,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\AccountPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\IAccountView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\HomePresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IHomeView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\SharedPrefsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\UserApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserRemoteDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
@@ -51,5 +54,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Data\Helper\" />
     <Folder Include="$(MSBuildThisFileDirectory)Presenter\" />
     <Folder Include="$(MSBuildThisFileDirectory)Contract\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\" />
   </ItemGroup>
 </Project>
