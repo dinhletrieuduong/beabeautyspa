@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaManager", "SpaManager\SpaManager.csproj", "{55D039A4-5920-4CA1-9DBE-4D388A6B8910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaDTO", "SpaDTO\SpaDTO.csproj", "{7713AF3E-9011-44C0-855A-75F22D1BB2B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55D039A4-5920-4CA1-9DBE-4D388A6B8910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D039A4-5920-4CA1-9DBE-4D388A6B8910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D039A4-5920-4CA1-9DBE-4D388A6B8910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D039A4-5920-4CA1-9DBE-4D388A6B8910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7713AF3E-9011-44C0-855A-75F22D1BB2B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7713AF3E-9011-44C0-855A-75F22D1BB2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7713AF3E-9011-44C0-855A-75F22D1BB2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7713AF3E-9011-44C0-855A-75F22D1BB2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B473956E-85B7-4C2F-8CE1-B62868D543A5}
+	EndGlobalSection
+EndGlobal
