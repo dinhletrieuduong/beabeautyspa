@@ -20,7 +20,7 @@ using Xamarin.Auth;
 using System.Net;
 using System.IO;
 using Newtonsoft.Json;
-using spa.Data.Model;
+using spa.Data.Model.User;
 
 namespace spa.Droid
 {

@@ -1,7 +1,7 @@
 ﻿using System;
-using spa.Data.Model;
 using spa.Views;
 using spa.Services;
+using spa.Data.Model.User;
 
 namespace spa.Presenter
 {
