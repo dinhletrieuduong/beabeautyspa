@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <item
+        android:id="@+id/homeIcon"
+        android:title="Home"
+        android:icon="@drawable/home"
+        android:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/appointmentIcon"
+        android:title="Appointment"
+        android:icon="@drawable/appointment"
+        android:showAsAction="ifRoom"
+        />
+
+    <!-->
+    <item
+        android:id="@+id/promotionIcon"
+        android:title="Promotion"
+        android:icon="@drawable/promotion"
+        android:showAsAction="ifRoom"
+        />
+    
+    <item
+        android:id="@+id/preorderIcon"
+        android:title="Pre-Order"
+        android:icon="@drawable/pre_order"
+        android:showAsAction="ifRoom"
+        />
+    <-->
+
+    <item
+        android:id="@+id/accountIcon"
+        android:title="Account"
+        android:icon="@drawable/account"
+        android:showAsAction="ifRoom"
+        />
+</menu>

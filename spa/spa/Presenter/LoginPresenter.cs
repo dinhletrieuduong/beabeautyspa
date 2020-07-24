@@ -1,17 +1,16 @@
 ﻿using System;
-using spa.Data.Model;
-using spa.View;
+using spa.Views;
 using spa.Services;
+using spa.Data.Model.User;
 
 namespace spa.Presenter
 {
     public class LoginPresenter : BasePresenter
     {
-
+        //https://beabeauty.azurewebsites.net/
         private ILoginView m_view;
         private string m_username;
         private string m_password;
-        //private LoginContract.LoginView mView;
 
         public LoginPresenter(INavigationService navigationService) : base(navigationService)
         {
@@ -51,7 +50,6 @@ namespace spa.Presenter
             {
                 m_view.OnActionStarted();
 
-                // TODO: Add logic for login.
                 User user = new User(m_username, m_password);
                 bool loggedIn = false;
 
@@ -65,7 +63,7 @@ namespace spa.Presenter
                 if (loggedIn)
                 {
                     m_view.OnNavigationStarted();
-                    NavigationService.PushPresenter(new MainPresenter(NavigationService));
+                    NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
                 }
                 else
                 {

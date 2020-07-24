@@ -13,6 +13,8 @@ using Android.Widget;
 
 using spa.Services;
 using spa.Presenter;
+//using spa.Droid;
+
 namespace spa.Droid.Services
 {
     public class NavigationService : INavigationService
@@ -40,6 +42,10 @@ namespace spa.Droid.Services
                 else if (presenter is SignUpPresenter)
                 {
                     intent = new Intent(m_application.CurrentActivity, typeof(SignUpActivity));
+                }
+                else if (presenter is VerificationPresenter)
+                {
+                    intent = new Intent(m_application.CurrentActivity, typeof(VerificationActivity));
                 }
                 else if (presenter is MainPresenter)
                 {

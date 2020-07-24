@@ -1,11 +1,18 @@
 ﻿using System;
 using spa.Services;
-using spa.View;
+using spa.Views;
 
 namespace spa.Presenter
 {
     public class SignUpPresenter : BasePresenter
     {
+        private ISignUpView m_view;
+        private string m_email;
+        private string m_password;
+        private string m_name;
+        private string m_address;
+        private string m_confirmPassword;
+
         public SignUpPresenter(INavigationService navigationService) :
             base(navigationService)
         {
@@ -96,12 +103,5 @@ namespace spa.Presenter
                 NavigationService.PushPresenter(new LoginPresenter(NavigationService));
             }
         }
-
-        private ISignUpView m_view;
-        private string m_email;
-        private string m_password;
-        private string m_name;
-        private string m_address;
-        private string m_confirmPassword;
     }
 }

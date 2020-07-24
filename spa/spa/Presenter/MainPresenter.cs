@@ -1,11 +1,13 @@
 ﻿using System;
 using spa.Services;
-using spa.View;
+using spa.Views;
 
 namespace spa.Presenter
 {
     public class MainPresenter : BasePresenter
     {
+        private IMainView m_view;
+
         public MainPresenter(INavigationService navigationService) :
             base(navigationService)
         {
@@ -16,6 +18,5 @@ namespace spa.Presenter
             m_view = view;
         }
 
-        private IMainView m_view;
     }
 }

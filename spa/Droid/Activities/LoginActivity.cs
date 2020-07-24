@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,22 +11,30 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
-using spa.View;
+using spa.Views;
 using spa.Presenter;
 using Android.Text;
 
+using Org.Json;
+using Xamarin.Auth;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
+using spa.Data.Model.User;
+
 namespace spa.Droid
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "LoginActivity", WindowSoftInputMode = SoftInput.StateHidden)]
     public class LoginActivity : Activity, ILoginView
     {
-        private LoginPresenter m_presenter;
-        private EditText m_edtUsername;
-        private EditText m_edtPassword;
-        private Button m_btnLogin;
-        private TextView m_btnRegister;
+        private LoginPresenter presenter;
+        private EditText edtUsername;
+        private EditText edtPassword;
+        private Button btnLogin;
+        private ImageView btnLoginFB;
+        private TextView btnRegister;
+        private bool dialogVisible, isSigninSocial = false;
 
-        private bool m_dialogVisible;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -39,31 +46,71 @@ namespace spa.Droid
 
             var app = MainApplication.GetApplication(this);
             initPresenter(app);
-
             app.CurrentActivity = this;
-
         }
 
         private void initViewAndListener()
         {
-            m_edtUsername = FindViewById<EditText>(Resource.Id.edtEmail);
-            m_edtUsername.TextChanged += m_edtUsername_TextChanged;
+            edtUsername = FindViewById<EditText>(Resource.Id.edtEmail);
+            edtUsername.TextChanged += edtUsername_TextChanged;
 
-            m_edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
-            m_edtPassword.TextChanged += m_edtPassword_TextChanged;
+            edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
+            edtPassword.TextChanged += edtPassword_TextChanged;
 
-            m_btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
-            m_btnLogin.Touch += m_btnLogin_Touch;
+            btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
+            btnLogin.Touch += btnLogin_Touch;
 
-            m_btnRegister = FindViewById<TextView>(Resource.Id.btnRegister);
-            m_btnRegister.Touch += m_btnRegister_Touch;
+            btnRegister = FindViewById<TextView>(Resource.Id.btnRegister);
+            btnRegister.Touch += btnRegister_Touch;
+
+            btnLoginFB = FindViewById<ImageView>(Resource.Id.FacebookButton);
+            btnLoginFB.Click += delegate { LoginFacebook(); };
         }
 
         private void initPresenter(MainApplication app)
         {
-            m_presenter = (LoginPresenter)app.Presenter;
-            m_presenter.SetView(this);
+            presenter = (LoginPresenter)app.Presenter;
+            presenter.SetView(this);
         }
+
+        private void LoginFacebook()
+        {
+            var auth = new OAuth2Authenticator(
+                clientId: "2626391220909606",
+                scope: "",
+                authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
+                redirectUrl: new Uri("https://www.facebook.com/connect/login_success.html")
+                );
+            isSigninSocial = true;
+            auth.Completed += facebook_Auth_CompletedAsync;
+            auth.Error += (sender, eventArgs) =>
+            {
+                OAuth2Authenticator auth2 = (OAuth2Authenticator)sender;
+                auth2.ShowErrors = false;
+                auth2.OnCancelled();
+            };
+            StartActivity(auth.GetUI(this));
+        }
+        private async void facebook_Auth_CompletedAsync(object sender, AuthenticatorCompletedEventArgs eventArgs)
+        {
+            if (eventArgs.IsAuthenticated)
+            {
+                Toast.MakeText(this, "Authenticated!", ToastLength.Long).Show();
+                var request = new OAuth2Request(
+                    "GET",
+                    new Uri("https://graph.facebook.com/me?fields=name,email"),
+                    null,
+                    eventArgs.Account);
+
+                var fbResponse = await request.GetResponseAsync();
+                var json = fbResponse.GetResponseText();
+
+                var fbUser = JsonConvert.DeserializeObject<User>(json);
+                //Console.WriteLine(fbUser.ToString());
+                Console.WriteLine(fbUser.email.ToString());
+            }
+        }
+
 
         protected override void OnStop()
         {
@@ -72,7 +119,8 @@ namespace spa.Droid
             // button doesn't bring the user back to the login screen. Where
             // navigation to the login screen is required, an explicit call
             // to push a new LoginPresenter should be made.
-            Finish();
+            if (!isSigninSocial)
+                Finish();
         }
 
         public bool IsPerformingAction { get; private set; }
@@ -96,45 +144,51 @@ namespace spa.Droid
 
         public void OnInputValidated(bool isValid)
         {
-            m_btnLogin.Enabled = isValid;
+            btnLogin.Enabled = isValid;
         }
 
         public void OnLoginFailed(string errorMessage)
         {
-            if (!m_dialogVisible)
+            if (!dialogVisible)
             {
-                m_dialogVisible = true;
+                dialogVisible = true;
 
                 Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
-                builder.SetTitle("AliveDrive")
+                builder.SetTitle("Error")
                     .SetMessage(errorMessage)
                     .SetNeutralButton("OK", (s, e) =>
                     {
-                        m_dialogVisible = false;
+                        dialogVisible = false;
                     })
                     .Show();
             }
         }
 
-        private void m_edtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtUsername_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateUsername(e.Text.ToString());
+            presenter.UpdateUsername(e.Text.ToString());
         }
 
-        private void m_edtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdatePassword(e.Text.ToString());
+            presenter.UpdatePassword(e.Text.ToString());
         }
 
-        private void m_btnLogin_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void btnLogin_Touch(object sender, Android.Views.View.TouchEventArgs e)
         {
-            m_presenter.Login();
+            presenter.Login();
         }
 
-        private void m_btnRegister_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void btnRegister_Touch(object sender, Android.Views.View.TouchEventArgs e)
         {
-            m_presenter.Register();
+            presenter.Register();
         }
+
+        //public void OnCancel()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
     }
+
 }
