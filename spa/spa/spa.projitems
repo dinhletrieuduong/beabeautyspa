@@ -25,8 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\ISignUpView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\MainPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Presenter\SignUpPresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Network\CustomerResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CommonUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\CheckInputValid.cs" />
@@ -38,23 +36,43 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\IHomeView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\SharedPrefsHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\User.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserDataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\UserApi.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\UserService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UserRemoteDataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\UsersRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\IDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserRemoteDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\IUserDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Repository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\RepositoryDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\Source\Remote\IServiceDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Promotion\Source\Remote\IPromotionDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Outlet\Source\Remote\IOutletDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Appointment\Source\Remote\IAppointmentDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\Service.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\ServiceResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
     <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Data\Network\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Model\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Helper\" />
     <Folder Include="$(MSBuildThisFileDirectory)Presenter\" />
     <Folder Include="$(MSBuildThisFileDirectory)Contract\" />
     <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\Service\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Promotion\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Service\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Appointment\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Outlet\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Service\Source\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Service\Source\Remote\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Promotion\Source\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Outlet\Source\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Appointment\Source\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Promotion\Source\Remote\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Outlet\Source\Remote\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Model\Appointment\Source\Remote\" />
   </ItemGroup>
 </Project>

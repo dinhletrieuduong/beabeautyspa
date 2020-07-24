@@ -76,33 +76,33 @@ namespace spa.Droid
             editText_4 = (EditText)FindViewById(Resource.Id.editText4);
             editText_5 = (EditText)FindViewById(Resource.Id.editText5);
             editTexts = new EditText[] { editText_1, editText_2, editText_3, editText_4, editText_5 };
-            //editText_1.AfterTextChanged += delegate { ChangeBackgroundEditText(editText_1, editText_1, editText_2, false); };
-            //editText_2.AfterTextChanged += delegate { ChangeBackgroundEditText(editText_1, editText_2, editText_3, false); };
-            //editText_3.AfterTextChanged += delegate { ChangeBackgroundEditText(editText_2, editText_3, editText_4, false); };
-            //editText_4.AfterTextChanged += delegate { ChangeBackgroundEditText(editText_3, editText_4, editText_5, false); };
-            //editText_5.AfterTextChanged += delegate { ChangeBackgroundEditText(editText_4, editText_5, editText_5, true); };
+            editText_1.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                OnKeyDeletePressed(e, editText_1, editText_1);
+            };
+            editText_2.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                OnKeyDeletePressed(e, editText_2, editText_1);
+            };
+
+            editText_3.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                OnKeyDeletePressed(e, editText_3, editText_2);
+            };
+            editText_4.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                OnKeyDeletePressed(e, editText_4, editText_3);
+            };
+            editText_5.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                OnKeyDeletePressed(e, editText_5, editText_4);
+            };
+
             editText_1.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 0); };
             editText_2.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 1); };
             editText_3.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 2); };
             editText_4.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 3); };
             editText_5.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 4); };
-        }
-        private void BackBtn_Clicked()
-        {
-            presenter.GoToLogin();
-        }
-
-        private void ResendBtn_Clicked()
-        {
-            errorTxtView.Visibility = ViewStates.Invisible;
-        }
-
-        private void ContinueBtn_Clicked()
-        {
-            errorTxtView.Visibility = ViewStates.Visible;
-            foreach (EditText editText in editTexts)
-                presenter.UpdateOTP(editText.Text);
-            presenter.Verification();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -130,27 +130,16 @@ namespace spa.Droid
             }
         }
 
-        private void ChangeBackgroundEditText(EditText preEdtTxt, EditText editText, EditText nextEdtTxt, bool isLast)
+        private void OnKeyDeletePressed(View.KeyEventArgs e, EditText curEditText, EditText preEditText)
         {
-            if (!string.IsNullOrEmpty(editText.Text))
+            e.Handled = false;
+            if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Del)
             {
-                if (editText.Text.Length > 1)
-                {
-                    nextEdtTxt.Text += editText.Text[1].ToString();
-                    editText.Text = editText.Text[0].ToString();
-                }
-                editText.SetBackgroundResource(Resource.Drawable.EdittextBottomLine_2);
-                if (!isLast)
-                {
-                    nextEdtTxt.RequestFocus();
-                    nextEdtTxt.SetSelection(nextEdtTxt.Text.Length);
-                }
-            }
-            else
-            {
-                editText.SetBackgroundResource(Resource.Drawable.EdittextBottomLine);
-                preEdtTxt.RequestFocus();
-                preEdtTxt.SetSelection(preEdtTxt.Text.Length);
+                e.Handled = true;
+                curEditText.Text = "";
+                curEditText.SetBackgroundResource(Resource.Drawable.EdittextBottomLine);
+                preEditText.RequestFocus();
+                preEditText.SetSelection(preEditText.Text.Length);
             }
         }
 
@@ -158,7 +147,6 @@ namespace spa.Droid
         {
             var curEditTxt = editTexts[curPosition];
             var nextEdtTxt = curPosition != editTexts.Length - 1 ? editTexts[curPosition + 1] : editTexts[curPosition];
-            var preEdtTxt = curPosition != 0 ? editTexts[curPosition - 1] : editTexts[curPosition];
             if (!string.IsNullOrEmpty(curEditTxt.Text))
             {
                 if (curEditTxt.Text.Length > 1)
@@ -180,13 +168,27 @@ namespace spa.Droid
                     imm.HideSoftInputFromWindow(curEditTxt.WindowToken, 0);
                 }
             }
-            else
-            {
-                curEditTxt.SetBackgroundResource(Resource.Drawable.EdittextBottomLine);
-                preEdtTxt.RequestFocus();
-                preEdtTxt.SetSelection(preEdtTxt.Text.Length);
-            }
         }
+
+        private void BackBtn_Clicked()
+        {
+            presenter.GoToLogin();
+        }
+
+        private void ResendBtn_Clicked()
+        {
+            errorTxtView.Visibility = ViewStates.Invisible;
+        }
+
+        private void ContinueBtn_Clicked()
+        {
+            errorTxtView.Visibility = ViewStates.Visible;
+            foreach (EditText editText in editTexts)
+                presenter.UpdateOTP(editText.Text);
+            presenter.Verification();
+        }
+
+
         public override void OnBackPressed()
         {
             presenter.GoToLogin();
@@ -234,9 +236,9 @@ namespace spa.Droid
                     .SetNeutralButton("OK", (s, e) =>
                     {
                         dialogVisible = false;
-                        foreach (EditText editText in editTexts)
-                            editText.Text = "";
-                        editTexts[0].RequestFocus();
+                        //foreach (EditText editText in editTexts)
+                        //    editText.Text = "";
+                        //editTexts[0].RequestFocus();
                     })
                     .Show();
 

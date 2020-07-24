@@ -7,7 +7,7 @@
     android:background="@android:color/white"
     >
 
-    <ScrollView
+    <!--<ScrollView
         android:minHeight="25px"
         android:minWidth="25px"
         android:layout_width="match_parent"
@@ -302,6 +302,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </ScrollView>-->
 
 </RelativeLayout>

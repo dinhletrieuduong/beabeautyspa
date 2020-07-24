@@ -7,5 +7,6 @@ namespace spa.Views
 
         void OnActionFinished();
         void OnActionStarted();
+        //bool isNetworkConnected();
     }
 }

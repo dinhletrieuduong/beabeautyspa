@@ -1,5 +1,5 @@
 ﻿using System;
-namespace spa.Data.Model.User.Service
+namespace spa.Data.Model.User.Source.Remote
 {
     public interface UserApi
     {

@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Android.Preferences;
 using spa.Data.Model.User;
-using spa.Data.Model.User.Service;
+using spa.Data.Model.User.Source.Remote;
 
 namespace spa.Data
 {

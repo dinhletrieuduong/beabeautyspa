@@ -1,16 +1,11 @@
 ﻿using System;
-using spa.Data.Model.User.Service;
 
-namespace spa.Data.Model.User
+namespace spa.Data.Model.User.Source.Remote
 {
-    public class UserRemoteDataSource : UserDataSource
+    public class UserRemoteDataSource : IUserDataSource
     {
         private static UserRemoteDataSource instance;
-
         private UserApi userApi;
-        public UserRemoteDataSource()
-        {
-        }
 
         private UserRemoteDataSource(UserApi userApi)
         {
@@ -26,7 +21,7 @@ namespace spa.Data.Model.User
             return instance;
         }
 
-        public void Login(UserDataSource.LoadUserCallBack callback)
+        public void Login(IUserDataSource.LoadDataCallback<User> callback)
         {
             //    userApi.Login().enqueue(new Callback<UserResponse>()
             //    {
