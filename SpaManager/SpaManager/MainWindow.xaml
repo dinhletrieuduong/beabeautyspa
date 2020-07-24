@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:SpaManager"
         mc:Ignorable="d"
         Title="Spa Project" Height="650" Width="1280"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <StackPanel x:Name="contain">
             
