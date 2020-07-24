@@ -29,16 +29,13 @@ namespace spa.Data
             return sInstance;
         }
 
-        //public UsersRepository getMovieRepository()
-        //{
+        public UserRepository getMovieRepository()
+        {
 
-        //    UserApi movieApi = UserService.getInstance().getUserApi();
-        //    UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
-
-
-        //    UsersRepository movieCache = MovieCacheDataSource.getsInstance();
-
-        //    return MoviesRepository.getInstance(movieRemote, movieLocal, movieCache);
-        //}
+            UserApi userApi = UserService.getInstance().getUserApi();
+            //    UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
+            //    UsersRepository movieCache = MovieCacheDataSource.getsInstance();
+            return UserRepository.getInstance(userApi);
+        }
     }
 }

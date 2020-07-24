@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace spa.Data.Model.User
 {
     public class UserResponse
     {
-        //@Expose
-        //@SerializedName("movies")
-        //private List<User> users;
+        private string content;
+        private int responseCode;
 
-        //    public List<User> getUsers()
-        //    {
-        //        return users;
-        //    }
+        public bool Login()
+        {
+            return true;
+        }
 
         //    public void setUsers(List<User> users)
         //    {
@@ -19,5 +19,7 @@ namespace spa.Data.Model.User
         public UserResponse()
         {
         }
+
+
     }
 }

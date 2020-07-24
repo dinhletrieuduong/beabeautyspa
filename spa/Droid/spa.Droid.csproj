@@ -137,9 +137,6 @@
     <Reference Include="Square.OkHttp3">
       <HintPath>..\packages\Square.OkHttp3.3.8.0\lib\MonoAndroid\Square.OkHttp3.dll</HintPath>
     </Reference>
-    <Reference Include="Square.Retrofit2">
-      <HintPath>..\packages\Square.Retrofit2.2.4.0.1\lib\monoandroid44\Square.Retrofit2.dll</HintPath>
-    </Reference>
     <Reference Include="System.Buffers">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>

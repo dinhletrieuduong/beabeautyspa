@@ -1,4 +1,4 @@
-<!--<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     >
-    <ScrollView
+    <!--<ScrollView
         android:minHeight="25dp"
         android:minWidth="25dp"
         android:layout_width="match_parent"
@@ -392,5 +392,5 @@
             </LinearLayout>
     </TableLayout> 
 
-    </ScrollView>>
-</RelativeLayout>-->
+    </ScrollView>-->
+</RelativeLayout>

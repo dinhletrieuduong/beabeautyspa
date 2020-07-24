@@ -2,21 +2,30 @@
 
 namespace spa.Data.Model.User.Source.Remote
 {
-    public class UserRemoteDataSource : IUserDataSource
+    public class UserRepository : IUserDataSource
     {
-        private static UserRemoteDataSource instance;
+
+        private UserRepository userRemote;
+        //private UserRepository userCache;
+
+        private static UserRepository instance;
         private UserApi userApi;
 
-        private UserRemoteDataSource(UserApi userApi)
+        private UserRepository(UserApi userApi)
         {
             this.userApi = userApi;
         }
-
-        public static UserRemoteDataSource getInstance(UserApi userApi)
+        private UserRepository(UserRepository userRemote
+            //MovieCacheDataSource movieCache
+            )
+        {
+            this.userRemote = userRemote;
+        }
+        public static UserRepository getInstance(UserApi userApi)
         {
             if (instance == null)
             {
-                instance = new UserRemoteDataSource(userApi);
+                instance = new UserRepository(userApi);
             }
             return instance;
         }

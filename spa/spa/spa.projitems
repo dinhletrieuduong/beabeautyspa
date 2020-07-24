@@ -40,10 +40,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\IDataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserRemoteDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\UserRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\User\Source\Remote\IUserDataSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Repository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\RepositoryDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\Source\Remote\IServiceDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Promotion\Source\Remote\IPromotionDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Outlet\Source\Remote\IOutletDataSource.cs" />
