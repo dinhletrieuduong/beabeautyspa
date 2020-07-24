@@ -1,8 +1,5 @@
 ﻿
-FE:\SpaManager\SpaManager\App.xaml;;
-FE:\SpaManager\SpaManager\Bar.xaml;;
-FE:\SpaManager\SpaManager\MangeAccount.xaml;;
-FE:\SpaManager\SpaManager\LoginSpa.xaml;;
-FE:\SpaManager\SpaManager\MainWindow.xaml;;
-FE:\SpaManager\SpaManager\Menu.xaml;;
+
+FE:\SpaManager\SpaManager\BarStatistic.xaml;;
+FE:\SpaManager\SpaManager\UC_ManageStatistic.xaml;;
 

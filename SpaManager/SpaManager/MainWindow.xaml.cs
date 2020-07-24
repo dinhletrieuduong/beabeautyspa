@@ -39,11 +39,13 @@ namespace SpaManager
         private void gotoMangeAccount()
         {
             this.Show();
-            ManageAccount window = new ManageAccount();
+            MangeDashboard window = new MangeDashboard();
 
             contain.Children.Clear();
             contain.Children.Add(window);
             
         }
+
+        
     }
 }

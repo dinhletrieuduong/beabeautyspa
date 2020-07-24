@@ -10,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SpaManager
 {
     /// <summary>
-    /// Interaction logic for Bar.xaml
+    /// Interaction logic for BarStatistic.xaml
     /// </summary>
-    public partial class Bar : UserControl
+    public partial class BarStatistic : UserControl
     {
-        public Bar()
+        public BarStatistic()
         {
             InitializeComponent();
         }
-
-        
     }
 }
