@@ -23,7 +23,7 @@ namespace spa.Droid
 
         public Fragment CurrentFragment { get; set; }
 
-        DataManager dataManager;
+        private DataManager dataManager;
 
         public MainApplication(IntPtr handle, JniHandleOwnership transer)
         : base(handle, transer)
@@ -37,13 +37,14 @@ namespace spa.Droid
 
             //SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());
             SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(Context);
-            dataManager = new DataManager(sharedPrefsHelper);
+            dataManager = DataManager.GetInstance();
+            dataManager.SetSharedPrefsHelper(sharedPrefsHelper);
 
             RegisterActivityLifecycleCallbacks(this);
             App.Initialize();
         }
 
-        public DataManager getDataManager()
+        public DataManager GetDataManager()
         {
             return dataManager;
         }

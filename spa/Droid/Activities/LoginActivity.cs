@@ -21,6 +21,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft.Json;
 using spa.Data.Model.User;
+using spa.Data;
 
 namespace spa.Droid
 {
@@ -45,7 +46,10 @@ namespace spa.Droid
             initViewAndListener();
 
             var app = MainApplication.GetApplication(this);
-            initPresenter(app);
+            //DataManager dataManager = app.GetDataManager();
+            presenter = (LoginPresenter)app.Presenter;
+            presenter.SetView(this);
+            //presenter.SetDataManager(DataManager.GetInstance());
             app.CurrentActivity = this;
         }
 
@@ -58,19 +62,13 @@ namespace spa.Droid
             edtPassword.TextChanged += edtPassword_TextChanged;
 
             btnLogin = FindViewById<Button>(Resource.Id.btnLogin);
-            btnLogin.Touch += btnLogin_Touch;
+            btnLogin.Click += delegate { btnLogin_Click(); };
 
             btnRegister = FindViewById<TextView>(Resource.Id.btnRegister);
             btnRegister.Touch += btnRegister_Touch;
 
             btnLoginFB = FindViewById<ImageView>(Resource.Id.FacebookButton);
             btnLoginFB.Click += delegate { LoginFacebook(); };
-        }
-
-        private void initPresenter(MainApplication app)
-        {
-            presenter = (LoginPresenter)app.Presenter;
-            presenter.SetView(this);
         }
 
         private void LoginFacebook()
@@ -120,7 +118,15 @@ namespace spa.Droid
             // navigation to the login screen is required, an explicit call
             // to push a new LoginPresenter should be made.
             if (!isSigninSocial)
+            {
                 Finish();
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            presenter.RemoveView();
         }
 
         public bool IsPerformingAction { get; private set; }
@@ -174,7 +180,7 @@ namespace spa.Droid
             presenter.UpdatePassword(e.Text.ToString());
         }
 
-        private void btnLogin_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void btnLogin_Click()
         {
             presenter.Login();
         }
@@ -183,11 +189,6 @@ namespace spa.Droid
         {
             presenter.Register();
         }
-
-        //public void OnCancel()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
     }
 

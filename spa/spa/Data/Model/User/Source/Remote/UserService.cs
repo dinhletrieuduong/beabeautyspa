@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Refit;
+using spa.Utils;
+using spa.Services;
 
 namespace spa.Data.Model.User.Source.Remote
 {
     public class UserService
     {
-        private static string URL = "https://demo6483760.mockable.io/";
-
-        private UserApi userApi;
-
+        private static string URL = CommonUtils.URL;
         private static UserService singleton;
-
+        private UserApi userApi;
 
         private UserService()
         {
-            //Retrofit mRetrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(URL).build();
-            //mMovieApi = mRetrofit.create(UserApi.class);
-            userApi = RestService.For<UserApi>(URL);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL) };
+            userApi = RestService.For<UserApi>(httpClient);
         }
 
-        public static UserService getInstance()
+        public static UserService GetInstance()
         {
             if (singleton == null)
             {
@@ -30,14 +29,14 @@ namespace spa.Data.Model.User.Source.Remote
             return singleton;
         }
 
-        public UserApi getUserApi()
+        public UserApi GetUserApi()
         {
             return userApi;
         }
 
-        public async Task<User> Login()
+        public async Task<HttpResponseMessage> Login(User user)
         {
-            return await userApi.Login().ConfigureAwait(false);
+            return await userApi.Login(user);
         }
     }
 }

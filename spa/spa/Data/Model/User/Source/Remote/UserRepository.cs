@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace spa.Data.Model.User.Source.Remote
 {
     public class UserRepository : IUserDataSource
     {
-
         private UserRepository userRemote;
-        //private UserRepository userCache;
 
         private static UserRepository instance;
         private UserApi userApi;
@@ -15,13 +15,11 @@ namespace spa.Data.Model.User.Source.Remote
         {
             this.userApi = userApi;
         }
-        private UserRepository(UserRepository userRemote
-            //MovieCacheDataSource movieCache
-            )
+        private UserRepository(UserRepository userRemote)
         {
             this.userRemote = userRemote;
         }
-        public static UserRepository getInstance(UserApi userApi)
+        public static UserRepository GetInstance(UserApi userApi)
         {
             if (instance == null)
             {
@@ -30,33 +28,25 @@ namespace spa.Data.Model.User.Source.Remote
             return instance;
         }
 
-        public void Login(IUserDataSource.LoadDataCallback<User> callback)
+        public Tuple<string, string, bool> Login(User user)
         {
-            //    userApi.Login().enqueue(new Callback<UserResponse>()
-            //    {
-            //    public void onResponse(Call<UserResponse> call, Response<UserResponse> response)
-            //    {
-            //        List<User> movies = response.body() != null ? response.body().getMovies() : null;
-            //        if (movies != null && !movies.isEmpty())
-            //        {
-            //            callback.onMoviesLoaded(movies);
-            //        }
-            //        else
-            //        {
-            //            callback.onDataNotAvailable();
-            //        }
-            //    }
+            var response = userApi.Login(user);
+            response.Wait();
+            Debug.WriteLine(response.Result.ToString());
+            string statusCode = response.Result.ToString().Split(",")[0];
+            string reasonPhase = response.Result.ToString().Split(",")[1];
+            if (response.Result.IsSuccessStatusCode)
+            {
+                return Tuple.Create(statusCode, reasonPhase, true);
+            }
+            else
+                return Tuple.Create(statusCode, reasonPhase, false);
 
-            //    public void onFailure(Call<UserResponse> call, Throwable t)
-            //    {
-            //        callback.onError();
-            //    }
-            //});
         }
 
-        //public void saveMovies(List<User> movies)
-        //{
-        //    //doNothing
-        //}
+        public void GetProfile(IDataSource.LoadDataCallback<User> callback)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

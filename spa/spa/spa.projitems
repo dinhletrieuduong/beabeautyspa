@@ -48,6 +48,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Appointment\Source\Remote\IAppointmentDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\Service.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\Service\ServiceResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\HttpLoggingHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />

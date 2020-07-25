@@ -2,17 +2,23 @@
 using spa.Views;
 using spa.Services;
 using spa.Data.Model.User;
+using spa.Data;
 
 namespace spa.Presenter
 {
     public class LoginPresenter : BasePresenter
     {
-        //https://beabeauty.azurewebsites.net/
         private ILoginView m_view;
         private string m_username;
         private string m_password;
+        DataManager dataManager;
 
         public LoginPresenter(INavigationService navigationService) : base(navigationService)
+        {
+            dataManager = DataManager.GetInstance();
+        }
+
+        public LoginPresenter(INavigationService navigationService, DataManager dataManager) : base(navigationService, dataManager)
         {
         }
 
@@ -20,6 +26,11 @@ namespace spa.Presenter
         {
             m_view = view;
             ValidateInput();
+        }
+
+        public void RemoveView()
+        {
+            m_view = null;
         }
 
         public void UpdateUsername(string username)
@@ -51,12 +62,7 @@ namespace spa.Presenter
                 m_view.OnActionStarted();
 
                 User user = new User(m_username, m_password);
-                bool loggedIn = false;
-
-                if (user.checkPassword())
-                {
-                    loggedIn = true;
-                }
+                bool loggedIn = dataManager.GetUserRepository().Login(user).Item3;
 
                 m_view.OnActionFinished();
 

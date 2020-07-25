@@ -29,15 +29,5 @@ namespace spa.Data.Model.User
             return email;
         }
 
-        public bool checkPassword()
-        {
-            return username.Equals("blue") && password.Equals("1234");
-        }
-
-        public void signUp()
-        {
-
-        }
-
     }
 }

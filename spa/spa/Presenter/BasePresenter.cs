@@ -6,20 +6,25 @@ namespace spa.Presenter
 {
     public abstract class BasePresenter
     {
+        protected INavigationService NavigationService;
+        private DataManager mDataManager;
+
         protected BasePresenter(INavigationService navigationService)
         {
             NavigationService = navigationService;
         }
 
-        public BasePresenter(DataManager dataManager)
+        public BasePresenter(INavigationService navigationService, DataManager dataManager)
         {
+            NavigationService = navigationService;
             mDataManager = dataManager;
         }
 
-        protected INavigationService NavigationService;
-        DataManager mDataManager;
-
-        public DataManager getDataManager()
+        public void SetDataManager(DataManager dataManager)
+        {
+            mDataManager = dataManager;
+        }
+        public DataManager GetDataManager()
         {
             return mDataManager;
         }

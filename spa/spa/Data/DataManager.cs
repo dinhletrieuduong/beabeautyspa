@@ -12,15 +12,10 @@ namespace spa.Data
 
         SharedPrefsHelper mSharedPrefsHelper;
 
-        public DataManager(SharedPrefsHelper sharedPrefsHelper)
-        {
-            mSharedPrefsHelper = sharedPrefsHelper;
-        }
-
         public DataManager() { }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public static DataManager getInstance()
+        public static DataManager GetInstance()
         {
             if (sInstance == null)
             {
@@ -29,13 +24,17 @@ namespace spa.Data
             return sInstance;
         }
 
-        public UserRepository getMovieRepository()
+        public void SetSharedPrefsHelper(SharedPrefsHelper sharedPrefsHelper)
         {
+            mSharedPrefsHelper = sharedPrefsHelper;
+        }
 
-            UserApi userApi = UserService.getInstance().getUserApi();
+        public UserRepository GetUserRepository()
+        {
+            UserApi userApi = UserService.GetInstance().GetUserApi();
             //    UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
             //    UsersRepository movieCache = MovieCacheDataSource.getsInstance();
-            return UserRepository.getInstance(userApi);
+            return UserRepository.GetInstance(userApi);
         }
     }
 }
