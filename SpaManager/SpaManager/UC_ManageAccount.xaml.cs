@@ -10,29 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SpaDTO;
 
 namespace SpaManager
 {
     /// <summary>
-    /// Interaction logic for LocalMangerxaml.xaml
+    /// Interaction logic for UC_ManageAccount.xaml
     /// </summary>
-    public partial class ManageAccount : UserControl
+    public partial class UC_ManageAccount : UserControl
     {
-        public ManageAccount()
+        public UC_ManageAccount()
         {
             InitializeComponent();
-
-            Menu window = new Menu();
-
-            st_menu.Children.Clear();
-            st_menu.Children.Add(window);
-
-            Bar bar = new Bar();
-
-            st_bar.Children.Clear();
-            st_bar.Children.Add(bar);
 
             List<Test> temp = new List<Test>();
 
@@ -44,10 +35,7 @@ namespace SpaManager
 
         private void btn_delete_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            Test temp = btn.DataContext as Test;
-
-            MessageBox.Show(temp.Username);
+            
         }
     }
 }

@@ -22,12 +22,89 @@ E:\SpaManager\SpaManager\obj\Debug\SpaManager.exe
 E:\SpaManager\SpaManager\obj\Debug\SpaManager.pdb
 E:\SpaManager\SpaManager\obj\Debug\Menu.g.cs
 E:\SpaManager\SpaManager\obj\Debug\Menu.baml
-E:\SpaManager\SpaManager\obj\Debug\Bar.g.cs
-E:\SpaManager\SpaManager\obj\Debug\Bar.baml
 E:\SpaManager\SpaManager\bin\Debug\SpaDTO.exe
 E:\SpaManager\SpaManager\bin\Debug\SpaDTO.pdb
 E:\SpaManager\SpaManager\bin\Debug\SpaDTO.exe.config
 E:\SpaManager\SpaManager\obj\Debug\LoginSpa.g.cs
 E:\SpaManager\SpaManager\obj\Debug\LoginSpa.baml
-E:\SpaManager\SpaManager\obj\Debug\MangeAccount.g.cs
-E:\SpaManager\SpaManager\obj\Debug\MangeAccount.baml
+E:\SpaManager\SpaManager\obj\Debug\MangeDashboard.g.cs
+E:\SpaManager\SpaManager\obj\Debug\MangeDashboard.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageAccount.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageAccount.baml
+E:\SpaManager\SpaManager\obj\Debug\BarAccount.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarAccount.baml
+E:\SpaManager\SpaManager\obj\Debug\BarRoomInfo.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageRoomInfo.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarRoomInfo.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageRoomInfo.baml
+E:\SpaManager\SpaManager\obj\Debug\BarBed.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageBed.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarBed.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageBed.baml
+E:\SpaManager\SpaManager\obj\Debug\BarService.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageService.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarService.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageService.baml
+E:\SpaManager\SpaManager\obj\Debug\BarOutlet.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarOutlet.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageOutlet.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageOutlet.baml
+E:\SpaManager\SpaManager\obj\Debug\BarStatistic.g.cs
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageStatistic.g.cs
+E:\SpaManager\SpaManager\obj\Debug\BarStatistic.baml
+E:\SpaManager\SpaManager\obj\Debug\UC_ManageStatistic.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaManager.exe.config
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaManager.exe
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaManager.pdb
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\MaterialDesignColors.dll
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaDTO.exe
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaDTO.pdb
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\SpaDTO.exe.config
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\MaterialDesignColors.pdb
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.csprojAssemblyReference.cache
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarAccount.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarOutlet.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarRoomInfo.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarBed.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarService.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarStatistic.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\MangeDashboard.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\LoginSpa.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\MainWindow.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\Menu.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageAccount.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageOutlet.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageRoomInfo.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageBed.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageService.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageStatistic.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\App.g.cs
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager_MarkupCompile.cache
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager_MarkupCompile.lref
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\App.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarAccount.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarOutlet.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarRoomInfo.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarBed.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarService.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\BarStatistic.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\MangeDashboard.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\LoginSpa.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\MainWindow.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\Menu.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageAccount.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageOutlet.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageRoomInfo.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageBed.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageService.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\UC_ManageStatistic.baml
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.g.resources
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.Properties.Resources.resources
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.csproj.GenerateResource.cache
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.csproj.CoreCompileInputs.cache
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.csproj.CopyComplete
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.exe
+C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\SpaManager.pdb

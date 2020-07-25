@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="SpaManager.UC_ManageService"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:SpaManager"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="1070">
+    <Grid Background="White">
+        <StackPanel>
+            <StackPanel Height="50" Margin="0 20 0 0" Orientation="Horizontal">
+                <Button Content="Enable" Background="Green" BorderBrush="Gray" Foreground="White" Margin="50 0 0 0" Name="btn_enable" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0">
+
+                </Button>
+                <Button Content="Disable" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_disable"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+                
+                <CheckBox Name="btn_selectall" Margin="450 0 0 0 " VerticalAlignment="Center" Background="Green"/>
+                <TextBlock Text="Select All" FontSize="16" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                <TextBlock Text="Number" FontSize="16" Margin="40 0 0 0" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+            <StackPanel Height="480">
+                <ItemsControl Name="list_itemservice" Width="970">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Green" BorderThickness="2" CornerRadius="2"
+                                    x:Name="Border" Margin="0 10 0 0">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="80" Height="80" Margin="30 0 0 0">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="E:\\SpaManager\\SpaManager\\BeaBeautyLogo.png"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <StackPanel Width="150" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding service_name}" FontSize="20" FontWeight="Bold"
+                                               Foreground="Black"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Price: " Foreground="LightGray"/>
+                                            <TextBlock Text="{Binding service_cost}"
+                                               Foreground="LightGray"/>
+                                        </StackPanel>
+                                        
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding service_start_date}" VerticalAlignment="Center"
+                                           Margin="100 0 0 0"/>
+                                    <TextBlock Text="-" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                                    <TextBlock Text="{Binding service_end_date}" VerticalAlignment="Center"
+                                            Margin="10 0 0 0"/>
+                                    <TextBlock Text="{Binding service_status}" VerticalAlignment="Center"
+                                           Margin="150 0 0 0" Foreground="LightGray"/>
+                                    <CheckBox Background="Green" VerticalAlignment="Center" x:Name="btn_check"
+                                          IsChecked="{Binding service_check}" Margin="30 0 0 0"/>
+                                </StackPanel>
+                            </Border>
+                            
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding service_check}"
+                                             Value="true">
+                                    <Setter TargetName="Border"
+                                            Property="Background"
+                                            Value="{DynamicResource MaterialDesignSelection}"/>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

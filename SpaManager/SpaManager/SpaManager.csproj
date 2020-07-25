@@ -63,11 +63,64 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Bar.xaml">
+    <Compile Include="BarOutlet.xaml.cs">
+      <DependentUpon>BarOutlet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarRoomInfo.xaml.cs">
+      <DependentUpon>BarRoomInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarBed.xaml.cs">
+      <DependentUpon>BarBed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarService.xaml.cs">
+      <DependentUpon>BarService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarStatistic.xaml.cs">
+      <DependentUpon>BarStatistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageAccount.xaml.cs">
+      <DependentUpon>UC_ManageAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageOutlet.xaml.cs">
+      <DependentUpon>UC_ManageOutlet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageRoomInfo.xaml.cs">
+      <DependentUpon>UC_ManageRoomInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageBed.xaml.cs">
+      <DependentUpon>UC_ManageBed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageService.xaml.cs">
+      <DependentUpon>UC_ManageService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ManageStatistic.xaml.cs">
+      <DependentUpon>UC_ManageStatistic.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BarAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MangeAccount.xaml">
+    <Page Include="BarOutlet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarRoomInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarBed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarStatistic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MangeDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,11 +136,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bar.xaml.cs">
-      <DependentUpon>Bar.xaml</DependentUpon>
+    <Compile Include="BarAccount.xaml.cs">
+      <DependentUpon>BarAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MangeAccount.xaml.cs">
-      <DependentUpon>MangeAccount.xaml</DependentUpon>
+    <Compile Include="MangeDashboard.xaml.cs">
+      <DependentUpon>MangeDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginSpa.xaml.cs">
       <DependentUpon>LoginSpa.xaml</DependentUpon>
@@ -97,6 +150,30 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageOutlet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageRoomInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageBed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC_ManageStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
