@@ -44,6 +44,22 @@ namespace spa.Data.Model.User.Source.Remote
 
         }
 
+        public Tuple<string, string, bool> Register(User user)
+        {
+            var response = userApi.Register(user);
+            response.Wait();
+            Debug.WriteLine(response.Result.ToString());
+            string statusCode = response.Result.ToString().Split(",")[0];
+            string reasonPhase = response.Result.ToString().Split(",")[1];
+            if (response.Result.IsSuccessStatusCode)
+            {
+                return Tuple.Create(statusCode, reasonPhase, true);
+            }
+            else
+                return Tuple.Create(statusCode, reasonPhase, false);
+
+        }
+
         public void GetProfile(IDataSource.LoadDataCallback<User> callback)
         {
             throw new NotImplementedException();

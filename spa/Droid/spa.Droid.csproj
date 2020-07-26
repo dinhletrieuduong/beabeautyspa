@@ -213,10 +213,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_signup_manual.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\Logo.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -317,19 +313,15 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\SocialRegister.xml">
+    <AndroidResource Include="Resources\layout\activity_signup_manual.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\PersonalInfo.xml">
+    <AndroidResource Include="Resources\layout\activity_signup_social.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\ManuallyRegister.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\ProvidePersonalInformation.xml">
+    <AndroidResource Include="Resources\layout\activity_provide_info.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

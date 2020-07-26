@@ -14,6 +14,9 @@ namespace spa.Utils
     {
         public static readonly string URL = "https://beabeauty.azurewebsites.net";
 
+        public static void LoginFacebook()
+        {
 
+        }
     }
 }

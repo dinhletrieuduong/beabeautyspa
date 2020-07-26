@@ -1,4 +1,6 @@
 ﻿using System;
+using spa.Data;
+using spa.Data.Model.User;
 using spa.Services;
 using spa.Views;
 
@@ -7,15 +9,20 @@ namespace spa.Presenter
     public class SignUpPresenter : BasePresenter
     {
         private ISignUpView m_view;
-        private string m_email;
+        DataManager dataManager;
+
+        private string m_username;
         private string m_password;
-        private string m_name;
-        private string m_address;
+        private string m_fullName;
+        private string m_email;
+        private string m_phone;
+        private string m_dob;
+        private string m_gender;
         private string m_confirmPassword;
 
-        public SignUpPresenter(INavigationService navigationService) :
-            base(navigationService)
+        public SignUpPresenter(INavigationService navigationService) : base(navigationService)
         {
+            dataManager = DataManager.GetInstance();
         }
 
         public void SetView(ISignUpView view)
@@ -30,15 +37,9 @@ namespace spa.Presenter
             ValidateInput();
         }
 
-        public void UpdateName(string name)
+        public void UpdateUserName(string username)
         {
-            m_name = name;
-            ValidateInput();
-        }
-
-        public void UpdateAddress(string address)
-        {
-            m_address = address;
+            m_username = username;
             ValidateInput();
         }
 
@@ -54,6 +55,30 @@ namespace spa.Presenter
             ValidateInput();
         }
 
+        public void UpdateFullName(string fullname)
+        {
+            m_fullName = fullname;
+            ValidateInput();
+        }
+
+        public void UpdateGender(string gender)
+        {
+            m_fullName = gender;
+            ValidateInput();
+        }
+
+        public void UpdateDoB(string dob)
+        {
+            m_dob = dob;
+            ValidateInput();
+        }
+
+        public void UpdatePhone(string phone)
+        {
+            m_phone = phone;
+            ValidateInput();
+        }
+
         private void ValidateInput()
         {
             m_view.OnInputValidated(HasValidInput());
@@ -61,10 +86,9 @@ namespace spa.Presenter
 
         private bool HasValidInput()
         {
-            // TODO: Perform real validation.
             return !string.IsNullOrEmpty(m_email) &&
-                !string.IsNullOrEmpty(m_name) &&
-                !string.IsNullOrEmpty(m_address) &&
+                !string.IsNullOrEmpty(m_username) &&
+                !string.IsNullOrEmpty(m_fullName) &&
                 !string.IsNullOrEmpty(m_password) &&
                 !string.IsNullOrEmpty(m_confirmPassword) &&
                 m_password == m_confirmPassword;
@@ -78,8 +102,8 @@ namespace spa.Presenter
             {
                 m_view.OnActionStarted();
 
-                // TODO: Add logic for sign-up.
-                bool signedUp = true;
+                User user = new User(m_username, m_password, m_email, m_dob, m_phone, m_fullName, m_gender);
+                bool signedUp = dataManager.GetUserRepository().Register(user).Item3;
 
                 m_view.OnActionFinished();
 

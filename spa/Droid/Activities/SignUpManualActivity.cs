@@ -24,12 +24,17 @@ namespace spa.Droid
     public class SignUpManualActivity : Activity, ISignUpView
     {
         private SignUpPresenter m_presenter;
-        private EditText m_edtEmail;
-        private EditText m_edtName;
-        private EditText m_edtAddress;
-        private EditText m_edtPassword;
-        private EditText m_edtConfirmPassword;
-        private Button m_btnSignUp;
+        private EditText edtUsername;
+        private EditText edtPassword;
+        private EditText edtConfirmPassword;
+
+        private EditText edtEmail;
+        private EditText edtPhone;
+        private DatePicker edtDOB;
+        private RadioGroup rdgGender;
+        private EditText edtFullName;
+
+        private Button btnSignUp;
 
         private bool m_dialogVisible;
 
@@ -39,23 +44,31 @@ namespace spa.Droid
 
             SetContentView(Resource.Layout.activity_signup_manual);
 
-            m_edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
-            m_edtEmail.TextChanged += m_edtEmail_TextChanged;
+            edtUsername = FindViewById<EditText>(Resource.Id.edtUsername);
+            edtUsername.TextChanged += m_edtUserName_TextChanged;
 
-            m_edtName = FindViewById<EditText>(Resource.Id.edtEmail);
-            m_edtName.TextChanged += m_edtName_TextChanged;
+            edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
+            edtPassword.TextChanged += m_edtPassword_TextChanged;
 
-            m_edtAddress = FindViewById<EditText>(Resource.Id.edtEmail);
-            m_edtAddress.TextChanged += m_edtAddress_TextChanged;
+            edtConfirmPassword = FindViewById<EditText>(Resource.Id.edtConfirmPassword);
+            edtConfirmPassword.TextChanged += m_edtConfirmPassword_TextChanged;
 
-            m_edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
-            m_edtPassword.TextChanged += m_edtPassword_TextChanged;
+            edtFullName = FindViewById<EditText>(Resource.Id.edtFullName);
+            edtFullName.TextChanged += m_edtFullName_TextChanged;
 
-            m_edtConfirmPassword = FindViewById<EditText>(Resource.Id.edtConfirmPassword);
-            m_edtConfirmPassword.TextChanged += m_edtConfirmPassword_TextChanged;
+            edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
+            edtEmail.TextChanged += m_edtEmail_TextChanged;
 
-            m_btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
-            m_btnSignUp.Touch += m_btnSignUp_Touch;
+            rdgGender = FindViewById<RadioGroup>(Resource.Id.rdgGender);
+            rdgGender.CheckedChange += m_edtGender_CheckedChanged;
+
+            edtDOB = FindViewById<DatePicker>(Resource.Id.edtDOB);
+            edtDOB.DateChanged += m_edtDoB_DateChanged;
+            edtPhone = FindViewById<EditText>(Resource.Id.edtPhone);
+            edtPhone.TextChanged += m_edtPhone_TextChanged;
+
+            btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
+            btnSignUp.Touch += m_btnSignUp_Touch;
 
             var app = MainApplication.GetApplication(this);
             m_presenter = app.Presenter as SignUpPresenter;
@@ -99,7 +112,7 @@ namespace spa.Droid
 
         public void OnInputValidated(bool isValid)
         {
-            m_btnSignUp.Enabled = isValid;
+            //btnSignUp.Enabled = isValid;
         }
 
         public void OnSignUpFailed(string errorMessage)
@@ -121,14 +134,9 @@ namespace spa.Droid
             m_presenter.UpdateEmail(e.Text.ToString());
         }
 
-        private void m_edtName_TextChanged(object sender, TextChangedEventArgs e)
+        private void m_edtUserName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateName(e.Text.ToString());
-        }
-
-        private void m_edtAddress_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            m_presenter.UpdateAddress(e.Text.ToString());
+            m_presenter.UpdateUserName(e.Text.ToString());
         }
 
         private void m_edtPassword_TextChanged(object sender, TextChangedEventArgs e)
@@ -139,6 +147,28 @@ namespace spa.Droid
         private void m_edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             m_presenter.UpdateConfirmPassword(e.Text.ToString());
+        }
+
+        private void m_edtFullName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            m_presenter.UpdateFullName(e.Text.ToString());
+        }
+
+        private void m_edtPhone_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            m_presenter.UpdatePhone(e.Text.ToString());
+        }
+
+        private void m_edtDoB_DateChanged(object sender, DatePicker.DateChangedEventArgs e)
+        {
+            m_presenter.UpdateDoB(e.DayOfMonth + "/" + e.MonthOfYear + "/" + e.Year);
+        }
+
+        private void m_edtGender_CheckedChanged(object sender, RadioGroup.CheckedChangeEventArgs e)
+        {
+            //rdgGender.get
+            RadioButton gender = FindViewById<RadioButton>(e.CheckedId);
+            m_presenter.UpdateGender(gender.Text.ToString());
         }
 
         private void m_btnSignUp_Touch(object sender, Android.Views.View.TouchEventArgs e)

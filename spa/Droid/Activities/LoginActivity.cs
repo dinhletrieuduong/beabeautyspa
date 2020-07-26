@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -22,6 +23,7 @@ using System.IO;
 using Newtonsoft.Json;
 using spa.Data.Model.User;
 using spa.Data;
+using Debug = System.Diagnostics.Debug;
 
 namespace spa.Droid
 {
@@ -96,17 +98,17 @@ namespace spa.Droid
                 Toast.MakeText(this, "Authenticated!", ToastLength.Long).Show();
                 var request = new OAuth2Request(
                     "GET",
-                    new Uri("https://graph.facebook.com/me?fields=name,email,access_token"),
+                    new Uri("https://graph.facebook.com/me?fields=name,email"),
                     null,
                     eventArgs.Account);
 
                 var fbResponse = await request.GetResponseAsync();
                 var json = fbResponse.GetResponseText();
-                Console.WriteLine(json.ToString());
 
                 var fbUser = JsonConvert.DeserializeObject<User>(json);
-                //Console.WriteLine(fbUser.ToString());
-                Console.WriteLine(fbUser.email.ToString());
+                //Debug.WriteLine(fbUser.email.ToString());
+                //Debug.WriteLine(eventArgs.Account.Properties.ToString());
+
             }
         }
 
