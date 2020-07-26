@@ -17,6 +17,8 @@ using spa.Presenter;
 using static Android.Views.View;
 using AlertDialog = Android.App.AlertDialog;
 using Android.Text;
+using spa.Utils;
+using spa.Droid.Fragments;
 
 namespace spa.Droid
 {
@@ -30,13 +32,13 @@ namespace spa.Droid
 
         private EditText edtEmail;
         private EditText edtPhone;
-        private DatePicker edtDOB;
-        private RadioGroup rdgGender;
+        private TextView edtDOB;
+        private RadioButton btnMale, btnFemale;
         private EditText edtFullName;
 
         private Button btnSignUp;
 
-        private bool m_dialogVisible;
+        private bool m_dialogVisible, isSignUpSocial;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -59,11 +61,13 @@ namespace spa.Droid
             edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
             edtEmail.TextChanged += m_edtEmail_TextChanged;
 
-            rdgGender = FindViewById<RadioGroup>(Resource.Id.rdgGender);
-            rdgGender.CheckedChange += m_edtGender_CheckedChanged;
+            btnMale = FindViewById<RadioButton>(Resource.Id.btnMale);
+            btnFemale = FindViewById<RadioButton>(Resource.Id.btnFemale);
 
-            edtDOB = FindViewById<DatePicker>(Resource.Id.edtDOB);
-            edtDOB.DateChanged += m_edtDoB_DateChanged;
+            edtDOB = FindViewById<TextView>(Resource.Id.edtDOB);
+            edtDOB.Click += DateSelect_OnClick;
+            edtDOB.TextChanged += m_edtDoB_TextChanged;
+
             edtPhone = FindViewById<EditText>(Resource.Id.edtPhone);
             edtPhone.TextChanged += m_edtPhone_TextChanged;
 
@@ -77,6 +81,14 @@ namespace spa.Droid
             app.CurrentActivity = this;
         }
 
+        private void LoginFacebook()
+        {
+            var tuple = CommonUtils.LoginFacebook();
+            var auth = tuple.Item1;
+            isSignUpSocial = tuple.Item2;
+            StartActivity(auth.GetUI(this));
+        }
+
         public override void OnBackPressed()
         {
             m_presenter.GoToLogin();
@@ -85,10 +97,7 @@ namespace spa.Droid
         protected override void OnStop()
         {
             base.OnStop();
-
-            // We remove ourself from the navigation stack, so that the back
-            // button doesn't bring the user back to the sign-up screen.
-            Finish();
+            if (!isSignUpSocial) Finish();
         }
 
         public bool IsPerformingAction { get; private set; }
@@ -159,20 +168,24 @@ namespace spa.Droid
             m_presenter.UpdatePhone(e.Text.ToString());
         }
 
-        private void m_edtDoB_DateChanged(object sender, DatePicker.DateChangedEventArgs e)
+        private void m_edtDoB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateDoB(e.DayOfMonth + "/" + e.MonthOfYear + "/" + e.Year);
+            m_presenter.UpdateDoB(e.Text.ToString());
         }
 
-        private void m_edtGender_CheckedChanged(object sender, RadioGroup.CheckedChangeEventArgs e)
+        void DateSelect_OnClick(object sender, EventArgs eventArgs)
         {
-            //rdgGender.get
-            RadioButton gender = FindViewById<RadioButton>(e.CheckedId);
-            m_presenter.UpdateGender(gender.Text.ToString());
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                edtDOB.Text = time.ToLongDateString();
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
 
         private void m_btnSignUp_Touch(object sender, Android.Views.View.TouchEventArgs e)
         {
+            if (btnMale.Checked) m_presenter.UpdateGender(btnMale.Text);
+            else m_presenter.UpdateGender(btnFemale.Text);
             m_presenter.SignUp();
         }
 

@@ -63,7 +63,7 @@ namespace spa.Presenter
 
         public void UpdateGender(string gender)
         {
-            m_fullName = gender;
+            m_gender = gender;
             ValidateInput();
         }
 

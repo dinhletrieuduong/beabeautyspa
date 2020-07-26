@@ -177,6 +177,7 @@
     <Compile Include="Fragments\BaseFragment.cs" />
     <Compile Include="Activities\SignUpSocialActivity.cs" />
     <Compile Include="Activities\ProvideInformationActivity.cs" />
+    <Compile Include="Fragments\DatePickerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />

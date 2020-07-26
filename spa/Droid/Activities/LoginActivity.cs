@@ -24,7 +24,7 @@ using Newtonsoft.Json;
 using spa.Data.Model.User;
 using spa.Data;
 using Debug = System.Diagnostics.Debug;
-
+using spa.Utils;
 namespace spa.Droid
 {
     [Activity(Label = "LoginActivity", WindowSoftInputMode = SoftInput.StateHidden)]
@@ -75,43 +75,11 @@ namespace spa.Droid
 
         private void LoginFacebook()
         {
-            var auth = new OAuth2Authenticator(
-                clientId: "2626391220909606",
-                scope: "",
-                authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
-                redirectUrl: new Uri("https://www.facebook.com/connect/login_success.html")
-                );
-            isSigninSocial = true;
-            auth.Completed += facebook_Auth_CompletedAsync;
-            auth.Error += (sender, eventArgs) =>
-            {
-                OAuth2Authenticator auth2 = (OAuth2Authenticator)sender;
-                auth2.ShowErrors = false;
-                auth2.OnCancelled();
-            };
+            var tuple = CommonUtils.LoginFacebook();
+            var auth = tuple.Item1;
+            isSigninSocial = tuple.Item2;
             StartActivity(auth.GetUI(this));
         }
-        private async void facebook_Auth_CompletedAsync(object sender, AuthenticatorCompletedEventArgs eventArgs)
-        {
-            if (eventArgs.IsAuthenticated)
-            {
-                Toast.MakeText(this, "Authenticated!", ToastLength.Long).Show();
-                var request = new OAuth2Request(
-                    "GET",
-                    new Uri("https://graph.facebook.com/me?fields=name,email"),
-                    null,
-                    eventArgs.Account);
-
-                var fbResponse = await request.GetResponseAsync();
-                var json = fbResponse.GetResponseText();
-
-                var fbUser = JsonConvert.DeserializeObject<User>(json);
-                //Debug.WriteLine(fbUser.email.ToString());
-                //Debug.WriteLine(eventArgs.Account.Properties.ToString());
-
-            }
-        }
-
 
         protected override void OnStop()
         {
