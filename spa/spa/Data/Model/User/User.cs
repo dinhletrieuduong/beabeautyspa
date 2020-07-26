@@ -3,10 +3,10 @@ namespace spa.Data.Model.User
 {
     public class User
     {
-        private string username;
-        private string password;
-        //private string phone;
-        public string email;
+        public string username { get; set; }
+        public string password { get; set; }
+        //public string phone{ get; set; }
+        public string email { get; set; }
 
         public User(string uname, string psswd)
         {
@@ -14,20 +14,6 @@ namespace spa.Data.Model.User
             this.password = psswd;
         }
 
-        public string GetUsername()
-        {
-            return username;
-        }
-
-        public string GetPassword()
-        {
-            return password;
-        }
-
-        public string GetEmail()
-        {
-            return email;
-        }
 
     }
 }

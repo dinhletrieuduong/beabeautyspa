@@ -166,7 +166,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
-    <Compile Include="Activities\SignUpActivity.cs" />
+    <Compile Include="Activities\SignUpManualActivity.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Activities\VerificationActivity.cs" />
     <Compile Include="Activities\AccountActivity.cs" />
@@ -175,6 +175,8 @@
     <Compile Include="Fragments\PromotionFragment.cs" />
     <Compile Include="Fragments\PreOrderFragment.cs" />
     <Compile Include="Fragments\BaseFragment.cs" />
+    <Compile Include="Activities\SignUpSocialActivity.cs" />
+    <Compile Include="Activities\ProvideInformationActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AboutAssets.txt" />
@@ -211,7 +213,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_signup.xml">
+    <AndroidResource Include="Resources\layout\activity_signup_manual.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

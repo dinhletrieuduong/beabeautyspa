@@ -12,6 +12,8 @@ namespace spa.Utils
 {
     public class CommonUtils
     {
-        public static readonly string URL = "https://beabeauty.azurewebsites.net/";
+        public static readonly string URL = "https://beabeauty.azurewebsites.net";
+
+
     }
 }

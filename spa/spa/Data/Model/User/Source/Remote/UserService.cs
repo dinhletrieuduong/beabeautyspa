@@ -10,13 +10,13 @@ namespace spa.Data.Model.User.Source.Remote
 {
     public class UserService
     {
-        private static string URL = CommonUtils.URL;
+        private static string URL_LOGIN = CommonUtils.URL;
         private static UserService singleton;
         private UserApi userApi;
 
         private UserService()
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             userApi = RestService.For<UserApi>(httpClient);
         }
 

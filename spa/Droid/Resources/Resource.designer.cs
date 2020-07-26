@@ -3389,7 +3389,7 @@ namespace spa.Droid
 			public const int activity_main = 2131427355;
 			
 			// aapt resource value: 0x7F0B001C
-			public const int activity_signup = 2131427356;
+			public const int activity_signup_manual = 2131427356;
 			
 			// aapt resource value: 0x7F0B001D
 			public const int activity_verification = 2131427357;

@@ -7,14 +7,14 @@ using System.Net.Http.Headers;
 
 namespace spa.Data.Model.User.Source.Remote
 {
-[Headers ("Accept: application/json")]
+    //[Headers ("Accept: application/json")]
     public interface UserApi
     {
-        [Post("/login")]
+        [Post("/auth/login/manually")]
         Task<HttpResponseMessage> Login(User user);
 
-        [Post("/register")]
-        Task<User> Register(User user);
+        [Post("/auth/register/manual")]
+        Task<HttpResponseMessage> Register(User user);
 
         [Post("/update")]
         Task<User> Update(User user);

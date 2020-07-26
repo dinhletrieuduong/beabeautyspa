@@ -96,12 +96,13 @@ namespace spa.Droid
                 Toast.MakeText(this, "Authenticated!", ToastLength.Long).Show();
                 var request = new OAuth2Request(
                     "GET",
-                    new Uri("https://graph.facebook.com/me?fields=name,email"),
+                    new Uri("https://graph.facebook.com/me?fields=name,email,access_token"),
                     null,
                     eventArgs.Account);
 
                 var fbResponse = await request.GetResponseAsync();
                 var json = fbResponse.GetResponseText();
+                Console.WriteLine(json.ToString());
 
                 var fbUser = JsonConvert.DeserializeObject<User>(json);
                 //Console.WriteLine(fbUser.ToString());

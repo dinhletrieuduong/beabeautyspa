@@ -41,7 +41,7 @@ namespace spa.Droid.Services
                 }
                 else if (presenter is SignUpPresenter)
                 {
-                    intent = new Intent(m_application.CurrentActivity, typeof(SignUpActivity));
+                    intent = new Intent(m_application.CurrentActivity, typeof(SignUpManualActivity));
                 }
                 else if (presenter is VerificationPresenter)
                 {

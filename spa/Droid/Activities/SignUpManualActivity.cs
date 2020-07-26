@@ -20,8 +20,8 @@ using Android.Text;
 
 namespace spa.Droid
 {
-    [Activity(Label = "SignUpActivity")]
-    public class SignUpActivity : Activity, ISignUpView
+    [Activity(Label = "SignUpManualActivity")]
+    public class SignUpManualActivity : Activity, ISignUpView
     {
         private SignUpPresenter m_presenter;
         private EditText m_edtEmail;
@@ -37,7 +37,7 @@ namespace spa.Droid
         {
             base.OnCreate(savedInstanceState);
 
-            SetContentView(Resource.Layout.activity_signup);
+            SetContentView(Resource.Layout.activity_signup_manual);
 
             m_edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
             m_edtEmail.TextChanged += m_edtEmail_TextChanged;
