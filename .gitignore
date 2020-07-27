@@ -1,6 +1,6 @@
 /spa/packages
-/spa/Droid/bin
-/spa/Droid/obj
+/spa/bin
+/spa/obj
 .DS_Store
 .vs
 /SpaManager/packages
