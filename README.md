@@ -1,11 +1,13 @@
 # beabeautyspa
 Build by Xamarin.Android and WPF
 
+Team size: 3
+
 - ./spa: Folder User app (Android)
 - ./SpaManager: Folder Manager app (WPF)
 
 Technology used: 
-- Xamarin, WPF, .Net, Refit
+- Xamarin, WPF, Refit
 - MVP Pattern for Android app
 - MVC Pattern for WPF app
 
