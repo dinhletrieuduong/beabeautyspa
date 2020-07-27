@@ -1,8 +1,9 @@
 ﻿using System;
-using spa.Services;
-using spa.Views;
 using Java.Lang.Ref;
-namespace spa.Presenters
+using spa.Base;
+using spa.Navigation;
+
+namespace spa.Main.Home
 {
     public class HomePresenter : BasePresenter
     {

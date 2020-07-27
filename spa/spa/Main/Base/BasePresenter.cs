@@ -1,8 +1,8 @@
 ﻿using System;
 using spa.Data;
-using spa.Services;
+using spa.Navigation;
 
-namespace spa.Presenters
+namespace spa.Base
 {
     public abstract class BasePresenter
     {

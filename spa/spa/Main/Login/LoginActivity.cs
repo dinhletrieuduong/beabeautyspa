@@ -12,8 +12,6 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
-using spa.Views;
-using spa.Presenters;
 using Android.Text;
 
 using Org.Json;
@@ -25,9 +23,9 @@ using spa.Data.Model.User;
 using spa.Data;
 using Debug = System.Diagnostics.Debug;
 using spa.Utils;
-using spa.Services;
+using spa.Navigation;
 
-namespace spa.Activities
+namespace spa.Login
 {
     [Activity(Label = "LoginActivity", WindowSoftInputMode = SoftInput.StateHidden)]
     public class LoginActivity : Activity, ILoginView

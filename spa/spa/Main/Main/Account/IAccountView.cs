@@ -1,5 +1,7 @@
 ﻿using System;
-namespace spa.Views
+using spa.Navigation;
+
+namespace spa.Main.Account
 {
     public interface IAccountView : IMainView, INavigationView
     {

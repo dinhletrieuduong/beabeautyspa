@@ -2,7 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
-
+using spa.Login;
 namespace spa.Activities
 {
     [Activity(Label = "@string/app_name", Theme = "@style/SplashTheme", MainLauncher = true)]
@@ -12,7 +12,6 @@ namespace spa.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            //var newIntent = new Intent(this, typeof(MainActivity));
             var newIntent = new Intent(this, typeof(LoginActivity));
             newIntent.AddFlags(ActivityFlags.ClearTop);
             newIntent.AddFlags(ActivityFlags.SingleTop);

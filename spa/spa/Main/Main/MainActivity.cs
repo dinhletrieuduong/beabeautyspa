@@ -7,12 +7,11 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.Design.Widget;
-using spa.Views;
-using spa.Presenters;
 using spa.Fragments;
-using spa.Services;
+using spa.Navigation;
+using spa.Main.Account;
 
-namespace spa.Activities
+namespace spa.Main
 {
     [Activity(Label = "MainActivity")]
     public class MainActivity : Activity, IMainView

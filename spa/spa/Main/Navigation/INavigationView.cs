@@ -1,5 +1,5 @@
 ﻿using System;
-namespace spa.Views
+namespace spa.Navigation
 {
     public interface INavigationView
     {

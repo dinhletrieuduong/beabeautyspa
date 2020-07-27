@@ -10,13 +10,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using spa.Views;
-using spa.Presenters;
 using Android.Views.InputMethods;
 using System.Timers;
-using spa.Services;
+using spa.Navigation;
 
-namespace spa.Activities
+namespace spa.Verification
 {
     [Activity(Label = "VerificationActivity")]
     public class VerificationActivity : Activity, IVerificationView

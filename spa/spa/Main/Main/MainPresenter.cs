@@ -1,8 +1,8 @@
 ﻿using System;
-using spa.Services;
-using spa.Views;
+using spa.Navigation;
+using spa.Base;
 
-namespace spa.Presenters
+namespace spa.Main
 {
     public class MainPresenter : BasePresenter
     {

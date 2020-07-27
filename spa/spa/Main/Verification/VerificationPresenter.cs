@@ -1,8 +1,10 @@
 ﻿using System;
-using spa.Services;
-using spa.Views;
+using spa.Navigation;
+using spa.Base;
+using spa.Main;
+using spa.Login;
 
-namespace spa.Presenters
+namespace spa.Verification
 {
     public class VerificationPresenter : BasePresenter
     {

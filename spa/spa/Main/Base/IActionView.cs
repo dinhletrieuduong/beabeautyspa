@@ -1,7 +1,7 @@
 ﻿using System;
-namespace spa.Views
+namespace spa.Base
 {
-    public interface IActionView
+    public interface IBaseView
     {
         bool IsPerformingAction { get; }
 

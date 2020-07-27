@@ -1,8 +1,10 @@
 ﻿using System;
+using spa.Base;
+using spa.Navigation;
 
-namespace spa.Views
+namespace spa.Login
 {
-    public interface ILoginView : IActionView, INavigationView
+    public interface ILoginView : IBaseView, INavigationView
     {
         void OnInputValidated(bool isValid);
         void OnLoginFailed(int statusCode, string errorMessage);

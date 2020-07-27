@@ -1,7 +1,7 @@
 ﻿using System;
-using spa.Presenters;
+using spa.Base;
 
-namespace spa.Services
+namespace spa.Navigation
 {
     public interface INavigationService
     {

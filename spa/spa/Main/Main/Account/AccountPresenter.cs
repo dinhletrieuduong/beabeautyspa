@@ -1,8 +1,9 @@
 ﻿using System;
-using spa.Services;
-using spa.Views;
+using spa.Navigation;
+using spa.Base;
+using spa.Login;
 
-namespace spa.Presenters
+namespace spa.Main.Account
 {
     public class AccountPresenter : BasePresenter
     {

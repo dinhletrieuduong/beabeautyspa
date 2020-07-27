@@ -1,10 +1,12 @@
 ﻿using System;
 using spa.Data;
 using spa.Data.Model.User;
-using spa.Services;
-using spa.Views;
+using spa.Navigation;
+using spa.Base;
+using spa.Login;
+using spa.Main;
 
-namespace spa.Presenters
+namespace spa.SignUp
 {
     public class SignUpPresenter : BasePresenter
     {

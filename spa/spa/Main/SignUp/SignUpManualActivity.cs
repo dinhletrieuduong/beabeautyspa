@@ -12,16 +12,14 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
-using spa.Views;
-using spa.Presenters;
 using static Android.Views.View;
 using AlertDialog = Android.App.AlertDialog;
 using Android.Text;
 using spa.Utils;
 using spa.Fragments;
-using spa.Services;
+using spa.Navigation;
 
-namespace spa.Activities
+namespace spa.SignUp
 {
     [Activity(Label = "SignUpManualActivity")]
     public class SignUpManualActivity : Activity, ISignUpView

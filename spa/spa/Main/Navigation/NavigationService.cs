@@ -10,9 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using spa.Activities;
-using spa.Presenters;
+using spa.Base;
+using spa.Login;
+using spa.Main;
+using spa.SignUp;
+using spa.Verification;
 
-namespace spa.Services
+namespace spa.Navigation
 {
     public class NavigationService : INavigationService
     {

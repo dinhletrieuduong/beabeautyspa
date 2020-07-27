@@ -45,9 +45,9 @@ namespace spa.Data.Model.User.Source.Remote
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Request Timeout");
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
                 return 500;
-
             }
 
         }
@@ -69,7 +69,8 @@ namespace spa.Data.Model.User.Source.Remote
             }
             catch (Exception e)
             {
-                Debug.WriteLine("Request Timeout");
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
                 return 500;
 
             }

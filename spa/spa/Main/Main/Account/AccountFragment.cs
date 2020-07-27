@@ -11,11 +11,9 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using spa.Services;
-using spa.Presenters;
-using spa.Views;
+using spa.Navigation;
 
-namespace spa.Fragments
+namespace spa.Main.Account
 {
     [Obsolete]
     public class AccountFragment : Fragment, IAccountView
