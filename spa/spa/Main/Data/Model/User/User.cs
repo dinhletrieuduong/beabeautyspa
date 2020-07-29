@@ -7,14 +7,13 @@ namespace spa.Data.Model.User
         public string password { get; set; }
         public string phone { get; set; }
         public string dob { get; set; }
-        public string gender { get; set; }
+        public int gender { get; set; }
         public string fullName { get; set; }
         public string email { get; set; }
         public string token { get; set; }
+        public string verifyCode { get; set; }
 
-        public User()
-        {
-        }
+        public User() { }
 
         public User(string uname, string psswd)
         {
@@ -22,7 +21,7 @@ namespace spa.Data.Model.User
             this.password = psswd;
         }
 
-        public User(string uname, string psswd, string email, string dob, string phone, string fullName, string gender)
+        public User(string uname, string psswd, string email, string dob, string phone, string fullName, int gender)
         {
             this.username = uname;
             this.password = psswd;

@@ -23,7 +23,7 @@ namespace spa.Verification
         private ImageView backBtn;
         private Button continueBtn;
         private TextView resendBtn, errorTxtView;
-        private EditText editText_1, editText_2, editText_3, editText_4, editText_5;
+        private EditText editText_1, editText_2, editText_3, editText_4, editText_5, editText_6;
         EditText[] editTexts;
 
         private bool dialogVisible;
@@ -67,34 +67,21 @@ namespace spa.Verification
             editText_3 = (EditText)FindViewById(Resource.Id.editText3);
             editText_4 = (EditText)FindViewById(Resource.Id.editText4);
             editText_5 = (EditText)FindViewById(Resource.Id.editText5);
-            editTexts = new EditText[] { editText_1, editText_2, editText_3, editText_4, editText_5 };
-            editText_1.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                OnKeyDeletePressed(e, editText_1, editText_1);
-            };
-            editText_2.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                OnKeyDeletePressed(e, editText_2, editText_1);
-            };
+            editText_6 = (EditText)FindViewById(Resource.Id.editText6);
+            editTexts = new EditText[] { editText_1, editText_2, editText_3, editText_4, editText_5, editText_6 };
 
-            editText_3.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                OnKeyDeletePressed(e, editText_3, editText_2);
-            };
-            editText_4.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                OnKeyDeletePressed(e, editText_4, editText_3);
-            };
-            editText_5.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                OnKeyDeletePressed(e, editText_5, editText_4);
-            };
-
+            editText_1.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_1, editText_1); };
+            editText_2.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_2, editText_1); };
+            editText_3.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_3, editText_2); };
+            editText_4.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_4, editText_3); };
+            editText_5.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_5, editText_4); };
+            editText_6.KeyPress += (object sender, View.KeyEventArgs e) => { OnKeyDeletePressed(e, editText_6, editText_5); };
             editText_1.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 0); };
             editText_2.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 1); };
             editText_3.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 2); };
             editText_4.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 3); };
             editText_5.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 4); };
+            editText_6.AfterTextChanged += delegate { ChangeBackgroundEditTexts(editTexts, 5); };
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)

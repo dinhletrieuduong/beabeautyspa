@@ -24,7 +24,7 @@ namespace spa.SignUp
     [Activity(Label = "SignUpManualActivity")]
     public class SignUpManualActivity : Activity, ISignUpView
     {
-        private SignUpPresenter m_presenter;
+        private SignUpPresenter presenter;
         private EditText edtUsername;
         private EditText edtPassword;
         private EditText edtConfirmPassword;
@@ -37,7 +37,7 @@ namespace spa.SignUp
 
         private Button btnSignUp;
 
-        private bool m_dialogVisible, isSignUpSocial;
+        private bool dialogVisible, isSignUpSocial;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,35 +46,35 @@ namespace spa.SignUp
             SetContentView(Resource.Layout.activity_signup_manual);
 
             edtUsername = FindViewById<EditText>(Resource.Id.edtUsername);
-            edtUsername.TextChanged += m_edtUserName_TextChanged;
+            edtUsername.TextChanged += edtUserName_TextChanged;
 
             edtPassword = FindViewById<EditText>(Resource.Id.edtPassword);
-            edtPassword.TextChanged += m_edtPassword_TextChanged;
+            edtPassword.TextChanged += edtPassword_TextChanged;
 
             edtConfirmPassword = FindViewById<EditText>(Resource.Id.edtConfirmPassword);
-            edtConfirmPassword.TextChanged += m_edtConfirmPassword_TextChanged;
+            edtConfirmPassword.TextChanged += edtConfirmPassword_TextChanged;
 
             edtFullName = FindViewById<EditText>(Resource.Id.edtFullName);
-            edtFullName.TextChanged += m_edtFullName_TextChanged;
+            edtFullName.TextChanged += edtFullName_TextChanged;
 
             edtEmail = FindViewById<EditText>(Resource.Id.edtEmail);
-            edtEmail.TextChanged += m_edtEmail_TextChanged;
+            edtEmail.TextChanged += edtEmail_TextChanged;
 
             btnMale = FindViewById<RadioButton>(Resource.Id.btnMale);
             btnFemale = FindViewById<RadioButton>(Resource.Id.btnFemale);
 
             edtDOB = FindViewById<TextView>(Resource.Id.edtDOB);
             edtDOB.Click += DateSelect_OnClick;
-            edtDOB.TextChanged += m_edtDoB_TextChanged;
+            edtDOB.TextChanged += edtDoB_TextChanged;
 
             edtPhone = FindViewById<EditText>(Resource.Id.edtPhone);
-            edtPhone.TextChanged += m_edtPhone_TextChanged;
+            edtPhone.TextChanged += edtPhone_TextChanged;
 
             btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
-            btnSignUp.Touch += m_btnSignUp_Touch;
+            btnSignUp.Click += delegate { btnSignUp_Click(); };
 
-            m_presenter = new SignUpPresenter(new NavigationService(this.Application));
-            m_presenter.SetView(this);
+            presenter = new SignUpPresenter(new NavigationService(this.Application));
+            presenter.SetView(this);
 
         }
 
@@ -87,7 +87,7 @@ namespace spa.SignUp
 
         public override void OnBackPressed()
         {
-            m_presenter.GoToLogin();
+            presenter.GoToLogin();
         }
 
         protected override void OnStop()
@@ -120,53 +120,58 @@ namespace spa.SignUp
             //btnSignUp.Enabled = isValid;
         }
 
-        public void OnSignUpFailed(string errorMessage)
+        public void OnSignUpFailed(int statusCode, string errorMessage)
         {
-            if (!m_dialogVisible)
+            //if (statusCode == 404)
+            //invalidTxtView.Visibility = ViewStates.Visible;
+            //else
+            //{
+            if (!dialogVisible)
             {
-                m_dialogVisible = true;
+                dialogVisible = true;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.SetTitle("AliveDrive")
+                builder.SetTitle("Error")
                     .SetMessage(errorMessage)
-                    .SetNeutralButton("OK", (s, e) => { m_dialogVisible = false; })
+                    .SetNeutralButton("OK", (s, e) => { dialogVisible = false; })
                     .Show();
             }
+            //}
         }
 
-        private void m_edtEmail_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateEmail(e.Text.ToString());
+            presenter.UpdateEmail(e.Text.ToString());
         }
 
-        private void m_edtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtUserName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateUserName(e.Text.ToString());
+            presenter.UpdateUserName(e.Text.ToString());
         }
 
-        private void m_edtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdatePassword(e.Text.ToString());
+            presenter.UpdatePassword(e.Text.ToString());
         }
 
-        private void m_edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateConfirmPassword(e.Text.ToString());
+            presenter.UpdateConfirmPassword(e.Text.ToString());
         }
 
-        private void m_edtFullName_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtFullName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateFullName(e.Text.ToString());
+            presenter.UpdateFullName(e.Text.ToString());
         }
 
-        private void m_edtPhone_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtPhone_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdatePhone(e.Text.ToString());
+            presenter.UpdatePhone(e.Text.ToString());
         }
 
-        private void m_edtDoB_TextChanged(object sender, TextChangedEventArgs e)
+        private void edtDoB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            m_presenter.UpdateDoB(e.Text.ToString());
+            presenter.UpdateDoB(e.Text.ToString());
         }
 
         [Obsolete]
@@ -174,16 +179,17 @@ namespace spa.SignUp
         {
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
-                edtDOB.Text = time.ToLongDateString();
+                edtDOB.Text = time.ToShortDateString();
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
 
-        private void m_btnSignUp_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void btnSignUp_Click()
         {
-            if (btnMale.Checked) m_presenter.UpdateGender(btnMale.Text);
-            else m_presenter.UpdateGender(btnFemale.Text);
-            m_presenter.SignUp(false);
+            if (btnMale.Checked) presenter.UpdateGender(btnMale.Text);
+            else if (btnFemale.Checked) presenter.UpdateGender(btnFemale.Text);
+            else presenter.UpdateGender("");
+            presenter.SignUp();
         }
 
     }

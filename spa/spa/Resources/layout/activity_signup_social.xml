@@ -6,6 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
+    android:background="@color/primaryWhite"
     >
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +68,6 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:text="* Please provide Full-name *"
-        android:layout_marginLeft="34sp"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
         <LinearLayout
@@ -79,7 +79,8 @@ android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"/>
+            android:paddingBottom="10dp"
+            android:background="@drawable/edittextbottomline"/>
         </LinearLayout>
 
         <TextView
@@ -88,6 +89,7 @@ android:orientation="vertical"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:text="Date of birth"
+        android:layout_marginTop="20dp"
         android:gravity="top"/>
         <TextView
         android:layout_width="match_parent"
@@ -106,6 +108,8 @@ android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
             android:background="@drawable/edittextbottomline"
             />
         </LinearLayout>
@@ -172,8 +176,11 @@ android:orientation="vertical"
                 android:id="@+id/edtPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#d9d9d9"/>
+                android:paddingBottom="10dp"
+                android:inputType="phone"
+                android:background="@drawable/edittextbottomline" />
             </LinearLayout>
         </LinearLayout>
 

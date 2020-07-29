@@ -113,6 +113,8 @@
     <Compile Include="Main\Navigation\INavigationService.cs" />
     <Compile Include="Main\Utils\HttpLoggingHandler.cs" />
     <Compile Include="Main\ProvideInformation\ProvideInformationActivity.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\UserResponse.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\UserRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

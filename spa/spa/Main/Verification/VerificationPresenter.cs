@@ -3,17 +3,21 @@ using spa.Navigation;
 using spa.Base;
 using spa.Main;
 using spa.Login;
+using spa.Data.Model.User;
+using spa.Data;
+using System.Collections.Generic;
 
 namespace spa.Verification
 {
     public class VerificationPresenter : BasePresenter
     {
-
         private IVerificationView m_view;
+        DataManager dataManager;
         private string otp;
         public VerificationPresenter(INavigationService navigationService) :
             base(navigationService)
         {
+            dataManager = DataManager.GetInstance();
         }
 
         public void SetView(IVerificationView view)
@@ -51,11 +55,17 @@ namespace spa.Verification
                 !m_view.IsPerformingAction &&
                 HasValidInput())
             {
+                User user = new User();
+                user.verifyCode = otp;
+
                 m_view.OnActionStarted();
 
                 bool verificated = false;
+                Dictionary<int, string> resp = dataManager.GetUserRepository().Verify(user);
+
                 if (otp.Equals("13579"))
                     verificated = true;
+
                 m_view.OnActionFinished();
 
                 if (verificated)

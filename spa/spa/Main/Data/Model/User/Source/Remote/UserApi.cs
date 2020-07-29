@@ -8,25 +8,32 @@ using System.Net.Http.Headers;
 namespace spa.Data.Model.User.Source.Remote
 {
     //[Headers ("Accept: application/json")]
+    [Headers("User-Agent: Xamarin")]
     public interface UserApi
     {
+        //    [Post("/auth/login/manually")]
+        //    Task<HttpResponseMessage> LoginManual([Body(BodySerializationMethod.UrlEncoded)]  User user);
+
         [Post("/auth/login/manually")]
-        Task<HttpResponseMessage> LoginManual(User user);
+        Task<UserResponse> LoginManual(UserRequest user);
 
         [Post("/auth/login/social")]
-        Task<HttpResponseMessage> LoginSocial(User user);
+        Task<UserResponse> LoginSocial(UserRequest user);
 
-        [Post("/auth/register/manual")]
-        Task<HttpResponseMessage> RegisterManual(User user);
+        [Post("/api/auth/register/manually")]
+        Task<UserResponse> RegisterManual(UserRequest user);
 
         [Post("/auth/register/social")]
-        Task<HttpResponseMessage> RegisterSocial(User user);
+        Task<UserResponse> RegisterSocial(UserRequest user);
+
+        [Post("/auth/register/verify")]
+        Task<UserResponse> Verify(UserRequest user);
 
         [Post("/update")]
-        Task<HttpResponseMessage> Update(User user);
+        Task<UserResponse> Update(UserRequest user);
 
         [Get("/profile")]
-        Task<HttpResponseMessage> Profile(User user);
+        Task<UserResponse> Profile(UserRequest user);
 
 
     }

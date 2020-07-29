@@ -50,6 +50,7 @@ namespace spa.Login
 
             presenter = new LoginPresenter(new NavigationService(this.Application));
             presenter.SetView(this);
+            presenter.UpdateSharePreference(new SharedPrefsHelper(this.ApplicationContext));
         }
 
         private void initViewAndListener()
@@ -64,7 +65,7 @@ namespace spa.Login
             btnLogin.Click += delegate { btnLogin_Click(); };
 
             btnRegister = FindViewById<TextView>(Resource.Id.btnRegister);
-            btnRegister.Touch += btnRegister_Touch;
+            btnRegister.Click += delegate { btnRegister_Click(); };
 
             btnLoginFB = FindViewById<ImageView>(Resource.Id.FacebookButton);
             btnLoginFB.Click += delegate { LoginFacebook(); };
@@ -117,7 +118,7 @@ namespace spa.Login
             // button doesn't bring the user back to the login screen. Where
             // navigation to the login screen is required, an explicit call
             // to push a new LoginPresenter should be made.
-            if (!isSigninSocial)
+            if (!isSigninSocial || IsNavigating)
             {
                 Finish();
             }
@@ -150,12 +151,12 @@ namespace spa.Login
 
         public void OnInputValidated(bool isValid)
         {
-            btnLogin.Enabled = isValid;
+            //btnLogin.Enabled = isValid;
         }
 
         public void OnLoginFailed(int statusCode, string errorMessage)
         {
-            if (statusCode == 400)
+            if (statusCode == 404)
                 invalidTxtView.Visibility = ViewStates.Visible;
             else
             {
@@ -195,7 +196,7 @@ namespace spa.Login
             presenter.Login();
         }
 
-        private void btnRegister_Touch(object sender, Android.Views.View.TouchEventArgs e)
+        private void btnRegister_Click()
         {
             presenter.Register();
         }

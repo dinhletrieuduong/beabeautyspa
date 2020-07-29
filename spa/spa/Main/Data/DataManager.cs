@@ -10,7 +10,7 @@ namespace spa.Data
     {
         private static DataManager sInstance;
 
-        SharedPrefsHelper mSharedPrefsHelper;
+        private SharedPrefsHelper mSharedPrefsHelper;
 
         public DataManager() { }
 
@@ -31,10 +31,24 @@ namespace spa.Data
 
         public UserRepository GetUserRepository()
         {
-            UserApi userApi = UserService.GetInstance().GetUserApi();
+            UserService userService = UserService.GetInstance();
             //    UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
             //    UsersRepository movieCache = MovieCacheDataSource.getsInstance();
-            return UserRepository.GetInstance(userApi);
+            return UserRepository.GetInstance(userService);
+        }
+
+        public string GetToken()
+        {
+            return mSharedPrefsHelper.getToken();
+        }
+
+        public void SetToken(string token)
+        {
+            mSharedPrefsHelper.putToken(token);
+        }
+        public void ClearToken()
+        {
+            mSharedPrefsHelper.clearToken();
         }
     }
 }
