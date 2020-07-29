@@ -130,17 +130,14 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return false;
         }
-
         public static bool isFullNameValid(string Fullname)
         {
             if (string.IsNullOrEmpty(Fullname) || Fullname.Length < 5)
             {
                 return false;
             }
-
             return true;
         }
 
@@ -150,7 +147,6 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return true;
         }
 
@@ -160,7 +156,6 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return true;
         }
 
@@ -185,7 +180,6 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return true;
         }
 
@@ -200,7 +194,6 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return true;
         }
 
@@ -215,7 +208,6 @@ namespace spa.Utils
             {
                 return false;
             }
-
             return true;
         }
     }
