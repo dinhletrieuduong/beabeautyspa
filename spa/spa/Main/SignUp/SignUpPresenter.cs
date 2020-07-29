@@ -6,6 +6,7 @@ using spa.Base;
 using spa.Login;
 using spa.Main;
 using System.Collections.Generic;
+using spa.Utils;
 
 namespace spa.SignUp
 {
@@ -22,6 +23,7 @@ namespace spa.SignUp
         private string m_dob;
         private int m_gender;
         private string m_confirmPassword;
+        private bool isAcceptTerm;
 
         public SignUpPresenter(INavigationService navigationService) : base(navigationService)
         {
@@ -90,25 +92,41 @@ namespace spa.SignUp
             ValidateInput();
         }
 
+        public void UpdateTerm(bool isChecked)
+        {
+            isAcceptTerm = isChecked;
+            ValidateInput();
+        }
+
         private void ValidateInput()
         {
-            m_view.OnInputValidated(HasValidInput());
+            //Check input valid on each edit text
+            //m_view.OnInputValidated(HasValidInput());
         }
 
         private bool HasValidInput()
         {
-            return !string.IsNullOrEmpty(m_email) &&
-                !string.IsNullOrEmpty(m_username) &&
-                !string.IsNullOrEmpty(m_fullName) &&
-                !string.IsNullOrEmpty(m_password) &&
-                !string.IsNullOrEmpty(m_confirmPassword) &&
-                m_password == m_confirmPassword;
+            return CheckInputValid.isEmailValid(m_email) &&
+                CheckInputValid.isUsernameValid(m_username) &&
+                CheckInputValid.isFullNameValid(m_fullName) &&
+                CheckInputValid.isPasswordValid(m_password) &&
+                CheckInputValid.isConPasswordValid(m_password, m_confirmPassword);
         }
 
         public void SignUp()
         {
+            int isValidRegister = CheckInputValid.ManuallySignUpCheckInputValid(
+                    m_username, m_password, m_confirmPassword, m_fullName, m_gender, m_dob, m_email, m_phone);
+
+            if (isValidRegister != 0)
+            {
+                m_view.OnSignUpFailed(400, isValidRegister.ToString());
+                return;
+            }
+
             if (!m_view.IsNavigating && !m_view.IsPerformingAction && HasValidInput())
             {
+
                 User user = new User(m_username, m_password, m_email, m_dob, m_phone, m_fullName, m_gender);
                 bool isSignUpBySocial = string.IsNullOrEmpty(m_email);
 

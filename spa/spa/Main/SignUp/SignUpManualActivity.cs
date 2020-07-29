@@ -28,16 +28,16 @@ namespace spa.SignUp
         private EditText edtUsername;
         private EditText edtPassword;
         private EditText edtConfirmPassword;
-
         private EditText edtEmail;
         private EditText edtPhone;
         private TextView edtDOB;
-        private RadioButton btnMale, btnFemale;
         private EditText edtFullName;
-
+        private RadioButton btnMale, btnFemale;
         private Button btnSignUp;
 
-        private bool dialogVisible, isSignUpSocial;
+        private TextView invalidTxtView;
+
+        private bool dialogVisible, isSignUpSocial, isAcceptTerm;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -122,56 +122,110 @@ namespace spa.SignUp
 
         public void OnSignUpFailed(int statusCode, string errorMessage)
         {
-            //if (statusCode == 404)
-            //invalidTxtView.Visibility = ViewStates.Visible;
-            //else
-            //{
-            if (!dialogVisible)
+            if (statusCode == 400)
             {
-                dialogVisible = true;
+                if (errorMessage.Length == 1)
+                {
+                    if (errorMessage.Equals("1"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView1);
+                    else if (errorMessage.Equals("2"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView2);
+                    else if (errorMessage.Equals("3"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView3);
+                    else if (errorMessage.Equals("4"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView4);
+                    else if (errorMessage.Equals("5"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView5);
+                    else if (errorMessage.Equals("6"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView6);
+                    else if (errorMessage.Equals("7"))
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView7);
+                    else
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView8);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.SetTitle("Error")
-                    .SetMessage(errorMessage)
-                    .SetNeutralButton("OK", (s, e) => { dialogVisible = false; })
-                    .Show();
+                    invalidTxtView.Visibility = ViewStates.Visible;
+
+                }
+                else
+                {
+                    invalidTxtView.Visibility = ViewStates.Visible;
+
+                }
             }
+            else
+            {
+                if (!dialogVisible)
+                {
+                    dialogVisible = true;
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.SetTitle("Error")
+                        .SetMessage(errorMessage)
+                        .SetNeutralButton("OK", (s, e) => { dialogVisible = false; })
+                        .Show();
+                }
+            }
+        }
+
+        private void btnSignUp_Click()
+        {
+            if (btnMale.Checked) presenter.UpdateGender(btnMale.Text);
+            else if (btnFemale.Checked) presenter.UpdateGender(btnFemale.Text);
+            else presenter.UpdateGender("");
+
+            CheckBox acceptTermChckBx = FindViewById<CheckBox>(Resource.Id.isAcceptTerm);
+
+            //if (acceptTermChckBx.Checked)
+            //{
+            //    presenter.SignUp();
+
             //}
+            presenter.SignUp();
+
         }
 
         private void edtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdateEmail(e.Text.ToString());
+            if (invalidTxtView != null)
+                invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtUserName_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdateUserName(e.Text.ToString());
+            if (invalidTxtView != null)
+                invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdatePassword(e.Text.ToString());
+            if (invalidTxtView != null) invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtConfirmPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdateConfirmPassword(e.Text.ToString());
+            if (invalidTxtView != null) invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtFullName_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdateFullName(e.Text.ToString());
+            if (invalidTxtView != null) invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtPhone_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdatePhone(e.Text.ToString());
+            if (invalidTxtView != null) invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         private void edtDoB_TextChanged(object sender, TextChangedEventArgs e)
         {
             presenter.UpdateDoB(e.Text.ToString());
+            if (invalidTxtView != null) invalidTxtView.Visibility = ViewStates.Gone;
         }
 
         [Obsolete]
@@ -182,14 +236,6 @@ namespace spa.SignUp
                 edtDOB.Text = time.ToShortDateString();
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
-        }
-
-        private void btnSignUp_Click()
-        {
-            if (btnMale.Checked) presenter.UpdateGender(btnMale.Text);
-            else if (btnFemale.Checked) presenter.UpdateGender(btnFemale.Text);
-            else presenter.UpdateGender("");
-            presenter.SignUp();
         }
 
     }

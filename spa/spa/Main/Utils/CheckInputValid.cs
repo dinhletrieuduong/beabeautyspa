@@ -7,37 +7,25 @@ namespace spa.Utils
     {
         // check gradually from left to right, acording to figma design, the function check from top to bottom.
         // Function will re turn 0 if all were valid, or it will return the position where the error occur
-        public int ManuallySignUpCheckInputValid(string Username, string Pass, string conPass,
-            string Fullname, int Gender, string Email, string Phone)
+        public static int ManuallySignUpCheckInputValid(string Username, string Pass, string conPass,
+            string Fullname, int Gender, string Dob, string Email, string Phone)
         {
             if (isUsernameValid(Username) == false)
-            {
                 return 1;
-            }
             if (isPasswordValid(Pass) == false)
-            {
                 return 2;
-            }
             if (isConPasswordValid(Pass, conPass) == false)
-            {
                 return 3;
-            }
             if (isFullNameValid(Fullname) == false)
-            {
                 return 4;
-            }
-            if (isGenderValid(Gender) == false)
-            {
+            if (Dob.Length == 0)
                 return 5;
-            }
-            if (isEmailValid(Email) == false)
-            {
+            if (isGenderValid(Gender) == false)
                 return 6;
-            }
-            if (isPhoneValid(Phone) == false)
-            {
+            if (isEmailValid(Email) == false)
                 return 7;
-            }
+            if (isPhoneValid(Phone) == false)
+                return 8;
 
             return 0;
         }
@@ -92,7 +80,7 @@ namespace spa.Utils
 
         public static bool isUsernameValid(string username)
         {
-            if (username.Length < 5)
+            if (string.IsNullOrEmpty(username) || username.Length < 5)
             {
                 return false;
             }
@@ -103,7 +91,7 @@ namespace spa.Utils
 
         public static bool isPasswordValid(string Pass)
         {
-            if (Pass.Length < 5 || Pass.Length > 50)
+            if (string.IsNullOrEmpty(Pass) || Pass.Length < 5 || Pass.Length > 50)
             {
                 return false;
             }
@@ -113,7 +101,7 @@ namespace spa.Utils
 
         public static bool isConPasswordValid(string Pass, string conPass)
         {
-            if (Pass != conPass)
+            if (string.IsNullOrEmpty(conPass) || Pass != conPass)
             {
                 return false;
             }
@@ -123,6 +111,8 @@ namespace spa.Utils
 
         public static bool isEmailValid(string Email)
         {
+            if (string.IsNullOrEmpty(Email))
+                return false;
             string EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
             Regex regex = new Regex(EMAIL_PATTERN);
             Match match = regex.Match(Email);
@@ -131,7 +121,7 @@ namespace spa.Utils
 
         public static bool isPhoneValid(string Phone)
         {
-            if (Phone.Length == 10)
+            if (string.IsNullOrEmpty(Phone) || Phone.Length == 10)
             {
                 return true;
             }
@@ -146,7 +136,7 @@ namespace spa.Utils
 
         public static bool isFullNameValid(string Fullname)
         {
-            if (Fullname.Length < 5)
+            if (string.IsNullOrEmpty(Fullname) || Fullname.Length < 5)
             {
                 return false;
             }
@@ -166,7 +156,7 @@ namespace spa.Utils
 
         public static bool isProfessionValid(string Profession)
         {
-            if (Profession.Length == 0)
+            if (string.IsNullOrEmpty(Profession) || Profession.Length == 0)
             {
                 return false;
             }
@@ -186,7 +176,7 @@ namespace spa.Utils
 
         public static bool isICValid(string IC)
         {
-            if (IC.Length == 0)
+            if (string.IsNullOrEmpty(IC) || IC.Length == 0)
             {
                 return false;
             }
@@ -201,7 +191,7 @@ namespace spa.Utils
 
         public static bool isWeightValid(string Weight)
         {
-            if (Weight.Length == 0)
+            if (string.IsNullOrEmpty(Weight) || Weight.Length == 0)
             {
                 return false;
             }
@@ -216,7 +206,7 @@ namespace spa.Utils
 
         public static bool isHeightValid(string Height)
         {
-            if (Height.Length == 0)
+            if (string.IsNullOrEmpty(Height) || Height.Length == 0)
             {
                 return false;
             }
