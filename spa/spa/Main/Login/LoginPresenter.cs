@@ -5,6 +5,9 @@ using spa.Data.Model.User;
 using spa.Data;
 using spa.Verification;
 using spa.SignUp;
+using System.Collections.Generic;
+using System.Diagnostics;
+using spa.Main;
 
 namespace spa.Login
 {
@@ -77,23 +80,26 @@ namespace spa.Login
                 user.token = m_token;
                 user.username = m_username;
                 user.password = m_password;
+                bool isLoginSocial = !string.IsNullOrEmpty(m_email);
 
                 m_view.OnActionStarted();
 
-                bool isLoginSocial = string.IsNullOrEmpty(m_email);
-                int statusCode = dataManager.GetUserRepository().Login(user, isLoginSocial);
-
+                Dictionary<int, string> resp = dataManager.GetUserRepository().Login(user, isLoginSocial);
                 m_view.OnActionFinished();
 
-                if (statusCode == 200)
+                if (resp.ContainsKey(200))
                 {
+                    string token;
+                    resp.TryGetValue(200, out token);
+                    dataManager.SetToken(token);
+
                     m_view.OnNavigationStarted();
                     NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
                 }
                 else
                 {
-                    if (statusCode == 400)
-                        m_view.OnLoginFailed(400, "");
+                    if (resp.ContainsKey(404))
+                        m_view.OnLoginFailed(404, "");
                     else
                         m_view.OnLoginFailed(500, "There was a problem logging you in, please try again later.");
 
@@ -110,5 +116,14 @@ namespace spa.Login
             }
         }
 
+        public void UpdateSharePreference(SharedPrefsHelper sharedPrefsHelper)
+        {
+            dataManager.SetSharedPrefsHelper(sharedPrefsHelper);
+            if (!string.IsNullOrEmpty(dataManager.GetToken()))
+            {
+                m_view.OnNavigationStarted();
+                NavigationService.PushPresenter(new MainPresenter(NavigationService));
+            }
+        }
     }
 }

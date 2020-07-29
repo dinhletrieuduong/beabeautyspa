@@ -4,15 +4,17 @@ namespace spa.Data
 {
     public class SharedPrefsHelper
     {
-        public static String MY_PREFS = "MY_PREFS";
+        public static string BEABEAUTY_PREFS = "BEABEAUTY_PREFS";
 
-        public static String EMAIL = "EMAIL";
+        public static string EMAIL = "EMAIL";
+        public static string USERNAME = "USERNAME";
+        public static string TOKEN = "TOKEN";
 
         ISharedPreferences mSharedPreferences;
 
         public SharedPrefsHelper(Context context)
         {
-            mSharedPreferences = context.GetSharedPreferences(MY_PREFS, FileCreationMode.Private);
+            mSharedPreferences = context.GetSharedPreferences(BEABEAUTY_PREFS, FileCreationMode.Private);
         }
 
         public void clear()
@@ -20,14 +22,29 @@ namespace spa.Data
             mSharedPreferences.Edit().Clear().Apply();
         }
 
-        public void putEmail(String email)
+        public void clearToken()
+        {
+            mSharedPreferences.Edit().Remove(TOKEN).Apply();
+        }
+
+        public void putEmail(string email)
         {
             mSharedPreferences.Edit().PutString(EMAIL, email).Apply();
         }
 
-        public String getEmail()
+        public string getEmail()
         {
             return mSharedPreferences.GetString(EMAIL, null);
+        }
+
+        public void putToken(string token)
+        {
+            mSharedPreferences.Edit().PutString(TOKEN, token).Apply();
+        }
+
+        public string getToken()
+        {
+            return mSharedPreferences.GetString(TOKEN, null);
         }
 
         public bool getLoggedInMode()

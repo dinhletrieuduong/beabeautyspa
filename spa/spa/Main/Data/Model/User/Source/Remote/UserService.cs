@@ -6,52 +6,87 @@ using Refit;
 using spa.Utils;
 using spa.Services;
 
+
 namespace spa.Data.Model.User.Source.Remote
 {
     public class UserService
     {
         private static string URL_LOGIN = CommonUtils.URL;
         private static UserService singleton;
-        private UserApi userApi;
+        //private UserApi userApi;
 
         private UserService()
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
-            userApi = RestService.For<UserApi>(httpClient);
+            //var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            //userApi = RestService.For<UserApi>(httpClient);
         }
 
         public static UserService GetInstance()
         {
             if (singleton == null)
-            {
                 singleton = new UserService();
-            }
             return singleton;
         }
 
-        public UserApi GetUserApi()
+        //public UserApi GetUserApi()
+        //{
+        //    return userApi;
+        //}
+
+        public async Task<UserResponse> LoginManual(User user)
         {
-            return userApi;
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new UserRequest { Username = user.username, Password = user.password };
+            return await userApi.LoginManual(request).ConfigureAwait(false);
         }
 
-        public async Task<HttpResponseMessage> LoginManual(User user)
+        public async Task<UserResponse> LoginSocial(User user)
         {
-            return await userApi.LoginManual(user);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new UserRequest { Email = user.email, Token = user.token };
+            return await userApi.LoginSocial(request).ConfigureAwait(false);
         }
 
-        public async Task<HttpResponseMessage> LoginSocial(User user)
+        public async Task<UserResponse> RegisterManual(User user)
         {
-            return await userApi.LoginSocial(user);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new UserRequest
+            {
+                Username = user.username,
+                Password = user.password,
+                Email = user.email,
+                Phone = user.phone,
+                FullName = user.fullName,
+                Gender = user.gender,
+                DoB = user.dob
+            };
+            return await userApi.RegisterManual(request).ConfigureAwait(false);
         }
 
-        public async Task<HttpResponseMessage> RegisterManual(User user)
+        public async Task<UserResponse> RegisterSocial(User user)
         {
-            return await userApi.RegisterManual(user);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new UserRequest
+            {
+                Email = user.email,
+                Phone = user.phone,
+                FullName = user.fullName,
+                Gender = user.gender,
+                DoB = user.dob
+            };
+            return await userApi.RegisterSocial(request).ConfigureAwait(false);
         }
 
-        public async Task<HttpResponseMessage> RegisterSocial(User user)
+        public async Task<UserResponse> Verify(User user)
         {
-            return await userApi.RegisterSocial(user);
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new UserRequest { VerifyCode = user.verifyCode };
+            return await userApi.Verify(request).ConfigureAwait(false);
         }
     }
 }

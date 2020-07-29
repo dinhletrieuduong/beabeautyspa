@@ -66,51 +66,79 @@
                 >
                 <EditText
                     android:id="@+id/editText1"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittextbottomline"
                     android:textSize="36sp"
                     android:gravity="center"
-                    android:layout_marginRight="20dp"
                     android:inputType="phone"
                     android:textAlignment="center"
                     />
+                <android.support.v4.widget.Space
+                       android:layout_width="10dp"
+                       android:layout_height="wrap_content"/>
                 <EditText
                     android:id="@+id/editText2"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittextbottomline"
                     android:textSize="36sp"
                     android:gravity="center"
-                    android:layout_marginRight="20dp"
                     android:inputType="phone"
                     android:textAlignment="center"
                     />
+                <android.support.v4.widget.Space
+                       android:layout_width="10dp"
+                       android:layout_height="wrap_content"/>
+                
                 <EditText
                     android:id="@+id/editText3"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittextbottomline"
                     android:textSize="36sp"
                     android:gravity="center"
-                    android:layout_marginRight="20dp"
                     android:inputType="phone"
                     android:textAlignment="center"
                     />
+                <android.support.v4.widget.Space
+                       android:layout_width="10dp"
+                       android:layout_height="wrap_content"/>
                 <EditText
                     android:id="@+id/editText4"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittextbottomline"
                     android:textSize="36sp"
                     android:gravity="center"
-                    android:layout_marginRight="20dp"
                     android:inputType="phone"
                     android:textAlignment="center"
                     />
+                <android.support.v4.widget.Space
+                       android:layout_width="10dp"
+                       android:layout_height="wrap_content"/>
                 <EditText
                     android:id="@+id/editText5"
-                    android:layout_width="40dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbottomline"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:textAlignment="center"
+                    />
+                <android.support.v4.widget.Space
+                       android:layout_width="10dp"
+                       android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittextbottomline"
                     android:textSize="36sp"
@@ -128,7 +156,6 @@
                 android:textSize="16sp"
                 android:textColor="@color/primary"
                 android:gravity="right"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"/>
             <View
                 android:layout_width="match_parent"

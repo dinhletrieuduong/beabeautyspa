@@ -7,6 +7,6 @@ namespace spa.SignUp
     public interface ISignUpView : IBaseView, INavigationView
     {
         void OnInputValidated(bool isValid);
-        void OnSignUpFailed(string errorMessage);
+        void OnSignUpFailed(int statusCode, string errorMessage);
     }
 }

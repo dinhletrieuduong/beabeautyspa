@@ -5,6 +5,7 @@ using spa.Navigation;
 using spa.Base;
 using spa.Login;
 using spa.Main;
+using System.Collections.Generic;
 
 namespace spa.SignUp
 {
@@ -19,7 +20,7 @@ namespace spa.SignUp
         private string m_email;
         private string m_phone;
         private string m_dob;
-        private string m_gender;
+        private int m_gender;
         private string m_confirmPassword;
 
         public SignUpPresenter(INavigationService navigationService) : base(navigationService)
@@ -65,13 +66,21 @@ namespace spa.SignUp
 
         public void UpdateGender(string gender)
         {
-            m_gender = gender;
+            if (gender.Equals("Male"))
+                m_gender = 1;
+            else if (gender.Equals("Female"))
+                m_gender = 0;
+            else
+                m_gender = -1;
             ValidateInput();
         }
 
         public void UpdateDoB(string dob)
         {
-            m_dob = dob;
+            var dobArray = dob.Split("/");
+            if (dobArray[0].Length == 1)
+                dobArray[0] = "0" + dobArray[0];
+            m_dob += dobArray[2] + "-" + dobArray[0] + "-" + dobArray[1];
             ValidateInput();
         }
 
@@ -96,28 +105,30 @@ namespace spa.SignUp
                 m_password == m_confirmPassword;
         }
 
-        public void SignUp(bool isSignUpBySocial)
+        public void SignUp()
         {
-            if (!m_view.IsNavigating &&
-                !m_view.IsPerformingAction &&
-                HasValidInput())
+            if (!m_view.IsNavigating && !m_view.IsPerformingAction && HasValidInput())
             {
                 User user = new User(m_username, m_password, m_email, m_dob, m_phone, m_fullName, m_gender);
+                bool isSignUpBySocial = string.IsNullOrEmpty(m_email);
 
                 m_view.OnActionStarted();
 
-                int statusCode = dataManager.GetUserRepository().Register(user, isSignUpBySocial);
+                Dictionary<int, string> resp = dataManager.GetUserRepository().Register(user, isSignUpBySocial);
 
                 m_view.OnActionFinished();
 
-                if (statusCode == 200)
+                if (resp.ContainsKey(200))
                 {
                     m_view.OnNavigationStarted();
                     NavigationService.PushPresenter(new MainPresenter(NavigationService));
                 }
                 else
                 {
-                    m_view.OnSignUpFailed("There was a problem creating your account, please try again later.");
+                    if (resp.ContainsKey(400))
+                        m_view.OnSignUpFailed(400, "Username or Email is existed");
+                    else
+                        m_view.OnSignUpFailed(500, "There was a problem creating your account, please try again later.");
                 }
             }
         }
