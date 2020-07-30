@@ -3779,145 +3779,145 @@ namespace spa
 			public const int edtFullName = 2131296349;
 			
 			// aapt resource value: 0x7F09005E
-			public const int edtFullname = 2131296350;
+			public const int edtHabit = 2131296350;
 			
 			// aapt resource value: 0x7F09005F
-			public const int edtHabit = 2131296351;
+			public const int edtHeight = 2131296351;
 			
 			// aapt resource value: 0x7F090060
-			public const int edtHeight = 2131296352;
+			public const int edtIC = 2131296352;
 			
 			// aapt resource value: 0x7F090061
-			public const int edtIC = 2131296353;
+			public const int edtMuscle = 2131296353;
 			
 			// aapt resource value: 0x7F090062
-			public const int edtMuscle = 2131296354;
+			public const int edtPassword = 2131296354;
 			
 			// aapt resource value: 0x7F090063
-			public const int edtPassword = 2131296355;
+			public const int edtPhone = 2131296355;
 			
 			// aapt resource value: 0x7F090064
-			public const int edtPhone = 2131296356;
+			public const int edtProfession = 2131296356;
 			
 			// aapt resource value: 0x7F090065
-			public const int edtProfession = 2131296357;
+			public const int edtStomachFat = 2131296357;
 			
 			// aapt resource value: 0x7F090066
-			public const int edtStomachFat = 2131296358;
+			public const int edtUsername = 2131296358;
 			
 			// aapt resource value: 0x7F090067
-			public const int edtUsername = 2131296359;
+			public const int edtWeight = 2131296359;
 			
 			// aapt resource value: 0x7F090068
-			public const int edtWeight = 2131296360;
+			public const int end = 2131296360;
 			
 			// aapt resource value: 0x7F090069
-			public const int end = 2131296361;
+			public const int enterAlways = 2131296361;
 			
 			// aapt resource value: 0x7F09006A
-			public const int enterAlways = 2131296362;
+			public const int enterAlwaysCollapsed = 2131296362;
 			
 			// aapt resource value: 0x7F09006B
-			public const int enterAlwaysCollapsed = 2131296363;
+			public const int errorTxtView = 2131296363;
 			
 			// aapt resource value: 0x7F09006C
-			public const int errorTxtView = 2131296364;
-			
-			// aapt resource value: 0x7F09006D
-			public const int exitUntilCollapsed = 2131296365;
-			
-			// aapt resource value: 0x7F09006F
-			public const int expanded_menu = 2131296367;
+			public const int exitUntilCollapsed = 2131296364;
 			
 			// aapt resource value: 0x7F09006E
-			public const int expand_activities_button = 2131296366;
+			public const int expanded_menu = 2131296366;
+			
+			// aapt resource value: 0x7F09006D
+			public const int expand_activities_button = 2131296365;
 			
 			// aapt resource value: 0x7F090003
 			public const int FacebookButton = 2131296259;
 			
-			// aapt resource value: 0x7F090070
-			public const int fill = 2131296368;
-			
-			// aapt resource value: 0x7F090073
-			public const int filled = 2131296371;
-			
-			// aapt resource value: 0x7F090071
-			public const int fill_horizontal = 2131296369;
+			// aapt resource value: 0x7F09006F
+			public const int fill = 2131296367;
 			
 			// aapt resource value: 0x7F090072
-			public const int fill_vertical = 2131296370;
+			public const int filled = 2131296370;
+			
+			// aapt resource value: 0x7F090070
+			public const int fill_horizontal = 2131296368;
+			
+			// aapt resource value: 0x7F090071
+			public const int fill_vertical = 2131296369;
+			
+			// aapt resource value: 0x7F090073
+			public const int @fixed = 2131296371;
 			
 			// aapt resource value: 0x7F090074
-			public const int @fixed = 2131296372;
+			public const int forever = 2131296372;
 			
 			// aapt resource value: 0x7F090075
-			public const int forever = 2131296373;
-			
-			// aapt resource value: 0x7F090076
-			public const int frame_container = 2131296374;
+			public const int frame_container = 2131296373;
 			
 			// aapt resource value: 0x7F090002
 			public const int FUNCTION = 2131296258;
 			
+			// aapt resource value: 0x7F090076
+			public const int general_inf = 2131296374;
+			
 			// aapt resource value: 0x7F090077
-			public const int general_inf = 2131296375;
+			public const int ghost_view = 2131296375;
 			
 			// aapt resource value: 0x7F090078
-			public const int ghost_view = 2131296376;
+			public const int group_divider = 2131296376;
 			
 			// aapt resource value: 0x7F090079
-			public const int group_divider = 2131296377;
+			public const int home = 2131296377;
 			
 			// aapt resource value: 0x7F09007A
-			public const int home = 2131296378;
+			public const int homeAsUp = 2131296378;
 			
 			// aapt resource value: 0x7F09007B
-			public const int homeAsUp = 2131296379;
+			public const int homeIcon = 2131296379;
 			
 			// aapt resource value: 0x7F09007C
-			public const int homeIcon = 2131296380;
+			public const int icon = 2131296380;
 			
 			// aapt resource value: 0x7F09007D
-			public const int icon = 2131296381;
+			public const int icon_group = 2131296381;
 			
 			// aapt resource value: 0x7F09007E
-			public const int icon_group = 2131296382;
+			public const int ifRoom = 2131296382;
 			
 			// aapt resource value: 0x7F09007F
-			public const int ifRoom = 2131296383;
+			public const int image = 2131296383;
 			
 			// aapt resource value: 0x7F090080
-			public const int image = 2131296384;
+			public const int info = 2131296384;
 			
 			// aapt resource value: 0x7F090081
-			public const int info = 2131296385;
+			public const int invalidTxtView = 2131296385;
 			
 			// aapt resource value: 0x7F090082
-			public const int invalidTxtView = 2131296386;
+			public const int invalidTxtView1 = 2131296386;
 			
 			// aapt resource value: 0x7F090083
-			public const int invalidTxtView1 = 2131296387;
+			public const int invalidTxtView2 = 2131296387;
 			
 			// aapt resource value: 0x7F090084
-			public const int invalidTxtView2 = 2131296388;
+			public const int invalidTxtView3 = 2131296388;
 			
 			// aapt resource value: 0x7F090085
-			public const int invalidTxtView3 = 2131296389;
+			public const int invalidTxtView4 = 2131296389;
 			
 			// aapt resource value: 0x7F090086
-			public const int invalidTxtView4 = 2131296390;
+			public const int invalidTxtView5 = 2131296390;
 			
 			// aapt resource value: 0x7F090087
-			public const int invalidTxtView5 = 2131296391;
+			public const int invalidTxtView6 = 2131296391;
 			
 			// aapt resource value: 0x7F090088
-			public const int invalidTxtView6 = 2131296392;
+			public const int invalidTxtView7 = 2131296392;
 			
 			// aapt resource value: 0x7F090089
-			public const int invalidTxtView7 = 2131296393;
+			public const int invalidTxtView8 = 2131296393;
 			
 			// aapt resource value: 0x7F09008A
-			public const int invalidTxtView8 = 2131296394;
+			public const int invalidTxtView9 = 2131296394;
 			
 			// aapt resource value: 0x7F09008B
 			public const int isAcceptTerm = 2131296395;
@@ -4538,7 +4538,7 @@ namespace spa
 			public const int activity_main = 2131492893;
 			
 			// aapt resource value: 0x7F0C001E
-			public const int activity_provide_info = 2131492894;
+			public const int activity_provide_infor = 2131492894;
 			
 			// aapt resource value: 0x7F0C001F
 			public const int activity_signup_manual = 2131492895;

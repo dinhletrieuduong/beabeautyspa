@@ -37,7 +37,7 @@ namespace spa.SignUp
 
         private TextView invalidTxtView;
 
-        private bool dialogVisible, isSignUpSocial, isAcceptTerm;
+        private bool dialogVisible, isSignUpSocial;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -174,13 +174,18 @@ namespace spa.SignUp
             else presenter.UpdateGender("");
 
             CheckBox acceptTermChckBx = FindViewById<CheckBox>(Resource.Id.isAcceptTerm);
+            invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView9);
 
-            //if (acceptTermChckBx.Checked)
-            //{
-            //    presenter.SignUp();
+            if (acceptTermChckBx.Checked)
+            {
+                invalidTxtView.Visibility = ViewStates.Gone;
+                presenter.SignUp();
 
-            //}
-            presenter.SignUp();
+            }
+            else
+            {
+                invalidTxtView.Visibility = ViewStates.Visible;
+            }
 
         }
 

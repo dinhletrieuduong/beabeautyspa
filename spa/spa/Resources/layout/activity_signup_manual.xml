@@ -318,6 +318,7 @@ android:layout_height="match_parent"
         </LinearLayout>
 
         <TextView
+            android:id="@+id/invalidTxtView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -356,38 +357,20 @@ android:layout_height="match_parent"
         style="@style/NoShadowButton"
         android:background="@drawable/borderbuttonstyle"
         />
-        
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-        >
-            <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:background="@drawable/edittextbottomline"
             />
-            <TextView
-            android:id="@+id/textSignUpDifferent"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Sign up using Social network"
-                
-            android:gravity="center"/>
-            <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittextbottomline"
-            />
-                
-        </LinearLayout>
-        
+
+        <TextView
+        android:id="@+id/textSignUpDifferent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sign up with existing Social media account"
+        android:gravity="center"/>
 
         <!-- Social media image button -->
         <LinearLayout
@@ -411,7 +394,6 @@ android:layout_height="match_parent"
                 android:layout_height="32dp"
                 android:src="@drawable/twitter"
                 android:contentDescription="@string/Logo"
-                    
                 />
             <ImageView
                 android:id="@+id/LinkedInButton"
@@ -422,7 +404,7 @@ android:layout_height="match_parent"
                 android:contentDescription="@string/Logo"
                     
                 />
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout> 
 
 </ScrollView>

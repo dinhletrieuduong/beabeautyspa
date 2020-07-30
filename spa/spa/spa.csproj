@@ -112,9 +112,11 @@
     <Compile Include="Main\Navigation\NavigationService.cs" />
     <Compile Include="Main\Navigation\INavigationService.cs" />
     <Compile Include="Main\Utils\HttpLoggingHandler.cs" />
-    <Compile Include="Main\ProvideInformation\ProvideInformationActivity.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\UserResponse.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\UserRequest.cs" />
+    <Compile Include="Main\ProvideInfo\ProvideInforPresenter.cs" />
+    <Compile Include="Main\ProvideInfo\ProvideInforActivity.cs" />
+    <Compile Include="Main\ProvideInfo\IProvideInforView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -156,10 +158,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
     <AndroidResource Include="Resources\layout\activity_signup_manual.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_provide_info.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -303,6 +301,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_provide_infor.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -322,7 +324,7 @@
     <Folder Include="Main\Main\PreOrder\" />
     <Folder Include="Main\Main\Promotion\" />
     <Folder Include="Main\Base\" />
-    <Folder Include="Main\ProvideInformation\" />
+    <Folder Include="Main\ProvideInfo\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

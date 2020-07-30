@@ -23,7 +23,6 @@ namespace spa.SignUp
         private string m_dob;
         private int m_gender;
         private string m_confirmPassword;
-        private bool isAcceptTerm;
 
         public SignUpPresenter(INavigationService navigationService) : base(navigationService)
         {
@@ -92,12 +91,6 @@ namespace spa.SignUp
             ValidateInput();
         }
 
-        public void UpdateTerm(bool isChecked)
-        {
-            isAcceptTerm = isChecked;
-            ValidateInput();
-        }
-
         private void ValidateInput()
         {
             //Check input valid on each edit text
@@ -126,7 +119,6 @@ namespace spa.SignUp
 
             if (!m_view.IsNavigating && !m_view.IsPerformingAction && HasValidInput())
             {
-
                 User user = new User(m_username, m_password, m_email, m_dob, m_phone, m_fullName, m_gender);
                 bool isSignUpBySocial = string.IsNullOrEmpty(m_email);
 
