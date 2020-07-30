@@ -13,7 +13,6 @@ android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginRight="30dp"
     android:layout_marginLeft="30dp">
-
         <TextView
         android:id="@+id/textTitle"
         android:textSize="25sp"
@@ -73,18 +72,13 @@ android:layout_height="match_parent"
         android:text="* Username must contains at least 5 characters *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/edittextbottomline"    />
-        </LinearLayout>
+        android:layout_marginTop="10sp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/edittextbottomline"/>
 
         <TextView
         android:id="@+id/textPassword"
@@ -102,20 +96,14 @@ android:layout_height="match_parent"
         android:text="* Passwords must contains 8 - 50 characters *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_marginTop="10sp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/edittextbottomline"
-                />
-        </LinearLayout>
+        android:inputType="textPassword"
+        android:layout_marginTop="10sp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/edittextbottomline"/>
 
         <TextView
         android:id="@+id/textConPassword"
@@ -133,20 +121,14 @@ android:layout_height="match_parent"
         android:text="* Confirm passwords does not match *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">        
-            <EditText
-            android:id="@+id/edtConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:paddingBottom="10dp"
-            android:layout_marginTop="10dp"
-               android:background="@drawable/edittextbottomline"
-                    />
-        </LinearLayout>
+        android:inputType="textPassword"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittextbottomline"/>
 
         <TextView
         android:id="@+id/general_inf"
@@ -174,19 +156,14 @@ android:layout_height="match_parent"
         android:text="* Please provide Full-name *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtFullName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edittextbottomline" 
-            />
-        </LinearLayout>
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittextbottomline" 
+        />
 
         <TextView
         android:id="@+id/textDOB"
@@ -204,20 +181,14 @@ android:layout_height="match_parent"
         android:text="* Please provide date of birth *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <TextView
+        android:id="@+id/edtDOB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <TextView
-            android:id="@+id/edtDOB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-            android:background="@drawable/edittextbottomline"
-            />
-        </LinearLayout>
+        android:paddingBottom="10dp"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittextbottomline"/>
 
         <TextView
         android:id="@+id/textGender"
@@ -239,11 +210,8 @@ android:layout_height="match_parent"
         android:id="@+id/rdgGender"
         android:layout_marginTop="10sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-            <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
                 <RadioButton
                 android:id="@+id/btnMale"
                 android:layout_width="wrap_content"
@@ -254,7 +222,6 @@ android:layout_height="match_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"/>
-            </LinearLayout>
         </RadioGroup>
 
         <TextView
@@ -273,18 +240,13 @@ android:layout_height="match_parent"
         android:text="* Please provide your email *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingBottom="10dp"
-            android:background="@drawable/edittextbottomline" />
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/edittextbottomline" />
 
         <TextView
         android:id="@+id/textPhone"
@@ -302,23 +264,18 @@ android:layout_height="match_parent"
         android:text="* Please provide 10 digits phone number *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
-            android:paddingBottom="10dp"
-            android:inputType="phone"
-            android:background="@drawable/edittextbottomline" />
-        </LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="phone"
+        android:background="@drawable/edittextbottomline"/>
 
         <TextView
-            android:id="@+id/invalidTxtView9"
+        android:id="@+id/invalidTxtView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -360,11 +317,11 @@ android:layout_height="match_parent"
         android:background="@drawable/borderbuttonstyle"
         />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/edittextbottomline"
-            />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edittextbottomline"
+        />
 
         <TextView
         android:id="@+id/textSignUpDifferent"
@@ -404,7 +361,6 @@ android:layout_height="match_parent"
                 android:src="@drawable/linkedin"
                 android:layout_marginLeft="10dp"
                 android:contentDescription="@string/Logo"
-                    
                 />
         </LinearLayout>
     </LinearLayout> 

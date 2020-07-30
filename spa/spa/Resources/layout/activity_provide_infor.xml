@@ -50,19 +50,13 @@ android:layout_height="match_parent"
         android:text="* Please provide your profession *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtProfession"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtProfession"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:gravity="center_horizontal"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textIC"
@@ -79,18 +73,13 @@ android:layout_height="match_parent"
         android:text="* Please provide your IC *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtIC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtIC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textWeight"
@@ -108,18 +97,14 @@ android:layout_height="match_parent"
         android:text="* Please provide your weight *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtWeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:inputType="numberDecimal"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textHeight"
@@ -136,18 +121,14 @@ android:layout_height="match_parent"
         android:text="* Please provide your height *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtHeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:inputType="numberDecimal"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textBasicLifestyle"
@@ -157,18 +138,13 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Basic Lifestyle"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtBasicLifestyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtBasicLifestyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textHabit"
@@ -178,18 +154,13 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Habit"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtHabit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtHabit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textBodyMass"
@@ -199,18 +170,14 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Body mass"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtBodyMass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtBodyMass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:inputType="number"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textBMI"
@@ -220,18 +187,14 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="BMI"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtBMI"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtBMI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:inputType="numberSigned"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textFat"
@@ -241,18 +204,14 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Fat content (%)"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtFat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtFat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:inputType="numberDecimal"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textMuscle"
@@ -262,18 +221,14 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Muscle content (%)"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtMuscle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtMuscle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:inputType="numberDecimal"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <TextView
         android:id="@+id/textStomachFat"
@@ -283,21 +238,17 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:text="Stomach fat (%)"
         android:gravity="top"/>
-        <LinearLayout
+        <EditText
+        android:id="@+id/edtStomachFat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-            <EditText
-            android:id="@+id/edtStomachFat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#d9d9d9"
-            android:background="@drawable/border_bottom"/>
-        </LinearLayout>
+        android:layout_marginTop="10dp"
+        android:inputType="numberDecimal"
+        android:backgroundTint="#d9d9d9"
+        android:background="@drawable/border_bottom"/>
 
         <Button
-        android:id="@+id/buttonFinish"
+        android:id="@+id/btnFinish"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

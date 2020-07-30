@@ -3638,22 +3638,22 @@ namespace spa
 			public const int btnFemale = 2131296303;
 			
 			// aapt resource value: 0x7F090030
-			public const int btnForgotPassword = 2131296304;
+			public const int btnFinish = 2131296304;
 			
 			// aapt resource value: 0x7F090031
-			public const int btnLogin = 2131296305;
+			public const int btnForgotPassword = 2131296305;
 			
 			// aapt resource value: 0x7F090032
-			public const int btnMale = 2131296306;
+			public const int btnLogin = 2131296306;
 			
 			// aapt resource value: 0x7F090033
-			public const int btnRegister = 2131296307;
+			public const int btnMale = 2131296307;
 			
 			// aapt resource value: 0x7F090034
-			public const int btnSignUp = 2131296308;
+			public const int btnRegister = 2131296308;
 			
 			// aapt resource value: 0x7F090035
-			public const int buttonFinish = 2131296309;
+			public const int btnSignUp = 2131296309;
 			
 			// aapt resource value: 0x7F090036
 			public const int buttonPanel = 2131296310;
