@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,17 +38,20 @@
                 android:layout_width="50dp"
                 android:layout_height="35dp"
                 android:layout_gravity="right"
-                android:layout_marginLeft="70sp"
+                android:layout_marginLeft="75sp"
                 android:src="@drawable/plus"
                 android:scaleType="fitStart"
                 android:background="#ffffff"/>
         </LinearLayout>
 
         <ListView
+            android:id="@+id/lvCarts"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20sp">
+            
         </ListView>
+        
         
 
     </LinearLayout>
