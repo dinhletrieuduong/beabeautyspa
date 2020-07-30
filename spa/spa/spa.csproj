@@ -114,9 +114,9 @@
     <Compile Include="Main\Utils\HttpLoggingHandler.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\UserResponse.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\UserRequest.cs" />
-    <Compile Include="Main\ProvideInfo\ProvideInforPresenter.cs" />
-    <Compile Include="Main\ProvideInfo\ProvideInforActivity.cs" />
-    <Compile Include="Main\ProvideInfo\IProvideInforView.cs" />
+    <Compile Include="Main\ProvideInfor\ProvideInforPresenter.cs" />
+    <Compile Include="Main\ProvideInfor\ProvideInforActivity.cs" />
+    <Compile Include="Main\ProvideInfor\IProvideInforView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -324,7 +324,7 @@
     <Folder Include="Main\Main\PreOrder\" />
     <Folder Include="Main\Main\Promotion\" />
     <Folder Include="Main\Base\" />
-    <Folder Include="Main\ProvideInfo\" />
+    <Folder Include="Main\ProvideInfor\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

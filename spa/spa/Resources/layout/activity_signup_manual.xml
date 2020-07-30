@@ -325,11 +325,13 @@ android:layout_height="match_parent"
         android:text="* Please check the box belo to agree terms and conditions *"
         android:gravity="center_horizontal"
         android:textSize="15sp"
+        android:layout_marginTop="20dp"
         android:textColor="#ff0000"/>
         <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal">
             <CheckBox
             android:id="@+id/isAcceptTerm"

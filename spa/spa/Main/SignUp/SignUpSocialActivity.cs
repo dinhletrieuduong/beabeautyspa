@@ -97,16 +97,8 @@ namespace spa.SignUp
                         invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView2);
                     else if (errorMessage.Equals("3"))
                         invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView3);
-                    else if (errorMessage.Equals("4"))
-                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView4);
-                    else if (errorMessage.Equals("5"))
-                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView5);
-                    else if (errorMessage.Equals("6"))
-                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView6);
-                    else if (errorMessage.Equals("7"))
-                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView7);
                     else
-                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView8);
+                        invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView4);
 
                     invalidTxtView.Visibility = ViewStates.Visible;
 
@@ -139,7 +131,7 @@ namespace spa.SignUp
             else presenter.UpdateGender("");
 
             CheckBox acceptTermChckBx = FindViewById<CheckBox>(Resource.Id.isAcceptTerm);
-            invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView9);
+            invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView5);
 
             if (acceptTermChckBx.Checked)
             {
