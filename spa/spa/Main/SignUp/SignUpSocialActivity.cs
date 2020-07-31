@@ -106,7 +106,6 @@ namespace spa.SignUp
                 else
                 {
                     invalidTxtView.Visibility = ViewStates.Visible;
-
                 }
             }
             else
@@ -137,7 +136,6 @@ namespace spa.SignUp
             {
                 invalidTxtView.Visibility = ViewStates.Gone;
                 presenter.SignUp();
-
             }
             else
             {

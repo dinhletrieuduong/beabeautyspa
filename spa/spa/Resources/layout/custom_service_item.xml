@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@drawable/body_service"
+    android:padding="15dp">
+    <TextView
+        android:text="Body Massage"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textFontWeight="700"
+        android:id="@+id/serviceNameTxtView"/>
+    <TextView
+        android:text="Duration: 30 min"
+        android:textColor="@android:color/black"
+        android:textFontWeight="700"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/durationTxtView"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom"/>
+</LinearLayout>

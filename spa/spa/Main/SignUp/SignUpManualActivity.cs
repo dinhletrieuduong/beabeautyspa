@@ -34,7 +34,6 @@ namespace spa.SignUp
         private EditText edtFullName;
         private RadioButton btnMale, btnFemale;
         private Button btnSignUp;
-
         private TextView invalidTxtView;
 
         private bool dialogVisible, isSignUpSocial;

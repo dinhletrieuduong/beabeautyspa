@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Com.Syncfusion.Carousel;
 
 namespace spa.Fragments
 {
@@ -38,7 +39,19 @@ namespace spa.Fragments
         {
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
+            SfCarousel carousel = view.FindViewById<SfCarousel>(Resource.Id.carousel);
 
+            List<SfCarouselItem> tempCollection = new List<SfCarouselItem>();
+
+            for (int i = 1; i <= 6; i++)
+            {
+                SfCarouselItem sfCarouselItem = new SfCarouselItem(view.Context);
+                sfCarouselItem.ImageName = "image" + i.ToString();
+                tempCollection.Add(sfCarouselItem);
+            }
+
+            carousel.SelectedIndex = 2;
+            carousel.DataSource = tempCollection;
             //return base.OnCreateView(inflater, container, savedInstanceState);
             return view;
         }
