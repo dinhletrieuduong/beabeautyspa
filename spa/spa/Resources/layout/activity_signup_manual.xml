@@ -237,7 +237,7 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:text="* Please provide your email *"
+        android:text="* Please provide your email exactly *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
         <EditText

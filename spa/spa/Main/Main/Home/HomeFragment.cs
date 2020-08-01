@@ -8,16 +8,25 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.View;
+using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Com.Syncfusion.Carousel;
 
-namespace spa.Fragments
+namespace spa.Main.Home
 {
     [Obsolete]
     public class HomeFragment : Fragment
     {
+        ViewPager viewPager;
+        ImageAdapter imageAdapter;
+        RecyclerView recyclerView;
+        RecyclerView.Adapter adapter;
+        RecyclerView.LayoutManager layoutManager;
+
+        List<spa.Data.Model.Service.Service> services;
+
         public static HomeFragment NewInstance(String param1, String param2)
         {
             HomeFragment fragment = new HomeFragment();
@@ -37,23 +46,29 @@ namespace spa.Fragments
 
         public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            initData();
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
-            SfCarousel carousel = view.FindViewById<SfCarousel>(Resource.Id.carousel);
+            viewPager = view.FindViewById<ViewPager>(Resource.Id.viewPager);
+            imageAdapter = new ImageAdapter(this.Context);
+            viewPager.Adapter = imageAdapter;
 
-            List<SfCarouselItem> tempCollection = new List<SfCarouselItem>();
-
-            for (int i = 1; i <= 6; i++)
-            {
-                SfCarouselItem sfCarouselItem = new SfCarouselItem(view.Context);
-                sfCarouselItem.ImageName = "image" + i.ToString();
-                tempCollection.Add(sfCarouselItem);
-            }
-
-            carousel.SelectedIndex = 2;
-            carousel.DataSource = tempCollection;
-            //return base.OnCreateView(inflater, container, savedInstanceState);
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerViewService);
+            adapter = new ServiceAdapter(services);
+            layoutManager = new LinearLayoutManager(this.Context);
+            recyclerView.SetLayoutManager(layoutManager);
+            recyclerView.SetAdapter(adapter);
             return view;
+        }
+
+        private void initData()
+        {
+            services = new List<Data.Model.Service.Service>();
+            services.Add(new spa.Data.Model.Service.Service("abc", "30", Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("def", "40", Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("ghi", "20", Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("qwe", "10", Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("rqwr", "70", Resource.Drawable.body_service));
         }
     }
 }

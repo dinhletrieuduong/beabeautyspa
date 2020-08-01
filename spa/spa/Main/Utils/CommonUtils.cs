@@ -14,7 +14,7 @@ namespace spa.Utils
 {
     public class CommonUtils
     {
-        public static readonly string URL = "https://beabeauty.azurewebsites.net";
+        public static readonly string URL = "https://beabeautyspa.azurewebsites.net";
 
         public static OAuth2Authenticator LoginFacebook()
         {

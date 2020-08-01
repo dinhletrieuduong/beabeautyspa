@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -101,7 +102,12 @@ namespace spa.Services
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            await Task.Delay(1, cancellationToken).ConfigureAwait(false);
+            //await Task.Delay(1, cancellationToken).ConfigureAwait(false);
+            if (request.Content != null)
+            {
+                var content = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+                request.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            }
             var start = DateTime.Now;
             var req = request;
             var msg = $"[{req.RequestUri.PathAndQuery} -  Request]";
@@ -142,7 +148,7 @@ namespace spa.Services
 
             var resp = response;
 
-            Debug.WriteLine($"{msg} {req.RequestUri.Scheme.ToUpper()}/{resp.Version} {(int) resp.StatusCode} {resp.ReasonPhrase}");
+            Debug.WriteLine($"{msg} {req.RequestUri.Scheme.ToUpper()}/{resp.Version} {(int)resp.StatusCode} {resp.ReasonPhrase}");
 
             foreach (var header in resp.Headers)
             {
@@ -165,13 +171,13 @@ namespace spa.Services
                     Debug.WriteLine($"{msg} {string.Join("", result.Cast<char>().Take(256))}...");
                 }
             }
-            
+
             Debug.WriteLine($"{msg} Duration: {DateTime.Now - start}");
             Debug.WriteLine($"{msg}==========Response End==========");
             return response;
         }
 
-        readonly string[] types = {"html", "text", "xml", "json", "txt", "x-www-form-urlencoded"};
+        readonly string[] types = { "html", "text", "xml", "json", "txt", "x-www-form-urlencoded" };
 
         private bool IsTextBasedContentType(HttpHeaders headers)
         {

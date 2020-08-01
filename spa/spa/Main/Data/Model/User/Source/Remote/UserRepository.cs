@@ -32,8 +32,8 @@ namespace spa.Data.Model.User.Source.Remote
 
         public Dictionary<int, string> Login(User user, bool isLoginBySocial)
         {
-            //var response = isLoginBySocial ? userApi.LoginSocial(user) : userApi.LoginManual(user);
-            var response = userService.LoginManual(user);
+            var response = isLoginBySocial ? userService.LoginSocial(user) : userService.LoginManual(user);
+            //var response = userService.LoginManual(user);
             Dictionary<int, string> resp = new Dictionary<int, string>();
             string message = "";
             try
@@ -48,7 +48,10 @@ namespace spa.Data.Model.User.Source.Remote
             {
                 //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
-                resp.Add(500, message);
+                if (e.Message.Contains("404"))
+                    resp.Add(404, message);
+                else
+                    resp.Add(500, message);
                 return resp;
             }
         }
@@ -63,15 +66,16 @@ namespace spa.Data.Model.User.Source.Remote
             {
                 response.Wait();
                 message = response.Result.message;
-                int statusCode = message.Contains("successful") ? 200 : 400;
-                resp.Add(statusCode, message);
+                resp.Add(200, message);
                 return resp;
             }
             catch (Exception e)
             {
                 //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
-                resp.Add(500, message);
+                int statusCode = e.Message.Contains("failed") ? 400 : 500;
+
+                resp.Add(statusCode, message);
                 return resp;
             }
         }

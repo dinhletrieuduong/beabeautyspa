@@ -7,14 +7,15 @@ using Android.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.Design.Widget;
-using spa.Fragments;
+using spa.Main.Home;
 using spa.Navigation;
 using spa.Main.Account;
+using Android.Support.V7.App;
 
 namespace spa.Main
 {
     [Activity(Label = "MainActivity")]
-    public class MainActivity : Activity, IMainView
+    public class MainActivity : AppCompatActivity, IMainView
     {
         private MainPresenter presenter;
         BottomNavigationView bottomNavigationView;

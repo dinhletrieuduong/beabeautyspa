@@ -117,6 +117,9 @@
     <Compile Include="Main\ProvideInfor\ProvideInforPresenter.cs" />
     <Compile Include="Main\ProvideInfor\ProvideInforActivity.cs" />
     <Compile Include="Main\ProvideInfor\IProvideInforView.cs" />
+    <Compile Include="Main\Main\Home\ImageAdapter.cs" />
+    <Compile Include="Main\Main\Home\ServiceAdapter.cs" />
+    <Compile Include="Main\Main\Home\ServiceViewHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -310,10 +313,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\custom_location_combobox.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable\location_icon.png">
       <SubType></SubType>
       <Generator></Generator>
@@ -330,15 +329,51 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\arrow_right.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable\arrow_left.png">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_promotion.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_home.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\promotion_home_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\carousel_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_location_combobox.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\BorderButtonStyle_3.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\button_right.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\credit_card.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\term.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\settings.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\notification.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\account_2.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -379,9 +414,6 @@
     </PackageReference>
     <PackageReference Include="refit">
       <Version>5.1.67</Version>
-    </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfCarousel.Android">
-      <Version>18.2.0.47</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

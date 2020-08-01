@@ -15,7 +15,6 @@ namespace spa.SignUp
     {
         private ISignUpView m_view;
         DataManager dataManager;
-
         private string m_username;
         private string m_password;
         private string m_fullName;
@@ -82,7 +81,9 @@ namespace spa.SignUp
             var dobArray = dob.Split("/");
             if (dobArray[0].Length == 1)
                 dobArray[0] = "0" + dobArray[0];
-            m_dob += dobArray[2] + "-" + dobArray[0] + "-" + dobArray[1];
+            if (dobArray[1].Length == 1)
+                dobArray[1] = "0" + dobArray[1];
+            m_dob = dobArray[2] + "-" + dobArray[0] + "-" + dobArray[1];
             ValidateInput();
         }
 
@@ -124,8 +125,9 @@ namespace spa.SignUp
                 bool isSignUpBySocial = string.IsNullOrEmpty(m_email);
 
                 m_view.OnActionStarted();
+                var userRepository = dataManager.GetUserRepository();
 
-                Dictionary<int, string> resp = dataManager.GetUserRepository().Register(user, isSignUpBySocial);
+                Dictionary<int, string> resp = userRepository.Register(user, isSignUpBySocial);
 
                 m_view.OnActionFinished();
 
