@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="SpaManager.Screen.Statistic.UC_Statistic"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpaManager.Screen.Statistic"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="1070">
+    <Grid Background="White">
+        <StackPanel>
+            <StackPanel Height="50" Margin="0 20 0 0" Orientation="Horizontal">
+                <Button Content="Create" Background="Green" BorderBrush="Gray" Foreground="White" Margin="50 0 0 0" Name="btn_create" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+
+
+                <Button Content="Edit" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_edit"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+                <Button Content="Delete" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_delete"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+                <Button Name="btn_printed" Style="{StaticResource MaterialDesignToolButton}" Margin="40 0 0 0" materialDesign:ShadowAssist.ShadowDepth="Depth0">
+                    <materialDesign:PackIcon Kind="Printer" Height="30" Width="30" Foreground="Green"/>
+                </Button>
+
+                <TextBlock Text="Month:" FontSize="16" Margin="400 0 0 0" VerticalAlignment="Center"/>
+                <ComboBox Name="cbo_month" Width="40" BorderThickness="1" BorderBrush="Gray" Margin="10 0 0 0" materialDesign:ComboBoxAssist.ShowSelectedItem="false"
+                          />
+                <TextBlock Text="Year:" FontSize="16" Margin="40 0 0 0" VerticalAlignment="Center"/>
+                <ComboBox Name="cbo_year" Width="80" BorderThickness="1" BorderBrush="Gray" Margin="10 0 0 0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

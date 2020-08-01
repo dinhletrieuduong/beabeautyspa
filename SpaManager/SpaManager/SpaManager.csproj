@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55D039A4-5920-4CA1-9DBE-4D388A6B8910}</ProjectGuid>
+    <ProjectGuid>{DE9CB681-7687-4534-BB4D-64E20C4DA627}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SpaManager</RootNamespace>
     <AssemblyName>SpaManager</AssemblyName>
@@ -43,8 +43,14 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.3.1513, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.1.3\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,68 +69,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BarOutlet.xaml.cs">
-      <DependentUpon>BarOutlet.xaml</DependentUpon>
+    <Compile Include="ApiConnection\RestAPI.cs" />
+    <Compile Include="Bar\TopBar.xaml.cs">
+      <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BarRoomInfo.xaml.cs">
-      <DependentUpon>BarRoomInfo.xaml</DependentUpon>
+    <Compile Include="Menu\MenuBar.xaml.cs">
+      <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BarBed.xaml.cs">
-      <DependentUpon>BarBed.xaml</DependentUpon>
+    <Compile Include="Model\LoginResponse.cs" />
+    <Compile Include="Model\LoginRequest.cs" />
+    <Compile Include="Screen\Account\UC_Account.xaml.cs">
+      <DependentUpon>UC_Account.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BarService.xaml.cs">
-      <DependentUpon>BarService.xaml</DependentUpon>
+    <Compile Include="Screen\Bed\UC_Bed.xaml.cs">
+      <DependentUpon>UC_Bed.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BarStatistic.xaml.cs">
-      <DependentUpon>BarStatistic.xaml</DependentUpon>
+    <Compile Include="Screen\Dashboard\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageAccount.xaml.cs">
-      <DependentUpon>UC_ManageAccount.xaml</DependentUpon>
+    <Compile Include="Screen\Login\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageOutlet.xaml.cs">
-      <DependentUpon>UC_ManageOutlet.xaml</DependentUpon>
+    <Compile Include="Screen\Outlet\UC_Outlet.xaml.cs">
+      <DependentUpon>UC_Outlet.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageRoomInfo.xaml.cs">
-      <DependentUpon>UC_ManageRoomInfo.xaml</DependentUpon>
+    <Compile Include="Screen\RoomInfo\UC_RoomInfo.xaml.cs">
+      <DependentUpon>UC_RoomInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageBed.xaml.cs">
-      <DependentUpon>UC_ManageBed.xaml</DependentUpon>
+    <Compile Include="Screen\Service\UC_Service.xaml.cs">
+      <DependentUpon>UC_Service.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageService.xaml.cs">
-      <DependentUpon>UC_ManageService.xaml</DependentUpon>
+    <Compile Include="Screen\Statistic\UC_Statistic.xaml.cs">
+      <DependentUpon>UC_Statistic.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC_ManageStatistic.xaml.cs">
-      <DependentUpon>UC_ManageStatistic.xaml</DependentUpon>
-    </Compile>
-    <Page Include="BarAccount.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BarOutlet.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BarRoomInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BarBed.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BarService.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="BarStatistic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MangeDashboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoginSpa.xaml">
+    <Page Include="Bar\TopBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,52 +114,48 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BarAccount.xaml.cs">
-      <DependentUpon>BarAccount.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MangeDashboard.xaml.cs">
-      <DependentUpon>MangeDashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginSpa.xaml.cs">
-      <DependentUpon>LoginSpa.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Menu.xaml">
+    <Page Include="Menu\MenuBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageAccount.xaml">
+    <Page Include="Screen\Account\UC_Account.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageOutlet.xaml">
+    <Page Include="Screen\Bed\UC_Bed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageRoomInfo.xaml">
+    <Page Include="Screen\Dashboard\DashBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageBed.xaml">
+    <Page Include="Screen\Login\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageService.xaml">
+    <Page Include="Screen\Outlet\UC_Outlet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC_ManageStatistic.xaml">
+    <Page Include="Screen\RoomInfo\UC_RoomInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen\Service\UC_Service.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Screen\Statistic\UC_Statistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -209,10 +183,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpaDTO\SpaDTO.csproj">
-      <Project>{7713af3e-9011-44c0-855a-75f22d1bb2b4}</Project>
-      <Name>SpaDTO</Name>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{43199834-0968-4c2d-8d74-124d5593f897}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Screen\Login\BeaBeautyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen\Bed\BeaBeautyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen\Service\BeaBeautyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen\RoomInfo\BeaBeautyLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen\Outlet\spa_outlet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Screen\Outlet\BeaBeautyLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.3\build\MaterialDesignThemes.targets')" />

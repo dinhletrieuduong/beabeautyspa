@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\obj\Debug\
+E:\SpaManager\SpaManager\obj\Debug\
 SpaManager
 none
 false
 DEBUG;TRACE
-C:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\App.xaml
-16-1544086035
+E:\SpaManager\SpaManager\App.xaml
+11882419840
 
-201640163600
-161912984018
-BarAccount.xaml;BarOutlet.xaml;BarRoomInfo.xaml;BarBed.xaml;BarService.xaml;BarStatistic.xaml;MangeDashboard.xaml;LoginSpa.xaml;MainWindow.xaml;Menu.xaml;UC_ManageAccount.xaml;UC_ManageOutlet.xaml;UC_ManageRoomInfo.xaml;UC_ManageBed.xaml;UC_ManageService.xaml;UC_ManageStatistic.xaml;
+18769971055
+18776315690
+Bar\TopBar.xaml;MainWindow.xaml;Menu\MenuBar.xaml;Screen\Account\UC_Account.xaml;Screen\Bed\UC_Bed.xaml;Screen\Dashboard\DashBoard.xaml;Screen\Login\Login.xaml;Screen\Outlet\UC_Outlet.xaml;Screen\RoomInfo\UC_RoomInfo.xaml;Screen\Service\UC_Service.xaml;Screen\Statistic\UC_Statistic.xaml;
 
 False
 
