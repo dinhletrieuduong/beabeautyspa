@@ -32,8 +32,8 @@ namespace spa.Data
         public UserRepository GetUserRepository()
         {
             UserService userService = UserService.GetInstance();
-            //    UserRemoteDataSource movieRemote = UserRemoteDataSource.getInstance(movieApi);
-            //    UsersRepository movieCache = MovieCacheDataSource.getsInstance();
+            //    UserRemoteDataSource userRemote = UserRemoteDataSource.getInstance(movieApi);
+            //    UsersRepository userCache = MovieCacheDataSource.getsInstance();
             return UserRepository.GetInstance(userService);
         }
 
@@ -48,7 +48,8 @@ namespace spa.Data
         }
         public void ClearToken()
         {
-            mSharedPrefsHelper.clearToken();
+            if (!string.IsNullOrEmpty(mSharedPrefsHelper.getToken()))
+                mSharedPrefsHelper.clearToken();
         }
     }
 }

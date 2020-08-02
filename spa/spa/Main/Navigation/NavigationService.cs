@@ -13,6 +13,7 @@ using spa.Activities;
 using spa.Base;
 using spa.Login;
 using spa.Main;
+using spa.PersonalCart;
 using spa.ProvideInfor;
 using spa.SignUp;
 using spa.Verification;
@@ -64,6 +65,7 @@ namespace spa.Navigation
                 {
                     intent = new Intent(application, typeof(MainActivity));
                 }
+
                 if (intent != null)
                 {
                     application.StartActivity(intent);

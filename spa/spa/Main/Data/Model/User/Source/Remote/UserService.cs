@@ -37,7 +37,7 @@ namespace spa.Data.Model.User.Source.Remote
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest { Username = user.username, Password = user.password };
+            var request = new LoginManualRequest { username = user.username, password = user.password };
             return await userApi.LoginManual(request).ConfigureAwait(false);
         }
 
@@ -45,7 +45,7 @@ namespace spa.Data.Model.User.Source.Remote
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest { Email = user.email, Token = user.token };
+            var request = new UserRequest { email = user.email, Token = user.token };
             return await userApi.LoginSocial(request).ConfigureAwait(false);
         }
 
@@ -53,15 +53,15 @@ namespace spa.Data.Model.User.Source.Remote
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest
+            var request = new RegisterManualRequest
             {
-                Username = user.username,
-                Password = user.password,
-                Email = user.email,
-                Phone = user.phone,
-                FullName = user.fullName,
-                Gender = user.gender,
-                DoB = user.dob
+                username = user.username,
+                password = user.password,
+                email = user.email,
+                phone = user.phone,
+                fullname = user.fullName,
+                gender = user.gender,
+                dob = user.dob
             };
             return await userApi.RegisterManual(request).ConfigureAwait(false);
         }
@@ -72,11 +72,11 @@ namespace spa.Data.Model.User.Source.Remote
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new UserRequest
             {
-                Email = user.email,
-                Phone = user.phone,
-                FullName = user.fullName,
-                Gender = user.gender,
-                DoB = user.dob
+                email = user.email,
+                phone = user.phone,
+                fullname = user.fullName,
+                gender = user.gender,
+                dob = user.dob
             };
             return await userApi.RegisterSocial(request).ConfigureAwait(false);
         }
@@ -87,6 +87,20 @@ namespace spa.Data.Model.User.Source.Remote
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new UserRequest { VerifyCode = user.verifyCode };
             return await userApi.Verify(request).ConfigureAwait(false);
+        }
+
+        public async Task<UserResponse> ProvideInfor(UserInfor userInfo)
+        {
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var userApi = RestService.For<UserApi>(httpClient);
+            var request = new ProvideInforRequest
+            {
+                height = userInfo.height,
+                weight = userInfo.weight,
+                ic = userInfo.ic,
+                profession = userInfo.profession
+            };
+            return await userApi.ProvideInfor(request).ConfigureAwait(false);
         }
     }
 }

@@ -18,8 +18,8 @@ namespace GPSDialog.Properties
         {
             return base.OnCreateView(inflater, container, savedInstanceState);
 
-            var view = inflater.Inflate(Resource.Layout.dialog_GPSLocation, container, false);
-            return view;
+            //var view = inflater.Inflate(Resource.Layout.dialog_GPSLocation, container, false);
+            //return view;
         }
     }
 

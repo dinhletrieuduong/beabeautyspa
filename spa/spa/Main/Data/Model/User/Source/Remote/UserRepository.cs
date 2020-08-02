@@ -80,6 +80,31 @@ namespace spa.Data.Model.User.Source.Remote
             }
         }
 
+        public Dictionary<int, string> ProvideInfor(UserInfor userInfo)
+        {
+            var response = userService.ProvideInfor(userInfo);
+            Dictionary<int, string> resp = new Dictionary<int, string>();
+            string token = "";
+
+            try
+            {
+                response.Wait();
+                token = response.Result.token;
+                int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
+                //if (statusCode == 200)
+                //    token = content;
+                resp.Add(statusCode, token);
+                return resp;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
+                resp.Add(500, token);
+                return resp;
+            }
+        }
+
         public Dictionary<int, string> Verify(User user)
         {
             var response = userService.Verify(user);

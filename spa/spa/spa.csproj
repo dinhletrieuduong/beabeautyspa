@@ -120,6 +120,14 @@
     <Compile Include="Main\Main\Home\ImageAdapter.cs" />
     <Compile Include="Main\Main\Home\ServiceAdapter.cs" />
     <Compile Include="Main\Main\Home\ServiceViewHolder.cs" />
+    <Compile Include="Main\dialog_GPSLocation.cs" />
+    <Compile Include="Main\Main\PreOrder\IPersCartView.cs" />
+    <Compile Include="Main\Main\PreOrder\PersonalCartAdapter.cs" />
+    <Compile Include="Main\Main\PreOrder\PersonalCartPresenter.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\LoginManualRequest.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\RegisterManualRequest.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\ProvideInforRequest.cs" />
+    <Compile Include="Main\Data\Model\User\UserInfor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -374,6 +382,22 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\account_2.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\personal_cart_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_personal_cart.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\add_circle_btn_2.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\del_btn.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

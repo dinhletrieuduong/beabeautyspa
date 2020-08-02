@@ -11,6 +11,7 @@ using spa.Main.Home;
 using spa.Navigation;
 using spa.Main.Account;
 using Android.Support.V7.App;
+using spa.Main.PreOrder;
 
 namespace spa.Main
 {
@@ -53,6 +54,9 @@ namespace spa.Main
                 //case Resource.Id.appointmentIcon:
                 //    fragment = Fragment2.NewInstance();
                 //    break;
+                case Resource.Id.preorderIcon:
+                    fragment = PreOrderFragment.NewInstance("", "");
+                    break;
                 case Resource.Id.accountIcon:
                     fragment = AccountFragment.NewInstance("", "");
                     break;

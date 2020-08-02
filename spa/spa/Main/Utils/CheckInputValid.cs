@@ -32,7 +32,7 @@ namespace spa.Utils
 
         // check gradually from left to right, acording to figma design, the function check from top to bottom.
         // Function will re turn 0 if all were valid, or it will return the position where the error occur
-        public int SocialSignUpCheckInputValid(string Fullname, int Gender, string Phone)
+        public static int SocialSignUpCheckInputValid(string Fullname, int Gender, string Phone)
         {
 
             if (isFullNameValid(Fullname) == false)
@@ -53,29 +53,26 @@ namespace spa.Utils
 
         // check gradually from left to right, acording to figma design, the function check from top to bottom.
         // Function will re turn 0 if all were valid, or it will return the position where the error occur
-        //public int ProvideInformationCheckInputValid(string Profession, string IC, string Weight, string Height)
-        //{	
-
-        //	if(isFullNameValid(Profession) == false)
-        //	{
-        //		return 1;
-        //	}
-        //	if(isGenderValid(IC) == false)
-        //	{
-        //		return 2;
-        //	}
-        //	if(isPhoneValid(Weight) == false)
-        //	{
-        //		return 3;
-        //	}
-        //	if(isPhoneValid(Height) == false)
-        //	{
-        //		return 4;
-        //	}
-
-
-        //	return 0;	
-        //}
+        public static int ProvideInformationCheckInputValid(string Profession, string IC, string Weight, string Height)
+        {
+            if (string.IsNullOrEmpty(Profession) == false)
+            {
+                return 1;
+            }
+            if (string.IsNullOrEmpty(IC) == false)
+            {
+                return 2;
+            }
+            if (string.IsNullOrEmpty(Weight) == false)
+            {
+                return 3;
+            }
+            if (string.IsNullOrEmpty(Height) == false)
+            {
+                return 4;
+            }
+            return 0;
+        }
 
 
         public static bool isUsernameValid(string username)

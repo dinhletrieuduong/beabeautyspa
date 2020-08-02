@@ -11,28 +11,28 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
-namespace PersonalCart
+namespace spa.PersonalCart
 {
     class PersonalCartAdapter : RecyclerView.Adapter
     {
-        public List<Cart> Carts;
+        public List<spa.Data.Model.Service.Service> services;
         private Context Context;
 
-        public PersonalCartAdapter(List<Cart> carts, Context con)
+        public PersonalCartAdapter(List<spa.Data.Model.Service.Service> services, Context con)
         {
-            Carts = carts;
+            this.services = services;
             Context = con;
         }
         public override int ItemCount
         {
-            get { return Carts.Count; }
+            get { return services.Count; }
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             MyView mHolder = holder as MyView;
-            mHolder.Name.Text = Carts[position].mName;
-            mHolder.Duration.Text = Carts[position].mDuration.ToString() + " minutes";
+            mHolder.Name.Text = services[position].serviceName;
+            mHolder.Duration.Text = services[position].duration.ToString() + " minutes";
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -40,23 +40,23 @@ namespace PersonalCart
             Context context = parent.Context;
             LayoutInflater inflater = LayoutInflater.From(context);
 
-            View cartView = inflater.Inflate(Resource.Layout.Cart_item, parent, false);
+            View cartView = inflater.Inflate(Resource.Layout.personal_cart_item, parent, false);
             MyView viewholder = new MyView(cartView);
             return viewholder;
         }
 
         public class MyView : RecyclerView.ViewHolder
         {
-            private View itemView;
+            //private View itemView;
             public TextView Name, Duration;
-            public ImageButton mDelete;
+            public ImageView mDelete;
 
             public MyView(View _itemView) : base(_itemView)
             {
-                itemView = _itemView;
+                //itemView = _itemView;
                 Name = _itemView.FindViewById<TextView>(Resource.Id.txtNameService);
                 Duration = _itemView.FindViewById<TextView>(Resource.Id.txtDurationService);
-                mDelete = _itemView.FindViewById<ImageButton>(Resource.Id.btnDelete);
+                mDelete = _itemView.FindViewById<ImageView>(Resource.Id.btnDelete);
 
                 mDelete.Click += delegate { DeleteButtonClick(_itemView); };
             }

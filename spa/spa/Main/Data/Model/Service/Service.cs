@@ -13,5 +13,11 @@ namespace spa.Data.Model.Service
             duration = dur;
             image = img;
         }
+
+        public Service(string name, string dur)
+        {
+            serviceName = name;
+            duration = dur;
+        }
     }
 }

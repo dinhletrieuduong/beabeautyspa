@@ -14,22 +14,25 @@ namespace spa.Data.Model.User.Source.Remote
         //    [Post("/auth/login/manually")]
         //    Task<HttpResponseMessage> LoginManual([Body(BodySerializationMethod.UrlEncoded)]  User user);
 
-        [Post("/auth/login/manually")]
-        Task<UserResponse> LoginManual(UserRequest user);
+        [Post("/api/auth/login/manually")]
+        Task<UserResponse> LoginManual(LoginManualRequest user);
 
-        [Post("/auth/login/social")]
+        [Post("/api/auth/login/social")]
         Task<UserResponse> LoginSocial(UserRequest user);
 
         [Post("/api/auth/register/manually")]
-        Task<UserResponse> RegisterManual(UserRequest user);
+        Task<UserResponse> RegisterManual(RegisterManualRequest user);
 
-        [Post("/auth/register/social")]
+        [Post("/api/auth/register/social")]
         Task<UserResponse> RegisterSocial(UserRequest user);
 
-        [Post("/auth/register/verify")]
+        [Post("/api/auth/register/social")]
+        Task<UserResponse> ProvideInfor(ProvideInforRequest user);
+
+        [Post("/api/auth/register/verify")]
         Task<UserResponse> Verify(UserRequest user);
 
-        [Post("/update")]
+        [Post("/api/update")]
         Task<UserResponse> Update(UserRequest user);
 
         [Get("/profile")]

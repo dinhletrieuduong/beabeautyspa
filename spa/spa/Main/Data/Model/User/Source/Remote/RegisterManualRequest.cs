@@ -3,7 +3,7 @@ using Refit;
 
 namespace spa.Data.Model.User.Source.Remote
 {
-    public class UserRequest
+    public class RegisterManualRequest
     {
         [AliasAs("username")]
         public string username { get; set; }
@@ -25,17 +25,5 @@ namespace spa.Data.Model.User.Source.Remote
 
         [AliasAs("gender")]
         public int gender { get; set; }
-
-        [AliasAs("token")]
-        public string Token { get; set; }
-
-        [AliasAs("verify_code")]
-        public string VerifyCode { get; set; }
-
-        [AliasAs("clientId")]
-        public string ClientId => "cientId";
-
-        [AliasAs("grant_type")]
-        public string GrantType => "password";
     }
 }

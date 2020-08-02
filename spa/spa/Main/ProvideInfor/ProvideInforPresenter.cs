@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using spa.Base;
+using spa.Data;
+using spa.Data.Model.User;
+using spa.Main.Data.Model.User.Source;
 using spa.Navigation;
 using spa.Utils;
 using spa.Verification;
@@ -9,10 +13,11 @@ namespace spa.ProvideInfor
     public class ProvideInforPresenter : BasePresenter
     {
         private IProvideInforView view;
+        DataManager dataManager;
         private string weight;
         private string height;
         private string ic;
-        private string professional;
+        private string profession;
         private string basicLifeStyle;
         private string habit;
         private string bodyMass;
@@ -23,6 +28,7 @@ namespace spa.ProvideInfor
 
         public ProvideInforPresenter(INavigationService navigationService) : base(navigationService)
         {
+            dataManager = DataManager.GetInstance();
         }
 
         public void SetVIew(IProvideInforView v)
@@ -54,9 +60,9 @@ namespace spa.ProvideInfor
             ValidateInput();
         }
 
-        public void UpdateProfessional(string professional)
+        public void UpdateProfessional(string profession)
         {
-            this.professional = professional;
+            this.profession = profession;
             ValidateInput();
         }
 
@@ -112,10 +118,38 @@ namespace spa.ProvideInfor
 
         public void ProvideInfor()
         {
-            if (!view.IsNavigating && !view.IsPerformingAction)
+            int isValidInfor = CheckInputValid.ProvideInformationCheckInputValid(
+                    profession, ic, weight, height);
+
+            if (isValidInfor != 0)
             {
-                view.OnNavigationStarted();
-                NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
+                view.OnProvideFailed(400, isValidInfor.ToString());
+                return;
+            }
+
+            if (!view.IsNavigating && !view.IsPerformingAction && HasValidInput())
+            {
+                UserInfor userInfor = new UserInfor(profession, ic, weight, height);
+
+                view.OnActionStarted();
+                var userRepository = dataManager.GetUserRepository();
+
+                Dictionary<int, string> resp = userRepository.Register(userInfor);
+
+                view.OnActionFinished();
+
+                if (resp.ContainsKey(200))
+                {
+                    view.OnNavigationStarted();
+                    NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
+                }
+                else
+                {
+                    if (resp.ContainsKey(400))
+                        view.OnProvideFailed(400, "Username or Email is existed");
+                    else
+                        view.OnProvideFailed(500, "There was a problem creating your account, please try again later.");
+                }
             }
         }
     }

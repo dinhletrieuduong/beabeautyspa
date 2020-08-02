@@ -17,7 +17,6 @@
         android:showAsAction="ifRoom"
         />
 
-    <!-->
     <item
         android:id="@+id/promotionIcon"
         android:title="Promotion"
@@ -31,7 +30,7 @@
         android:icon="@drawable/pre_order"
         android:showAsAction="ifRoom"
         />
-    <-->
+    
 
     <item
         android:id="@+id/accountIcon"
