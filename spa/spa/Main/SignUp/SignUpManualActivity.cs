@@ -18,6 +18,8 @@ using Android.Text;
 using spa.Utils;
 using spa.Fragments;
 using spa.Navigation;
+using Xamarin.Auth;
+using Newtonsoft.Json;
 
 namespace spa.SignUp
 {
@@ -35,6 +37,8 @@ namespace spa.SignUp
         private RadioButton btnMale, btnFemale;
         private Button btnSignUp;
         private TextView invalidTxtView;
+        private TextView backToLogin;
+        private ImageView btnSignUpFB;
 
         private bool dialogVisible, isSignUpSocial;
 
@@ -43,6 +47,12 @@ namespace spa.SignUp
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.activity_signup_manual);
+
+            presenter = new SignUpPresenter(new NavigationService(this.Application));
+            presenter.SetView(this);
+
+            backToLogin = FindViewById<TextView>(Resource.Id.textSignIn);
+            backToLogin.Click += delegate { presenter.GoToLogin(); };
 
             edtUsername = FindViewById<EditText>(Resource.Id.edtUsername);
             edtUsername.TextChanged += edtUserName_TextChanged;
@@ -72,15 +82,46 @@ namespace spa.SignUp
             btnSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
             btnSignUp.Click += delegate { btnSignUp_Click(); };
 
-            presenter = new SignUpPresenter(new NavigationService(this.Application));
-            presenter.SetView(this);
+            btnSignUpFB = FindViewById<ImageView>(Resource.Id.FacebookButton);
+            btnSignUpFB.Click += delegate { LoginFacebook(); };
 
         }
 
         private void LoginFacebook()
         {
             var auth = CommonUtils.LoginFacebook();
-            isSignUpSocial = true;
+            //isSigninSocial = true;
+
+            auth.Completed += async (object sender, AuthenticatorCompletedEventArgs eventArgs) =>
+            {
+                if (eventArgs.IsAuthenticated)
+                {
+                    var request = new OAuth2Request(
+                        "GET",
+                        new Uri("https://graph.facebook.com/me?fields=name,email"),
+                        null,
+                        eventArgs.Account);
+
+                    var fbResponse = await request.GetResponseAsync();
+                    var json = fbResponse.GetResponseText();
+
+                    var fbUser = JsonConvert.DeserializeObject(json);
+                    string token = eventArgs.Account.Properties["access_token"];
+                    var email = fbUser.ToString().Split(",")[1].Split(":")[1].Trim().Split("\"")[1];
+                    presenter.UpdateEmail(email);
+                    //presenter.UpdateToken(token);
+                    //presenter.SignUp();
+                }
+            };
+
+            auth.Error += (sender, eventArgs) =>
+            {
+                //isSignupSocial = false;
+                OAuth2Authenticator auth2 = (OAuth2Authenticator)sender;
+                auth2.ShowErrors = false;
+                auth2.OnCancelled();
+            };
+
             StartActivity(auth.GetUI(this));
         }
 

@@ -6,6 +6,7 @@ using spa.Login;
 using spa.Data.Model.User;
 using spa.Data;
 using System.Collections.Generic;
+using spa.ProvideInfor;
 
 namespace spa.Verification
 {
@@ -71,7 +72,7 @@ namespace spa.Verification
                 if (verificated)
                 {
                     m_view.OnNavigationStarted();
-                    NavigationService.PushPresenter(new MainPresenter(NavigationService));
+                    navigationService.PushPresenter(new ProvideInforPresenter(navigationService));
                 }
                 else
                 {
@@ -86,7 +87,7 @@ namespace spa.Verification
             if (!m_view.IsNavigating)
             {
                 m_view.OnNavigationStarted();
-                NavigationService.PushPresenter(new LoginPresenter(NavigationService));
+                navigationService.PushPresenter(new LoginPresenter(navigationService));
             }
         }
     }

@@ -85,7 +85,7 @@ namespace spa.Data.Model.User.Source.Remote
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest { VerifyCode = user.verifyCode };
+            var request = new UserRequest { VerifyCode = user.verifyCode, Token = user.token };
             return await userApi.Verify(request).ConfigureAwait(false);
         }
 
@@ -95,10 +95,17 @@ namespace spa.Data.Model.User.Source.Remote
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new ProvideInforRequest
             {
-                height = userInfo.height,
-                weight = userInfo.weight,
+                health_height = userInfo.height,
+                health_weight = userInfo.weight,
                 ic = userInfo.ic,
-                profession = userInfo.profession
+                health_profession = userInfo.profession,
+                //body_mass = userInfo.bodyMass,
+                //habit = userInfo.habit,
+                //life_style = userInfo.basicLifeStyle,
+                //bmi = userInfo.bmi,
+                //fat = userInfo.fat,
+                //stomachfat = userInfo.stomachFat,
+                //muscle = userInfo.muscle
             };
             return await userApi.ProvideInfor(request).ConfigureAwait(false);
         }

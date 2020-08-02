@@ -94,7 +94,7 @@ namespace spa.Login
                     dataManager.SetToken(token);
 
                     m_view.OnNavigationStarted();
-                    NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
+                    navigationService.PushPresenter(new VerificationPresenter(navigationService));
                 }
                 else
                 {
@@ -112,7 +112,7 @@ namespace spa.Login
             if (!m_view.IsNavigating)
             {
                 m_view.OnNavigationStarted();
-                NavigationService.PushPresenter(new SignUpPresenter(NavigationService));
+                navigationService.PushPresenter(new SignUpPresenter(navigationService));
             }
         }
 
@@ -122,7 +122,7 @@ namespace spa.Login
             if (!string.IsNullOrEmpty(dataManager.GetToken()))
             {
                 m_view.OnNavigationStarted();
-                NavigationService.PushPresenter(new MainPresenter(NavigationService));
+                navigationService.PushPresenter(new MainPresenter(navigationService));
             }
         }
     }

@@ -53,27 +53,26 @@ namespace spa.Utils
 
         // check gradually from left to right, acording to figma design, the function check from top to bottom.
         // Function will re turn 0 if all were valid, or it will return the position where the error occur
-        public static int ProvideInformationCheckInputValid(string Profession, string IC, string Weight, string Height)
+        public static int ProvideInformationCheckInputValid(string Profession, int IC, int Weight, int Height)
         {
             if (string.IsNullOrEmpty(Profession) == false)
             {
                 return 1;
             }
-            if (string.IsNullOrEmpty(IC) == false)
+            if (IC == 0)
             {
                 return 2;
             }
-            if (string.IsNullOrEmpty(Weight) == false)
+            if (Weight == 0)
             {
                 return 3;
             }
-            if (string.IsNullOrEmpty(Height) == false)
+            if (Height == 0)
             {
                 return 4;
             }
             return 0;
         }
-
 
         public static bool isUsernameValid(string username)
         {
@@ -166,46 +165,48 @@ namespace spa.Utils
         //    return true;
         //}
 
-        public static bool isICValid(string IC)
+        public static bool isICValid(int IC)
         {
-            if (string.IsNullOrEmpty(IC) || IC.Length == 0)
-            {
-                return false;
-            }
-            int value;
-            if (int.TryParse(IC, out value) == false)
-            {
-                return false;
-            }
-            return true;
+            //if (string.IsNullOrEmpty(IC) || IC.Length == 0)
+            //{
+            //    return false;
+            //}
+            //int value;
+            //if (int.TryParse(IC, out value) == false)
+            //{
+            //    return false;
+            //}
+
+            return IC == 0 ? false : true;
         }
 
-        public static bool isWeightValid(string Weight)
+        public static bool isWeightValid(int Weight)
         {
-            if (string.IsNullOrEmpty(Weight) || Weight.Length == 0)
-            {
-                return false;
-            }
-            int value;
-            if (int.TryParse(Weight, out value) == false)
-            {
-                return false;
-            }
-            return true;
+            //    if (string.IsNullOrEmpty(Weight) || Weight.Length == 0)
+            //    {
+            //        return false;
+            //    }
+            //    int value;
+            //    if (int.TryParse(Weight, out value) == false)
+            //    {
+            //        return false;
+            //    }
+
+            return Weight == 0 ? false : true;
         }
 
-        public static bool isHeightValid(string Height)
+        public static bool isHeightValid(int Height)
         {
-            if (string.IsNullOrEmpty(Height) || Height.Length == 0)
-            {
-                return false;
-            }
-            int value;
-            if (int.TryParse(Height, out value) == false)
-            {
-                return false;
-            }
-            return true;
+            //    if (string.IsNullOrEmpty(Height) || Height.Length == 0)
+            //    {
+            //        return false;
+            //    }
+            //    int value;
+            //    if (int.TryParse(Height, out value) == false)
+            //    {
+            //        return false;
+            //    }
+            return Height == 0 ? false : true;
         }
     }
 }

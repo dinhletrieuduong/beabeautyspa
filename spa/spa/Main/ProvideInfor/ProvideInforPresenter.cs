@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using spa.Base;
 using spa.Data;
 using spa.Data.Model.User;
+using spa.Main;
 using spa.Navigation;
 using spa.Utils;
 using spa.Verification;
@@ -13,17 +14,17 @@ namespace spa.ProvideInfor
     {
         private IProvideInforView view;
         DataManager dataManager;
-        private string weight;
-        private string height;
-        private string ic;
+        private int weight;
+        private int height;
+        private int ic;
         private string profession;
         private string basicLifeStyle;
         private string habit;
-        private string bodyMass;
-        private string bmi;
-        private string fat;
-        private string muscle;
-        private string stomachFat;
+        private int bodyMass;
+        private float bmi;
+        private int fat;
+        private int muscle;
+        private int stomachFat;
 
         public ProvideInforPresenter(INavigationService navigationService) : base(navigationService)
         {
@@ -41,19 +42,19 @@ namespace spa.ProvideInfor
             //m_view.OnInputValidated(HasValidInput());
         }
 
-        public void UpdateWeight(string weight)
+        public void UpdateWeight(int weight)
         {
             this.weight = weight;
             ValidateInput();
         }
 
-        public void UpdateHeight(string height)
+        public void UpdateHeight(int height)
         {
             this.height = height;
             ValidateInput();
         }
 
-        public void UpdateIC(string ic)
+        public void UpdateIC(int ic)
         {
             this.ic = ic;
             ValidateInput();
@@ -77,31 +78,31 @@ namespace spa.ProvideInfor
             ValidateInput();
         }
 
-        public void UpdateBodyMass(string bodyMass)
+        public void UpdateBodyMass(int bodyMass)
         {
             this.bodyMass = bodyMass;
             ValidateInput();
         }
 
-        public void UpdateBmi(string bmi)
+        public void UpdateBmi(float bmi)
         {
             this.bmi = bmi;
             ValidateInput();
         }
 
-        public void UpdateFat(string fat)
+        public void UpdateFat(int fat)
         {
             this.fat = fat;
             ValidateInput();
         }
 
-        public void UpdateMuscle(string muscle)
+        public void UpdateMuscle(int muscle)
         {
             this.muscle = muscle;
             ValidateInput();
         }
 
-        public void UpdateStomachFat(string stomachFat)
+        public void UpdateStomachFat(int stomachFat)
         {
             this.stomachFat = stomachFat;
             ValidateInput();
@@ -128,7 +129,8 @@ namespace spa.ProvideInfor
 
             if (!view.IsNavigating && !view.IsPerformingAction && HasValidInput())
             {
-                UserInfor userInfor = new UserInfor(profession, ic, weight, height);
+                UserInfor userInfor = new UserInfor(
+                    profession, ic, weight, height, basicLifeStyle, habit, bodyMass, bmi, fat, muscle, stomachFat);
 
                 view.OnActionStarted();
                 var userRepository = dataManager.GetUserRepository();
@@ -140,14 +142,11 @@ namespace spa.ProvideInfor
                 if (resp.ContainsKey(200))
                 {
                     view.OnNavigationStarted();
-                    NavigationService.PushPresenter(new VerificationPresenter(NavigationService));
+                    navigationService.PushPresenter(new MainPresenter(navigationService));
                 }
                 else
                 {
-                    if (resp.ContainsKey(400))
-                        view.OnProvideFailed(400, "Username or Email is existed");
-                    else
-                        view.OnProvideFailed(500, "There was a problem creating your account, please try again later.");
+                    view.OnProvideFailed(500, "There was a problem creating your information, please try again later.");
                 }
             }
         }

@@ -100,12 +100,18 @@ namespace spa.Verification
             RunOnUiThread(() =>
             {
                 resendBtn.Text = second > 9 ? "Resend on 0" + mins + ":" + second : "Resend on 0" + mins + ":0" + second;
+                if (second == 0)
+                {
+                    resendBtn.Clickable = true;
+                    resendBtn.Text = "Click here to resend!";
+                }
             });
             if (second == 0)
             {
+                //resendBtn.Clickable = true;
+                //resendBtn.Text = "Click to Resend Verify Code!";
                 timer.Stop();
                 timer = null;
-                resendBtn.Clickable = true;
             }
         }
 

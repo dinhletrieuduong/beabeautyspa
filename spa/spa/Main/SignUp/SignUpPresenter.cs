@@ -8,6 +8,7 @@ using spa.Main;
 using System.Collections.Generic;
 using spa.Utils;
 using spa.ProvideInfor;
+using spa.Verification;
 
 namespace spa.SignUp
 {
@@ -134,7 +135,7 @@ namespace spa.SignUp
                 if (resp.ContainsKey(200))
                 {
                     m_view.OnNavigationStarted();
-                    NavigationService.PushPresenter(new ProvideInforPresenter(NavigationService));
+                    navigationService.PushPresenter(new VerificationPresenter(navigationService));
                 }
                 else
                 {
@@ -151,7 +152,7 @@ namespace spa.SignUp
             if (!m_view.IsNavigating)
             {
                 m_view.OnNavigationStarted();
-                NavigationService.PushPresenter(new LoginPresenter(NavigationService));
+                navigationService.PushPresenter(new LoginPresenter(navigationService));
             }
         }
     }

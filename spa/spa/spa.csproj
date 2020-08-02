@@ -128,6 +128,8 @@
     <Compile Include="Main\Data\Model\User\Source\Remote\RegisterManualRequest.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\ProvideInforRequest.cs" />
     <Compile Include="Main\Data\Model\User\UserInfor.cs" />
+    <Compile Include="Main\MakeAppointment\MakeAppointmentActivity.cs" />
+    <Compile Include="Main\Data\Model\User\Source\Remote\VerifyRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -401,6 +403,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_make_appointment.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -421,6 +427,7 @@
     <Folder Include="Main\Main\Promotion\" />
     <Folder Include="Main\Base\" />
     <Folder Include="Main\ProvideInfor\" />
+    <Folder Include="Main\MakeAppointment\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

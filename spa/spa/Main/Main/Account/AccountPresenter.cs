@@ -27,7 +27,7 @@ namespace spa.Main.Account
             {
                 dataManager.ClearToken();
                 m_view.OnNavigationStarted();
-                NavigationService.PushPresenter(new LoginPresenter(NavigationService));
+                navigationService.PushPresenter(new LoginPresenter(navigationService));
             }
         }
     }

@@ -8,8 +8,11 @@ namespace spa.Data.Model.User.Source.Remote
 {
     public class UserResponse
     {
-        [AliasAs("access_token")]
-        public string accessToken { get; set; }
+        [AliasAs("fullname")]
+        public string fullname { get; set; }
+
+        [AliasAs("email")]
+        public string email { get; set; }
 
         [AliasAs("token")]
         public string token { get; set; }

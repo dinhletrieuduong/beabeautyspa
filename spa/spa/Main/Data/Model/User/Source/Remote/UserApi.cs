@@ -30,12 +30,9 @@ namespace spa.Data.Model.User.Source.Remote
         Task<UserResponse> ProvideInfor(ProvideInforRequest user);
 
         [Post("/api/auth/register/verify")]
-        Task<UserResponse> Verify(UserRequest user);
+        Task<UserResponse> Verify(VerifyRequest user);
 
-        [Post("/api/update")]
-        Task<UserResponse> Update(UserRequest user);
-
-        [Get("/profile")]
+        [Get("/api/healthinformation")]
         Task<UserResponse> Profile(UserRequest user);
 
 

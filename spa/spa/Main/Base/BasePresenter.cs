@@ -6,17 +6,17 @@ namespace spa.Base
 {
     public abstract class BasePresenter
     {
-        protected INavigationService NavigationService;
+        protected INavigationService navigationService;
         private DataManager mDataManager;
 
         protected BasePresenter(INavigationService navigationService)
         {
-            NavigationService = navigationService;
+            this.navigationService = navigationService;
         }
 
         public BasePresenter(INavigationService navigationService, DataManager dataManager)
         {
-            NavigationService = navigationService;
+            this.navigationService = navigationService;
             mDataManager = dataManager;
         }
 
