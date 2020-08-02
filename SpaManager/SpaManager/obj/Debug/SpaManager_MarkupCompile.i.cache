@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\SpaManager\SpaManager\App.xaml
-16-1544086035
+11882419840
 
-21797804233
-16-664081286
-BarAccount.xaml;BarOutlet.xaml;BarRoomInfo.xaml;BarBed.xaml;BarService.xaml;BarStatistic.xaml;MangeDashboard.xaml;LoginSpa.xaml;MainWindow.xaml;Menu.xaml;UC_ManageAccount.xaml;UC_ManageOutlet.xaml;UC_ManageRoomInfo.xaml;UC_ManageBed.xaml;UC_ManageService.xaml;UC_ManageStatistic.xaml;
+19-72388312
+18776315690
+Bar\TopBar.xaml;MainWindow.xaml;Menu\MenuBar.xaml;Screen\Account\UC_Account.xaml;Screen\Bed\UC_Bed.xaml;Screen\Dashboard\DashBoard.xaml;Screen\Login\Login.xaml;Screen\Outlet\UC_Outlet.xaml;Screen\RoomInfo\UC_RoomInfo.xaml;Screen\Service\UC_Service.xaml;Screen\Statistic\UC_Statistic.xaml;
 
 True
 

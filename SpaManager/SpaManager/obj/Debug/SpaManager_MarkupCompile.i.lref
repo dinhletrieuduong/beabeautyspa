@@ -1,5 +1,14 @@
 ﻿
-
-FE:\SpaManager\SpaManager\BarStatistic.xaml;;
-FE:\SpaManager\SpaManager\UC_ManageStatistic.xaml;;
+FE:\SpaManager\SpaManager\App.xaml;;
+FE:\SpaManager\SpaManager\Bar\TopBar.xaml;;
+FE:\SpaManager\SpaManager\MainWindow.xaml;;
+FE:\SpaManager\SpaManager\Menu\MenuBar.xaml;;
+FE:\SpaManager\SpaManager\Screen\Account\UC_Account.xaml;;
+FE:\SpaManager\SpaManager\Screen\Bed\UC_Bed.xaml;;
+FE:\SpaManager\SpaManager\Screen\Dashboard\DashBoard.xaml;;
+FE:\SpaManager\SpaManager\Screen\Login\Login.xaml;;
+FE:\SpaManager\SpaManager\Screen\Outlet\UC_Outlet.xaml;;
+FE:\SpaManager\SpaManager\Screen\RoomInfo\UC_RoomInfo.xaml;;
+FE:\SpaManager\SpaManager\Screen\Service\UC_Service.xaml;;
+FE:\SpaManager\SpaManager\Screen\Statistic\UC_Statistic.xaml;;
 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SpaManager.Menu;
+using SpaManager.Screen.Dashboard;
+using SpaManager.Screen.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,32 +23,29 @@ namespace SpaManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        LoginSpa window;
         public MainWindow()
         {
             InitializeComponent();
 
-            //LocalManger window = new LocalManger();
-            //window.Show();
+            Login login = new Login();
 
-            window = new LoginSpa();
+            login.send = gotoManageHome;
+            login.Show();
 
-            window.send = gotoMangeAccount;
-            window.Show();
-
+           
             this.Hide();
         }
 
-        private void gotoMangeAccount()
+        public void gotoManageHome()
         {
             this.Show();
-            MangeDashboard window = new MangeDashboard();
+
+            DashBoard dash = new DashBoard();
 
             contain.Children.Clear();
-            contain.Children.Add(window);
-            
+            contain.Children.Add(dash);
         }
 
-        
+
     }
 }

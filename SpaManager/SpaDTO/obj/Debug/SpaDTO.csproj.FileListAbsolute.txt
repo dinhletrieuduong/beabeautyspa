@@ -1,6 +1,0 @@
-E:\SpaManager\SpaDTO\bin\Debug\SpaDTO.exe.config
-E:\SpaManager\SpaDTO\bin\Debug\SpaDTO.exe
-E:\SpaManager\SpaDTO\bin\Debug\SpaDTO.pdb
-E:\SpaManager\SpaDTO\obj\Debug\SpaDTO.csproj.CoreCompileInputs.cache
-E:\SpaManager\SpaDTO\obj\Debug\SpaDTO.exe
-E:\SpaManager\SpaDTO\obj\Debug\SpaDTO.pdb

@@ -1,19 +1,14 @@
 ﻿
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\App.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarAccount.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarOutlet.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarRoomInfo.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarBed.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarService.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\BarStatistic.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\MangeDashboard.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\LoginSpa.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\MainWindow.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\Menu.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageAccount.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageOutlet.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageRoomInfo.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageBed.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageService.xaml;;
-FC:\Users\TRONG HIEU\Desktop\FESpa\beabeautyspa\SpaManager\SpaManager\UC_ManageStatistic.xaml;;
+FE:\SpaManager\SpaManager\App.xaml;;
+FE:\SpaManager\SpaManager\Bar\TopBar.xaml;;
+FE:\SpaManager\SpaManager\MainWindow.xaml;;
+FE:\SpaManager\SpaManager\Menu\MenuBar.xaml;;
+FE:\SpaManager\SpaManager\Screen\Account\UC_Account.xaml;;
+FE:\SpaManager\SpaManager\Screen\Bed\UC_Bed.xaml;;
+FE:\SpaManager\SpaManager\Screen\Dashboard\DashBoard.xaml;;
+FE:\SpaManager\SpaManager\Screen\Login\Login.xaml;;
+FE:\SpaManager\SpaManager\Screen\Outlet\UC_Outlet.xaml;;
+FE:\SpaManager\SpaManager\Screen\RoomInfo\UC_RoomInfo.xaml;;
+FE:\SpaManager\SpaManager\Screen\Service\UC_Service.xaml;;
+FE:\SpaManager\SpaManager\Screen\Statistic\UC_Statistic.xaml;;
 

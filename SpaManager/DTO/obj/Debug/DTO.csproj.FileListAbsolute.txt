@@ -1,0 +1,6 @@
+E:\SpaManager\DTO\bin\Debug\DTO.exe.config
+E:\SpaManager\DTO\bin\Debug\DTO.exe
+E:\SpaManager\DTO\bin\Debug\DTO.pdb
+E:\SpaManager\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+E:\SpaManager\DTO\obj\Debug\DTO.exe
+E:\SpaManager\DTO\obj\Debug\DTO.pdb
