@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using spa.Base;
 using spa.Data;
 using spa.Data.Model.User;
-using spa.Main.Data.Model.User.Source;
 using spa.Navigation;
 using spa.Utils;
 using spa.Verification;
@@ -113,7 +112,7 @@ namespace spa.ProvideInfor
             return CheckInputValid.isHeightValid(height) &&
                 CheckInputValid.isWeightValid(weight) &&
                 CheckInputValid.isICValid(ic) &&
-                CheckInputValid.isProfessionValid(professional);
+                CheckInputValid.isProfessionValid(profession);
         }
 
         public void ProvideInfor()
@@ -134,7 +133,7 @@ namespace spa.ProvideInfor
                 view.OnActionStarted();
                 var userRepository = dataManager.GetUserRepository();
 
-                Dictionary<int, string> resp = userRepository.Register(userInfor);
+                Dictionary<int, string> resp = userRepository.ProvideInfor(userInfor);
 
                 view.OnActionFinished();
 
