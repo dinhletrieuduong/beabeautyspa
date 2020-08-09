@@ -64,11 +64,11 @@ namespace spa.Main.Home
         private void initData()
         {
             services = new List<Data.Model.Service.Service>();
-            services.Add(new spa.Data.Model.Service.Service("abc", "30", Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("def", "40", Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("ghi", "20", Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("qwe", "10", Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("rqwr", "70", Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("abc", 30, Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("def", 40, Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("ghi", 20, Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("qwe", 10, Resource.Drawable.body_service));
+            services.Add(new spa.Data.Model.Service.Service("rqwr", 70, Resource.Drawable.body_service));
         }
     }
 }

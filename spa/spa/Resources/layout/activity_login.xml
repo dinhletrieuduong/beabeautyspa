@@ -103,7 +103,7 @@
             android:text="@string/UsernameOrPassInValid"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:textColor="@color/primaryRed"
+            android:textColor="@color/primaryRed_1"
             android:visibility="gone"/>
         <Button
         android:id="@+id/btnLogin"

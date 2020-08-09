@@ -85,7 +85,7 @@ namespace spa.Data.Model.User.Source.Remote
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest { VerifyCode = user.verifyCode, Token = user.token };
+            var request = new VerifyRequest { verify_code = user.verifyCode, token = user.token };
             return await userApi.Verify(request).ConfigureAwait(false);
         }
 

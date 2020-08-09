@@ -9,7 +9,6 @@ namespace spa.Data.Model.User.Source.Remote
         public string token { get; set; }
 
         [AliasAs("verify_code")]
-        public string VerifyCode { get; set; }
-
+        public string verify_code { get; set; }
     }
 }

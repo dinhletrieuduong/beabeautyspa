@@ -72,6 +72,14 @@ android:layout_height="match_parent"
         android:text="* Username must contains at least 5 characters *"
         android:textSize="15sp"
         android:textColor="#ff0000"/>
+        <TextView
+        android:id="@+id/existUsernameTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="* Username exist. Please try another! *"
+        android:textSize="15sp"
+        android:textColor="#ff0000"/>
         <EditText
         android:id="@+id/edtUsername"
         android:layout_width="match_parent"
@@ -246,6 +254,7 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
+        android:inputType="textEmailAddress"
         android:background="@drawable/edittextbottomline" />
 
         <TextView

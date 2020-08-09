@@ -22,7 +22,7 @@ namespace spa.Main.Home
             ServiceViewHolder vh = holder as ServiceViewHolder;
             vh.imageBackground.SetBackgroundResource(serviceList[position].image);
             vh.serviceNameTxtView.Text = serviceList[position].serviceName;
-            vh.durationTxtView.Text = serviceList[position].duration;
+            vh.durationTxtView.Text = serviceList[position].duration.ToString();
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

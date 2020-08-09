@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -164,7 +163,12 @@ namespace spa.SignUp
         {
             if (statusCode == 400)
             {
-                if (errorMessage.Length == 1)
+                if (errorMessage.Contains("Username exists"))
+                {
+                    invalidTxtView = FindViewById<TextView>(Resource.Id.existUsernameTxtView);
+                }
+
+                else if (errorMessage.Length == 1)
                 {
                     if (errorMessage.Equals("1"))
                         invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView1);
@@ -182,15 +186,9 @@ namespace spa.SignUp
                         invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView7);
                     else
                         invalidTxtView = FindViewById<TextView>(Resource.Id.invalidTxtView8);
-
-                    invalidTxtView.Visibility = ViewStates.Visible;
-
                 }
-                else
-                {
-                    invalidTxtView.Visibility = ViewStates.Visible;
-
-                }
+                invalidTxtView.RequestFocus();
+                invalidTxtView.Visibility = ViewStates.Visible;
             }
             else
             {

@@ -89,12 +89,13 @@ namespace spa.Login
 
                 if (resp.ContainsKey(200))
                 {
-                    string token;
+                    string token, message;
                     resp.TryGetValue(200, out token);
                     dataManager.SetToken(token);
 
                     m_view.OnNavigationStarted();
-                    navigationService.PushPresenter(new VerificationPresenter(navigationService));
+                    //navigationService.PushPresenter(new VerificationPresenter(navigationService));
+                    navigationService.PushPresenter(new MainPresenter(navigationService));
                 }
                 else
                 {

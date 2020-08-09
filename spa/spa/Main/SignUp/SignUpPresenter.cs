@@ -84,7 +84,7 @@ namespace spa.SignUp
                 dobArray[0] = "0" + dobArray[0];
             if (dobArray[1].Length == 1)
                 dobArray[1] = "0" + dobArray[1];
-            m_dob = dobArray[2] + "-" + dobArray[0] + "-" + dobArray[1];
+            m_dob = dobArray[2] + "-" + dobArray[1] + "-" + dobArray[0];
             ValidateInput();
         }
 
@@ -134,13 +134,20 @@ namespace spa.SignUp
 
                 if (resp.ContainsKey(200))
                 {
+                    string token;
+                    resp.TryGetValue(200, out token);
+                    dataManager.SetToken(token);
                     m_view.OnNavigationStarted();
                     navigationService.PushPresenter(new VerificationPresenter(navigationService));
                 }
                 else
                 {
                     if (resp.ContainsKey(400))
-                        m_view.OnSignUpFailed(400, "Username or Email is existed");
+                    {
+                        string error;
+                        resp.TryGetValue(400, out error);
+                        m_view.OnSignUpFailed(400, error.Split(",")[1]);
+                    }
                     else
                         m_view.OnSignUpFailed(500, "There was a problem creating your account, please try again later.");
                 }
