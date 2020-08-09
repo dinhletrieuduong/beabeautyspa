@@ -17,8 +17,8 @@ namespace spa.Data.Model.User.Source.Remote
         [AliasAs("token")]
         public string token { get; set; }
 
-        [AliasAs("first_login")]
-        public bool isFirstLogin { get; set; }
+        [AliasAs("error")]
+        public string error { get; set; }
 
         [AliasAs("message")]
         public string message { get; set; }

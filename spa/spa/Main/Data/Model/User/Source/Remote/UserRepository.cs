@@ -40,7 +40,7 @@ namespace spa.Data.Model.User.Source.Remote
             {
                 response.Wait();
                 int statusCode = string.IsNullOrEmpty(response.Result.token) ? 404 : 200;
-                message = response.Result.token + "," + response.Result.isFirstLogin;
+                message = response.Result.token;
                 resp.Add(statusCode, message);
                 return resp;
             }
@@ -65,8 +65,20 @@ namespace spa.Data.Model.User.Source.Remote
             try
             {
                 response.Wait();
-                message = response.Result.message;
-                resp.Add(200, message);
+
+                message = response.Result.token;
+                int statusCode;
+                if (response.Result.message.Contains("successful"))
+                {
+                    statusCode = 200;
+                }
+                else
+                {
+                    statusCode = 400;
+                    message += ",Username exists";
+                }
+
+                resp.Add(statusCode, message);
                 return resp;
             }
             catch (Exception e)

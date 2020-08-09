@@ -62,9 +62,10 @@ namespace spa.Verification
                 m_view.OnActionStarted();
 
                 bool verificated = false;
-                Dictionary<int, string> resp = dataManager.GetUserRepository().Verify(user);
+                var userRepo = dataManager.GetUserRepository();
+                Dictionary<int, string> resp = userRepo.Verify(user);
 
-                if (otp.Equals("13579"))
+                if (otp.Equals("123456"))
                     verificated = true;
 
                 m_view.OnActionFinished();

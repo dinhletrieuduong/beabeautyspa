@@ -48,9 +48,9 @@ namespace spa.Main.PreOrder
             presenter.SetView(this);
             RecyclerView = view.FindViewById<RecyclerView>(Resource.Id.cartsList);
             services = new List<Data.Model.Service.Service>();
-            services.Add(new Data.Model.Service.Service("Foot Massage", "60"));
-            services.Add(new Data.Model.Service.Service("Facial Massage", "60"));
-            services.Add(new Data.Model.Service.Service("Body Massage", "60"));
+            services.Add(new Data.Model.Service.Service("Foot Massage", 60));
+            services.Add(new Data.Model.Service.Service("Facial Massage", 60));
+            services.Add(new Data.Model.Service.Service("Body Massage", 60));
 
             adapter = new PersonalCartAdapter(services, this.Context);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.Context);

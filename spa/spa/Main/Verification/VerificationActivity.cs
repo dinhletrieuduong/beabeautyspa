@@ -103,7 +103,7 @@ namespace spa.Verification
                 if (second == 0)
                 {
                     resendBtn.Clickable = true;
-                    resendBtn.Text = "Click here to resend!";
+                    resendBtn.Text = "Click here to resend code!";
                 }
             });
             if (second == 0)

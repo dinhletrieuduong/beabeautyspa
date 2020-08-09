@@ -130,6 +130,9 @@
     <Compile Include="Main\Data\Model\User\UserInfor.cs" />
     <Compile Include="Main\MakeAppointment\MakeAppointmentActivity.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\VerifyRequest.cs" />
+    <Compile Include="Main\Fragments\TimePickerFragment.cs" />
+    <Compile Include="Main\MakeAppointment\MakeAppointmentView.cs" />
+    <Compile Include="Main\MakeAppointment\MakeAppointmentPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -404,6 +407,14 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_make_appointment.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\border_right.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\border_background.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

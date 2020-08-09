@@ -10,11 +10,6 @@ using System.Threading.Tasks;
 
 namespace spa.Services
 {
-    //public class HttpLoggingHandler : DelegatingHandler
-    //{
-    //    public HttpLoggingHandler(HttpMessageHandler innerHandler = null)
-    //        : base(innerHandler ?? new HttpClientHandler())
-    //    { }
     //    async protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     //    {
     //        await Task.Delay(1, cancellationToken).ConfigureAwait(false);
@@ -80,34 +75,20 @@ namespace spa.Services
     //        return response;
     //    }
 
-    //    readonly string[] types = new[] { "html", "text", "xml", "json", "txt", "x-www-form-urlencoded" };
-
-    //    bool IsTextBasedContentType(HttpHeaders headers)
-    //    {
-    //        IEnumerable<string> values;
-    //        if (!headers.TryGetValues("Content-Type", out values))
-    //            return false;
-    //        var header = string.Join(" ", values).ToLowerInvariant();
-
-    //        return types.Any(t => header.Contains(t));
-    //    }
-    //}
     public class HttpLoggingHandler : DelegatingHandler
     {
-        public HttpLoggingHandler(HttpMessageHandler innerHandler = null) : base(
-            innerHandler ?? new HttpClientHandler())
-        {
-        }
+        public HttpLoggingHandler(HttpMessageHandler innerHandler = null)
+            : base(innerHandler ?? new HttpClientHandler()) { }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
             //await Task.Delay(1, cancellationToken).ConfigureAwait(false);
-            if (request.Content != null)
-            {
-                var content = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
-                request.Content = new StringContent(content, Encoding.UTF8, "application/json");
-            }
+            //if (request.Content != null)
+            //{
+            //    var content = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+            //    request.Content = new StringContent(content, Encoding.UTF8, "application/json");
+            //}
             var start = DateTime.Now;
             var req = request;
             var msg = $"[{req.RequestUri.PathAndQuery} -  Request]";
@@ -178,6 +159,7 @@ namespace spa.Services
         }
 
         readonly string[] types = { "html", "text", "xml", "json", "txt", "x-www-form-urlencoded" };
+        //readonly string[] types = new[] { "html", "text", "xml", "json", "txt", "x-www-form-urlencoded" };
 
         private bool IsTextBasedContentType(HttpHeaders headers)
         {
@@ -188,5 +170,6 @@ namespace spa.Services
 
             return types.Any(t => header.Contains(t));
         }
+
     }
 }
