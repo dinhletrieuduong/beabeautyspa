@@ -25,6 +25,8 @@ namespace spa.Main.Home
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
 
+        HomePresenter presenter;
+
         List<spa.Data.Model.Service.Service> services;
 
         public static HomeFragment NewInstance(String param1, String param2)

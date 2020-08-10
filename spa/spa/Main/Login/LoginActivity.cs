@@ -118,16 +118,10 @@ namespace spa.Login
             // button doesn't bring the user back to the login screen. Where
             // navigation to the login screen is required, an explicit call
             // to push a new LoginPresenter should be made.
-            if (!isSigninSocial || IsNavigating)
-            {
-                Finish();
-            }
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            presenter.RemoveView();
+            //if (!isSigninSocial || IsNavigating)
+            //{
+            Finish();
+            //}
         }
 
         public bool IsPerformingAction { get; private set; }
@@ -156,7 +150,7 @@ namespace spa.Login
 
         public void OnLoginFailed(int statusCode, string errorMessage)
         {
-            if (statusCode == 404)
+            if (statusCode == 400)
                 invalidTxtView.Visibility = ViewStates.Visible;
             else
             {

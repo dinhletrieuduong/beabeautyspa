@@ -5,10 +5,10 @@ namespace spa.Data.Model.User.Source.Remote
 {
     public class VerifyRequest
     {
-        [AliasAs("token")]
-        public string token { get; set; }
+        //[AliasAs("token")]
+        //public string token { get; set; }
 
-        [AliasAs("verify_code")]
-        public string verify_code { get; set; }
+        [AliasAs("code_verify")]
+        public string code_verify { get; set; }
     }
 }

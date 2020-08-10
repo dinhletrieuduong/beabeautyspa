@@ -63,8 +63,8 @@
                     android:textSize="20sp"
                     android:paddingLeft="20sp"/>
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:id="@+id/btnDelete"
                     android:src="@drawable/del_btn"
                     android:scaleType="fitCenter"

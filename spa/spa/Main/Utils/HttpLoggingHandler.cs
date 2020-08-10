@@ -96,11 +96,11 @@ namespace spa.Services
             Debug.WriteLine($"{msg}========Request Start==========");
             Debug.WriteLine($"{msg} {req.Method} {req.RequestUri.PathAndQuery} {req.RequestUri.Scheme}/{req.Version}");
             Debug.WriteLine($"{msg} Host: {req.RequestUri.Scheme}://{req.RequestUri.Host}");
-
             foreach (var header in req.Headers)
             {
                 Debug.WriteLine($"{msg} {header.Key}: {string.Join(", ", header.Value)}");
             }
+            if (req.Headers.Authorization != null) Debug.WriteLine($"{msg} Authorization: {req.Headers.Authorization.Parameter}");
 
             if (req.Content != null)
             {

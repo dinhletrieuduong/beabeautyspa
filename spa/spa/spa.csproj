@@ -70,7 +70,6 @@
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\IOutletDataSource.cs" />
     <Compile Include="Main\Data\Model\Promotion\Source\Remote\IPromotionDataSource.cs" />
     <Compile Include="Main\Data\Model\Service\Service.cs" />
-    <Compile Include="Main\Data\Model\Service\ServiceResponse.cs" />
     <Compile Include="Main\Data\Model\Service\Source\Remote\IServiceDataSource.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\IUserDataSource.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\UserApi.cs" />
@@ -133,6 +132,11 @@
     <Compile Include="Main\Fragments\TimePickerFragment.cs" />
     <Compile Include="Main\MakeAppointment\MakeAppointmentView.cs" />
     <Compile Include="Main\MakeAppointment\MakeAppointmentPresenter.cs" />
+    <Compile Include="Main\Data\Model\Service\Source\Remote\ServiceApi.cs" />
+    <Compile Include="Main\Data\Model\Service\Source\Remote\ServiceService.cs" />
+    <Compile Include="Main\Data\Model\Service\Source\Remote\ServiceRepository.cs" />
+    <Compile Include="Main\Data\Model\Service\Source\Remote\ServiceResponse.cs" />
+    <Compile Include="Main\MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -418,6 +422,26 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Corner_radius.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\add_services.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\appointment_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\services_cart_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\Detail_Button.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -456,6 +480,9 @@
     </PackageReference>
     <PackageReference Include="refit">
       <Version>5.1.67</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

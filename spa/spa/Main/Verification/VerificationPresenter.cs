@@ -37,7 +37,8 @@ namespace spa.Verification
         {
             //otp.Remove(otp.Length - 1);
             //otp = otp.Substring(0, otp.Length - 2);
-            otp = otp.Remove(otp.Length - 1);
+            if (!string.IsNullOrEmpty(otp))
+                otp = otp.Remove(otp.Length - 1);
             ValidateInput();
         }
         private void ValidateInput()
@@ -56,30 +57,39 @@ namespace spa.Verification
                 !m_view.IsPerformingAction &&
                 HasValidInput())
             {
+                var userRepo = dataManager.GetUserRepository();
                 User user = new User();
                 user.verifyCode = otp;
-
+                user.token = dataManager.GetToken();
+                Console.WriteLine(user.token);
                 m_view.OnActionStarted();
 
-                bool verificated = false;
-                var userRepo = dataManager.GetUserRepository();
                 Dictionary<int, string> resp = userRepo.Verify(user);
 
-                if (otp.Equals("123456"))
-                    verificated = true;
-
-                m_view.OnActionFinished();
-
-                if (verificated)
+                if (resp.ContainsKey(200))
                 {
+                    string token;
+                    resp.TryGetValue(200, out token);
+                    dataManager.SetToken(token);
                     m_view.OnNavigationStarted();
                     navigationService.PushPresenter(new ProvideInforPresenter(navigationService));
                 }
                 else
                 {
-                    otp = "";
-                    m_view.OnVerificationFailed("There was a problem verificate your account, please try again later.");
+                    //otp = "";
+                    if (resp.ContainsKey(401))
+                    {
+                        //string error;
+                        //resp.TryGetValue(401, out error);
+                        m_view.OnVerificationFailed(401, "");
+                    }
+                    else
+                        m_view.OnVerificationFailed(500, "There was a problem verificate your account, please try again later.");
                 }
+
+
+                m_view.OnActionFinished();
+
             }
         }
 

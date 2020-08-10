@@ -99,8 +99,8 @@ namespace spa.Login
                 }
                 else
                 {
-                    if (resp.ContainsKey(404))
-                        m_view.OnLoginFailed(404, "");
+                    if (resp.ContainsKey(400))
+                        m_view.OnLoginFailed(400, "");
                     else
                         m_view.OnLoginFailed(500, "There was a problem logging you in, please try again later.");
 

@@ -13,7 +13,6 @@ namespace spa.Data.Model.User.Source.Remote
     {
         //    [Post("/auth/login/manually")]
         //    Task<HttpResponseMessage> LoginManual([Body(BodySerializationMethod.UrlEncoded)]  User user);
-
         [Post("/api/auth/login/manually")]
         Task<UserResponse> LoginManual(LoginManualRequest user);
 
@@ -26,15 +25,15 @@ namespace spa.Data.Model.User.Source.Remote
         [Post("/api/auth/register/social")]
         Task<UserResponse> RegisterSocial(UserRequest user);
 
-        [Post("/api/auth/register/social")]
+        [Post("/api/auth/provide")]
         Task<UserResponse> ProvideInfor(ProvideInforRequest user);
 
         [Post("/api/auth/register/verify")]
         Task<UserResponse> Verify(VerifyRequest user);
+        //[Post("/api/auth/register/verify")]
+        //Task <UserResponse> Verify(VerifyRequest user, [Header("Authorization")] string authorization);
 
         [Get("/api/healthinformation")]
         Task<UserResponse> Profile(UserRequest user);
-
-
     }
 }

@@ -30,6 +30,7 @@
         >
             <include
                 layout="@layout/custom_location_combobox"
+                
                 />
             <android.support.v4.view.ViewPager
                 android:layout_width="match_parent"

@@ -1,17 +1,18 @@
-﻿using System;
+﻿
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Refit;
 using spa.Utils;
 using spa.Services;
-
+using System.Net.Http.Headers;
 
 namespace spa.Data.Model.User.Source.Remote
 {
     public class UserService
     {
-        private static string URL_LOGIN = CommonUtils.URL;
+        private static Uri URL_LOGIN = CommonUtils.URL;
         private static UserService singleton;
         //private UserApi userApi;
 
@@ -35,7 +36,7 @@ namespace spa.Data.Model.User.Source.Remote
 
         public async Task<UserResponse> LoginManual(User user)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new LoginManualRequest { username = user.username, password = user.password };
             return await userApi.LoginManual(request).ConfigureAwait(false);
@@ -43,7 +44,7 @@ namespace spa.Data.Model.User.Source.Remote
 
         public async Task<UserResponse> LoginSocial(User user)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new UserRequest { email = user.email, Token = user.token };
             return await userApi.LoginSocial(request).ConfigureAwait(false);
@@ -51,7 +52,7 @@ namespace spa.Data.Model.User.Source.Remote
 
         public async Task<UserResponse> RegisterManual(User user)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new RegisterManualRequest
             {
@@ -68,7 +69,7 @@ namespace spa.Data.Model.User.Source.Remote
 
         public async Task<UserResponse> RegisterSocial(User user)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new UserRequest
             {
@@ -83,15 +84,16 @@ namespace spa.Data.Model.User.Source.Remote
 
         public async Task<UserResponse> Verify(User user)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", user.token);
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new VerifyRequest { verify_code = user.verifyCode, token = user.token };
+            var request = new VerifyRequest { code_verify = user.verifyCode };
             return await userApi.Verify(request).ConfigureAwait(false);
         }
 
         public async Task<UserResponse> ProvideInfor(UserInfor userInfo)
         {
-            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new ProvideInforRequest
             {

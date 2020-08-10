@@ -48,8 +48,8 @@ namespace spa.Data.Model.User.Source.Remote
             {
                 //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
-                if (e.Message.Contains("404"))
-                    resp.Add(404, message);
+                if (e.Message.Contains("400"))
+                    resp.Add(400, message);
                 else
                     resp.Add(500, message);
                 return resp;
@@ -92,34 +92,36 @@ namespace spa.Data.Model.User.Source.Remote
             }
         }
 
-        public Dictionary<int, string> ProvideInfor(UserInfor userInfo)
+
+        public Dictionary<int, string> Verify(User user)
         {
-            var response = userService.ProvideInfor(userInfo);
+            var response = userService.Verify(user);
             Dictionary<int, string> resp = new Dictionary<int, string>();
             string token = "";
-
             try
             {
                 response.Wait();
                 token = response.Result.token;
-                int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
+                //int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
                 //if (statusCode == 200)
                 //    token = content;
-                resp.Add(statusCode, token);
+                resp.Add(200, token);
                 return resp;
             }
             catch (Exception e)
             {
                 //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
-                resp.Add(500, token);
+                if (e.Message.Contains("401"))
+                    resp.Add(401, token);
+                else
+                    resp.Add(500, token);
                 return resp;
             }
         }
-
-        public Dictionary<int, string> Verify(User user)
+        public Dictionary<int, string> ProvideInfor(UserInfor userInfo)
         {
-            var response = userService.Verify(user);
+            var response = userService.ProvideInfor(userInfo);
             Dictionary<int, string> resp = new Dictionary<int, string>();
             string token = "";
 

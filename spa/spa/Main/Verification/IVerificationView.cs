@@ -7,6 +7,6 @@ namespace spa.Verification
     public interface IVerificationView : IBaseView, INavigationView
     {
         void OnInputValidated(bool isValid);
-        void OnVerificationFailed(string errorMessage);
+        void OnVerificationFailed(int statusCode, string errorMessage);
     }
 }

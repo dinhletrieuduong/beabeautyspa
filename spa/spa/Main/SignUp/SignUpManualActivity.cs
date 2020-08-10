@@ -124,10 +124,11 @@ namespace spa.SignUp
             StartActivity(auth.GetUI(this));
         }
 
-        public override void OnBackPressed()
-        {
-            presenter.GoToLogin();
-        }
+        //public override void OnBackPressed()
+        //{
+        //    presenter.GoToLogin();
+        //}
+
 
         protected override void OnStop()
         {

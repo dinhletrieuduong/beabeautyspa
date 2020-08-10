@@ -66,7 +66,7 @@
                         android:layout_width="40sp"
                         android:layout_height="wrap_content"
                         android:id="@+id/btnAdd"
-                        android:src="@drawable/plus"/>
+                        android:src="@drawable/add_circle_btn_2"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

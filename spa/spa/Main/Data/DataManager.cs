@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Android.Preferences;
+using spa.Data.Model.Service.Source.Remote;
 using spa.Data.Model.User;
 using spa.Data.Model.User.Source.Remote;
 
@@ -35,6 +36,11 @@ namespace spa.Data
             //    UserRemoteDataSource userRemote = UserRemoteDataSource.getInstance(movieApi);
             //    UsersRepository userCache = MovieCacheDataSource.getsInstance();
             return UserRepository.GetInstance(userService);
+        }
+        public ServiceRepository GetServiceRepository()
+        {
+            ServiceService serviceService = ServiceService.GetInstance();
+            return ServiceRepository.GetInstance(serviceService);
         }
 
         public string GetToken()

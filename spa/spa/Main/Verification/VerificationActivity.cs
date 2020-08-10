@@ -167,12 +167,12 @@ namespace spa.Verification
 
         private void ContinueBtn_Clicked()
         {
-            errorTxtView.Visibility = ViewStates.Visible;
+            foreach (EditText editText in editTexts)
+                presenter.UpdateOTP();
             foreach (EditText editText in editTexts)
                 presenter.UpdateOTP(editText.Text);
             presenter.Verification();
         }
-
 
         public override void OnBackPressed()
         {
@@ -182,7 +182,7 @@ namespace spa.Verification
         protected override void OnStop()
         {
             base.OnStop();
-            Finish();
+            //Finish();
         }
 
         public bool IsPerformingAction { get; private set; }
@@ -209,9 +209,14 @@ namespace spa.Verification
             //continueBtn.Enabled = isValid;
         }
 
-        public void OnVerificationFailed(string errorMessage)
+        public void OnVerificationFailed(int statusCode, string errorMessage)
         {
-            if (!dialogVisible)
+            if (statusCode == 401)
+            {
+                errorTxtView.Visibility = ViewStates.Visible;
+            }
+            else
+                if (!dialogVisible)
             {
                 dialogVisible = true;
 
