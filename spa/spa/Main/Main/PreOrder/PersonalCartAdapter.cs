@@ -40,7 +40,7 @@ namespace spa.PersonalCart
             Context context = parent.Context;
             LayoutInflater inflater = LayoutInflater.From(context);
 
-            View cartView = inflater.Inflate(Resource.Layout.personal_cart_item, parent, false);
+            View cartView = inflater.Inflate(Resource.Layout.custom_personal_cart_item, parent, false);
             MyView viewholder = new MyView(cartView);
             return viewholder;
         }

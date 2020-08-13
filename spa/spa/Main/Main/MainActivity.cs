@@ -36,13 +36,11 @@ namespace spa.Main
             LoadFragment(Resource.Id.homeIcon);
         }
 
-        [System.Obsolete]
         private void BottomNavigation_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
         {
             LoadFragment(e.Item.ItemId);
         }
 
-        [System.Obsolete]
         void LoadFragment(int id)
         {
             Android.App.Fragment fragment = null;

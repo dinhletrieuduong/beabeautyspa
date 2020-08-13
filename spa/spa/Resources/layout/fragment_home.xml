@@ -9,18 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primary"
-            android:gravity="center"
-            android:padding="10dp">
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:src="@drawable/logo"
-                android:contentDescription="@string/Logo"/>
-        </LinearLayout>
+        <include
+                layout="@layout/custom_toolbar_logo"
+                />
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,8 +21,9 @@
         >
             <include
                 layout="@layout/custom_location_combobox"
-                
                 />
+            
+        
             <android.support.v4.view.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="150dp"

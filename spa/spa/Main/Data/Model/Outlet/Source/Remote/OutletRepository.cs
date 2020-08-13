@@ -4,44 +4,38 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace spa.Data.Model.Service.Source.Remote
+namespace spa.Data.Model.Outlet.Source.Remote
 {
-    public class ServiceRepository : IServiceDataSource
+    public class OutletRepository : IOutletDataSource
     {
-        private ServiceRepository serviceRemote;
+        private static OutletRepository instance;
+        private OutletService serviceService;
 
-        private static ServiceRepository instance;
-        private ServiceService serviceService;
-
-        private ServiceRepository(ServiceService serviceService)
+        private OutletRepository(OutletService serviceService)
         {
             this.serviceService = serviceService;
         }
-        private ServiceRepository(ServiceRepository userRemote)
-        {
-            this.serviceRemote = userRemote;
-        }
-        public static ServiceRepository GetInstance(ServiceService serviceService)
+        public static OutletRepository GetInstance(OutletService serviceService)
         {
             if (instance == null)
             {
-                instance = new ServiceRepository(serviceService);
+                instance = new OutletRepository(serviceService);
             }
             return instance;
         }
 
-        public List<Service> GetAllServices(string token)
+        public List<Outlet> GetAllService(string token)
         {
-            var response = serviceService.GetAllService(token);
-            List<Service> resp = new List<Service>();
+            var response = serviceService.GetAllOutlets(token);
+            List<Outlet> resp = new List<Outlet>();
             string message = "";
             try
             {
                 response.Wait();
                 for (int i = 0; i < response.Result.Count; i++)
                 {
-                    Service s = new Service(response.Result[i]);
-                    resp.Add(s);
+                    Outlet outlet = new Outlet(response.Result[i]);
+                    resp.Add(outlet);
                 }
                 //resp response.Result;
                 //resp.Add(statusCode, message);
@@ -53,6 +47,11 @@ namespace spa.Data.Model.Service.Source.Remote
                 Debug.WriteLine(e.StackTrace);
                 return resp;
             }
+        }
+
+        public List<Outlet> GetAllOutlets(string token)
+        {
+            throw new NotImplementedException();
         }
     }
 }

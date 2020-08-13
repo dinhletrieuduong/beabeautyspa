@@ -5,6 +5,6 @@ namespace spa.Data.Model.Service
 {
     public interface IServiceDataSource
     {
-        List<Service> GetAllService();
+        List<Service> GetAllServices(string token);
     }
 }

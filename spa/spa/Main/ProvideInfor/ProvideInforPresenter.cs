@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using spa.Base;
 using spa.Data;
 using spa.Data.Model.User;
@@ -135,19 +136,27 @@ namespace spa.ProvideInfor
                 view.OnActionStarted();
                 var userRepository = dataManager.GetUserRepository();
 
-                Dictionary<int, string> resp = userRepository.ProvideInfor(userInfor);
-
-                view.OnActionFinished();
-
-                if (resp.ContainsKey(200))
+                Dictionary<int, string> resp = new Dictionary<int, string>();
+                Task.Factory.StartNew(() =>
                 {
-                    view.OnNavigationStarted();
-                    navigationService.PushPresenter(new MainPresenter(navigationService));
-                }
-                else
+                    resp = userRepository.ProvideInfor(userInfor);
+                }).ContinueWith(task =>
                 {
-                    view.OnProvideFailed(500, "There was a problem creating your information, please try again later.");
-                }
+                    view.OnActionFinished();
+
+                    if (resp.ContainsKey(200))
+                    {
+                        view.OnNavigationStarted();
+                        navigationService.PushPresenter(new MainPresenter(navigationService));
+                    }
+                    else
+                    {
+                        view.OnProvideFailed(500, "There was a problem creating your information, please try again later.");
+                    }
+
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+
+
             }
         }
     }

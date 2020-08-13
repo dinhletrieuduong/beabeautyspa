@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using spa.Utils;
 using spa.ProvideInfor;
 using spa.Verification;
+using System.Threading.Tasks;
 
 namespace spa.SignUp
 {
@@ -128,29 +129,34 @@ namespace spa.SignUp
                 m_view.OnActionStarted();
                 var userRepository = dataManager.GetUserRepository();
 
-                Dictionary<int, string> resp = userRepository.Register(user, isSignUpBySocial);
-
-                m_view.OnActionFinished();
-
-                if (resp.ContainsKey(200))
+                Dictionary<int, string> resp = new Dictionary<int, string>();
+                Task.Factory.StartNew(() =>
                 {
-                    string token;
-                    resp.TryGetValue(200, out token);
-                    dataManager.SetToken(token);
-                    m_view.OnNavigationStarted();
-                    navigationService.PushPresenter(new VerificationPresenter(navigationService));
-                }
-                else
+                    resp = userRepository.Register(user, isSignUpBySocial);
+
+                }).ContinueWith(task =>
                 {
-                    if (resp.ContainsKey(400))
+                    m_view.OnActionFinished();
+                    if (resp.ContainsKey(200))
                     {
-                        string error;
-                        resp.TryGetValue(400, out error);
-                        m_view.OnSignUpFailed(400, error.Split(",")[1]);
+                        string token;
+                        resp.TryGetValue(200, out token);
+                        dataManager.SetToken(token);
+                        m_view.OnNavigationStarted();
+                        navigationService.PushPresenter(new VerificationPresenter(navigationService));
                     }
                     else
-                        m_view.OnSignUpFailed(500, "There was a problem creating your account, please try again later.");
-                }
+                    {
+                        if (resp.ContainsKey(400))
+                        {
+                            string error;
+                            resp.TryGetValue(400, out error);
+                            m_view.OnSignUpFailed(400, error.Split(",")[1]);
+                        }
+                        else
+                            m_view.OnSignUpFailed(500, "There was a problem creating your account, please try again later.");
+                    }
+                }, TaskScheduler.FromCurrentSynchronizationContext());
             }
         }
 

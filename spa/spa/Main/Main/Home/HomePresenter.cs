@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android.App;
 using Java.Lang.Ref;
 using spa.Base;
@@ -20,21 +21,25 @@ namespace spa.Main.Home
             base(navigationService)
         {
             dataManager = DataManager.GetInstance();
-
         }
 
         public void SetView(IHomeView view)
         {
             //m_view = new WeakReference<IHomeView>(view);
             m_view = view;
-
             //m_view.TryGetTarget();
         }
 
-        public void GetAllService()
+        public List<Data.Model.Service.Service> GetAllService()
         {
-            List<Data.Model.Service.Service> services = dataManager.GetServiceRepository().GetAllService();
 
+            List<Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
+            Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetAllServices(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    m_view.updateListService(services);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            return services;
         }
     }
 }

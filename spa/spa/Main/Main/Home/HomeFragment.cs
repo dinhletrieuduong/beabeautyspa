@@ -13,11 +13,11 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-
+using spa.Navigation;
 namespace spa.Main.Home
 {
     [Obsolete]
-    public class HomeFragment : Fragment
+    public class HomeFragment : Fragment, IHomeView
     {
         ViewPager viewPager;
         ImageAdapter imageAdapter;
@@ -27,7 +27,7 @@ namespace spa.Main.Home
 
         HomePresenter presenter;
 
-        List<spa.Data.Model.Service.Service> services;
+        List<spa.Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
 
         public static HomeFragment NewInstance(String param1, String param2)
         {
@@ -48,29 +48,48 @@ namespace spa.Main.Home
 
         public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            initData();
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
             viewPager = view.FindViewById<ViewPager>(Resource.Id.viewPager);
-            imageAdapter = new ImageAdapter(this.Context);
+            imageAdapter = new ImageAdapter(Context);
             viewPager.Adapter = imageAdapter;
 
+            presenter = new HomePresenter(new NavigationService(Activity.Application));
+            presenter.SetView(this);
+            //services = presenter.GetAllService();
+            presenter.GetAllService();
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerViewService);
             adapter = new ServiceAdapter(services);
-            layoutManager = new LinearLayoutManager(this.Context);
+            layoutManager = new LinearLayoutManager(Context);
             recyclerView.SetLayoutManager(layoutManager);
             recyclerView.SetAdapter(adapter);
             return view;
         }
 
-        private void initData()
+
+        public bool IsPerformingAction { get; private set; }
+
+        public void OnActionStarted()
         {
-            services = new List<Data.Model.Service.Service>();
-            services.Add(new spa.Data.Model.Service.Service("abc", 30, Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("def", 40, Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("ghi", 20, Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("qwe", 10, Resource.Drawable.body_service));
-            services.Add(new spa.Data.Model.Service.Service("rqwr", 70, Resource.Drawable.body_service));
+            IsPerformingAction = true;
+        }
+
+        public void OnActionFinished()
+        {
+            IsPerformingAction = false;
+        }
+
+        public bool IsNavigating { get; private set; }
+
+        public void OnNavigationStarted()
+        {
+            IsNavigating = true;
+        }
+
+        public void updateListService(List<Data.Model.Service.Service> services)
+        {
+            adapter = new ServiceAdapter(services);
+            recyclerView.SetAdapter(adapter);
         }
     }
 }

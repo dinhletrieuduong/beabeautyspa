@@ -5,23 +5,26 @@ namespace spa.Data.Model.Service.Source.Remote
 {
     public class ServiceResponse
     {
-        [AliasAs("service_name")]
-        public string service_name { get; set; }
+        [AliasAs("serviceID")]
+        public int serviceID { get; set; }
 
-        [AliasAs("service_description")]
-        public string service_description { get; set; }
+        [AliasAs("serviceName")]
+        public string serviceName { get; set; }
 
-        [AliasAs("service_duration")]
-        public int service_duration { get; set; }
+        [AliasAs("serviceDescription")]
+        public string serviceDescription { get; set; }
 
-        [AliasAs("service_transit")]
-        public int service_transit { get; set; }
+        [AliasAs("serviceDuration")]
+        public int serviceDuration { get; set; }
 
-        [AliasAs("service_cost")]
-        public float service_cost { get; set; }
+        [AliasAs("serviceTransit")]
+        public int serviceTransit { get; set; }
+
+        [AliasAs("serviceCost")]
+        public float serviceCost { get; set; }
 
         // URL Image
-        [AliasAs("filee")]
-        public string file { get; set; }
+        [AliasAs("servicePhoto")]
+        public string servicePhoto { get; set; }
     }
 }

@@ -8,6 +8,8 @@ using spa.SignUp;
 using System.Collections.Generic;
 using System.Diagnostics;
 using spa.Main;
+using Android.OS;
+using System.Threading.Tasks;
 
 namespace spa.Login
 {
@@ -83,28 +85,35 @@ namespace spa.Login
                 bool isLoginSocial = !string.IsNullOrEmpty(m_email);
 
                 m_view.OnActionStarted();
+                Dictionary<int, string> resp = new Dictionary<int, string>();
 
-                Dictionary<int, string> resp = dataManager.GetUserRepository().Login(user, isLoginSocial);
-                m_view.OnActionFinished();
-
-                if (resp.ContainsKey(200))
+                Task.Factory.StartNew(() =>
                 {
-                    string token, message;
-                    resp.TryGetValue(200, out token);
-                    dataManager.SetToken(token);
-
-                    m_view.OnNavigationStarted();
-                    //navigationService.PushPresenter(new VerificationPresenter(navigationService));
-                    navigationService.PushPresenter(new MainPresenter(navigationService));
-                }
-                else
+                    resp = dataManager.GetUserRepository().Login(user, isLoginSocial);
+                }).ContinueWith(task =>
                 {
-                    if (resp.ContainsKey(400))
-                        m_view.OnLoginFailed(400, "");
+                    m_view.OnActionFinished();
+
+                    if (resp.ContainsKey(200))
+                    {
+                        string token, message;
+                        resp.TryGetValue(200, out token);
+                        dataManager.SetToken(token);
+
+                        m_view.OnNavigationStarted();
+                        //navigationService.PushPresenter(new VerificationPresenter(navigationService));
+                        navigationService.PushPresenter(new MainPresenter(navigationService));
+                    }
                     else
-                        m_view.OnLoginFailed(500, "There was a problem logging you in, please try again later.");
+                    {
+                        if (resp.ContainsKey(400))
+                            m_view.OnLoginFailed(400, "");
+                        else
+                            m_view.OnLoginFailed(500, "There was a problem logging you in, please try again later.");
 
-                }
+                    }
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+
             }
         }
 

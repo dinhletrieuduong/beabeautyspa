@@ -30,8 +30,6 @@ namespace spa.Data.Model.User.Source.Remote
 
         [Post("/api/auth/register/verify")]
         Task<UserResponse> Verify(VerifyRequest user);
-        //[Post("/api/auth/register/verify")]
-        //Task <UserResponse> Verify(VerifyRequest user, [Header("Authorization")] string authorization);
 
         [Get("/api/healthinformation")]
         Task<UserResponse> Profile(UserRequest user);

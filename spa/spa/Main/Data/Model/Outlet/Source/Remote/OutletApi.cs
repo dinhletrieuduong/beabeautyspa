@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
-namespace spa.Data.Model.Service.Source.Remote
+namespace spa.Data.Model.Outlet.Source.Remote
 {
     //[Headers ("Accept: application/json")]
     [Headers("User-Agent: Xamarin")]
-    public interface ServiceApi
+    public interface OutletApi
     {
-        [Get("/api/service/all/")]
-        Task<List<ServiceResponse>> GetAllServices();
+        [Get("/api/outlet/")]
+        Task<List<OutletResponse>> GetAllOutlets();
 
     }
 }

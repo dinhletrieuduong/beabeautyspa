@@ -240,19 +240,19 @@ namespace spa
 			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::spa.Resource.Drawable.notification_template_icon_low_bg;
 			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::spa.Resource.Drawable.notification_tile_bg;
 			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::spa.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.actions = global::spa.Resource.Id.actions;
 			global::Xamarin.Essentials.Resource.Id.action_container = global::spa.Resource.Id.action_container;
 			global::Xamarin.Essentials.Resource.Id.action_divider = global::spa.Resource.Id.action_divider;
 			global::Xamarin.Essentials.Resource.Id.action_image = global::spa.Resource.Id.action_image;
 			global::Xamarin.Essentials.Resource.Id.action_text = global::spa.Resource.Id.action_text;
-			global::Xamarin.Essentials.Resource.Id.actions = global::spa.Resource.Id.actions;
 			global::Xamarin.Essentials.Resource.Id.all = global::spa.Resource.Id.all;
 			global::Xamarin.Essentials.Resource.Id.async = global::spa.Resource.Id.async;
 			global::Xamarin.Essentials.Resource.Id.blocking = global::spa.Resource.Id.blocking;
 			global::Xamarin.Essentials.Resource.Id.bottom = global::spa.Resource.Id.bottom;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_header_text = global::spa.Resource.Id.browser_actions_header_text;
+			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_items = global::spa.Resource.Id.browser_actions_menu_items;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_icon = global::spa.Resource.Id.browser_actions_menu_item_icon;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_item_text = global::spa.Resource.Id.browser_actions_menu_item_text;
-			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_items = global::spa.Resource.Id.browser_actions_menu_items;
 			global::Xamarin.Essentials.Resource.Id.browser_actions_menu_view = global::spa.Resource.Id.browser_actions_menu_view;
 			global::Xamarin.Essentials.Resource.Id.center = global::spa.Resource.Id.center;
 			global::Xamarin.Essentials.Resource.Id.center_horizontal = global::spa.Resource.Id.center_horizontal;
@@ -307,14 +307,12 @@ namespace spa
 			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::spa.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::spa.Resource.Style.Widget_Compat_NotificationActionText;
 			global::Xamarin.Essentials.Resource.Style.Widget_Support_CoordinatorLayout = global::spa.Resource.Style.Widget_Support_CoordinatorLayout;
-			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::spa.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem = global::spa.Resource.Styleable.ColorStateListItem;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_alpha = global::spa.Resource.Styleable.ColorStateListItem_alpha;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_alpha = global::spa.Resource.Styleable.ColorStateListItem_android_alpha;
 			global::Xamarin.Essentials.Resource.Styleable.ColorStateListItem_android_color = global::spa.Resource.Styleable.ColorStateListItem_android_color;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout = global::spa.Resource.Styleable.CoordinatorLayout;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_keylines = global::spa.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::spa.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout = global::spa.Resource.Styleable.CoordinatorLayout_Layout;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::spa.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::spa.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
@@ -323,13 +321,8 @@ namespace spa
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::spa.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::spa.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
 			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::spa.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Xamarin.Essentials.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::spa.Resource.Styleable.CoordinatorLayout_statusBarBackground;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::spa.Resource.Styleable.FontFamily;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::spa.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::spa.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::spa.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::spa.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::spa.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::spa.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::spa.Resource.Styleable.FontFamilyFont;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::spa.Resource.Styleable.FontFamilyFont_android_font;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::spa.Resource.Styleable.FontFamilyFont_android_fontStyle;
@@ -341,7 +334,16 @@ namespace spa
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::spa.Resource.Styleable.FontFamilyFont_fontVariationSettings;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::spa.Resource.Styleable.FontFamilyFont_fontWeight;
 			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_ttcIndex = global::spa.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::spa.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::spa.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::spa.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::spa.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::spa.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::spa.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor = global::spa.Resource.Styleable.GradientColor;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem = global::spa.Resource.Styleable.GradientColorItem;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_color = global::spa.Resource.Styleable.GradientColorItem_android_color;
+			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_offset = global::spa.Resource.Styleable.GradientColorItem_android_offset;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerColor = global::spa.Resource.Styleable.GradientColor_android_centerColor;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerX = global::spa.Resource.Styleable.GradientColor_android_centerX;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_centerY = global::spa.Resource.Styleable.GradientColor_android_centerY;
@@ -354,9 +356,7 @@ namespace spa
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_startY = global::spa.Resource.Styleable.GradientColor_android_startY;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_tileMode = global::spa.Resource.Styleable.GradientColor_android_tileMode;
 			global::Xamarin.Essentials.Resource.Styleable.GradientColor_android_type = global::spa.Resource.Styleable.GradientColor_android_type;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem = global::spa.Resource.Styleable.GradientColorItem;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_color = global::spa.Resource.Styleable.GradientColorItem_android_color;
-			global::Xamarin.Essentials.Resource.Styleable.GradientColorItem_android_offset = global::spa.Resource.Styleable.GradientColorItem_android_offset;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::spa.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
 		}
 		
 		public partial class Animation
@@ -4729,119 +4729,122 @@ namespace spa
 			// aapt resource value: 0x7F0C0028
 			public const int carousel_item = 2131492904;
 			
+			// aapt resource value: 0x7F0C002F
+			public const int custome_promotion_home_item = 2131492911;
+			
 			// aapt resource value: 0x7F0C0029
-			public const int custom_location_combobox = 2131492905;
+			public const int custom_dialog_GPSLocation = 2131492905;
 			
 			// aapt resource value: 0x7F0C002A
-			public const int custom_service_item = 2131492906;
+			public const int custom_location_combobox = 2131492906;
 			
 			// aapt resource value: 0x7F0C002B
-			public const int design_bottom_navigation_item = 2131492907;
-			
-			// aapt resource value: 0x7F0C002C
-			public const int design_bottom_sheet_dialog = 2131492908;
+			public const int custom_personal_cart_item = 2131492907;
 			
 			// aapt resource value: 0x7F0C002D
-			public const int design_layout_snackbar = 2131492909;
+			public const int custom_services_cart_item = 2131492909;
+			
+			// aapt resource value: 0x7F0C002C
+			public const int custom_service_item = 2131492908;
 			
 			// aapt resource value: 0x7F0C002E
-			public const int design_layout_snackbar_include = 2131492910;
-			
-			// aapt resource value: 0x7F0C002F
-			public const int design_layout_tab_icon = 2131492911;
+			public const int custom_toolbar_logo = 2131492910;
 			
 			// aapt resource value: 0x7F0C0030
-			public const int design_layout_tab_text = 2131492912;
+			public const int design_bottom_navigation_item = 2131492912;
 			
 			// aapt resource value: 0x7F0C0031
-			public const int design_menu_item_action_area = 2131492913;
+			public const int design_bottom_sheet_dialog = 2131492913;
 			
 			// aapt resource value: 0x7F0C0032
-			public const int design_navigation_item = 2131492914;
+			public const int design_layout_snackbar = 2131492914;
 			
 			// aapt resource value: 0x7F0C0033
-			public const int design_navigation_item_header = 2131492915;
+			public const int design_layout_snackbar_include = 2131492915;
 			
 			// aapt resource value: 0x7F0C0034
-			public const int design_navigation_item_separator = 2131492916;
+			public const int design_layout_tab_icon = 2131492916;
 			
 			// aapt resource value: 0x7F0C0035
-			public const int design_navigation_item_subheader = 2131492917;
+			public const int design_layout_tab_text = 2131492917;
 			
 			// aapt resource value: 0x7F0C0036
-			public const int design_navigation_menu = 2131492918;
+			public const int design_menu_item_action_area = 2131492918;
 			
 			// aapt resource value: 0x7F0C0037
-			public const int design_navigation_menu_item = 2131492919;
+			public const int design_navigation_item = 2131492919;
 			
 			// aapt resource value: 0x7F0C0038
-			public const int design_text_input_password_icon = 2131492920;
+			public const int design_navigation_item_header = 2131492920;
 			
 			// aapt resource value: 0x7F0C0039
-			public const int dialog_GPSLocation = 2131492921;
+			public const int design_navigation_item_separator = 2131492921;
 			
 			// aapt resource value: 0x7F0C003A
-			public const int fragment_account = 2131492922;
+			public const int design_navigation_item_subheader = 2131492922;
 			
 			// aapt resource value: 0x7F0C003B
-			public const int fragment_home = 2131492923;
+			public const int design_navigation_menu = 2131492923;
 			
 			// aapt resource value: 0x7F0C003C
-			public const int fragment_personal_cart = 2131492924;
+			public const int design_navigation_menu_item = 2131492924;
 			
 			// aapt resource value: 0x7F0C003D
-			public const int fragment_promotion = 2131492925;
+			public const int design_text_input_password_icon = 2131492925;
 			
 			// aapt resource value: 0x7F0C003E
-			public const int mtrl_layout_snackbar = 2131492926;
+			public const int fragment_account = 2131492926;
 			
 			// aapt resource value: 0x7F0C003F
-			public const int mtrl_layout_snackbar_include = 2131492927;
+			public const int fragment_home = 2131492927;
 			
 			// aapt resource value: 0x7F0C0040
-			public const int notification_action = 2131492928;
+			public const int fragment_personal_cart = 2131492928;
 			
 			// aapt resource value: 0x7F0C0041
-			public const int notification_action_tombstone = 2131492929;
+			public const int fragment_promotion = 2131492929;
 			
 			// aapt resource value: 0x7F0C0042
-			public const int notification_template_custom_big = 2131492930;
+			public const int mtrl_layout_snackbar = 2131492930;
 			
 			// aapt resource value: 0x7F0C0043
-			public const int notification_template_icon_group = 2131492931;
+			public const int mtrl_layout_snackbar_include = 2131492931;
 			
 			// aapt resource value: 0x7F0C0044
-			public const int notification_template_part_chronometer = 2131492932;
+			public const int notification_action = 2131492932;
 			
 			// aapt resource value: 0x7F0C0045
-			public const int notification_template_part_time = 2131492933;
+			public const int notification_action_tombstone = 2131492933;
 			
 			// aapt resource value: 0x7F0C0046
-			public const int personal_cart_item = 2131492934;
+			public const int notification_template_custom_big = 2131492934;
 			
 			// aapt resource value: 0x7F0C0047
-			public const int promotion_home_item = 2131492935;
+			public const int notification_template_icon_group = 2131492935;
 			
 			// aapt resource value: 0x7F0C0048
-			public const int select_dialog_item_material = 2131492936;
+			public const int notification_template_part_chronometer = 2131492936;
 			
 			// aapt resource value: 0x7F0C0049
-			public const int select_dialog_multichoice_material = 2131492937;
+			public const int notification_template_part_time = 2131492937;
 			
 			// aapt resource value: 0x7F0C004A
-			public const int select_dialog_singlechoice_material = 2131492938;
+			public const int select_dialog_item_material = 2131492938;
 			
 			// aapt resource value: 0x7F0C004B
-			public const int services_cart_item = 2131492939;
+			public const int select_dialog_multichoice_material = 2131492939;
 			
 			// aapt resource value: 0x7F0C004C
-			public const int support_simple_spinner_dropdown_item = 2131492940;
+			public const int select_dialog_singlechoice_material = 2131492940;
 			
 			// aapt resource value: 0x7F0C004D
-			public const int tabs = 2131492941;
+			public const int support_simple_spinner_dropdown_item = 2131492941;
 			
 			// aapt resource value: 0x7F0C004E
-			public const int toolbar = 2131492942;
+			public const int tabs = 2131492942;
+			
+			// aapt resource value: 0x7F0C004F
+			public const int toolbar = 2131492943;
 			
 			static Layout()
 			{

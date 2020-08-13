@@ -7,6 +7,7 @@ using spa.Data.Model.User;
 using spa.Data;
 using System.Collections.Generic;
 using spa.ProvideInfor;
+using System.Threading.Tasks;
 
 namespace spa.Verification
 {
@@ -64,32 +65,33 @@ namespace spa.Verification
                 Console.WriteLine(user.token);
                 m_view.OnActionStarted();
 
-                Dictionary<int, string> resp = userRepo.Verify(user);
-
-                if (resp.ContainsKey(200))
+                Dictionary<int, string> resp = new Dictionary<int, string>();
+                Task.Factory.StartNew(() =>
                 {
-                    string token;
-                    resp.TryGetValue(200, out token);
-                    dataManager.SetToken(token);
-                    m_view.OnNavigationStarted();
-                    navigationService.PushPresenter(new ProvideInforPresenter(navigationService));
-                }
-                else
+                    resp = userRepo.Verify(user);
+                }).ContinueWith(task =>
                 {
-                    //otp = "";
-                    if (resp.ContainsKey(401))
+                    if (resp.ContainsKey(200))
                     {
-                        //string error;
-                        //resp.TryGetValue(401, out error);
-                        m_view.OnVerificationFailed(401, "");
+                        string token;
+                        resp.TryGetValue(200, out token);
+                        dataManager.SetToken(token);
+                        m_view.OnNavigationStarted();
+                        navigationService.PushPresenter(new ProvideInforPresenter(navigationService));
                     }
                     else
-                        m_view.OnVerificationFailed(500, "There was a problem verificate your account, please try again later.");
-                }
-
-
-                m_view.OnActionFinished();
-
+                    {
+                        if (resp.ContainsKey(401))
+                        {
+                            //string error;
+                            //resp.TryGetValue(401, out error);
+                            m_view.OnVerificationFailed(401, "");
+                        }
+                        else
+                            m_view.OnVerificationFailed(500, "There was a problem verificate your account, please try again later.");
+                    }
+                    m_view.OnActionFinished();
+                }, TaskScheduler.FromCurrentSynchronizationContext());
             }
         }
 
