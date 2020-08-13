@@ -141,6 +141,12 @@
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletRepository.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletResponse.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletService.cs" />
+    <Compile Include="Main\AppointmentHistory\appointment_detail_adapter.cs" />
+    <Compile Include="Main\AppointmentHistory\Appointment_history.cs" />
+    <Compile Include="Main\AppointmentHistory\Appointment.cs" />
+    <Compile Include="Main\AppointmentHistory\AppointmentHistoryAdapter.cs" />
+    <Compile Include="Main\Main\PreOrder\add_service.cs" />
+    <Compile Include="Main\Main\PreOrder\ServiceAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -358,10 +364,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\custome_promotion_home_item.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\carousel_item.xml">
       <SubType></SubType>
       <Generator></Generator>
@@ -450,6 +452,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\appointment_history_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -471,6 +477,7 @@
     <Folder Include="Main\Base\" />
     <Folder Include="Main\ProvideInfor\" />
     <Folder Include="Main\MakeAppointment\" />
+    <Folder Include="Main\AppointmentHistory\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
