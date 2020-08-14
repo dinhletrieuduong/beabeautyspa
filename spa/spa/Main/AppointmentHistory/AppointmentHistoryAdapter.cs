@@ -12,7 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Util.Zip;
 
-namespace AppointmentHustory
+namespace spa.Main.AppointmentHistory
 {
     class AppointmentHistoryAdapter : RecyclerView.Adapter
     {
@@ -68,7 +68,7 @@ namespace AppointmentHustory
                 Toast.MakeText(view.Context, test, ToastLength.Short).Show();
             }
 
-            
+
         }
     }
 }

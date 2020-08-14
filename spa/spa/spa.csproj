@@ -147,6 +147,7 @@
     <Compile Include="Main\AppointmentHistory\AppointmentHistoryAdapter.cs" />
     <Compile Include="Main\Main\PreOrder\add_service.cs" />
     <Compile Include="Main\Main\PreOrder\ServiceAdapter.cs" />
+    <Compile Include="Main\AppointmentHistory\AppointmentHistoryActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -453,6 +454,42 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\appointment_history_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\appointment_detail.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\detail_service_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\dialog_GPSLocation.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\personal_cart_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\promotion_home_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\service_appointment_detail_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\statistics.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\service_bar_graph.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\sample_advertisement.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

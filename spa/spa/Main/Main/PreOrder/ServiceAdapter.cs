@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -11,16 +11,16 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Java.Util.Zip;
-using ServiceCart;
-
-namespace AddService
+//using ServiceCart;
+using Service = spa.Data.Model.Service.Service;
+namespace spa.Main.PreOrder
 {
     class ServiceAdapter : RecyclerView.Adapter
     {
-        List<Cart> mListService;
+        List<Service> mListService;
         Context context;
 
-        public ServiceAdapter(List<Cart> listServices, Context con)
+        public ServiceAdapter(List<Service> listServices, Context con)
         {
             mListService = listServices;
             context = con;
@@ -34,9 +34,8 @@ namespace AddService
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             MyView mHolder = holder as MyView;
-            mHolder.Name.Text = mListService[position].mName;
-            mHolder.Duration.Text = mListService[position].mDuration.ToString() + " Minutes";
-
+            mHolder.Name.Text = mListService[position].serviceName;
+            mHolder.Duration.Text = mListService[position].duration.ToString() + " Minutes";
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -44,7 +43,7 @@ namespace AddService
             Context context = parent.Context;
             LayoutInflater layoutInflater = LayoutInflater.From(context);
 
-            View ServiceView = layoutInflater.Inflate(Resource.Layout.services_cart_item, parent, false);
+            View ServiceView = layoutInflater.Inflate(Resource.Layout.custom_services_cart_item, parent, false);
             MyView mholder = new MyView(ServiceView);
             return mholder;
         }
