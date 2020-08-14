@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:padding="5dp">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:background="@drawable/Corner_radius">
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Service  "
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:paddingLeft="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Massage in the long time"
+                    android:id="@+id/txtNameService"
+                    android:textColor="#33691e"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20sp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Duration"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:paddingLeft="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="60 minutes"
+                    android:id="@+id/txtDurationService"
+                    android:textColor="#040404"
+                    android:textSize="20sp"
+                    android:paddingLeft="20sp"/>
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/btnDelete"
+                    android:src="@drawable/del_btn"
+                    android:scaleType="fitCenter"
+                    android:layout_marginLeft="-50dp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10sp"/>
+</LinearLayout>

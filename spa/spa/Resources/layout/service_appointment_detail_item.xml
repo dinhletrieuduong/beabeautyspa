@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<LinearLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Massage in long time"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_marginLeft="30sp"
+        android:id="@+id/txtServiceName"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow"
+            android:id="@+id/btnDetail"
+            android:layout_marginRight="20sp"/>
+    </LinearLayout>
+
+</LinearLayout>
