@@ -5,7 +5,9 @@ using Android.Runtime;
 using Android.Widget;
 using Android.Support.V7.Widget;
 using System.Collections.Generic;
-using ServiceCart;
+using spa.Data.Model.Service;
+using Service = spa.Data.Model.Service.Service;
+using spa;
 
 namespace AddService
 {
@@ -14,7 +16,7 @@ namespace AddService
     public class MainActivity : AppCompatActivity
     {
         RecyclerView recyclerView;
-        List<Cart> ServiceList;
+        List<Service> ServiceList;
         ServiceAdapter adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -31,11 +33,11 @@ namespace AddService
             toolbar.NavigationClick += delegate { backButtonClick(); };
 
             RecyclerView recyclerView = FindViewById<RecyclerView>(Resource.Id.ServicesList);
-            ServiceList = new List<Cart>();
-            ServiceList.Add(new Cart("Massage in long time", 30));
-            ServiceList.Add(new Cart("Spa Bath", 30));
-            ServiceList.Add(new Cart("Loose weight", 30));
-            ServiceList.Add(new Cart("Mediation", 30));
+            ServiceList = new List<Service>();
+            ServiceList.Add(new Service("Massage in long time", 30));
+            ServiceList.Add(new Service("Spa Bath", 30));
+            ServiceList.Add(new Service("Loose weight", 30));
+            ServiceList.Add(new Service("Mediation", 30));
 
             adapter = new ServiceAdapter(ServiceList, this);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
