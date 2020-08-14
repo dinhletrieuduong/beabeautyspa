@@ -11,8 +11,9 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Java.Util.Zip;
+using spa;
 
-namespace AppointmentHustory
+namespace AppointmentHistory
 {
     class AppointmentHistoryAdapter : RecyclerView.Adapter
     {

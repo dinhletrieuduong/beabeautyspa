@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Sql;
 
-namespace AppointmentHustory
+namespace AppointmentHistory
 {
     class Appointment
     {

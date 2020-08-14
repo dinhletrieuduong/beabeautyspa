@@ -10,6 +10,9 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using spa;
+using spa.Data.Model.Service;
+using Service = spa.Data.Model.Service.Service;
 
 namespace AppointmentDetail
 {
@@ -32,7 +35,7 @@ namespace AppointmentDetail
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             appointment_detail_service mHolder = holder as appointment_detail_service;
-            mHolder.name.Text = mServiceList[position].mName;
+            mHolder.name.Text = mServiceList[position].serviceName;
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)

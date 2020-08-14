@@ -7,8 +7,9 @@ using Android.Support.V7.Widget;
 using System.Collections.Generic;
 using Android.Text;
 using System;
+using spa;
 
-namespace AppointmentHustory
+namespace AppointmentHistory
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
