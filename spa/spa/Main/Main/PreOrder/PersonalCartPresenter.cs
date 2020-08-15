@@ -1,5 +1,6 @@
 ﻿using System;
 using spa.Base;
+using spa.Main.MakeAppointment;
 using spa.Navigation;
 
 namespace spa.PersonalCart
@@ -18,5 +19,14 @@ namespace spa.PersonalCart
             m_view = view;
         }
 
+        public void GoToMakeAppointment()
+        {
+            navigationService.PushPresenter(new MakeAppointmentPresenter(navigationService));
+        }
+
+        public void GoToAddService()
+        {
+
+        }
     }
 }

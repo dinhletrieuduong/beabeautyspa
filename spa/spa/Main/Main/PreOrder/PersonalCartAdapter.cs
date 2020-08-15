@@ -33,8 +33,13 @@ namespace spa.PersonalCart
             MyView mHolder = holder as MyView;
             mHolder.Name.Text = services[position].serviceName;
             mHolder.Duration.Text = services[position].duration.ToString() + " minutes";
+            mHolder.mDelete.Click += delegate { DeleteButtonClick(services[position].serviceName); };
         }
 
+        public void DeleteButtonClick(string id)
+        {
+            Console.WriteLine(id);
+        }
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             Context context = parent.Context;
@@ -56,12 +61,12 @@ namespace spa.PersonalCart
                 //itemView = _itemView;
                 Name = _itemView.FindViewById<TextView>(Resource.Id.txtNameService);
                 Duration = _itemView.FindViewById<TextView>(Resource.Id.txtDurationService);
-                mDelete = _itemView.FindViewById<ImageView>(Resource.Id.btnDelete);
+                mDelete = _itemView.FindViewById<ImageView>(Resource.Id.delBtn);
 
                 mDelete.Click += delegate { DeleteButtonClick(_itemView); };
             }
 
-            public void DeleteButtonClick(View view)
+            void DeleteButtonClick(View view)
             {
                 Toast.MakeText(view.Context, "Testing Recycler view", ToastLength.Short).Show();
             }

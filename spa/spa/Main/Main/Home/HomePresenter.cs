@@ -5,6 +5,7 @@ using Android.App;
 using Java.Lang.Ref;
 using spa.Base;
 using spa.Data;
+using spa.Data.Model.Outlet;
 using spa.Navigation;
 
 namespace spa.Main.Home
@@ -30,7 +31,7 @@ namespace spa.Main.Home
             //m_view.TryGetTarget();
         }
 
-        public List<Data.Model.Service.Service> GetAllService()
+        public List<Data.Model.Service.Service> GetAllServices()
         {
 
             List<Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
@@ -40,6 +41,29 @@ namespace spa.Main.Home
                     m_view.updateListService(services);
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             return services;
+        }
+
+        public List<Data.Model.Service.Service> GetServiceByOutlet(int outletID)
+        {
+            List<Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
+            Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetAllServices(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    m_view.updateListService(services);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            return services;
+        }
+
+        public List<Outlet> GetAllOutles()
+        {
+            List<Outlet> outlets = new List<Outlet>();
+            Task.Factory.StartNew(() => outlets = dataManager.GetOutletRepository().GetAllOutlets(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    m_view.updateListOutlet(outlets);
+                    GetAllServices();
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            return outlets;
         }
     }
 }

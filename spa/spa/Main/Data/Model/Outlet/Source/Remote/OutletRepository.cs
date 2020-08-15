@@ -24,7 +24,7 @@ namespace spa.Data.Model.Outlet.Source.Remote
             return instance;
         }
 
-        public List<Outlet> GetAllService(string token)
+        public List<Outlet> GetAllOutlets(string token)
         {
             var response = serviceService.GetAllOutlets(token);
             List<Outlet> resp = new List<Outlet>();
@@ -47,11 +47,6 @@ namespace spa.Data.Model.Outlet.Source.Remote
                 Debug.WriteLine(e.StackTrace);
                 return resp;
             }
-        }
-
-        public List<Outlet> GetAllOutlets(string token)
-        {
-            throw new NotImplementedException();
         }
     }
 }

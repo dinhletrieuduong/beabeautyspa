@@ -148,6 +148,7 @@
     <Compile Include="Main\Main\PreOrder\add_service.cs" />
     <Compile Include="Main\Main\PreOrder\ServiceAdapter.cs" />
     <Compile Include="Main\AppointmentHistory\AppointmentHistoryActivity.cs" />
+    <Compile Include="Main\Main\Home\CustomAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -369,7 +370,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\custom_location_combobox.xml">
+    <AndroidResource Include="Resources\layout\custom_location_spinner.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -469,10 +470,6 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\personal_cart_item.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\promotion_home_item.xml">
       <SubType></SubType>
       <Generator></Generator>
@@ -490,6 +487,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\sample_advertisement.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_spinner_item.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

@@ -1,10 +1,17 @@
 ﻿using System;
+using spa.Base;
+using spa.Data;
+using spa.Navigation;
+
 namespace spa.Main.MakeAppointment
 {
-    public class MakeAppointmentPresenter
+    public class MakeAppointmentPresenter : BasePresenter
     {
-        public MakeAppointmentPresenter()
+        DataManager dataManager;
+
+        public MakeAppointmentPresenter(INavigationService navigationService) : base(navigationService)
         {
+            dataManager = DataManager.GetInstance();
         }
     }
 }

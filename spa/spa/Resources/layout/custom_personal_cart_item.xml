@@ -65,7 +65,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:id="@+id/btnDelete"
+                    android:id="@+id/delBtn"
                     android:src="@drawable/del_btn"
                     android:scaleType="fitCenter"
                     android:layout_marginLeft="-50dp"

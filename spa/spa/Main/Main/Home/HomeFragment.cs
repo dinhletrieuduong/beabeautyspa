@@ -13,11 +13,13 @@ using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using spa.Data.Model.Outlet;
+using spa.Main.Main.Home;
 using spa.Navigation;
 namespace spa.Main.Home
 {
     [Obsolete]
-    public class HomeFragment : Fragment, IHomeView
+    public class HomeFragment : Fragment, IHomeView, Spinner.IOnItemSelectedListener
     {
         ViewPager viewPager;
         ImageAdapter imageAdapter;
@@ -25,9 +27,11 @@ namespace spa.Main.Home
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
 
+        Spinner spinnerLocation;
         HomePresenter presenter;
 
         List<spa.Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
+        List<Outlet> outlets = new List<Outlet>();
 
         public static HomeFragment NewInstance(String param1, String param2)
         {
@@ -56,8 +60,11 @@ namespace spa.Main.Home
 
             presenter = new HomePresenter(new NavigationService(Activity.Application));
             presenter.SetView(this);
-            //services = presenter.GetAllService();
-            presenter.GetAllService();
+            presenter.GetAllOutles();
+
+            spinnerLocation = view.FindViewById<Spinner>(Resource.Id.spinnerLocation);
+            spinnerLocation.OnItemSelectedListener = this;
+
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerViewService);
             adapter = new ServiceAdapter(services);
             layoutManager = new LinearLayoutManager(Context);
@@ -90,6 +97,23 @@ namespace spa.Main.Home
         {
             adapter = new ServiceAdapter(services);
             recyclerView.SetAdapter(adapter);
+        }
+
+        public void updateListOutlet(List<Outlet> outlets)
+        {
+            this.outlets = outlets;
+            CustomAdapter customAdapter = new CustomAdapter(Context, outlets);
+            spinnerLocation.Adapter = customAdapter;
+        }
+        public void OnItemSelected(AdapterView arg0, View arg1, int arg2,
+                long arg3)
+        {
+            presenter.GetServiceByOutlet(outlets[arg2].id);
+        }
+
+        public void OnNothingSelected(AdapterView arg0)
+        {
+
         }
     }
 }

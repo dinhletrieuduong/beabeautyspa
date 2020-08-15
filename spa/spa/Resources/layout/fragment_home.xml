@@ -12,6 +12,7 @@
         <include
                 layout="@layout/custom_toolbar_logo"
                 />
+
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,30 +20,6 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/full_border">
-                <ImageView
-                android:id="@+id/locationIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"    
-                android:src="@drawable/location_icon"
-                android:contentDescription="@string/Icon"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="5dp"/>
-                <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/durationTxtView"
-                android:layout_toRightOf="@id/locationIcon"
-                android:layout_marginStart="5dp"
-                />
-            </RelativeLayout>
-
             <android.support.v4.view.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
@@ -52,7 +29,12 @@
                 android:layout_marginTop="20dp"
                 android:focusedByDefault="true"
                 />
-            
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/location_spinner"
+                layout="@layout/custom_location_spinner"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

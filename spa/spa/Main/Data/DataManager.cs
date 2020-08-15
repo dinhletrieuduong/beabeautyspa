@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Android.Preferences;
+using spa.Data.Model.Outlet.Source.Remote;
 using spa.Data.Model.Service.Source.Remote;
 using spa.Data.Model.User;
 using spa.Data.Model.User.Source.Remote;
@@ -41,6 +42,11 @@ namespace spa.Data
         {
             ServiceService serviceService = ServiceService.GetInstance();
             return ServiceRepository.GetInstance(serviceService);
+        }
+        public OutletRepository GetOutletRepository()
+        {
+            OutletService service = OutletService.GetInstance();
+            return OutletRepository.GetInstance(service);
         }
 
         public string GetToken()

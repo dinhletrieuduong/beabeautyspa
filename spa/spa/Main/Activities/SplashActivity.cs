@@ -6,7 +6,6 @@ using Android.Support.V7.App;
 using Android.Util;
 using spa.Login;
 using spa.Main;
-using spa.MakeAppointment;
 using spa.Verification;
 
 namespace spa.Activities
@@ -18,8 +17,6 @@ namespace spa.Activities
         {
             base.OnCreate(savedInstanceState);
 
-            if (IsTaskRoot)
-                Log.Debug("Tag Debug", "Is  task root");
             //var newIntent = new Intent(this, typeof(MainActivity));
             var newIntent = new Intent(this, typeof(LoginActivity));
             //var newIntent = new Intent(this, typeof(VerificationActivity));
