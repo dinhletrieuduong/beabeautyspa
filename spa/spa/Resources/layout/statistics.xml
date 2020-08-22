@@ -24,7 +24,11 @@
                 android:contentDescription="Back"
                 android:layout_marginLeft="20dp"
                 />
+<<<<<<< HEAD
         </LinearLayout>
+=======
+        </LinearLayout>
+>>>>>>> services
 
         <TextView
             android:layout_width="match_parent"
@@ -44,8 +48,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_column="0"
                 android:layout_row="0"
+=======
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+>>>>>>> services
                 android:layout_marginTop="30sp"
                 android:gravity="center">
                 <LinearLayout
@@ -74,8 +83,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_column="1"
                 android:layout_row="0"
+=======
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+>>>>>>> services
                 android:layout_marginTop="30sp"
                 android:gravity="center">
                 <LinearLayout
@@ -104,8 +118,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_column="0"
                 android:layout_row="1"
+=======
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+>>>>>>> services
                 android:layout_marginTop="30sp"
                 android:gravity="center">
                 <LinearLayout
@@ -142,8 +161,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_column="1"
                 android:layout_row="1"
+=======
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+>>>>>>> services
                 android:layout_marginTop="30sp"
                 android:gravity="center">
                 <LinearLayout

@@ -4,11 +4,19 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+<<<<<<< HEAD
     android:paddingTop="20dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+=======
+    android:paddingTop="20sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+>>>>>>> services
         android:text="Massage in long time"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -22,7 +30,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:src="@drawable/border_right"
+=======
+            android:src="@drawable/right_arrow"
+>>>>>>> services
             android:id="@+id/btnDetail"
             android:layout_marginRight="20sp"/>
     </LinearLayout>
