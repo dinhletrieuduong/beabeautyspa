@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +15,9 @@ using Android.Widget;
 using spa.Data.Model.Outlet;
 using spa.Main.Main.Home;
 using spa.Navigation;
+using spa.Fragments;
+using Android.Locations;
+
 namespace spa.Main.Home
 {
     [Obsolete]
@@ -70,9 +72,20 @@ namespace spa.Main.Home
             layoutManager = new LinearLayoutManager(Context);
             recyclerView.SetLayoutManager(layoutManager);
             recyclerView.SetAdapter(adapter);
+
+            OpenGpsSettings();
             return view;
         }
 
+        private void OpenGpsSettings()
+        {
+            LocationManager LM = (LocationManager)Android.App.Application.Context.GetSystemService(Context.LocationService);
+            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false)
+            {
+                DialogGpsLocation frag = DialogGpsLocation.NewInstance();
+                frag.Show(FragmentManager, DialogGpsLocation.TAG);
+            }
+        }
 
         public bool IsPerformingAction { get; private set; }
 
@@ -102,18 +115,17 @@ namespace spa.Main.Home
         public void updateListOutlet(List<Outlet> outlets)
         {
             this.outlets = outlets;
-            CustomAdapter customAdapter = new CustomAdapter(Context, outlets);
+            CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(Context, outlets);
             spinnerLocation.Adapter = customAdapter;
         }
-        public void OnItemSelected(AdapterView arg0, View arg1, int arg2,
-                long arg3)
+        public void OnItemSelected(AdapterView arg0, View arg1, int arg2, long arg3)
         {
             presenter.GetServiceByOutlet(outlets[arg2].id);
         }
 
         public void OnNothingSelected(AdapterView arg0)
         {
-
+            presenter.GetServiceByOutlet(outlets[0].id);
         }
     }
 }

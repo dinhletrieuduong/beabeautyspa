@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using spa.Data.Model.User;
 using Xamarin.Auth;
 
 namespace spa.Utils
 {
     public class CommonUtils
     {
-        public static readonly Uri URL = new Uri("https://beabeautyspa.azurewebsites.net");
+        public static readonly Uri URL = new Uri("https://beabeautyspavn.azurewebsites.net");
 
         public static OAuth2Authenticator LoginFacebook()
         {

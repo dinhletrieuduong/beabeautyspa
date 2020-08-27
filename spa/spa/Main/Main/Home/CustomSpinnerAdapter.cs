@@ -7,14 +7,14 @@ using spa.Data.Model.Outlet;
 
 namespace spa.Main.Main.Home
 {
-    public class CustomAdapter : BaseAdapter
+    public class CustomSpinnerAdapter : BaseAdapter
     {
         Context context;
         int[] flags;
         List<Outlet> outlets;
         LayoutInflater inflter;
 
-        public CustomAdapter(Context applicationContext, List<Outlet> outlets)
+        public CustomSpinnerAdapter(Context applicationContext, List<Outlet> outlets)
         {
             this.context = applicationContext;
             //this.flags = flags;

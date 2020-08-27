@@ -1,25 +1,24 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using spa.Fragments;
+using spa.Navigation;
 
 namespace spa.Main.MakeAppointment
 {
     [Activity(Label = "MakeAppointmentActivity")]
     public class MakeAppointmentActivity : Activity
     {
+        TextView dobTxtView;
         TextView startingTimeTxtView;
+        LinearLayout selectDateBtn;
         LinearLayout timeSelectButton;
+        LinearLayout serviceChangeBtn;
         ImageButton backBtn;
+        MakeAppointmentPresenter presenter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,17 +26,22 @@ namespace spa.Main.MakeAppointment
 
             SetContentView(Resource.Layout.activity_make_appointment);
 
+            presenter = new MakeAppointmentPresenter(new NavigationService(this.Application));
+
             backBtn = FindViewById<ImageButton>(Resource.Id.backBtn);
+            backBtn.Click += delegate { OnBackPressed(); Finish(); };
+
+            dobTxtView = FindViewById<TextView>(Resource.Id.dobTxtView);
+            selectDateBtn = FindViewById<LinearLayout>(Resource.Id.selectDateBtn);
+
             startingTimeTxtView = FindViewById<TextView>(Resource.Id.startingTimeTxtView);
             timeSelectButton = FindViewById<LinearLayout>(Resource.Id.selectStartingTimeBtn);
+            serviceChangeBtn = FindViewById<LinearLayout>(Resource.Id.serviceChangeBtn);
 
-            backBtn.Click += delegate { OnBackPressed(); Finish(); };
+            selectDateBtn.Click += DateSelect_OnClick;
             timeSelectButton.Click += TimeSelectOnClick;
-        }
 
-
-        void BackToPreOrder()
-        {
+            serviceChangeBtn.Click += delegate { presenter.GoToAddService(); };
         }
 
         void TimeSelectOnClick(object sender, EventArgs eventArgs)
@@ -49,6 +53,16 @@ namespace spa.Main.MakeAppointment
                 });
 
             frag.Show(FragmentManager, TimePickerFragment.TAG);
+        }
+
+        [Obsolete]
+        void DateSelect_OnClick(object sender, EventArgs eventArgs)
+        {
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            {
+                dobTxtView.Text = time.ToShortDateString();
+            });
+            frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
     }
 }

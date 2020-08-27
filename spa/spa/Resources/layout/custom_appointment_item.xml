@@ -71,7 +71,6 @@
                     android:layout_height="35sp"
                     android:id="@+id/btnDetail"
                     android:src="@drawable/Detail_Button"
-                    android:scaleType="centerCrop"
                     android:layout_marginLeft="-50dp"
                     />
             </LinearLayout>

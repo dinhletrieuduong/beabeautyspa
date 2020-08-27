@@ -11,6 +11,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Java.Util.Zip;
+using spa.Data.Appointment.Source;
 
 namespace spa.Main.AppointmentHistory
 {
@@ -18,11 +19,13 @@ namespace spa.Main.AppointmentHistory
     {
         List<Appointment> mList;
         Context mContext;
+        AppointmentPresenter presenter;
 
-        public AppointmentHistoryAdapter(List<Appointment> list, Context con)
+        public AppointmentHistoryAdapter(List<Appointment> list, Context con, AppointmentPresenter presenter)
         {
             mList = list;
             mContext = con;
+            this.presenter = presenter;
         }
 
         public override int ItemCount
@@ -42,8 +45,8 @@ namespace spa.Main.AppointmentHistory
             Context context = parent.Context;
             LayoutInflater layoutInflater = LayoutInflater.From(context);
 
-            View AppointmentsView = layoutInflater.Inflate(Resource.Layout.appointment_item, parent, false);
-            Myview mHolder = new Myview(AppointmentsView);
+            View AppointmentsView = layoutInflater.Inflate(Resource.Layout.custom_appointment_item, parent, false);
+            Myview mHolder = new Myview(AppointmentsView, presenter);
             return mHolder;
         }
 
@@ -52,13 +55,15 @@ namespace spa.Main.AppointmentHistory
             private View itemView;
             public TextView date, total;
             public ImageView detail;
+            AppointmentPresenter presenter;
 
-            public Myview(View _itemView) : base(_itemView)
+            public Myview(View _itemView, AppointmentPresenter presenter) : base(_itemView)
             {
                 date = _itemView.FindViewById<TextView>(Resource.Id.txtDate);
                 total = _itemView.FindViewById<TextView>(Resource.Id.txtTotal);
                 detail = _itemView.FindViewById<ImageView>(Resource.Id.btnDetail);
 
+                this.presenter = presenter;
                 detail.Click += delegate { DetailButtonClick(_itemView); };
             }
 
@@ -66,9 +71,8 @@ namespace spa.Main.AppointmentHistory
             {
                 string test = "Detail button click";
                 Toast.MakeText(view.Context, test, ToastLength.Short).Show();
+                presenter.GoToAppointmentDetail();
             }
-
-
         }
     }
 }

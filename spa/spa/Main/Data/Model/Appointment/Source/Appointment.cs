@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Sql;
 
-namespace spa.Main.AppointmentHistory
+namespace spa.Data.Appointment.Source
 {
     class Appointment
     {

@@ -29,7 +29,7 @@ namespace spa.Data.Model.Service.Source.Remote
             return singleton;
         }
 
-        public async Task<List<ServiceResponse>> GetAllService(string token)
+        public async Task<List<ServiceResponse>> GetAllServices(string token)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -37,5 +37,12 @@ namespace spa.Data.Model.Service.Source.Remote
             return await serviceApi.GetAllServices().ConfigureAwait(false);
         }
 
+        public async Task<List<ServiceResponse>> GetServicesByOutlet(string token, int outletID)
+        {
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var serviceApi = RestService.For<ServiceApi>(httpClient);
+            return await serviceApi.GetServicesByOutlet(outletID).ConfigureAwait(false);
+        }
     }
 }

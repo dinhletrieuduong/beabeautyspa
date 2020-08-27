@@ -118,7 +118,6 @@
     <Compile Include="Main\ProvideInfor\IProvideInforView.cs" />
     <Compile Include="Main\Main\Home\ImageAdapter.cs" />
     <Compile Include="Main\Main\Home\ServiceAdapter.cs" />
-    <Compile Include="Main\dialog_GPSLocation.cs" />
     <Compile Include="Main\Main\PreOrder\IPersCartView.cs" />
     <Compile Include="Main\Main\PreOrder\PersonalCartAdapter.cs" />
     <Compile Include="Main\Main\PreOrder\PersonalCartPresenter.cs" />
@@ -141,14 +140,20 @@
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletRepository.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletResponse.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletService.cs" />
-    <Compile Include="Main\AppointmentHistory\appointment_detail_adapter.cs" />
-    <Compile Include="Main\AppointmentHistory\Appointment_history.cs" />
-    <Compile Include="Main\AppointmentHistory\Appointment.cs" />
-    <Compile Include="Main\AppointmentHistory\AppointmentHistoryAdapter.cs" />
-    <Compile Include="Main\Main\PreOrder\add_service.cs" />
     <Compile Include="Main\Main\PreOrder\ServiceAdapter.cs" />
-    <Compile Include="Main\AppointmentHistory\AppointmentHistoryActivity.cs" />
-    <Compile Include="Main\Main\Home\CustomAdapter.cs" />
+    <Compile Include="Main\Main\Home\CustomSpinnerAdapter.cs" />
+    <Compile Include="Main\Main\AppointmentHistory\AppointmentHistoryAdapter.cs" />
+    <Compile Include="Main\Main\AppointmentHistory\AppointmentFragment.cs" />
+    <Compile Include="Main\Main\AppointmentHistory\IAppointmentView.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Appointment.cs" />
+    <Compile Include="Main\AppointmentDetail\AppointmentDetailActivity.cs" />
+    <Compile Include="Main\Main\AppointmentHistory\AppointmentPresenter.cs" />
+    <Compile Include="Main\AppointmentDetail\AppointmentDetailPresenter.cs" />
+    <Compile Include="Main\AppointmentDetail\IAppointmentDetailView.cs" />
+    <Compile Include="Main\Fragments\DialogGpsLocation.cs" />
+    <Compile Include="Main\AddService\AddServicePresenter.cs" />
+    <Compile Include="Main\AddService\IAddServiceView.cs" />
+    <Compile Include="Main\AddService\AddServiceActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -434,11 +439,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\add_services.xml">
+    <AndroidResource Include="Resources\layout\activity_add_services.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\appointment_item.xml">
+    <AndroidResource Include="Resources\layout\custom_appointment_item.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -454,19 +459,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\appointment_history_page.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\appointment_detail.xml">
+    <AndroidResource Include="Resources\layout\activity_appointment_detail.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\detail_service_page.xml">
-      <SubType></SubType>
-      <Generator></Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\dialog_GPSLocation.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -494,6 +491,10 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_appointment.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -515,7 +516,9 @@
     <Folder Include="Main\Base\" />
     <Folder Include="Main\ProvideInfor\" />
     <Folder Include="Main\MakeAppointment\" />
-    <Folder Include="Main\AppointmentHistory\" />
+    <Folder Include="Main\Main\AppointmentHistory\" />
+    <Folder Include="Main\AppointmentDetail\" />
+    <Folder Include="Main\AddService\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

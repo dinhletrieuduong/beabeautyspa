@@ -46,7 +46,7 @@ namespace spa.Main.Home
         public List<Data.Model.Service.Service> GetServiceByOutlet(int outletID)
         {
             List<Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
-            Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetAllServices(dataManager.GetToken()))
+            Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetServicesByOutlet(dataManager.GetToken(), outletID))
                 .ContinueWith(task =>
                 {
                     m_view.updateListService(services);
@@ -61,7 +61,8 @@ namespace spa.Main.Home
                 .ContinueWith(task =>
                 {
                     m_view.updateListOutlet(outlets);
-                    GetAllServices();
+                    GetServiceByOutlet(outlets[0].id);
+                    //GetAllServices();
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             return outlets;
         }

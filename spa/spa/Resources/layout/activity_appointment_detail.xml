@@ -41,7 +41,7 @@
                 android:layout_marginTop="25sp"/>
             <AbsoluteLayout
                 android:layout_width="match_parent"
-                android:layout_height="7sp"
+                android:layout_height="5sp"
                 android:background="#dedede"
                 android:layout_marginTop="20dp"/>
         </LinearLayout>
@@ -52,8 +52,8 @@
                 android:text="Payment"
                 android:textColor="#817474"
                 android:textSize="25sp"
-                android:layout_marginTop="25sp"
-                android:layout_marginLeft="30sp"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

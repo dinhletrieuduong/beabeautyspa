@@ -13,6 +13,8 @@ using spa.Activities;
 using spa.Base;
 using spa.Login;
 using spa.Main;
+using spa.Main.AddService;
+using spa.Main.AppointmentDetail;
 using spa.Main.MakeAppointment;
 using spa.PersonalCart;
 using spa.ProvideInfor;
@@ -70,6 +72,15 @@ namespace spa.Navigation
                 {
                     intent = new Intent(application, typeof(MakeAppointmentActivity));
                 }
+                else if (presenter is AppointmentDetailPresenter)
+                {
+                    intent = new Intent(application, typeof(AppointmentDetailActivity));
+                }
+                else if (presenter is AddServicePresenter)
+                {
+                    intent = new Intent(application, typeof(AddServiceActivity));
+                }
+
 
                 if (intent != null)
                 {

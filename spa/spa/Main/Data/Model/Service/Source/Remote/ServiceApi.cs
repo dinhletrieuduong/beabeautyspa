@@ -14,5 +14,7 @@ namespace spa.Data.Model.Service.Source.Remote
         [Get("/api/service/all/")]
         Task<List<ServiceResponse>> GetAllServices();
 
+        [Get("/api/service/{id}")]
+        Task<List<ServiceResponse>> GetServicesByOutlet([AliasAs("id")] int outletID);
     }
 }

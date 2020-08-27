@@ -1,6 +1,7 @@
 ﻿using System;
 using spa.Base;
 using spa.Data;
+using spa.Main.AddService;
 using spa.Navigation;
 
 namespace spa.Main.MakeAppointment
@@ -12,6 +13,11 @@ namespace spa.Main.MakeAppointment
         public MakeAppointmentPresenter(INavigationService navigationService) : base(navigationService)
         {
             dataManager = DataManager.GetInstance();
+        }
+
+        public void GoToAddService()
+        {
+            navigationService.PushPresenter(new AddServicePresenter(navigationService));
         }
     }
 }

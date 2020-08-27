@@ -1,40 +1,47 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
+using spa.Data.Appointment.Source;
+using spa.Navigation;
 
 namespace spa.Main.AppointmentHistory
 {
-    [Activity(Label = "AppointmentHistoryActivity")]
-    public class AppointmentHistoryActivity : AppCompatActivity
+    [Obsolete]
+    public class AppointmentFragment : Fragment, IAppointmentView
     {
         public RecyclerView recyclerView;
         List<Appointment> appointmentsList;
         AppointmentHistoryAdapter adapter;
+        AppointmentPresenter presenter;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        public static AppointmentFragment NewInstance(String param1, String param2)
+        {
+            AppointmentFragment fragment = new AppointmentFragment();
+            Bundle args = new Bundle();
+            //        args.putString(ARG_PARAM1, param1);
+            fragment.Arguments = args;
+            return fragment;
+        }
+
+        public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
 
-            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbarAppointmentHistory);
-            SetSupportActionBar(toolbar);
-            toolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
-            toolbar.NavigationClick += delegate { backButtonClick(); };
+            // Create your fragment here
 
-            recyclerView = FindViewById<RecyclerView>(Resource.Id.AppointmentList);
+        }
+
+        public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
+            // Use this to return your custom view for this Fragment
+            View view = inflater.Inflate(Resource.Layout.fragment_appointment, container, false);
+
+            presenter = new AppointmentPresenter(new NavigationService(Activity.Application));
+
+            recyclerView = view.FindViewById<RecyclerView>(Resource.Id.AppointmentList);
 
             string mDate = "2020/03/17";
             string mOutDate;
@@ -44,23 +51,38 @@ namespace spa.Main.AppointmentHistory
             appointmentsList.Add(new Appointment(mOutDate, ChangeIntToStringComma(15000000)));
             appointmentsList.Add(new Appointment(mOutDate, ChangeIntToStringComma(15000000)));
 
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-            adapter = new AppointmentHistoryAdapter(appointmentsList, this);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Context);
+            adapter = new AppointmentHistoryAdapter(appointmentsList, Context, presenter);
             recyclerView.SetAdapter(adapter);
             recyclerView.SetLayoutManager(linearLayoutManager);
+
+            return view;
         }
 
-        public void backButtonClick()
+        public bool IsPerformingAction { get; private set; }
+
+        public void OnActionStarted()
         {
-            Android.Widget.Toast.MakeText(this, "Back button clicked", Android.Widget.ToastLength.Long).Show();
+            IsPerformingAction = true;
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public void OnActionFinished()
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            IsPerformingAction = false;
         }
+
+        public bool IsNavigating { get; private set; }
+
+        public void OnNavigationStarted()
+        {
+            IsNavigating = true;
+        }
+
+        //public void updateListAppointment(List<Data.Model.Service.Service> services)
+        //{
+        //adapter = new ServiceAdapter(services);
+        //recyclerView.SetAdapter(adapter);
+        //}
 
         public string ChangeIntToStringComma(int a)
         {
