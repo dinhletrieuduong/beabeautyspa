@@ -9,6 +9,9 @@ namespace spa.Data
         public static string EMAIL = "EMAIL";
         public static string USERNAME = "USERNAME";
         public static string TOKEN = "TOKEN";
+        public static string OUTLET_ADDRESS = "OUTLET_ADDRESS";
+        public static string OUTLET_ID = "OUTLET_ID";
+        public static string SERVICE_ID = "SERVICE_ID";
 
         ISharedPreferences mSharedPreferences;
 
@@ -25,6 +28,34 @@ namespace spa.Data
         public void clearToken()
         {
             mSharedPreferences.Edit().Remove(TOKEN).Apply();
+        }
+
+        public void putOutletAddress(string outlet)
+        {
+            mSharedPreferences.Edit().PutString(OUTLET_ADDRESS, outlet).Apply();
+        }
+
+        public string getOutletAddress()
+        {
+            return mSharedPreferences.GetString(OUTLET_ADDRESS, null);
+        }
+
+        public void putOutletID(int outletID)
+        {
+            mSharedPreferences.Edit().PutInt(OUTLET_ID, outletID).Apply();
+        }
+        public int getOutletID()
+        {
+            return mSharedPreferences.GetInt(OUTLET_ID, 1);
+        }
+
+        public void putServiceID(int id)
+        {
+            mSharedPreferences.Edit().PutInt(SERVICE_ID, id).Apply();
+        }
+        public int getServiceID()
+        {
+            return mSharedPreferences.GetInt(SERVICE_ID, 1);
         }
 
         public void putEmail(string email)

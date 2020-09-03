@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<!--<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -27,4 +27,49 @@
             android:id="@+id/durationTxtView"
             android:layout_marginTop="20dp"
             android:gravity="bottom"/>
-</LinearLayout>
+</LinearLayout>-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:layout_marginBottom="10dp"
+    >
+        <TextView
+            android:text="Body Massage"
+            android:textSize="30sp"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textFontWeight="700"
+            android:id="@+id/serviceNameTxtView"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:text="Duration: 30 min"
+            android:textColor="@android:color/black"
+            android:textFontWeight="700"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/durationTxtView"
+            android:layout_marginTop="20dp"
+            android:gravity="bottom"
+            android:layout_below="@id/serviceNameTxtView"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/body_service"
+			android:contentDescription="description" 
+            android:id="@+id/imageBackground"/>
+    </RelativeLayout>
+</RelativeLayout>

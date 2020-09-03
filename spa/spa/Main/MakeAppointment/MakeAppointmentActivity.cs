@@ -4,6 +4,7 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using spa.Data;
 using spa.Fragments;
 using spa.Navigation;
 
@@ -12,6 +13,7 @@ namespace spa.Main.MakeAppointment
     [Activity(Label = "MakeAppointmentActivity")]
     public class MakeAppointmentActivity : Activity
     {
+        TextView locationTxtView;
         TextView dobTxtView;
         TextView startingTimeTxtView;
         LinearLayout selectDateBtn;
@@ -31,6 +33,7 @@ namespace spa.Main.MakeAppointment
             backBtn = FindViewById<ImageButton>(Resource.Id.backBtn);
             backBtn.Click += delegate { OnBackPressed(); Finish(); };
 
+            locationTxtView = FindViewById<TextView>(Resource.Id.locationTxtView);
             dobTxtView = FindViewById<TextView>(Resource.Id.dobTxtView);
             selectDateBtn = FindViewById<LinearLayout>(Resource.Id.selectDateBtn);
 
@@ -38,6 +41,7 @@ namespace spa.Main.MakeAppointment
             timeSelectButton = FindViewById<LinearLayout>(Resource.Id.selectStartingTimeBtn);
             serviceChangeBtn = FindViewById<LinearLayout>(Resource.Id.serviceChangeBtn);
 
+            locationTxtView.Text = DataManager.GetInstance().GetOutletAddress();
             selectDateBtn.Click += DateSelect_OnClick;
             timeSelectButton.Click += TimeSelectOnClick;
 

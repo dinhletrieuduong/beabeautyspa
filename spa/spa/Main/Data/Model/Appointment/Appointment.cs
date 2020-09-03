@@ -10,10 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Java.Sql;
+using spa.Data.Model.Appointment.Source.Remote;
 
-namespace spa.Data.Appointment.Source
+namespace spa.Data.Model.Appointment
 {
-    class Appointment
+    public class Appointment
     {
         public string mTotal;
         public string mDate;
@@ -22,6 +23,12 @@ namespace spa.Data.Appointment.Source
         {
             mDate = date;
             mTotal = total;
+        }
+
+
+        public Appointment(AppointmentResponse response)
+        {
+            //mTotal = response.serviceID;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using spa.Base;
 using spa.Data;
-using spa.Data.Appointment.Source;
+using spa.Data.Model.Appointment;
 using spa.Main.AppointmentDetail;
 using spa.Main.AppointmentHistory;
 using spa.Navigation;
@@ -30,16 +30,15 @@ namespace spa.Main.AppointmentHistory
         {
             navigationService.PushPresenter(new AppointmentDetailPresenter(navigationService));
         }
-        //public List<Appointment> GetAllAppointmentHistory()
-        //{
-
-        //List<Appointment> services = new List<Appointment>();
-        //Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetAllServices(dataManager.GetToken()))
-        //    .ContinueWith(task =>
-        //    {
-        //        m_view.updateListService(services);
-        //    }, TaskScheduler.FromCurrentSynchronizationContext());
-        //return services;
-        //}
+        public List<Appointment> GetAllAppointmentHistory()
+        {
+            List<Appointment> list = new List<Appointment>();
+            Task.Factory.StartNew(() => list = dataManager.GetAppointmentRepository().GetAppointmentHistory(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    //m_view.updateListService(services);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            return list;
+        }
     }
 }

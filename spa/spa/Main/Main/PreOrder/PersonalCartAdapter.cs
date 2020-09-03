@@ -11,35 +11,32 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 
-namespace spa.PersonalCart
+namespace spa.Main.PreOrder
 {
     class PersonalCartAdapter : RecyclerView.Adapter
     {
-        public List<spa.Data.Model.Service.Service> services;
-        private Context Context;
+        public List<spa.Data.Model.PreOrder.PreOrder> preOrders;
+        PersonalCartPresenter presenter;
 
-        public PersonalCartAdapter(List<spa.Data.Model.Service.Service> services, Context con)
+        public PersonalCartAdapter(List<spa.Data.Model.PreOrder.PreOrder> preOrders, PersonalCartPresenter presenter)
         {
-            this.services = services;
-            Context = con;
+            this.preOrders = preOrders;
+            this.presenter = presenter;
         }
         public override int ItemCount
         {
-            get { return services.Count; }
+            get { return preOrders.Count; }
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             MyView mHolder = holder as MyView;
-            mHolder.Name.Text = services[position].serviceName;
-            mHolder.Duration.Text = services[position].duration.ToString() + " minutes";
-            mHolder.mDelete.Click += delegate { DeleteButtonClick(services[position].serviceName); };
+            mHolder.Name.Text = preOrders[position].serviceName;
+            mHolder.Duration.Text = preOrders[position].duration.ToString() + " minutes";
+            mHolder.serviceID = preOrders[position].serviceID;
+            mHolder.presenter = presenter;
         }
 
-        public void DeleteButtonClick(string id)
-        {
-            Console.WriteLine(id);
-        }
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             Context context = parent.Context;
@@ -50,12 +47,13 @@ namespace spa.PersonalCart
             return viewholder;
         }
 
-        public class MyView : RecyclerView.ViewHolder
+        class MyView : RecyclerView.ViewHolder
         {
             //private View itemView;
             public TextView Name, Duration;
             public ImageView mDelete;
-
+            public int serviceID { get; set; }
+            public PersonalCartPresenter presenter { get; set; }
             public MyView(View _itemView) : base(_itemView)
             {
                 //itemView = _itemView;
@@ -68,7 +66,8 @@ namespace spa.PersonalCart
 
             void DeleteButtonClick(View view)
             {
-                Toast.MakeText(view.Context, "Testing Recycler view", ToastLength.Short).Show();
+                Toast.MakeText(view.Context, "Testing Recycler view " + serviceID, ToastLength.Short).Show();
+                presenter.DeletePreOrderItem(serviceID);
             }
         }
     }

@@ -118,7 +118,7 @@
     <Compile Include="Main\ProvideInfor\IProvideInforView.cs" />
     <Compile Include="Main\Main\Home\ImageAdapter.cs" />
     <Compile Include="Main\Main\Home\ServiceAdapter.cs" />
-    <Compile Include="Main\Main\PreOrder\IPersCartView.cs" />
+    <Compile Include="Main\Main\PreOrder\IPersonalCartView.cs" />
     <Compile Include="Main\Main\PreOrder\PersonalCartAdapter.cs" />
     <Compile Include="Main\Main\PreOrder\PersonalCartPresenter.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\LoginManualRequest.cs" />
@@ -140,12 +140,10 @@
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletRepository.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletResponse.cs" />
     <Compile Include="Main\Data\Model\Outlet\Source\Remote\OutletService.cs" />
-    <Compile Include="Main\Main\PreOrder\ServiceAdapter.cs" />
     <Compile Include="Main\Main\Home\CustomSpinnerAdapter.cs" />
     <Compile Include="Main\Main\AppointmentHistory\AppointmentHistoryAdapter.cs" />
     <Compile Include="Main\Main\AppointmentHistory\AppointmentFragment.cs" />
     <Compile Include="Main\Main\AppointmentHistory\IAppointmentView.cs" />
-    <Compile Include="Main\Data\Model\Appointment\Source\Appointment.cs" />
     <Compile Include="Main\AppointmentDetail\AppointmentDetailActivity.cs" />
     <Compile Include="Main\Main\AppointmentHistory\AppointmentPresenter.cs" />
     <Compile Include="Main\AppointmentDetail\AppointmentDetailPresenter.cs" />
@@ -154,6 +152,22 @@
     <Compile Include="Main\AddService\AddServicePresenter.cs" />
     <Compile Include="Main\AddService\IAddServiceView.cs" />
     <Compile Include="Main\AddService\AddServiceActivity.cs" />
+    <Compile Include="Main\DetailService\DetailServiceActivity.cs" />
+    <Compile Include="Main\DetailService\DetailServicePresenter.cs" />
+    <Compile Include="Main\DetailService\IDetailServiceView.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Remote\AppointmentApi.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Remote\AppointmentRepository.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Remote\AppointmentResponse.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Remote\AppointmentService.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Appointment.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\IPreOrderDataSource.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\PreOrderApi.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\PreOrderRepository.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\PreOrderResponse.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\PreOrderService.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\PreOrder.cs" />
+    <Compile Include="Main\Data\Model\PreOrder\Source\Remote\AddPreOrderRequest.cs" />
+    <Compile Include="Main\AddService\ServiceAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -463,7 +477,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\detail_service_page.xml">
+    <AndroidResource Include="Resources\layout\activity_detail_service.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -519,6 +533,10 @@
     <Folder Include="Main\Main\AppointmentHistory\" />
     <Folder Include="Main\AppointmentDetail\" />
     <Folder Include="Main\AddService\" />
+    <Folder Include="Main\DetailService\" />
+    <Folder Include="Main\Data\Model\PreOrder\" />
+    <Folder Include="Main\Data\Model\PreOrder\Source\" />
+    <Folder Include="Main\Data\Model\PreOrder\Source\Remote\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

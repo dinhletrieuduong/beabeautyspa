@@ -100,7 +100,8 @@ namespace spa.Services
             {
                 Debug.WriteLine($"{msg} {header.Key}: {string.Join(", ", header.Value)}");
             }
-            if (req.Headers.Authorization != null) Debug.WriteLine($"{msg} Authorization: {req.Headers.Authorization.Parameter}");
+
+            //if (req.Headers.Authorization != null) Debug.WriteLine($"{msg} Authorization: {req.Headers.Authorization.Parameter}");
 
             if (req.Content != null)
             {

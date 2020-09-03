@@ -6,6 +6,8 @@ using Java.Lang.Ref;
 using spa.Base;
 using spa.Data;
 using spa.Data.Model.Outlet;
+using spa.Main.AppointmentDetail;
+using spa.Main.DetailService;
 using spa.Navigation;
 
 namespace spa.Main.Home
@@ -33,7 +35,6 @@ namespace spa.Main.Home
 
         public List<Data.Model.Service.Service> GetAllServices()
         {
-
             List<Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
             Task.Factory.StartNew(() => services = dataManager.GetServiceRepository().GetAllServices(dataManager.GetToken()))
                 .ContinueWith(task =>
@@ -50,6 +51,7 @@ namespace spa.Main.Home
                 .ContinueWith(task =>
                 {
                     m_view.updateListService(services);
+
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             return services;
         }
@@ -60,11 +62,18 @@ namespace spa.Main.Home
             Task.Factory.StartNew(() => outlets = dataManager.GetOutletRepository().GetAllOutlets(dataManager.GetToken()))
                 .ContinueWith(task =>
                 {
+                    //    GetServiceByOutlet(outlets[0].id);
+
                     m_view.updateListOutlet(outlets);
-                    GetServiceByOutlet(outlets[0].id);
-                    //GetAllServices();
+                    dataManager.SetOutletAddress(outlets[0].address);
+                    dataManager.SetOutletID(outlets[0].id);
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             return outlets;
+        }
+
+        public void GoToServiceDetail()
+        {
+            navigationService.PushPresenter(new DetailServicePresenter(navigationService));
         }
     }
 }

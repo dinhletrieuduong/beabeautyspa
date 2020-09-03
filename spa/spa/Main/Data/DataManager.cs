@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Android.Preferences;
+using spa.Data.Model.Appointment.Source.Remote;
 using spa.Data.Model.Outlet.Source.Remote;
+using spa.Data.Model.PreOrder.Source.Remote;
 using spa.Data.Model.Service.Source.Remote;
 using spa.Data.Model.User;
 using spa.Data.Model.User.Source.Remote;
@@ -40,14 +42,26 @@ namespace spa.Data
         }
         public ServiceRepository GetServiceRepository()
         {
-            ServiceService serviceService = ServiceService.GetInstance();
-            return ServiceRepository.GetInstance(serviceService);
+            ServiceService service = ServiceService.GetInstance();
+            return ServiceRepository.GetInstance(service);
         }
         public OutletRepository GetOutletRepository()
         {
             OutletService service = OutletService.GetInstance();
             return OutletRepository.GetInstance(service);
         }
+        public AppointmentRepository GetAppointmentRepository()
+        {
+            AppointmentService service = AppointmentService.GetInstance();
+            return AppointmentRepository.GetInstance(service);
+        }
+
+        public PreOrderRepository GetPreOrderRepository()
+        {
+            PreOrderService service = PreOrderService.GetInstance();
+            return PreOrderRepository.GetInstance(service);
+        }
+
 
         public string GetToken()
         {
@@ -63,5 +77,36 @@ namespace spa.Data
             if (!string.IsNullOrEmpty(mSharedPrefsHelper.getToken()))
                 mSharedPrefsHelper.clearToken();
         }
+
+        public void SetOutletAddress(string outletAddress)
+        {
+            mSharedPrefsHelper.putOutletAddress(outletAddress);
+        }
+
+        public string GetOutletAddress()
+        {
+            return mSharedPrefsHelper.getOutletAddress();
+        }
+
+        public void SetOutletID(int id)
+        {
+            mSharedPrefsHelper.putOutletID(id);
+        }
+
+        public int GetOutletID()
+        {
+            return mSharedPrefsHelper.getOutletID();
+        }
+
+        public void SetServiceID(int id)
+        {
+            mSharedPrefsHelper.putServiceID(id);
+        }
+
+        public int GetServiceID()
+        {
+            return mSharedPrefsHelper.getServiceID();
+        }
+
     }
 }

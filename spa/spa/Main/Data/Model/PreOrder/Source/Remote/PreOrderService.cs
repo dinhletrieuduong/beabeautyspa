@@ -9,49 +9,49 @@ using System.Net.Http.Headers;
 
 using System.Collections.Generic;
 
-namespace spa.Data.Model.Service.Source.Remote
+namespace spa.Data.Model.PreOrder.Source.Remote
 {
-    public class ServiceService
+    public class PreOrderService
     {
         private static Uri URL_Service = CommonUtils.URL;
-        private static ServiceService singleton;
+        private static PreOrderService singleton;
 
-        private ServiceService()
+        private PreOrderService()
         {
             //var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
             //userApi = RestService.For<UserApi>(httpClient);
         }
 
-        public static ServiceService GetInstance()
+        public static PreOrderService GetInstance()
         {
             if (singleton == null)
-                singleton = new ServiceService();
+                singleton = new PreOrderService();
             return singleton;
         }
 
-        public async Task<List<ServiceResponse>> GetAllServices(string token)
+        public async Task<List<PreOrderResponse>> GetPreOrderList(string token, int outletID)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var serviceApi = RestService.For<ServiceApi>(httpClient);
-            return await serviceApi.GetAllServices().ConfigureAwait(false);
+            var api = RestService.For<PreOrderApi>(httpClient);
+            return await api.GetPreOrderList(outletID).ConfigureAwait(false);
         }
 
-        public async Task<List<ServiceResponse>> GetServicesByOutlet(string token, int outletID)
+        public async Task<PreOrderResponse> AddPreOrderItem(string token, int outletID, int serviceID)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var serviceApi = RestService.For<ServiceApi>(httpClient);
-            return await serviceApi.GetServicesByOutlet(outletID).ConfigureAwait(false);
+            var api = RestService.For<PreOrderApi>(httpClient);
+            AddPreOrderRequest request = new AddPreOrderRequest() { outletId = outletID, serviceId = serviceID };
+            return await api.AddPreOrderItem(request).ConfigureAwait(false);
         }
 
-        public async Task<ServiceResponse> GetServiceDetail(string token, int serviceID)
+        public async Task<PreOrderResponse> DeletePreOrderItem(string token, int outletID, int serviceID)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            var serviceApi = RestService.For<ServiceApi>(httpClient);
-            return await serviceApi.GetServiceDetail(serviceID).ConfigureAwait(false);
+            var api = RestService.For<PreOrderApi>(httpClient);
+            return await api.DeletePreOrderItem(outletID, serviceID).ConfigureAwait(false);
         }
-
     }
 }

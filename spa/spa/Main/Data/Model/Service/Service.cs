@@ -28,13 +28,13 @@ namespace spa.Data.Model.Service
 
         public Service(ServiceResponse serviceResponse)
         {
-            id = serviceResponse.serviceID;
-            image_url = serviceResponse.servicePhoto;
-            serviceName = serviceResponse.serviceName;
-            description = serviceResponse.serviceDescription;
-            duration = serviceResponse.serviceDuration;
-            transit = serviceResponse.serviceTransit;
-            cost = serviceResponse.serviceCost;
+            id = serviceResponse.service_id;
+            image_url = serviceResponse.service_photo;
+            serviceName = serviceResponse.service_name;
+            description = serviceResponse.service_description;
+            duration = serviceResponse.service_duration;
+            transit = serviceResponse.service_transit;
+            cost = serviceResponse.service_cost;
         }
     }
 }

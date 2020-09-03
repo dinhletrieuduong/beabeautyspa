@@ -1,21 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using spa.Base;
-using spa.Main.AddService;
+using spa.Data;
+using spa.Data.Model.PreOrder;
+using spa.AddService;
 using spa.Main.MakeAppointment;
 using spa.Navigation;
+using Android.Content;
 
-namespace spa.PersonalCart
+namespace spa.Main.PreOrder
 {
     public class PersonalCartPresenter : BasePresenter
     {
-        private IPersCartView m_view;
-
+        private IPersonalCartView m_view;
+        private DataManager dataManager;
         public PersonalCartPresenter(INavigationService navigationService) :
             base(navigationService)
         {
+            dataManager = DataManager.GetInstance();
         }
 
-        public void SetView(IPersCartView view)
+        public void SetView(IPersonalCartView view)
         {
             m_view = view;
         }
@@ -28,6 +34,31 @@ namespace spa.PersonalCart
         public void GoToAddService()
         {
             navigationService.PushPresenter(new AddServicePresenter(navigationService));
+        }
+
+        public List<Data.Model.PreOrder.PreOrder> GetPreOrderList()
+        {
+            List<Data.Model.PreOrder.PreOrder> preOrders = new List<Data.Model.PreOrder.PreOrder>();
+            int outletID = dataManager.GetOutletID();
+            Task.Factory.StartNew(() => preOrders = dataManager.GetPreOrderRepository().GetPreOrderList(dataManager.GetToken(), outletID))
+                .ContinueWith(task =>
+                {
+                    m_view.updateListService(preOrders);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            return preOrders;
+        }
+
+        public void DeletePreOrderItem(int serviceID)
+        {
+            //List<Data.Model.PreOrder.PreOrder> preOrders = new List<Data.Model.PreOrder.PreOrder>();
+            //int outletID = dataManager.GetOutletID();
+            m_view.updateListService(serviceID);
+            int outletID = dataManager.GetOutletID();
+            Task.Factory.StartNew(() => dataManager.GetPreOrderRepository().DeletePreOrderItem(dataManager.GetToken(), outletID, serviceID))
+                .ContinueWith(task =>
+                {
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+            //return preOrders;
         }
     }
 }

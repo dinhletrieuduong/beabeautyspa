@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -43,8 +44,6 @@ namespace spa.Data.Model.Service.Source.Remote
                     Service s = new Service(response.Result[i]);
                     resp.Add(s);
                 }
-                //resp response.Result;
-                //resp.Add(statusCode, message);
                 return resp;
             }
             catch (Exception e)
@@ -68,8 +67,26 @@ namespace spa.Data.Model.Service.Source.Remote
                     Service s = new Service(response.Result[i]);
                     resp.Add(s);
                 }
-                //resp response.Result;
-                //resp.Add(statusCode, message);
+                return resp;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
+                return resp;
+            }
+        }
+
+        public List<Service> GetServiceDetail(string token, int serviceID)
+        {
+            var response = serviceService.GetServiceDetail(token, serviceID);
+            List<Service> resp = new List<Service>();
+            string message = "";
+            try
+            {
+                response.Wait();
+                Service s = new Service(response.Result);
+                resp.Add(s);
                 return resp;
             }
             catch (Exception e)

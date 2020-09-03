@@ -49,7 +49,7 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:textSize="18sp"
-            android:text="ndcuong"
+            android:text="pthieu12345"
     />
     <TextView
         android:layout_width="wrap_content"
@@ -68,7 +68,7 @@
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:textSize="18sp"
-            android:text="12345"
+            android:text="Abcd@123"
     />
     <LinearLayout
             android:layout_width="wrap_content"

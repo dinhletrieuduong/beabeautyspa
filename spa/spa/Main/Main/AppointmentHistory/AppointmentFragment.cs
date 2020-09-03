@@ -4,7 +4,7 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Views;
-using spa.Data.Appointment.Source;
+using spa.Data.Model.Appointment;
 using spa.Navigation;
 
 namespace spa.Main.AppointmentHistory
@@ -40,6 +40,7 @@ namespace spa.Main.AppointmentHistory
             View view = inflater.Inflate(Resource.Layout.fragment_appointment, container, false);
 
             presenter = new AppointmentPresenter(new NavigationService(Activity.Application));
+            presenter.GetAllAppointmentHistory();
 
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.AppointmentList);
 

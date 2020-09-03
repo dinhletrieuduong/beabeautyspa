@@ -17,6 +17,7 @@ using spa.Main.Main.Home;
 using spa.Navigation;
 using spa.Fragments;
 using Android.Locations;
+using spa.Data;
 
 namespace spa.Main.Home
 {
@@ -31,6 +32,8 @@ namespace spa.Main.Home
 
         Spinner spinnerLocation;
         HomePresenter presenter;
+
+        DataManager dataManager;
 
         List<spa.Data.Model.Service.Service> services = new List<Data.Model.Service.Service>();
         List<Outlet> outlets = new List<Outlet>();
@@ -54,6 +57,7 @@ namespace spa.Main.Home
 
         public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            dataManager = DataManager.GetInstance();
             // Use this to return your custom view for this Fragment
             View view = inflater.Inflate(Resource.Layout.fragment_home, container, false);
             viewPager = view.FindViewById<ViewPager>(Resource.Id.viewPager);
@@ -68,7 +72,7 @@ namespace spa.Main.Home
             spinnerLocation.OnItemSelectedListener = this;
 
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerViewService);
-            adapter = new ServiceAdapter(services);
+            adapter = new ServiceAdapter(services, presenter);
             layoutManager = new LinearLayoutManager(Context);
             recyclerView.SetLayoutManager(layoutManager);
             recyclerView.SetAdapter(adapter);
@@ -89,26 +93,17 @@ namespace spa.Main.Home
 
         public bool IsPerformingAction { get; private set; }
 
-        public void OnActionStarted()
-        {
-            IsPerformingAction = true;
-        }
+        public void OnActionStarted() { IsPerformingAction = true; }
 
-        public void OnActionFinished()
-        {
-            IsPerformingAction = false;
-        }
+        public void OnActionFinished() { IsPerformingAction = false; }
 
         public bool IsNavigating { get; private set; }
 
-        public void OnNavigationStarted()
-        {
-            IsNavigating = true;
-        }
+        public void OnNavigationStarted() { IsNavigating = true; }
 
         public void updateListService(List<Data.Model.Service.Service> services)
         {
-            adapter = new ServiceAdapter(services);
+            adapter = new ServiceAdapter(services, presenter);
             recyclerView.SetAdapter(adapter);
         }
 
@@ -120,6 +115,9 @@ namespace spa.Main.Home
         }
         public void OnItemSelected(AdapterView arg0, View arg1, int arg2, long arg3)
         {
+            dataManager.SetOutletAddress(outlets[arg2].address);
+            dataManager.SetOutletID(outlets[arg2].id);
+
             presenter.GetServiceByOutlet(outlets[arg2].id);
         }
 
