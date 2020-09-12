@@ -59,6 +59,7 @@ namespace spa.AddService
             public void AddButtonClick(View view)
             {
                 presenter.AddPreOrderItem(serviceID);
+                Toast.MakeText(view.Context, "Added Service", ToastLength.Short).Show();
             }
         }
     }

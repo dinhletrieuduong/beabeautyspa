@@ -91,9 +91,10 @@ namespace spa.Data.Model.User.Source.Remote
             return await userApi.Verify(request).ConfigureAwait(false);
         }
 
-        public async Task<UserResponse> ProvideInfor(UserInfor userInfo)
+        public async Task<UserResponse> UpdateHealthInfor(HealthInfor userInfo, string token)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new ProvideInforRequest
             {
@@ -109,7 +110,14 @@ namespace spa.Data.Model.User.Source.Remote
                 //stomachfat = userInfo.stomachFat,
                 //muscle = userInfo.muscle
             };
-            return await userApi.ProvideInfor(request).ConfigureAwait(false);
+            return await userApi.UpdateHealthInformation(request).ConfigureAwait(false);
+        }
+        public async Task<ProvideInforRequest> GetHealthInfor(string token)
+        {
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var userApi = RestService.For<UserApi>(httpClient);
+            return await userApi.GetHealthInformation().ConfigureAwait(false);
         }
     }
 }

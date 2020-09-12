@@ -91,11 +91,28 @@ namespace spa.Data.Model.Service.Source.Remote
             }
             catch (Exception e)
             {
-                //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
                 return resp;
             }
+        }
 
+        public List<Service> GetTherapistService(string token, int serviceID)
+        {
+            var response = serviceService.GetServiceDetail(token, serviceID);
+            List<Service> resp = new List<Service>();
+            string message = "";
+            try
+            {
+                response.Wait();
+                Service s = new Service(response.Result);
+                resp.Add(s);
+                return resp;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+                return resp;
+            }
         }
     }
 }

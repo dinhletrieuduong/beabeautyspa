@@ -7,7 +7,6 @@ using System.Net.Http.Headers;
 using System.Collections.Generic;
 namespace spa.Data.Model.PreOrder.Source.Remote
 {
-    [Headers("User-Agent: Xamarin")]
     public interface PreOrderApi
     {
         [Get("/api/preorder?outletId={id}")]

@@ -121,22 +121,13 @@ namespace spa.Main.PreOrder
 
         public bool IsPerformingAction { get; private set; }
 
-        public void OnActionStarted()
-        {
-            IsPerformingAction = true;
-        }
+        public void OnActionStarted() { IsPerformingAction = true; }
 
-        public void OnActionFinished()
-        {
-            IsPerformingAction = false;
-        }
+        public void OnActionFinished() { IsPerformingAction = false; }
 
         public bool IsNavigating { get; private set; }
 
-        public void OnNavigationStarted()
-        {
-            IsNavigating = true;
-        }
+        public void OnNavigationStarted() { IsNavigating = true; }
 
     }
 }

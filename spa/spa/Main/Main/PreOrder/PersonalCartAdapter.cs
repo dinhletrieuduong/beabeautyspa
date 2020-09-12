@@ -66,7 +66,6 @@ namespace spa.Main.PreOrder
 
             void DeleteButtonClick(View view)
             {
-                Toast.MakeText(view.Context, "Testing Recycler view " + serviceID, ToastLength.Short).Show();
                 presenter.DeletePreOrderItem(serviceID);
             }
         }

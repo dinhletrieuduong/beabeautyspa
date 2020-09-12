@@ -130,7 +130,7 @@ namespace spa.ProvideInfor
 
             if (!view.IsNavigating && !view.IsPerformingAction && HasValidInput())
             {
-                UserInfor userInfor = new UserInfor(
+                HealthInfor infor = new HealthInfor(
                     profession, ic, weight, height, basicLifeStyle, habit, bodyMass, bmi, fat, muscle, stomachFat);
 
                 view.OnActionStarted();
@@ -139,7 +139,7 @@ namespace spa.ProvideInfor
                 Dictionary<int, string> resp = new Dictionary<int, string>();
                 Task.Factory.StartNew(() =>
                 {
-                    resp = userRepository.ProvideInfor(userInfor);
+                    resp = userRepository.UpdateHealthInformation(infor, dataManager.GetToken());
                 }).ContinueWith(task =>
                 {
                     view.OnActionFinished();

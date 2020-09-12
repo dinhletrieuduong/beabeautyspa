@@ -1,9 +1,11 @@
 ﻿using System;
+using spa.Data.Model.User.Source.Remote;
+
 namespace spa.Data.Model.User
 {
-    public class UserInfor
+    public class HealthInfor
     {
-        public UserInfor(string profession, int ic, int weight, int height)
+        public HealthInfor(string profession, int ic, int weight, int height)
         {
             this.profession = profession;
             this.ic = ic;
@@ -11,7 +13,7 @@ namespace spa.Data.Model.User
             this.height = height;
         }
 
-        public UserInfor(string profession, int ic, int weight, int height, string basicLifeStyle, string habit, int bodyMass, float bmi, int fat, int muscle, int stomachFat) : this(profession, ic, weight, height)
+        public HealthInfor(string profession, int ic, int weight, int height, string basicLifeStyle, string habit, int bodyMass, float bmi, int fat, int muscle, int stomachFat) : this(profession, ic, weight, height)
         {
             this.basicLifeStyle = basicLifeStyle;
             this.habit = habit;
@@ -22,6 +24,18 @@ namespace spa.Data.Model.User
             this.stomachFat = stomachFat;
         }
 
+        public HealthInfor(ProvideInforRequest request) : this(request.health_profession, request.ic, request.health_weight, request.health_height)
+        {
+            this.id = request.health_id;
+            this.basicLifeStyle = request.life_style;
+            this.habit = request.habit;
+            this.bodyMass = request.body_mass;
+            this.bmi = request.bmi;
+            this.fat = request.fat_content;
+            this.muscle = request.muscle_content;
+            this.stomachFat = request.stomach_fat;
+        }
+        public int id { get; set; }
         public int weight { get; set; }
         public int height { get; set; }
         public int ic { get; set; }

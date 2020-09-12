@@ -61,6 +61,7 @@ namespace spa.Data.Model.PreOrder.Source.Remote
             try
             {
                 response.Wait();
+                var p = response.Result;
             }
             catch (Exception e)
             {

@@ -1,17 +1,20 @@
 ﻿
 using System;
-
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
+using Android.Support.V7.Widget;
 using Android.Widget;
 using spa.Data;
 using spa.Fragments;
 using spa.Navigation;
 
+using Service = spa.Data.Model.Service.Service;
+
 namespace spa.Main.MakeAppointment
 {
     [Activity(Label = "MakeAppointmentActivity")]
-    public class MakeAppointmentActivity : Activity
+    public class MakeAppointmentActivity : Activity, IMakeAppointmentView
     {
         TextView locationTxtView;
         TextView dobTxtView;
@@ -22,6 +25,10 @@ namespace spa.Main.MakeAppointment
         ImageButton backBtn;
         MakeAppointmentPresenter presenter;
 
+        RecyclerView recyclerView;
+        List<Service> services;
+        ServiceAdapter adapter;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,6 +36,16 @@ namespace spa.Main.MakeAppointment
             SetContentView(Resource.Layout.activity_make_appointment);
 
             presenter = new MakeAppointmentPresenter(new NavigationService(this.Application));
+            presenter.SetView(this);
+
+            recyclerView = FindViewById<RecyclerView>(Resource.Id.servicesList);
+            services = new List<Service>() { new Service("123", 11), new Service("456", 11) };
+
+            adapter = new ServiceAdapter(services, presenter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+            recyclerView.SetLayoutManager(linearLayoutManager);
+            recyclerView.SetAdapter(adapter);
 
             backBtn = FindViewById<ImageButton>(Resource.Id.backBtn);
             backBtn.Click += delegate { OnBackPressed(); Finish(); };
@@ -68,5 +85,32 @@ namespace spa.Main.MakeAppointment
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
+
+
+        public bool IsPerformingAction { get; private set; }
+
+        public void OnActionStarted()
+        {
+            IsPerformingAction = true;
+        }
+
+        public void OnActionFinished()
+        {
+            IsPerformingAction = false;
+        }
+
+        public bool IsNavigating { get; private set; }
+
+        public void OnNavigationStarted()
+        {
+            IsNavigating = true;
+        }
+
+        public void updateListService(List<Service> services)
+        {
+            adapter = new ServiceAdapter(services, presenter);
+            recyclerView.SetAdapter(adapter);
+        }
+
     }
 }

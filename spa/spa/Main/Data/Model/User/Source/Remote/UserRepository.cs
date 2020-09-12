@@ -119,20 +119,38 @@ namespace spa.Data.Model.User.Source.Remote
                 return resp;
             }
         }
-        public Dictionary<int, string> ProvideInfor(UserInfor userInfo)
+        public HealthInfor GetHealthInformation(string token)
         {
-            var response = userService.ProvideInfor(userInfo);
-            Dictionary<int, string> resp = new Dictionary<int, string>();
-            string token = "";
+            var response = userService.GetHealthInfor(token);
+            //string token = "";
 
             try
             {
                 response.Wait();
-                token = response.Result.token;
-                int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
+                HealthInfor healthInfor = new HealthInfor(response.Result);
+                return healthInfor;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
+        public Dictionary<int, string> UpdateHealthInformation(HealthInfor user, string token)
+        {
+            var response = userService.UpdateHealthInfor(user, token);
+            Dictionary<int, string> resp = new Dictionary<int, string>();
+
+            try
+            {
+                response.Wait();
+                //token = response.Result.token;
+                //int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
                 //if (statusCode == 200)
                 //    token = content;
-                resp.Add(statusCode, token);
+                //resp.Add(statusCode, token);
                 return resp;
             }
             catch (Exception e)

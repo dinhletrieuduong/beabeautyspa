@@ -46,7 +46,7 @@ namespace spa.Main.Account
 
             presenter = new AccountPresenter(new NavigationService(this.Activity.Application));
             presenter.SetView(this);
-
+            presenter.GetHealthInformation();
             return view;
         }
 

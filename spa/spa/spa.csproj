@@ -124,7 +124,7 @@
     <Compile Include="Main\Data\Model\User\Source\Remote\LoginManualRequest.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\RegisterManualRequest.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\ProvideInforRequest.cs" />
-    <Compile Include="Main\Data\Model\User\UserInfor.cs" />
+    <Compile Include="Main\Data\Model\User\HealthInfor.cs" />
     <Compile Include="Main\MakeAppointment\MakeAppointmentActivity.cs" />
     <Compile Include="Main\Data\Model\User\Source\Remote\VerifyRequest.cs" />
     <Compile Include="Main\Fragments\TimePickerFragment.cs" />
@@ -168,6 +168,8 @@
     <Compile Include="Main\Data\Model\PreOrder\Source\PreOrder.cs" />
     <Compile Include="Main\Data\Model\PreOrder\Source\Remote\AddPreOrderRequest.cs" />
     <Compile Include="Main\AddService\ServiceAdapter.cs" />
+    <Compile Include="Main\MakeAppointment\ServiceAdapter.cs" />
+    <Compile Include="Main\Data\Model\Service\Source\Remote\TherapistResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -506,6 +508,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_appointment.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_make_appt_item.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

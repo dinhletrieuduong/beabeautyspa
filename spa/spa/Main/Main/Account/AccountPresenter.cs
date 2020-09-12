@@ -3,6 +3,7 @@ using spa.Navigation;
 using spa.Base;
 using spa.Login;
 using spa.Data;
+using System.Threading.Tasks;
 
 namespace spa.Main.Account
 {
@@ -29,6 +30,17 @@ namespace spa.Main.Account
                 m_view.OnNavigationStarted();
                 navigationService.PushPresenter(new LoginPresenter(navigationService));
             }
+        }
+
+        public void GetHealthInformation()
+        {
+            //List<Appointment> list = new List<Appointment>();
+            Task.Factory.StartNew(() => dataManager.GetUserRepository().GetHealthInformation(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    //m_view.updateListService(services);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+
         }
     }
 }

@@ -25,13 +25,13 @@ namespace spa.Data.Model.User.Source.Remote
         [Post("/api/auth/register/social")]
         Task<UserResponse> RegisterSocial(UserRequest user);
 
-        [Post("/api/auth/provide")]
-        Task<UserResponse> ProvideInfor(ProvideInforRequest user);
-
         [Post("/api/auth/register/verify")]
         Task<UserResponse> Verify(VerifyRequest user);
 
-        [Get("/api/healthinformation")]
-        Task<UserResponse> Profile(UserRequest user);
+        [Get("/api/v2/healthinformation")]
+        Task<ProvideInforRequest> GetHealthInformation();
+
+        [Put("/api/v2/healthinformation")]
+        Task<UserResponse> UpdateHealthInformation(ProvideInforRequest user);
     }
 }
