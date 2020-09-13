@@ -16,8 +16,8 @@ namespace spa.Data.Model.User.Source.Remote
         [Post("/api/auth/login/manually")]
         Task<UserResponse> LoginManual(LoginManualRequest user);
 
-        [Post("/api/auth/login/social")]
-        Task<UserResponse> LoginSocial(UserRequest user);
+        [Get("/api/auth/login/social?fbToken={token}")]
+        Task<UserResponse> LoginSocial([AliasAs("token")] string fbToken);
 
         [Post("/api/auth/register/manually")]
         Task<UserResponse> RegisterManual(RegisterManualRequest user);

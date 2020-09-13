@@ -32,14 +32,14 @@ namespace spa.Data.Model.User.Source.Remote
 
         public Dictionary<int, string> Login(User user, bool isLoginBySocial)
         {
-            var response = isLoginBySocial ? userService.LoginSocial(user) : userService.LoginManual(user);
+            var response = isLoginBySocial ? userService.LoginSocial(user.fbToken) : userService.LoginManual(user);
             //var response = userService.LoginManual(user);
             Dictionary<int, string> resp = new Dictionary<int, string>();
             string message = "";
             try
             {
                 response.Wait();
-                int statusCode = string.IsNullOrEmpty(response.Result.token) ? 404 : 200;
+                int statusCode = string.IsNullOrEmpty(response.Result.token) ? 400 : 200;
                 message = response.Result.token;
                 resp.Add(statusCode, message);
                 return resp;

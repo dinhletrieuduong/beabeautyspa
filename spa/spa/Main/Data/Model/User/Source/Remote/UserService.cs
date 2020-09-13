@@ -16,11 +16,7 @@ namespace spa.Data.Model.User.Source.Remote
         private static UserService singleton;
         //private UserApi userApi;
 
-        private UserService()
-        {
-            //var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = new Uri(URL_LOGIN) };
-            //userApi = RestService.For<UserApi>(httpClient);
-        }
+        private UserService() { }
 
         public static UserService GetInstance()
         {
@@ -42,12 +38,11 @@ namespace spa.Data.Model.User.Source.Remote
             return await userApi.LoginManual(request).ConfigureAwait(false);
         }
 
-        public async Task<UserResponse> LoginSocial(User user)
+        public async Task<UserResponse> LoginSocial(string fbToken)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
             var userApi = RestService.For<UserApi>(httpClient);
-            var request = new UserRequest { email = user.email, Token = user.token };
-            return await userApi.LoginSocial(request).ConfigureAwait(false);
+            return await userApi.LoginSocial(fbToken).ConfigureAwait(false);
         }
 
         public async Task<UserResponse> RegisterManual(User user)
@@ -102,13 +97,13 @@ namespace spa.Data.Model.User.Source.Remote
                 health_weight = userInfo.weight,
                 ic = userInfo.ic,
                 health_profession = userInfo.profession,
-                //body_mass = userInfo.bodyMass,
-                //habit = userInfo.habit,
-                //life_style = userInfo.basicLifeStyle,
-                //bmi = userInfo.bmi,
-                //fat = userInfo.fat,
-                //stomachfat = userInfo.stomachFat,
-                //muscle = userInfo.muscle
+                body_mass = userInfo.bodyMass,
+                habit = userInfo.habit,
+                life_style = userInfo.basicLifeStyle,
+                bmi = userInfo.bmi,
+                fat_content = userInfo.fat,
+                stomach_fat = userInfo.stomachFat,
+                muscle_content = userInfo.muscle
             };
             return await userApi.UpdateHealthInformation(request).ConfigureAwait(false);
         }

@@ -11,6 +11,7 @@ namespace spa.Data.Model.User
         public string fullName { get; set; }
         public string email { get; set; }
         public string token { get; set; }
+        public string fbToken { get; set; }
         public string verifyCode { get; set; }
 
         public User() { }

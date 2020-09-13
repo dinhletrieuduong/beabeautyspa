@@ -17,12 +17,12 @@
         android:showAsAction="ifRoom"
         />
 
-    <!--item
+    <item
         android:id="@+id/promotionIcon"
         android:title="Promotion"
         android:icon="@drawable/promotion"
         android:showAsAction="ifRoom"
-        /-->
+        />
     
     <item
         android:id="@+id/preorderIcon"

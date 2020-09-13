@@ -19,6 +19,7 @@ namespace spa.Login
         private string m_username;
         private string m_password;
         private string m_email;
+        private string m_fbToken;
         private string m_token;
         DataManager dataManager;
 
@@ -59,6 +60,11 @@ namespace spa.Login
             m_email = email;
         }
 
+        public void UpdateFBToken(string fbToken)
+        {
+            m_fbToken = fbToken;
+        }
+
         public void UpdateToken(string token)
         {
             m_token = token;
@@ -75,11 +81,12 @@ namespace spa.Login
         }
         public void Login()
         {
-            if (!m_view.IsNavigating && !m_view.IsPerformingAction && HasValidInput())
+            if (!m_view.IsNavigating && !m_view.IsPerformingAction)
             {
                 User user = new User();
                 user.email = m_email;
                 user.token = m_token;
+                user.fbToken = m_fbToken;
                 user.username = m_username;
                 user.password = m_password;
                 bool isLoginSocial = !string.IsNullOrEmpty(m_email);

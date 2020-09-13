@@ -96,7 +96,7 @@ namespace spa.Login
                     string token = eventArgs.Account.Properties["access_token"];
                     var email = fbUser.ToString().Split(",")[1].Split(":")[1].Trim().Split("\"")[1];
                     presenter.UpdateEmail(email);
-                    presenter.UpdateToken(token);
+                    presenter.UpdateFBToken(token);
                     presenter.Login();
                 }
             };
@@ -121,7 +121,7 @@ namespace spa.Login
             // to push a new LoginPresenter should be made.
             //if (!isSigninSocial || IsNavigating)
             //{
-            Finish();
+            //Finish();
             //}
         }
 

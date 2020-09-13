@@ -50,20 +50,10 @@ namespace spa.Main.Account
             return view;
         }
 
-        //public override void OnResume()
-        //{
-        //    base.OnResume();
-        //}
-        //public override void OnPause()
-        //{
-        //    base.OnPause();
-        //}
-
         private void LogOut()
         {
             presenter.LogOut();
         }
-
 
         public bool IsPerformingAction { get; private set; }
 
