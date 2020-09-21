@@ -54,5 +54,21 @@ namespace spa.Data.Model.Appointment.Source.Remote
                 return resp;
             }
         }
+
+        public void CreateAppointment(string token, Appointment appointment)
+        {
+            var response = appointmentService.CreateAppointment(token, appointment);
+            string message = "";
+            try
+            {
+                response.Wait();
+                var p = response.Result;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace spa.Data.Model.User.Source.Remote
         [Get("/api/v2/healthinformation")]
         Task<ProvideInforRequest> GetHealthInformation();
 
-        [Put("/api/v2/healthinformation")]
+        [Post("/api/v2/healthinformation")]
         Task<UserResponse> UpdateHealthInformation(ProvideInforRequest user);
     }
 }

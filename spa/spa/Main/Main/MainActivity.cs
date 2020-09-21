@@ -13,6 +13,7 @@ using spa.Main.Account;
 using Android.Support.V7.App;
 using spa.Main.PreOrder;
 using spa.Main.AppointmentHistory;
+using spa.Main.Promotion;
 
 namespace spa.Main
 {
@@ -56,9 +57,9 @@ namespace spa.Main
                 case Resource.Id.preorderIcon:
                     fragment = PreOrderFragment.NewInstance("", "");
                     break;
-                //case Resource.Id.promotionIcon:
-                //fragment = PromotionFragment.NewInstance("", "");
-                //break;
+                case Resource.Id.promotionIcon:
+                    fragment = PromotionFragment.NewInstance("", "");
+                    break;
                 case Resource.Id.accountIcon:
                     fragment = AccountFragment.NewInstance("", "");
                     break;

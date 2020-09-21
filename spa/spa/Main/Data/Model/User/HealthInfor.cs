@@ -24,16 +24,16 @@ namespace spa.Data.Model.User
             this.stomachFat = stomachFat;
         }
 
-        public HealthInfor(ProvideInforRequest request) : this(request.health_profession, request.ic, request.health_weight, request.health_height)
+        public HealthInfor(ProvideInforRequest request) : this(request.healthProfession, request.ic, request.healthWeight, request.healthHeight)
         {
-            this.id = request.health_id;
-            this.basicLifeStyle = request.life_style;
+            this.id = request.healthId;
+            this.basicLifeStyle = request.lifeStyle;
             this.habit = request.habit;
-            this.bodyMass = request.body_mass;
+            this.bodyMass = request.bodyMass;
             this.bmi = request.bmi;
-            this.fat = request.fat_content;
-            this.muscle = request.muscle_content;
-            this.stomachFat = request.stomach_fat;
+            this.fat = request.fatContent;
+            this.muscle = request.muscleContent;
+            this.stomachFat = request.stomachFat;
         }
         public int id { get; set; }
         public int weight { get; set; }

@@ -169,7 +169,18 @@
     <Compile Include="Main\Data\Model\PreOrder\Source\Remote\AddPreOrderRequest.cs" />
     <Compile Include="Main\AddService\ServiceAdapter.cs" />
     <Compile Include="Main\MakeAppointment\ServiceAdapter.cs" />
-    <Compile Include="Main\Data\Model\Service\Source\Remote\TherapistResponse.cs" />
+    <Compile Include="Main\Main\Promotion\IPromotionView.cs" />
+    <Compile Include="Main\Main\Promotion\PromotionPresenter.cs" />
+    <Compile Include="Main\Main\Promotion\PromotionsListAdapter.cs" />
+    <Compile Include="Main\Data\Model\Promotion\Source\Promotion.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Therapist.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Source\Remote\ITherapistDataSource.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Source\Remote\TherapistApi.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Source\Remote\TherapistRepository.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Source\Remote\TherapistService.cs" />
+    <Compile Include="Main\Data\Model\Therapist\Source\Remote\TherapistResponse.cs" />
+    <Compile Include="Main\MakeAppointment\CustomSpinnerAdapter.cs" />
+    <Compile Include="Main\Data\Model\Appointment\Source\Remote\AppointmentRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -491,7 +502,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\statistics.xml">
+    <AndroidResource Include="Resources\layout\activity_statistics.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -512,6 +523,18 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\custom_make_appt_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\promos_item.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_therapist_choose_dialog.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\custom_therapist_item.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -543,6 +566,7 @@
     <Folder Include="Main\Data\Model\PreOrder\" />
     <Folder Include="Main\Data\Model\PreOrder\Source\" />
     <Folder Include="Main\Data\Model\PreOrder\Source\Remote\" />
+    <Folder Include="Main\Data\Model\Therapist\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />

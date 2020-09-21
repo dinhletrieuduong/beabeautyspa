@@ -16,16 +16,21 @@ namespace spa.Data.Model.Appointment
 {
     public class Appointment
     {
-        public string mTotal;
         public string mDate;
-
+        public string mStartTime;
+        public string mTotal;
+        public List<Data.Model.PreOrder.PreOrder> details;
+        public Appointment(string date, string time, List<Data.Model.PreOrder.PreOrder> preOrders)
+        {
+            mDate = date;
+            mStartTime = time;
+            details = preOrders;
+        }
         public Appointment(string date, string total)
         {
             mDate = date;
             mTotal = total;
         }
-
-
         public Appointment(AppointmentResponse response)
         {
             //mTotal = response.serviceID;

@@ -5,44 +5,44 @@ namespace spa.Data.Model.User.Source.Remote
 {
     public class ProvideInforRequest
     {
-        [AliasAs("health_id")]
-        public int health_id { get; set; }
+        [AliasAs("healthId")]
+        public int healthId { get; set; }
 
-        [AliasAs("life_style")]
-        public string life_style { get; set; }
+        [AliasAs("lifeStyle")]
+        public string lifeStyle { get; set; }
 
         [AliasAs("bmi")]
         public float bmi { get; set; }
 
-        [AliasAs("body_mass")]
-        public int body_mass { get; set; }
+        [AliasAs("bodyMass")]
+        public int bodyMass { get; set; }
 
-        [AliasAs("fat_content")]
-        public int fat_content { get; set; }
+        [AliasAs("fatContent")]
+        public int fatContent { get; set; }
 
         [AliasAs("habit")]
         public string habit { get; set; }
 
-        [AliasAs("health_weight")]
-        public int health_weight { get; set; }
+        [AliasAs("healthWeight")]
+        public int healthWeight { get; set; }
 
-        [AliasAs("health_height")]
-        public int health_height { get; set; }
+        [AliasAs("healthHeight")]
+        public int healthHeight { get; set; }
 
-        [AliasAs("health_profession")]
-        public string health_profession { get; set; }
+        [AliasAs("healthProfession")]
+        public string healthProfession { get; set; }
 
-        [AliasAs("muscle_content")]
-        public int muscle_content { get; set; }
+        [AliasAs("muscleContent")]
+        public int muscleContent { get; set; }
 
-        [AliasAs("stomach_fat")]
-        public int stomach_fat { get; set; }
+        [AliasAs("stomachFat")]
+        public int stomachFat { get; set; }
 
         [AliasAs("ic")]
         public int ic { get; set; }
 
-        [AliasAs("customer_id")]
-        public int customer_id { get; set; }
+        [AliasAs("customerId")]
+        public int customerId { get; set; }
 
     }
 }

@@ -7,6 +7,7 @@ namespace spa.Main.MakeAppointment
 {
     public interface IMakeAppointmentView : IBaseView, INavigationView
     {
-        void updateListService(List<Data.Model.Service.Service> services);
+        void updateListTherapist(List<Data.Model.Therapist.Therapist> therapists);
+        void updateListPreOrder(List<Data.Model.PreOrder.PreOrder> preOrders);
     }
 }

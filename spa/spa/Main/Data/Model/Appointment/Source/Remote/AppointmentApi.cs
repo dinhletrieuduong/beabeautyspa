@@ -16,6 +16,8 @@ namespace spa.Data.Model.Appointment.Source.Remote
         Task<List<AppointmentResponse>> GetAppointmentHistory();
         [Get("/api/appt/{id}")]
         Task<List<AppointmentResponse>> GetAppointmentDetail([AliasAs("id")] int apptID);
+        [Post("/api/appt/create")]
+        Task<List<AppointmentResponse>> CreateAppointment(AppointmentRequest request);
 
     }
 }

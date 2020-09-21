@@ -1,3 +1,56 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
-</LinearLayout>
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryWhite">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/primary"
+            android:paddingTop="20dp"
+            android:paddingBottom="15dp">
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/left_arrow"
+                android:contentDescription="Back"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="20dp">
+        <include
+                layout="@layout/custom_location_spinner"/>
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Promotions you can't resist"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PromosRecyclerView"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="70dp"/>
+        
+
+    </LinearLayout>
+</ScrollView>

@@ -6,24 +6,24 @@ using Android.Widget;
 using spa.Data.Model.Outlet;
 using spa.Data.Model.Therapist;
 
-namespace spa.Main.Home
+namespace spa.Main.MakeAppointment
 {
     public class CustomSpinnerAdapter : BaseAdapter
     {
         Context context;
         int[] flags;
-        List<Outlet> outlets;
+        List<Therapist> therapists;
         LayoutInflater inflter;
 
-        public CustomSpinnerAdapter(Context applicationContext, List<Outlet> outlets)
+        public CustomSpinnerAdapter(Context applicationContext, List<Therapist> therapists)
         {
             this.context = applicationContext;
             //this.flags = flags;
-            this.outlets = outlets;
+            this.therapists = therapists;
             inflter = (LayoutInflater.From(applicationContext));
         }
 
-        public override int Count => outlets.Count;
+        public override int Count => therapists.Count;
 
         public override Java.Lang.Object GetItem(int position)
         {
@@ -37,9 +37,9 @@ namespace spa.Main.Home
 
         public override View GetView(int position, View view, ViewGroup viewGroup)
         {
-            view = inflter.Inflate(Resource.Layout.custom_spinner_item, null);
+            view = inflter.Inflate(Resource.Layout.custom_therapist_item, null);
             TextView names = (TextView)view.FindViewById(Resource.Id.textView);
-            names.Text = outlets[position].address;
+            names.Text = therapists[position].name;
             return view;
         }
     }

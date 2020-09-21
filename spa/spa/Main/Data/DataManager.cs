@@ -5,6 +5,7 @@ using spa.Data.Model.Appointment.Source.Remote;
 using spa.Data.Model.Outlet.Source.Remote;
 using spa.Data.Model.PreOrder.Source.Remote;
 using spa.Data.Model.Service.Source.Remote;
+using spa.Data.Model.Therapist.Source.Remote;
 using spa.Data.Model.User;
 using spa.Data.Model.User.Source.Remote;
 
@@ -55,13 +56,16 @@ namespace spa.Data
             AppointmentService service = AppointmentService.GetInstance();
             return AppointmentRepository.GetInstance(service);
         }
-
         public PreOrderRepository GetPreOrderRepository()
         {
             PreOrderService service = PreOrderService.GetInstance();
             return PreOrderRepository.GetInstance(service);
         }
-
+        public TherpistRepository GetTherapistRepository()
+        {
+            TherapistService service = TherapistService.GetInstance();
+            return TherpistRepository.GetInstance(service);
+        }
 
         public string GetToken()
         {

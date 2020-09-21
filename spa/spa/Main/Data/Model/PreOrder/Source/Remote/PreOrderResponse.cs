@@ -23,6 +23,9 @@ namespace spa.Data.Model.PreOrder.Source.Remote
         [AliasAs("serviceDuration")]
         public string serviceDuration { get; set; }
 
+        [AliasAs("serviceTransit")]
+        public int serviceTransit { get; set; }
+
         // URL Image
         [AliasAs("servicePhoto")]
         public string servicePhoto { get; set; }

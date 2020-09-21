@@ -32,7 +32,7 @@ namespace spa.ProvideInfor
             dataManager = DataManager.GetInstance();
         }
 
-        public void SetVIew(IProvideInforView v)
+        public void SetView(IProvideInforView v)
         {
             view = v;
         }
@@ -117,6 +117,16 @@ namespace spa.ProvideInfor
                 CheckInputValid.isProfessionValid(profession);
         }
 
+        //public void UpdateHealthInfor(HealthInfor health)
+        //{
+        //    //List<Appointment> list = new List<Appointment>();
+        //    Task.Factory.StartNew(() => dataManager.GetUserRepository().UpdateHealthInformation(health, dataManager.GetToken()))
+        //        .ContinueWith(task =>
+        //        {
+        //            //m_view.updateListService(services);
+        //        }, TaskScheduler.FromCurrentSynchronizationContext());
+
+        //}
         public void ProvideInfor()
         {
             int isValidInfor = CheckInputValid.ProvideInformationCheckInputValid(

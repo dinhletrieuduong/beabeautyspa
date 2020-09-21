@@ -4,6 +4,7 @@ using spa.Base;
 using spa.Login;
 using spa.Data;
 using System.Threading.Tasks;
+using spa.Data.Model.User;
 
 namespace spa.Main.Account
 {
@@ -36,6 +37,16 @@ namespace spa.Main.Account
         {
             //List<Appointment> list = new List<Appointment>();
             Task.Factory.StartNew(() => dataManager.GetUserRepository().GetHealthInformation(dataManager.GetToken()))
+                .ContinueWith(task =>
+                {
+                    //m_view.updateListService(services);
+                }, TaskScheduler.FromCurrentSynchronizationContext());
+
+        }
+        public void UpdateHealthInfor(HealthInfor health)
+        {
+            //List<Appointment> list = new List<Appointment>();
+            Task.Factory.StartNew(() => dataManager.GetUserRepository().UpdateHealthInformation(health, dataManager.GetToken()))
                 .ContinueWith(task =>
                 {
                     //m_view.updateListService(services);

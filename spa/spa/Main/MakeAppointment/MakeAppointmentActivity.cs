@@ -6,6 +6,8 @@ using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Widget;
 using spa.Data;
+using spa.Data.Model.Appointment;
+using spa.Data.Model.Therapist;
 using spa.Fragments;
 using spa.Navigation;
 
@@ -17,16 +19,18 @@ namespace spa.Main.MakeAppointment
     public class MakeAppointmentActivity : Activity, IMakeAppointmentView
     {
         TextView locationTxtView;
-        TextView dobTxtView;
+        TextView dateTxtView;
         TextView startingTimeTxtView;
         LinearLayout selectDateBtn;
         LinearLayout timeSelectButton;
         LinearLayout serviceChangeBtn;
         ImageButton backBtn;
+        Button createBtn;
         MakeAppointmentPresenter presenter;
 
         RecyclerView recyclerView;
-        List<Service> services;
+        List<Data.Model.PreOrder.PreOrder> preOrders;
+        List<Therapist> therapists = new List<Therapist>();
         ServiceAdapter adapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -37,11 +41,11 @@ namespace spa.Main.MakeAppointment
 
             presenter = new MakeAppointmentPresenter(new NavigationService(this.Application));
             presenter.SetView(this);
+            presenter.GetPreOrderList();
 
             recyclerView = FindViewById<RecyclerView>(Resource.Id.servicesList);
-            services = new List<Service>() { new Service("123", 11), new Service("456", 11) };
-
-            adapter = new ServiceAdapter(services, presenter);
+            preOrders = new List<Data.Model.PreOrder.PreOrder>() { new Data.Model.PreOrder.PreOrder("123", "11"), new Data.Model.PreOrder.PreOrder("456", "11") };
+            adapter = new ServiceAdapter(preOrders, presenter, therapists);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
             recyclerView.SetLayoutManager(linearLayoutManager);
@@ -51,20 +55,29 @@ namespace spa.Main.MakeAppointment
             backBtn.Click += delegate { OnBackPressed(); Finish(); };
 
             locationTxtView = FindViewById<TextView>(Resource.Id.locationTxtView);
-            dobTxtView = FindViewById<TextView>(Resource.Id.dobTxtView);
+            dateTxtView = FindViewById<TextView>(Resource.Id.dateTxtView);
             selectDateBtn = FindViewById<LinearLayout>(Resource.Id.selectDateBtn);
 
             startingTimeTxtView = FindViewById<TextView>(Resource.Id.startingTimeTxtView);
             timeSelectButton = FindViewById<LinearLayout>(Resource.Id.selectStartingTimeBtn);
             serviceChangeBtn = FindViewById<LinearLayout>(Resource.Id.serviceChangeBtn);
+            createBtn = FindViewById<Button>(Resource.Id.createBtn);
 
             locationTxtView.Text = DataManager.GetInstance().GetOutletAddress();
             selectDateBtn.Click += DateSelect_OnClick;
             timeSelectButton.Click += TimeSelectOnClick;
 
             serviceChangeBtn.Click += delegate { presenter.GoToAddService(); };
+            createBtn.Click += delegate { CreateAppointment(); };
         }
-
+        void CreateAppointment()
+        {
+            var appt = new Appointment(dateTxtView.Text, startingTimeTxtView.Text, preOrders);
+            //presenter.MakeAppointment();
+            foreach (var d in appt.details)
+                Console.WriteLine("DEBUGGGG: " + d.therapistID);
+            Toast.MakeText(ApplicationContext, dateTxtView.Text + startingTimeTxtView.Text, ToastLength.Short).Show();
+        }
         void TimeSelectOnClick(object sender, EventArgs eventArgs)
         {
             TimePickerFragment frag = TimePickerFragment.NewInstance(
@@ -81,7 +94,7 @@ namespace spa.Main.MakeAppointment
         {
             DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
             {
-                dobTxtView.Text = time.ToShortDateString();
+                dateTxtView.Text = time.ToShortDateString();
             });
             frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
@@ -106,11 +119,15 @@ namespace spa.Main.MakeAppointment
             IsNavigating = true;
         }
 
-        public void updateListService(List<Service> services)
+        public void updateListPreOrder(List<Data.Model.PreOrder.PreOrder> preOrders)
         {
-            adapter = new ServiceAdapter(services, presenter);
-            recyclerView.SetAdapter(adapter);
+            //adapter = new ServiceAdapter(preOrders, presenter, therapists);
+            //recyclerView.SetAdapter(adapter);
         }
 
+        public void updateListTherapist(List<Therapist> therapists)
+        {
+            this.therapists = therapists;
+        }
     }
 }

@@ -13,7 +13,6 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using spa.Data.Model.Outlet;
-using spa.Main.Main.Home;
 using spa.Navigation;
 using spa.Fragments;
 using Android.Locations;
@@ -41,18 +40,12 @@ namespace spa.Main.Home
         public static HomeFragment NewInstance(String param1, String param2)
         {
             HomeFragment fragment = new HomeFragment();
-            Bundle args = new Bundle();
-            //        args.putString(ARG_PARAM1, param1);
-            fragment.Arguments = args;
             return fragment;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
-
         }
 
         public override Android.Views.View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

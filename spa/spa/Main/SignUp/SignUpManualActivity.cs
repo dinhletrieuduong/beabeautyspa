@@ -108,8 +108,8 @@ namespace spa.SignUp
                     string token = eventArgs.Account.Properties["access_token"];
                     var email = fbUser.ToString().Split(",")[1].Split(":")[1].Trim().Split("\"")[1];
                     presenter.UpdateEmail(email);
-                    //presenter.UpdateToken(token);
-                    //presenter.SignUp();
+                    presenter.UpdateToken(token);
+                    presenter.SignUp();
                 }
             };
 

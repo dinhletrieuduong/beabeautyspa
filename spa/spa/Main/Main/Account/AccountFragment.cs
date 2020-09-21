@@ -11,6 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using spa.Data.Model.User;
 using spa.Navigation;
 
 namespace spa.Main.Account
@@ -23,18 +24,12 @@ namespace spa.Main.Account
         public static AccountFragment NewInstance(String param1, String param2)
         {
             AccountFragment fragment = new AccountFragment();
-            Bundle args = new Bundle();
-            //        args.putString(ARG_PARAM1, param1);
-            fragment.Arguments = args;
             return fragment;
         }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Create your fragment here
-
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -46,7 +41,10 @@ namespace spa.Main.Account
 
             presenter = new AccountPresenter(new NavigationService(this.Activity.Application));
             presenter.SetView(this);
-            presenter.GetHealthInformation();
+            //HealthInfor health = new HealthInfor("DDD", 1, 1, 1, "a", "a", 1, 1, 1, 1, 1);
+            //presenter.UpdateHealthInfor(health);
+            //presenter.GetHealthInformation();
+
             return view;
         }
 

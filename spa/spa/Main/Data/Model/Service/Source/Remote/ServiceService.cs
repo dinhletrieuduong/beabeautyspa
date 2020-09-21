@@ -45,12 +45,12 @@ namespace spa.Data.Model.Service.Source.Remote
             return await serviceApi.GetServicesByOutlet(outletID).ConfigureAwait(false);
         }
 
-        public async Task<ServiceResponse> GetServiceDetail(string token, int serviceID)
+        public async Task<ServiceResponse> GetServiceDetail(string token, int outletID)
         {
             var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var serviceApi = RestService.For<ServiceApi>(httpClient);
-            return await serviceApi.GetServiceDetail(serviceID).ConfigureAwait(false);
+            return await serviceApi.GetServiceDetail(outletID).ConfigureAwait(false);
         }
 
     }

@@ -93,17 +93,17 @@ namespace spa.Data.Model.User.Source.Remote
             var userApi = RestService.For<UserApi>(httpClient);
             var request = new ProvideInforRequest
             {
-                health_height = userInfo.height,
-                health_weight = userInfo.weight,
+                healthHeight = userInfo.height,
+                healthWeight = userInfo.weight,
                 ic = userInfo.ic,
-                health_profession = userInfo.profession,
-                body_mass = userInfo.bodyMass,
+                healthProfession = userInfo.profession,
+                bodyMass = userInfo.bodyMass,
                 habit = userInfo.habit,
-                life_style = userInfo.basicLifeStyle,
+                lifeStyle = userInfo.basicLifeStyle,
                 bmi = userInfo.bmi,
-                fat_content = userInfo.fat,
-                stomach_fat = userInfo.stomachFat,
-                muscle_content = userInfo.muscle
+                fatContent = userInfo.fat,
+                stomachFat = userInfo.stomachFat,
+                muscleContent = userInfo.muscle
             };
             return await userApi.UpdateHealthInformation(request).ConfigureAwait(false);
         }

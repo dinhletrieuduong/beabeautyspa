@@ -88,7 +88,7 @@ android:orientation="vertical">
                     android:text="Date"
                     android:gravity="top"/>
                     <TextView
-                    android:id="@+id/dobTxtView"
+                    android:id="@+id/dateTxtView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
@@ -260,6 +260,7 @@ android:orientation="vertical">
             android:layout_height="match_parent"/>
 
             <Button
+                android:id="@+id/createBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Create appointment"

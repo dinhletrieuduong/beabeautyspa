@@ -36,5 +36,18 @@ namespace spa.Data.Model.Appointment.Source.Remote
             var appointmentApi = RestService.For<AppointmentApi>(httpClient);
             return await appointmentApi.GetAppointmentHistory().ConfigureAwait(false);
         }
+        public async Task<List<AppointmentResponse>> CreateAppointment(string token, Appointment appointment)
+        {
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_Service };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var appointmentApi = RestService.For<AppointmentApi>(httpClient);
+            var request = new AppointmentRequest()
+            {
+                details = appointment.details,
+                startTime = appointment.mStartTime,
+                date = appointment.mDate
+            };
+            return await appointmentApi.CreateAppointment(request).ConfigureAwait(false);
+        }
     }
 }

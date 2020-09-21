@@ -19,9 +19,5 @@ namespace spa.Data.Model.Service.Source.Remote
 
         [Get("/api/service/{id}")]
         Task<ServiceResponse> GetServiceDetail([AliasAs("id")] int serviceID);
-
-
-        [Post("/api/service/{id}")]
-        Task<TherapistResponse> GetTherapistService([AliasAs("id")] int serviceID);
     }
 }

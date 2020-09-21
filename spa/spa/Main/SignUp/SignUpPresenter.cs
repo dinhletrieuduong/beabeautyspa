@@ -25,6 +25,8 @@ namespace spa.SignUp
         private string m_dob;
         private int m_gender;
         private string m_confirmPassword;
+        private string m_fbToken;
+
 
         public SignUpPresenter(INavigationService navigationService) : base(navigationService)
         {
@@ -85,7 +87,7 @@ namespace spa.SignUp
                 dobArray[0] = "0" + dobArray[0];
             if (dobArray[1].Length == 1)
                 dobArray[1] = "0" + dobArray[1];
-            m_dob = dobArray[2] + "-" + dobArray[1] + "-" + dobArray[0];
+            m_dob = dobArray[2] + "-" + dobArray[0] + "-" + dobArray[1];
             ValidateInput();
         }
 
@@ -93,6 +95,11 @@ namespace spa.SignUp
         {
             m_phone = phone;
             ValidateInput();
+        }
+
+        public void UpdateToken(string token)
+        {
+            m_fbToken = token;
         }
 
         private void ValidateInput()
@@ -115,16 +122,19 @@ namespace spa.SignUp
             int isValidRegister = CheckInputValid.ManuallySignUpCheckInputValid(
                     m_username, m_password, m_confirmPassword, m_fullName, m_gender, m_dob, m_email, m_phone);
 
-            if (isValidRegister != 0)
+            bool isSignUpBySocial = !string.IsNullOrEmpty(m_fbToken);
+
+            if (isValidRegister != 0 && isSignUpBySocial == false)
             {
                 m_view.OnSignUpFailed(400, isValidRegister.ToString());
                 return;
             }
 
-            if (!m_view.IsNavigating && !m_view.IsPerformingAction && HasValidInput())
+            if (!m_view.IsNavigating && !m_view.IsPerformingAction)
             {
                 User user = new User(m_username, m_password, m_email, m_dob, m_phone, m_fullName, m_gender);
-                bool isSignUpBySocial = string.IsNullOrEmpty(m_email);
+                user.fbToken = m_fbToken;
+
 
                 m_view.OnActionStarted();
                 var userRepository = dataManager.GetUserRepository();

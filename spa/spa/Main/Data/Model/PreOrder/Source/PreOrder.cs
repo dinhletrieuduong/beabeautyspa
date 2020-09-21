@@ -7,8 +7,10 @@ namespace spa.Data.Model.PreOrder
     {
         public int preOrderID;
         public int serviceID;
+        public int therapistID { get; set; }
         public string serviceName;
         public string duration;
+        public int transitTime;
         public string image_url;
         public PreOrder(string name, string dur, string img)
         {
@@ -30,6 +32,7 @@ namespace spa.Data.Model.PreOrder
             image_url = response.servicePhoto;
             serviceName = response.serviceName;
             duration = response.serviceDuration;
+            transitTime = response.serviceTransit;
         }
     }
 }

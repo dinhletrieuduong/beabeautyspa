@@ -58,7 +58,7 @@ namespace spa.Data.Model.User.Source.Remote
 
         public Dictionary<int, string> Register(User user, bool isSignupBySocial)
         {
-            var response = isSignupBySocial ? userService.RegisterSocial(user) : userService.RegisterManual(user);
+            var response = isSignupBySocial ? userService.LoginSocial(user.fbToken) : userService.RegisterManual(user);
             Dictionary<int, string> resp = new Dictionary<int, string>();
             string message = "";
 
@@ -91,7 +91,6 @@ namespace spa.Data.Model.User.Source.Remote
                 return resp;
             }
         }
-
 
         public Dictionary<int, string> Verify(User user)
         {
@@ -146,16 +145,10 @@ namespace spa.Data.Model.User.Source.Remote
             try
             {
                 response.Wait();
-                //token = response.Result.token;
-                //int statusCode = string.IsNullOrEmpty(token) ? 500 : 200;
-                //if (statusCode == 200)
-                //    token = content;
-                //resp.Add(statusCode, token);
                 return resp;
             }
             catch (Exception e)
             {
-                //Debug.WriteLine("Request Timeout");
                 Debug.WriteLine(e.StackTrace);
                 resp.Add(500, token);
                 return resp;

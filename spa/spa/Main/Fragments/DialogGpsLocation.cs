@@ -34,7 +34,6 @@ namespace spa.Fragments
             Button okBtn = view.FindViewById<Button>(Resource.Id.okBtn);
             Button noBtn = view.FindViewById<Button>(Resource.Id.noBtn);
             noBtn.Click += delegate { DismissAllowingStateLoss(); };
-            okBtn.Click += delegate { OpenGpsSystem(); };
 
             return view;
         }

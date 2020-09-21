@@ -91,6 +91,7 @@ namespace spa.Services
             //}
             var start = DateTime.Now;
             var req = request;
+            var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
             var msg = $"[{req.RequestUri.PathAndQuery} -  Request]";
 
             Debug.WriteLine($"{msg}========Request Start==========");
@@ -119,8 +120,6 @@ namespace spa.Services
                     Debug.WriteLine($"{msg} {string.Join("", result.Cast<char>().Take(256))}...");
                 }
             }
-
-            var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
             Debug.WriteLine($"{msg}==========Request End==========");
 

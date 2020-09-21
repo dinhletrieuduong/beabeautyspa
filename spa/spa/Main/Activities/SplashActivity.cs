@@ -6,6 +6,7 @@ using Android.Support.V7.App;
 using Android.Util;
 using spa.Login;
 using spa.Main;
+using spa.SignUp;
 using spa.Verification;
 
 namespace spa.Activities
