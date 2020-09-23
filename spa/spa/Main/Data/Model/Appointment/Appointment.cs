@@ -16,13 +16,14 @@ namespace spa.Data.Model.Appointment
 {
     public class Appointment
     {
-        public string mDate;
+        public int outletID;
         public string mStartTime;
+        public string mDate;
         public string mTotal;
         public List<Data.Model.PreOrder.PreOrder> details;
-        public Appointment(string date, string time, List<Data.Model.PreOrder.PreOrder> preOrders)
+        public Appointment(int outletID, string time, List<Data.Model.PreOrder.PreOrder> preOrders)
         {
-            mDate = date;
+            this.outletID = outletID;
             mStartTime = time;
             details = preOrders;
         }

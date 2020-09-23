@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using spa.Data;
 using spa.Data.Model.Therapist;
 using Service = spa.Data.Model.Service.Service;
 namespace spa.Main.MakeAppointment
@@ -80,14 +82,28 @@ namespace spa.Main.MakeAppointment
                 dialog.FindViewById<Button>(Resource.Id.closeBtn).Click += delegate { dialog.Cancel(); };
 
                 spinner = dialog.FindViewById<Spinner>(Resource.Id.spinnerView);
-                therapists.Clear();
-                therapists.Add(new Therapist(1, "Therapist 1", "1"));
-                therapists.Add(new Therapist(2, "Therapist 2", "1"));
-                therapists.Add(new Therapist(3, "Therapist 3", "1"));
-                therapists.Add(new Therapist(4, "Therapist 4", "1"));
-                CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(dialog.Context, therapists);
-                spinner.Adapter = customAdapter;
-                spinner.OnItemSelectedListener = this;
+
+                List<Therapist> list = new List<Therapist>();
+                int outletID = DataManager.GetInstance().GetOutletID();
+                Task.Factory.StartNew(() => list = DataManager.GetInstance().GetTherapistRepository().GetTherapistOutlet(DataManager.GetInstance().GetToken(), outletID))
+                    .ContinueWith(task =>
+                    {
+                        //GetPreOrderList();
+                        therapists = list;
+
+                        therapists.Clear();
+                        therapists.Add(new Therapist(1, "Therapist 1", "1"));
+                        therapists.Add(new Therapist(2, "Therapist 2", "1"));
+                        therapists.Add(new Therapist(3, "Therapist 3", "1"));
+                        therapists.Add(new Therapist(4, "Therapist 4", "1"));
+
+                        CustomSpinnerAdapter customAdapter = new CustomSpinnerAdapter(dialog.Context, therapists);
+                        spinner.Adapter = customAdapter;
+                        spinner.OnItemSelectedListener = this;
+
+
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
+
                 dialog.Show();
             }
 

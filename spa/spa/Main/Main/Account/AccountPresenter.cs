@@ -51,6 +51,15 @@ namespace spa.Main.Account
                 {
                     //m_view.updateListService(services);
                 }, TaskScheduler.FromCurrentSynchronizationContext());
+        }
+        public void GetProfile()
+        {
+            User user = new User();
+            Task.Factory.StartNew(() => user = dataManager.GetUserRepository().GetProfile(dataManager.GetToken()))
+                   .ContinueWith(task =>
+                   {
+                       m_view.updateProfile(user);
+                   }, TaskScheduler.FromCurrentSynchronizationContext());
 
         }
     }

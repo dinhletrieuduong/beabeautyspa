@@ -114,5 +114,14 @@ namespace spa.Data.Model.User.Source.Remote
             var userApi = RestService.For<UserApi>(httpClient);
             return await userApi.GetHealthInformation().ConfigureAwait(false);
         }
+
+
+        public async Task<UserRequest> GetProfile(string token)
+        {
+            var httpClient = new HttpClient(new HttpLoggingHandler()) { BaseAddress = URL_LOGIN };
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var userApi = RestService.For<UserApi>(httpClient);
+            return await userApi.GetProfile().ConfigureAwait(false);
+        }
     }
 }

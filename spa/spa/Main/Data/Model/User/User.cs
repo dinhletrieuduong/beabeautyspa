@@ -1,4 +1,6 @@
 ﻿using System;
+using spa.Data.Model.User.Source.Remote;
+
 namespace spa.Data.Model.User
 {
     public class User
@@ -31,6 +33,17 @@ namespace spa.Data.Model.User
             this.fullName = fullName;
             this.gender = gender;
             this.email = email;
+        }
+
+        public User(UserRequest response)
+        {
+            this.username = response.username;
+            this.password = response.password;
+            this.dob = response.dob;
+            this.phone = response.phone;
+            this.fullName = response.fullname;
+            this.gender = response.gender;
+            this.email = response.email;
         }
     }
 }

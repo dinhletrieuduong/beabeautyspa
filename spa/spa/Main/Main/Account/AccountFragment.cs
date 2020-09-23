@@ -21,6 +21,8 @@ namespace spa.Main.Account
     {
         private LinearLayout logOutBtn;
         private AccountPresenter presenter;
+        TextView textFullName, textEmail;
+
         public static AccountFragment NewInstance(String param1, String param2)
         {
             AccountFragment fragment = new AccountFragment();
@@ -36,17 +38,22 @@ namespace spa.Main.Account
         {
             View view = inflater.Inflate(Resource.Layout.fragment_account, container, false);
 
-            logOutBtn = (LinearLayout)view.FindViewById(Resource.Id.logOutBtn);
+            textFullName = view.FindViewById<TextView>(Resource.Id.textFullname);
+            textEmail = view.FindViewById<TextView>(Resource.Id.textEmail);
+            logOutBtn = view.FindViewById<LinearLayout>(Resource.Id.logOutBtn);
             logOutBtn.Click += delegate { LogOut(); };
 
             presenter = new AccountPresenter(new NavigationService(this.Activity.Application));
             presenter.SetView(this);
+            presenter.GetProfile();
+
             //HealthInfor health = new HealthInfor("DDD", 1, 1, 1, "a", "a", 1, 1, 1, 1, 1);
             //presenter.UpdateHealthInfor(health);
             //presenter.GetHealthInformation();
 
             return view;
         }
+
 
         private void LogOut()
         {
@@ -70,6 +77,12 @@ namespace spa.Main.Account
         public void OnNavigationStarted()
         {
             IsNavigating = true;
+        }
+
+        public void updateProfile(User user)
+        {
+            textFullName.Text = user.fullName;
+            textEmail.Text = user.email;
         }
     }
 }

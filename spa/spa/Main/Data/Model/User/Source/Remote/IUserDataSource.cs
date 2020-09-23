@@ -11,6 +11,6 @@ namespace spa.Data.Model.User.Source.Remote
         HealthInfor GetHealthInformation(string token);
         Dictionary<int, string> UpdateHealthInformation(HealthInfor user, string token);
 
-        //void GetProfile(IDataSource.LoadDataCallback<User> callback);
+        User GetProfile(string token);
     }
 }

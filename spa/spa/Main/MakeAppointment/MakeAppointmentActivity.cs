@@ -5,6 +5,7 @@ using Android.App;
 using Android.OS;
 using Android.Support.V7.Widget;
 using Android.Widget;
+using Java.Util;
 using spa.Data;
 using spa.Data.Model.Appointment;
 using spa.Data.Model.Therapist;
@@ -72,11 +73,11 @@ namespace spa.Main.MakeAppointment
         }
         void CreateAppointment()
         {
-            var appt = new Appointment(dateTxtView.Text, startingTimeTxtView.Text, preOrders);
-            //presenter.MakeAppointment();
-            foreach (var d in appt.details)
-                Console.WriteLine("DEBUGGGG: " + d.therapistID);
+            var appt = new Appointment(DataManager.GetInstance().GetOutletID(), startingTimeTxtView.Text, preOrders);
+            //dateTxtView.Text + startingTimeTxtView.Text;
             Toast.MakeText(ApplicationContext, dateTxtView.Text + startingTimeTxtView.Text, ToastLength.Short).Show();
+            presenter.MakeAppointment(appt);
+
         }
         void TimeSelectOnClick(object sender, EventArgs eventArgs)
         {

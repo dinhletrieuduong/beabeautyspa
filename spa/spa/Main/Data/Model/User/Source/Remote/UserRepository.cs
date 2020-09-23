@@ -118,6 +118,24 @@ namespace spa.Data.Model.User.Source.Remote
                 return resp;
             }
         }
+
+        public User GetProfile(string token)
+        {
+            var response = userService.GetProfile(token);
+            try
+            {
+                response.Wait();
+                User user = new User(response.Result);
+                return user;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine("Request Timeout");
+                Debug.WriteLine(e.StackTrace);
+                return null;
+            }
+        }
+
         public HealthInfor GetHealthInformation(string token)
         {
             var response = userService.GetHealthInfor(token);

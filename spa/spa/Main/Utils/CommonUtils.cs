@@ -5,7 +5,7 @@ namespace spa.Utils
 {
     public class CommonUtils
     {
-        public static readonly Uri URL = new Uri("https://beabeautyspavn.azurewebsites.net");
+        public static readonly Uri URL = new Uri("https://beabeautyspazzz.azurewebsites.net");
 
         public static OAuth2Authenticator LoginFacebook()
         {

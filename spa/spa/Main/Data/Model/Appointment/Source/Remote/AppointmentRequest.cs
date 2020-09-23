@@ -9,6 +9,9 @@ namespace spa.Data.Model.Appointment.Source.Remote
         [AliasAs("date")]
         public string date { get; set; }
 
+        [AliasAs("outletID")]
+        public int outletID { get; set; }
+
         [AliasAs("startTime")]
         public string startTime { get; set; }
 

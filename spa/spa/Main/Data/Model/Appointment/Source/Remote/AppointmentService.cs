@@ -45,7 +45,7 @@ namespace spa.Data.Model.Appointment.Source.Remote
             {
                 details = appointment.details,
                 startTime = appointment.mStartTime,
-                date = appointment.mDate
+                outletID = appointment.outletID
             };
             return await appointmentApi.CreateAppointment(request).ConfigureAwait(false);
         }
