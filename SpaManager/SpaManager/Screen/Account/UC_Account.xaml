@@ -11,65 +11,60 @@
         <StackPanel>
             <StackPanel Height="80">
                 <StackPanel Orientation="Horizontal" Margin="0 15 0 0">
-                    <CheckBox Name="btn_active" Height="50" Width="50" Margin="50 0 0 0" BorderBrush="Black" Background="Green"/>
+                    <CheckBox Name="btn_active" Height="50" Width="50" Margin="50 0 0 0" 
+                              BorderBrush="Black" Background="Green" Checked="btn_active_Checked"
+                              Unchecked="btn_active_Unchecked"/>
                     <TextBlock Text="Active" Height="20" Margin="-20 -2 0 0" FontSize="16"/>
 
-                    <CheckBox Name="btn_blocked" Height="50" Width="50" Margin="50 0 0 0" BorderBrush="Black" Background="Green"/>
+                    <CheckBox Name="btn_blocked" Height="50" Width="50" Margin="50 0 0 0" BorderBrush="Black" Background="Green"
+                              Checked="btn_blocked_Checked" Unchecked="btn_blocked_Unchecked"/>
                     <TextBlock Text="Blocked" Height="20" Margin="-20 -2 0 0" FontSize="16"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Height="470">
-                <StackPanel Width="800" Height="450" Margin="0 10 0 0">
-                    <ListView Name="list_user" Width="700" Margin="0 10 0 0">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn
-                                    DisplayMemberBinding="{Binding Username}"
-                                    Header="Username" 
-                                        Width="300"/>
-                                <GridViewColumn
-                                    DisplayMemberBinding="{Binding Status}"
-                                    Header="Status"
-                                    Width="100"
-                                    />
-                                <GridViewColumn Width="50" >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{DynamicResource MaterialDesignToolButton}" Name="btn_block" Height="25" VerticalAlignment="Center">
-                                                <materialDesign:PackIcon Kind="{Binding Block}"/>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+            <Grid Height="450" Width="800">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="600">
+                    <StackPanel>
+                        <ListView Name="list_user" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn
+                                DisplayMemberBinding="{Binding username}"
+                                Header="Username" 
+                                    Width="200"/>
 
-                                <GridViewColumn Width="50" >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{DynamicResource MaterialDesignToolButton}" Name="btn_useralert" Height="25" VerticalAlignment="Center">
-                                                <materialDesign:PackIcon Kind="UserAlert" />
-                                            </Button>
-                                        </DataTemplate>
+                                    <GridViewColumn Width="50">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{DynamicResource MaterialDesignToolButton}" Name="btn_block" Height="30"
+                                                VerticalAlignment="Center" Click="btn_block_Click">
+                                                    <materialDesign:PackIcon Kind="{Binding block}"/>
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
 
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                    <GridViewColumn Width="50">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Style="{DynamicResource MaterialDesignToolButton}" Name="btn_delete" Height="30" VerticalAlignment="Center"
+                                                Click="btn_delete_Click">
+                                                    <materialDesign:PackIcon Kind="Delete"/>
+                                                </Button>
+                                            </DataTemplate>
 
-                                <GridViewColumn Width="50">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Style="{DynamicResource MaterialDesignToolButton}" Name="btn_delete" Height="25" VerticalAlignment="Center">
-                                                <materialDesign:PackIcon Kind="Delete"/>
-                                            </Button>
-                                        </DataTemplate>
-
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-
-
-                        </ListView.View>
-                    </ListView>
-                </StackPanel>
-            </StackPanel>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
+        <StackPanel Height="100">
+            <ProgressBar Width="60" Height="60" Margin="10 0 0 0"  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                     Value="0"
+                                    IsIndeterminate="True" Foreground="Green" Name="progress_bar"/>
         </StackPanel>
     </Grid>
 </UserControl>

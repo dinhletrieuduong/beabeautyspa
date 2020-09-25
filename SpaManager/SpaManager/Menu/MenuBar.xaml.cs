@@ -28,24 +28,15 @@ namespace SpaManager.Menu
         public delegate void ManageMenu();
 
         public ManageMenu AccountClick;
-        public ManageMenu BedClick;
         public ManageMenu ServiceClick;
-        public ManageMenu RoomClick;
         public ManageMenu OutletClick;
         public ManageMenu StatisticClick;
+        public ManageMenu AppointmentClick;
         private void menu_account_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if(AccountClick!=null)
             {
                 AccountClick.Invoke();
-            }
-        }
-
-        private void menu_bed_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(BedClick!=null)
-            {
-                BedClick.Invoke();
             }
         }
 
@@ -57,13 +48,7 @@ namespace SpaManager.Menu
             }
         }
 
-        private void menu_room_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if(RoomClick!=null)
-            {
-                RoomClick.Invoke();
-            }
-        }
+       
 
         private void menu_outlet_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -78,6 +63,14 @@ namespace SpaManager.Menu
             if(StatisticClick!=null)
             {
                 StatisticClick.Invoke();
+            }
+        }
+
+        private void menu_appointment_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(AppointmentClick != null)
+            {
+                AppointmentClick.Invoke();
             }
         }
     }

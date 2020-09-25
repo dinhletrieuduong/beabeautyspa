@@ -8,8 +8,9 @@ namespace DTO
 {
     public class User_DTO
     {
-        public string Username { get; set; }
-        public string Status { get; set; }
-        public string Block { get; set; }
+        public int account_id { get; set; }
+        public string username { get; set; }
+        public bool is_block { get; set; }
+        public string block { get; set; }
     }
 }

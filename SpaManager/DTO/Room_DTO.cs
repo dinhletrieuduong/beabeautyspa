@@ -8,11 +8,10 @@ namespace DTO
 {
     public class Room_DTO
     {
-        public string room_name { get; set; }
-        public string room_description { get; set; }
-        public string room_service { get; set; }
-        public string room_type { get; set; }
-        public string number_of_bed { get; set; }
+        public int roomID { get; set; }
+        public string roomName { get; set; }
+        public int maxBeds { get; set; }
+        public string rTypeName { get; set; }
         public bool room_check { get; set; }
     }
 }

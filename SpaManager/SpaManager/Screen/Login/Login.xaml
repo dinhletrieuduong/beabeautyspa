@@ -11,9 +11,8 @@
         <Border>
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="LimeGreen" Offset="0.0"/>
-                    <GradientStop Color="LawnGreen" Offset="0.9"/>
-                    <GradientStop Color="Green" Offset="0.57"/>
+                    <GradientStop Color="#2ecc71" Offset="0.6"/>
+                    <GradientStop Color="#27ae60" Offset="0.4"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
@@ -46,10 +45,17 @@
                             <PasswordBox x:Name="txt_password" BorderThickness="0" CaretBrush="{x:Null}" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" VerticalAlignment="Center"/>
                         </Border>
                     </StackPanel>
-                    <StackPanel Height="50" Width="300" Margin="0 50" Orientation="Horizontal">
-                        <Button Name="btn_login" Content="Login" Width="100" Height="45" Background="{x:Null}" Margin="95 0 0 0" BorderBrush="White" FontWeight="Bold"
-                                FontSize="20" BorderThickness="2" Click="btn_login_Click"/>
+                    
+                    <StackPanel Height="50" Width="300" Margin="0 30" Orientation="Horizontal">
+                        <Button Name="btn_login" Content="Login" Width="100" Height="45" Background="White" Margin="95 0 0 0" BorderBrush="White" FontWeight="Bold"
+                                FontSize="20" BorderThickness="2" Click="btn_login_Click" Foreground="Green"/>
+                        <ProgressBar Width="30" Height="30" Margin="10 0 0 0"  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                     Value="0"
+                                    IsIndeterminate="True" Foreground="White" Name="progress_bar" Visibility="Collapsed"/>
+
+
                     </StackPanel>
+                   
                 </StackPanel>
             </StackPanel>
         </StackPanel>

@@ -4,3 +4,4 @@ E:\SpaManager\DTO\bin\Debug\DTO.pdb
 E:\SpaManager\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 E:\SpaManager\DTO\obj\Debug\DTO.exe
 E:\SpaManager\DTO\obj\Debug\DTO.pdb
+E:\SpaManager\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

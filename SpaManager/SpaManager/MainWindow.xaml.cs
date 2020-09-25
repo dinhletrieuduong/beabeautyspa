@@ -31,9 +31,11 @@ namespace SpaManager
 
             login.send = gotoManageHome;
             login.Show();
-
-           
+            
             this.Hide();
+            
+
+            
         }
 
         public void gotoManageHome()

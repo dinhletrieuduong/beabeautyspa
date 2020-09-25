@@ -10,66 +10,89 @@
     <Grid Background="White">
         <StackPanel>
             <StackPanel Height="50" Margin="0 20 0 0" Orientation="Horizontal">
-                <Button Content="Enable" Background="Green" BorderBrush="Gray" Foreground="White" Margin="50 0 0 0" Name="btn_enable" 
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0">
 
+                <Button Content="Create" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="50 0 0 0" Name="btn_create"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_create_Click"
+                        Width="100"/>
+                <Button Content="Delete" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="20 0 0 0" Name="btn_delete" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_delete_Click"
+                        Width="100">
                 </Button>
-                <Button Content="Disable" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_disable"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
+                
 
-                <CheckBox Name="btn_selectall" Margin="450 0 0 0 " VerticalAlignment="Center" Background="Green"/>
+                <CheckBox Name="btn_selectall" Margin="600 0 0 0 " VerticalAlignment="Center" 
+                          Background="Green" Checked="btn_selectall_Checked" Unchecked="btn_selectall_Unchecked"/>
                 <TextBlock Text="Select All" FontSize="16" Margin="10 0 0 0" VerticalAlignment="Center"/>
-                <TextBlock Text="Number" FontSize="16" Margin="40 0 0 0" VerticalAlignment="Center"/>
 
             </StackPanel>
-
-            <StackPanel Height="480">
-                <ItemsControl Name="list_itemservice" Width="970">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Green" BorderThickness="2" CornerRadius="2"
+            <Grid Height="480">
+                <ScrollViewer Width="1000" VerticalScrollBarVisibility="Hidden">
+                    <StackPanel>
+                        <ItemsControl Name="list_itemservice" Width="970">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="Green" BorderThickness="2" CornerRadius="2"
                                     x:Name="Border" Margin="0 10 0 0">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Width="80" Height="80" Margin="30 0 0 0">
-                                        <Image.Source>
-                                            <BitmapImage UriSource="BeaBeautyLogo.png"/>
-                                        </Image.Source>
-                                    </Image>
-                                    <StackPanel Width="150" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding service_name}" FontSize="20" FontWeight="Bold"
-                                               Foreground="Black"/>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Price: " Foreground="LightGray"/>
-                                            <TextBlock Text="{Binding service_cost}"
-                                               Foreground="LightGray"/>
-                                        </StackPanel>
-
-                                    </StackPanel>
-
-                                    <TextBlock Text="{Binding service_start_date}" VerticalAlignment="Center"
-                                           Margin="100 0 0 0"/>
-                                    <TextBlock Text="-" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                                    <TextBlock Text="{Binding service_end_date}" VerticalAlignment="Center"
-                                            Margin="10 0 0 0"/>
-                                    <TextBlock Text="{Binding service_status}" VerticalAlignment="Center"
-                                           Margin="150 0 0 0" Foreground="LightGray"/>
-                                    <CheckBox Background="Green" VerticalAlignment="Center" x:Name="btn_check"
+                                            <CheckBox Background="Green" VerticalAlignment="Center" x:Name="btn_check"
                                           IsChecked="{Binding service_check}" Margin="30 0 0 0"/>
-                                </StackPanel>
-                            </Border>
 
-                            <DataTemplate.Triggers>
-                                <DataTrigger Binding="{Binding service_check}"
+                                            <Image Width="60" Height="60" Margin="30 10 10 10">
+                                                <Image.Source>
+                                                    <BitmapImage UriSource="{Binding service_photo}"/>
+                                                </Image.Source>
+                                            </Image>
+
+                                            <StackPanel Width="200" VerticalAlignment="Center" Margin="20 0 0 0">
+                                                <TextBlock Text="{Binding service_name}" FontSize="20" FontWeight="Bold"
+                                               Foreground="Black"/>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="Price: " Foreground="Gray"/>
+                                                    <TextBlock Text="{Binding service_cost}"
+                                               Foreground="Gray"/>
+                                                </StackPanel>
+                                            </StackPanel>
+
+                                            <StackPanel Width="300" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding service_description}" Foreground="Gray"
+                                                   />
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="120">
+                                                <TextBlock Text="Duration: " Foreground="Gray"/>
+                                                <TextBlock Text="{Binding service_duration}"
+                                               Foreground="Gray"/>
+                                            </StackPanel>
+
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="120">
+                                                <TextBlock Text="Transit: " Foreground="Gray"/>
+                                                <TextBlock Text="{Binding service_transit}"
+                                               Foreground="Gray"/>
+                                            </StackPanel>
+
+                                        </StackPanel>
+                                    </Border>
+
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding service_check}"
                                              Value="true">
-                                    <Setter TargetName="Border"
+                                            <Setter TargetName="Border"
                                             Property="Background"
                                             Value="{DynamicResource MaterialDesignSelection}"/>
-                                </DataTrigger>
-                            </DataTemplate.Triggers>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            
+        </StackPanel>
+        <StackPanel Height="100">
+            <ProgressBar Width="60" Height="60" Margin="10 0 0 0"  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                     Value="0"
+                                    IsIndeterminate="True" Foreground="Green" Name="progress_bar"/>
         </StackPanel>
     </Grid>
 </UserControl>

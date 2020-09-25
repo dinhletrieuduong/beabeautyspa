@@ -32,6 +32,9 @@ namespace SpaManager.Screen.Login
        
         private async void btn_login_Click(object sender, RoutedEventArgs e)
         {
+            progress_bar.Visibility = Visibility.Visible;
+            btn_login.IsEnabled = false;
+
             LoginRequest loginRequest = new LoginRequest
             {
                 username = txt_username.Text,
@@ -40,8 +43,12 @@ namespace SpaManager.Screen.Login
 
             LoginResponse loginResponse = await RestAPI.PostLogin(loginRequest);
 
+            progress_bar.Visibility = Visibility.Collapsed;
+            
             if (loginResponse.token != null)
             {
+                LoginResponse.access_token = loginResponse.token;
+
                 if (send != null)
                 {
                     send.Invoke();
@@ -51,6 +58,7 @@ namespace SpaManager.Screen.Login
             else
             {
                 MessageBox.Show("Login Fail");
+                btn_login.IsEnabled = true;
             }
         }
     }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\SpaManager\SpaManager\App.xaml
-11882419840
+18699722753
 
-18769971055
-18776315690
-Bar\TopBar.xaml;MainWindow.xaml;Menu\MenuBar.xaml;Screen\Account\UC_Account.xaml;Screen\Bed\UC_Bed.xaml;Screen\Dashboard\DashBoard.xaml;Screen\Login\Login.xaml;Screen\Outlet\UC_Outlet.xaml;Screen\RoomInfo\UC_RoomInfo.xaml;Screen\Service\UC_Service.xaml;Screen\Statistic\UC_Statistic.xaml;
+3557956963
+1381065741317
+Bar\TopBar.xaml;Form\CreateBed\FormCreateBed.xaml;Form\CreateOutlet\FormCreateOutlet.xaml;Form\CreateRoom\FormCreateRoom.xaml;Form\CreateService\FormCreateService.xaml;MainWindow.xaml;Menu\MenuBar.xaml;Screen\Account\UC_Account.xaml;Screen\Appointment\UC_Appointment.xaml;Screen\Bed\UC_Bed.xaml;Screen\Dashboard\DashBoard.xaml;Screen\Login\Login.xaml;Screen\Outlet\UC_Outlet.xaml;Screen\RoomInfo\UC_RoomInfo.xaml;Screen\ServiceActive\UC_ServiceActive.xaml;Screen\Service\UC_Service.xaml;Screen\Statistic\UC_Statistic.xaml;Screen\ViewFeedBack\UC_FeedBack.xaml;
 
 False
 

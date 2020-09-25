@@ -10,51 +10,93 @@
     <Grid Background="White">
         <StackPanel>
             <StackPanel Height="50" Margin="0 20 0 0" Orientation="Horizontal">
-
-                <Button Content="Active" Background="Green" BorderBrush="Gray" Foreground="White" Margin="50 0 0 0" Name="btn_active" 
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
-                <Button Content="De-Active" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_deactive"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
-                <Button Content="Delete" Background="Green" BorderBrush="Gray" Foreground="White" Margin="20 0 0 0" Name="btn_delete"
-                            materialDesign:ShadowAssist.ShadowDepth="Depth0"/>
-
-                <CheckBox Name="btn_selectall" Margin="450 0 0 0 " VerticalAlignment="Center" Background="Green"/>
-                <TextBlock Text="Select All" FontSize="16" Margin="10 0 0 0" VerticalAlignment="Center"/>
-                <TextBlock Text="Number" FontSize="16" Margin="40 0 0 0" VerticalAlignment="Center"/>
+                <Button Content="Create" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="20 0 0 0" Name="btn_create"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_create_Click"/>
+                <Button Content="Delete" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="20 0 0 0" Name="btn_delete"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_delete_Click"/>
+                
+                <Button Content="Manage service" Background="#2980b9" BorderBrush="#2980b9" Foreground="White" Margin="20 0 0 0" Name="btn_viewservice"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_viewservice_Click"
+                        Width="160"/>
+                <Button Content="Active" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="500 0 0 0" Name="btn_active" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_active_Click"/>
+                <Button Content="De-Active" Background="#27ae60" BorderBrush="#27ae60" Foreground="White" Margin="20 0 0 0" Name="btn_deactive"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0" Click="btn_deactive_Click"/>
+                
             </StackPanel>
 
-            <StackPanel Height="470">
-                <ItemsControl x:Name="list_itemoutlet" Width="970">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Name="Border" BorderThickness="2" CornerRadius="2" BorderBrush="Green" Margin="0 10 0 0" Height="100">
-                             
+            <Grid Height="470">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden" Width="1000">
+                    <StackPanel >
+                        <ItemsControl x:Name="list_itemoutlet" Width="950">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Name="Border" BorderThickness="2" CornerRadius="2" 
+                                BorderBrush="Green" Margin="0 10 0 0">
 
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Height="60" VerticalAlignment="Center" Margin="20 0 0 0">
-                                        <Image.Source>
-                                            <BitmapImage UriSource="BeaBeautyLogo.png"/>
-                                        </Image.Source>
-                                    </Image>
-                                    <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding outlet_name}"  FontSize="20" FontWeight="Bold" Foreground="Black"/>
-                                        <TextBlock Text="{Binding outlet_address}" Foreground="Black"/>
-                                    </StackPanel>
-                                    <materialDesign:RatingBar Value="{Binding outlet_rating}"
-                                                              IsReadOnly="true" x:Name="Ratingbar"
-                                                              Foreground="Green" Margin="400 0 0 0"
-                                                              VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding outlet_status}" VerticalAlignment="Center" Margin="50 0 0 0" Foreground="White"/>
-                                    <CheckBox x:Name="btn_check" IsChecked="{Binding outlet_check}" 
-                                              VerticalAlignment="Center" BorderBrush="White" Background="Green" Margin="50 0 0 0"
-                                              />
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox x:Name="btn_check" IsChecked="{Binding outlet_check}" 
+                                            VerticalAlignment="Center" BorderBrush="Black" Background="Green" Margin="20 0 0 0"
+                                            />
+                                            <Image Height="60" VerticalAlignment="Center" Margin="50 10 10 10" Width="60" 
+                                        >
+                                                <Image.Source>
+                                                    <BitmapImage UriSource="{Binding outlet_image}"/>
+                                                </Image.Source>
+                                            </Image>
+                                            <StackPanel Margin="20 0 0 0" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding outlet_name}"  FontSize="20" FontWeight="Bold" Foreground="Black"/>
+                                                <TextBlock Text="{Binding outlet_address}" Foreground="Black" Width="350"/>
+                                            </StackPanel>
 
-            </StackPanel>
+                                            <TextBlock Text="{Binding outlet_status_name}" VerticalAlignment="Center"
+                                            Margin="50 0 0 0" FontWeight="Bold"
+                                            Name="txt_status_outlet">
+                                                <TextBlock.Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding outlet_status_name}" Value="Không hoạt động">
+                                                                <Setter Property="Foreground" Value="Red"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </TextBlock.Style>
+                                            </TextBlock>
+
+                                            <Button Style="{DynamicResource MaterialDesignToolButton}" Margin="100 0 0 0" 
+                                        Name="btn_eyes" Click="btn_eyes_Click">
+                                                <materialDesign:PackIcon Kind="EyeCircle" Height="25" Width="25" Foreground="Green" />
+                                            </Button>
+
+                                        </StackPanel>
+                                    </Border>
+                                    <DataTemplate.Triggers>
+                                        <DataTrigger
+                                    Binding="{Binding outlet_check}"
+                                    Value="true">
+
+                                            <Setter TargetName="Border"
+                                        Property="Background"
+                                        Value="{DynamicResource MaterialDesignSelection}"/>
+
+                                        </DataTrigger>
+                                    </DataTemplate.Triggers>
+
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            
+
+        </StackPanel>
+        <StackPanel Height="100">
+            <ProgressBar Width="60" Height="60" Margin="10 0 0 0"  Style="{StaticResource MaterialDesignCircularProgressBar}"
+                                     Value="0"
+                                    IsIndeterminate="True" Foreground="Green" Name="progress_bar"/>
         </StackPanel>
 
     </Grid>

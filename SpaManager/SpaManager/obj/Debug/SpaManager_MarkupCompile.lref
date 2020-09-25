@@ -1,14 +1,21 @@
 ﻿
 FE:\SpaManager\SpaManager\App.xaml;;
 FE:\SpaManager\SpaManager\Bar\TopBar.xaml;;
+FE:\SpaManager\SpaManager\Form\CreateBed\FormCreateBed.xaml;;
+FE:\SpaManager\SpaManager\Form\CreateOutlet\FormCreateOutlet.xaml;;
+FE:\SpaManager\SpaManager\Form\CreateRoom\FormCreateRoom.xaml;;
+FE:\SpaManager\SpaManager\Form\CreateService\FormCreateService.xaml;;
 FE:\SpaManager\SpaManager\MainWindow.xaml;;
 FE:\SpaManager\SpaManager\Menu\MenuBar.xaml;;
 FE:\SpaManager\SpaManager\Screen\Account\UC_Account.xaml;;
+FE:\SpaManager\SpaManager\Screen\Appointment\UC_Appointment.xaml;;
 FE:\SpaManager\SpaManager\Screen\Bed\UC_Bed.xaml;;
 FE:\SpaManager\SpaManager\Screen\Dashboard\DashBoard.xaml;;
 FE:\SpaManager\SpaManager\Screen\Login\Login.xaml;;
 FE:\SpaManager\SpaManager\Screen\Outlet\UC_Outlet.xaml;;
 FE:\SpaManager\SpaManager\Screen\RoomInfo\UC_RoomInfo.xaml;;
+FE:\SpaManager\SpaManager\Screen\ServiceActive\UC_ServiceActive.xaml;;
 FE:\SpaManager\SpaManager\Screen\Service\UC_Service.xaml;;
 FE:\SpaManager\SpaManager\Screen\Statistic\UC_Statistic.xaml;;
+FE:\SpaManager\SpaManager\Screen\ViewFeedBack\UC_FeedBack.xaml;;
 

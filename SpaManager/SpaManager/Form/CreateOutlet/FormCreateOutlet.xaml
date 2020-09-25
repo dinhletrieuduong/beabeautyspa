@@ -1,0 +1,50 @@
+﻿<Window x:Class="SpaManager.Form.CreateOutlet.FormCreateOutlet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpaManager.Form.CreateOutlet"
+        mc:Ignorable="d"
+        Title="FormCreateService" Height="350" Width="300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    <Grid>
+        <StackPanel>
+            <StackPanel Height="250" Margin="0 50 0 0 ">
+                <StackPanel Height="50" Orientation="Horizontal" Margin="0 20 0 0">
+                    <TextBox x:Name="txt_outletname"
+                        materialDesign:HintAssist.Hint="Outlet Name"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="20 0 0 0" Width="200"/>
+                </StackPanel>
+                <StackPanel Height="50" Orientation="Horizontal" Margin="0 10 0 0">
+                    <TextBox Name="txt_outletaddress"
+                        materialDesign:HintAssist.Hint="Outlet Address"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="20 0 0 0" Width="200"/>
+                </StackPanel>
+                <StackPanel Height="50" Orientation="Horizontal" Margin="0 10 0 0">
+                    <TextBox Name="txt_pathimage"
+                        materialDesign:HintAssist.Hint="Path Image"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                        Margin="20 0 0 0" Width="200"/>
+                    <Button Name="btn_path" Height="30" Width="55" VerticalAlignment="Bottom" Margin="10 0 0 0" 
+                            Click="btn_path_Click" Background="Green" BorderBrush="Green" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth0">
+                        <materialDesign:PackIcon Kind="FileUploadOutline" Height="20" Width="20"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Height="50" Orientation="Horizontal" Margin="0 10 0 0">
+                    <Button Content="OK" Name="btn_OK" Width="80" Margin="50 0 0 0" Click="btn_OK_Click"
+                            Background="Green" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderBrush="Green"/>
+                    <Button Content="Cancel" Name="btn_cancel" Width="80" Margin="20 0 0 0" Click="btn_cancel_Click"
+                            Background="Green" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                            BorderBrush="Green"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>

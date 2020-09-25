@@ -8,6 +8,8 @@ namespace SpaManager.Model
 {
     class LoginResponse
     {
-        public string token { get; set; }
+         public string token { get; set; }
+
+        public static string access_token = "";
     }
 }

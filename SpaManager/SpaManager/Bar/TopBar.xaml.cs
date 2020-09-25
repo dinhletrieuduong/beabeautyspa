@@ -26,5 +26,30 @@ namespace SpaManager.Bar
 
             txt_title.Text = title;
         }
+
+        public delegate void BtnSearch(string str);
+        public BtnSearch search;
+
+        public delegate void TextNull();
+        public TextNull send;
+        private void btn_search_Click(object sender, RoutedEventArgs e)
+        {
+            if(search != null)
+            {
+                search.Invoke(txt_search.Text);
+
+            }
+        }
+
+        private void txt_search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(txt_search.Text == "")
+            {
+                if(send!=null)
+                {
+                    send.Invoke();
+                }
+            }
+        }
     }
 }

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointment_DTO.cs" />
     <Compile Include="Bed_DTO.cs" />
     <Compile Include="Outlet_DTO.cs" />
     <Compile Include="Program.cs" />
