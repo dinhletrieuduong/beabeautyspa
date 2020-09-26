@@ -73,9 +73,14 @@ namespace spa.Main.MakeAppointment
         }
         void CreateAppointment()
         {
-            var appt = new Appointment(DataManager.GetInstance().GetOutletID(), startingTimeTxtView.Text, preOrders);
+
+            //string iString = dateTxtView.Text;
+            string iString = dateTxtView.Text.Length > 9 ? dateTxtView.Text : "0" + dateTxtView.Text;
+            iString += startingTimeTxtView.Text.Length > 7 ? " " + startingTimeTxtView.Text : " 0" + startingTimeTxtView.Text;
             //dateTxtView.Text + startingTimeTxtView.Text;
-            Toast.MakeText(ApplicationContext, dateTxtView.Text + startingTimeTxtView.Text, ToastLength.Short).Show();
+            DateTime date = DateTime.ParseExact(iString, "MM/dd/yyyy HH:mm tt", null);
+            var appt = new Appointment(DataManager.GetInstance().GetOutletID(), date.ToString(), preOrders);
+            //Toast.MakeText(ApplicationContext, date.ToString(), ToastLength.Short).Show();
             presenter.MakeAppointment(appt);
 
         }
@@ -122,7 +127,7 @@ namespace spa.Main.MakeAppointment
 
         public void updateListPreOrder(List<Data.Model.PreOrder.PreOrder> preOrders)
         {
-            //adapter = new ServiceAdapter(preOrders, presenter, therapists);
+            adapter = new ServiceAdapter(preOrders, presenter, therapists);
             //recyclerView.SetAdapter(adapter);
         }
 

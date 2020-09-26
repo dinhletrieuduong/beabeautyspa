@@ -88,10 +88,10 @@ namespace spa.Main.MakeAppointment
                 Task.Factory.StartNew(() => list = DataManager.GetInstance().GetTherapistRepository().GetTherapistOutlet(DataManager.GetInstance().GetToken(), outletID))
                     .ContinueWith(task =>
                     {
-                        //GetPreOrderList();
+                        therapists.Clear();
+
                         therapists = list;
 
-                        therapists.Clear();
                         therapists.Add(new Therapist(1, "Therapist 1", "1"));
                         therapists.Add(new Therapist(2, "Therapist 2", "1"));
                         therapists.Add(new Therapist(3, "Therapist 3", "1"));
